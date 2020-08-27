@@ -5,7 +5,8 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version   
+  - ruby 2.3.5p376 (2017-09-14 revision 59905) [x86_64-linux]
 
 * System dependencies
 
@@ -14,6 +15,8 @@ Things you may want to cover:
 * Database creation
 
 * Database initialization
+  - rails s -p 3001 -b 0.0.0.0
+
 
 * How to run the test suite
 
