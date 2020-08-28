@@ -1,5 +1,13 @@
 # lhl-final
 
+## Backend setup
+
+- gem install bundler (for Bundler 2)
+- bundler install
+
+## Client setup
+
+- npm install
 
 ## Ruby Version:
 `2.3.5`
