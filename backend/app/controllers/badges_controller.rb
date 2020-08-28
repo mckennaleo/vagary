@@ -6,8 +6,8 @@ class BadgesController < ApplicationController
 
   private
 
-  def set_avatar
-    @avatar = Avatar.find(params[:id])
+  def set_badges
+    @badges = Badge.find(params[:id])
   end
 
   # def post_params
