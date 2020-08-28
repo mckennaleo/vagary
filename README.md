@@ -24,5 +24,5 @@ $ rails s -p 3001 -b 0.0.0.0
 backend_test_final
 
 ## Start frontend server
-navigate to client
+navigate to /client
 $ npm start 
