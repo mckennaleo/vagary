@@ -17,7 +17,12 @@
 
 
 ## Start backend server:
-rails s -p 3001 -b 0.0.0.0
+navigate to /backend
+$ rails s -p 3001 -b 0.0.0.0
 
 ## database name (development):
 backend_test_final
+
+## Start frontend server
+navigate to client
+$ npm start 
