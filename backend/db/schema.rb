@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200828204004) do
+ActiveRecord::Schema.define(version: 20200828205414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,8 +62,7 @@ ActiveRecord::Schema.define(version: 20200828204004) do
 
   create_table "quiz_questions", force: :cascade do |t|
     t.string   "question"
-    t.string   "correct"
-    t.string   "answer"
+    t.string   "correct_answer"
     t.string   "incorrect_answer_1"
     t.string   "incorrect_answer_2"
     t.string   "incorrect_answer_3"
@@ -97,10 +96,8 @@ ActiveRecord::Schema.define(version: 20200828204004) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "badge_id"
     t.integer  "avatar_id"
     t.index ["avatar_id"], name: "index_users_on_avatar_id", using: :btree
-    t.index ["badge_id"], name: "index_users_on_badge_id", using: :btree
   end
 
   add_foreign_key "badges", "users"
@@ -112,5 +109,4 @@ ActiveRecord::Schema.define(version: 20200828204004) do
   add_foreign_key "quiz_results", "users"
   add_foreign_key "quizzes", "cities"
   add_foreign_key "users", "avatars"
-  add_foreign_key "users", "badges"
 end
