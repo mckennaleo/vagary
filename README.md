@@ -15,7 +15,6 @@
 ## Rails Version:
 `5.0.7`
 
-
 ## Start backend server:
 navigate to /backend
 $ rails s -p 3001 -b 0.0.0.0
