@@ -1,5 +1,7 @@
 class QuizzesController < ApplicationController
 
-  has_many :cities
+  def show
+    render json: @quiz
+  end
   
 end
