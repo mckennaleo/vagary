@@ -73,46 +73,46 @@ function Account() {
 function City() {
   let match = useRouteMatch();
 
-//   return (
-//     <div>
-//       <h2>City</h2>
+  return (
+    <div>
+      <h2>City</h2>
 
-//       <ul>
-//         <li>
-//           <Link to={`${match.url}/welcome`}>Welcome</Link>
-//         </li>
-//         <li>
-//           <Link to={`${match.url}/learn`}>
-//             Learn
-//           </Link>
-//         </li>
-//         <li>
-//           <Link to={`${match.url}/explore`}>
-//             Explore
-//           </Link>
-//         </li>
-//       </ul>
+      <ul>
+        <li>
+          <Link to={`${match.url}/welcome`}>Welcome</Link>
+        </li>
+        <li>
+          <Link to={`${match.url}/learn`}>
+            Learn
+          </Link>
+        </li>
+        <li>
+          <Link to={`${match.url}/explore`}>
+            Explore
+          </Link>
+        </li>
+      </ul>
 
-//       {/* The Topics page has its own <Switch> with more routes
-//           that build on the /topics URL path. You can think of the
-//           2nd <Route> here as an "index" page for all topics, or
-//           the page that is shown when no topic is selected */}
-//       <Switch>
-//         <Route path={`${match.path}/:experienceId`}>
-//           <Experience />
-//         </Route>
-//         <Route path={match.path}>
-//           <h3>Choose an experience!</h3>
-//         </Route>
-//       </Switch>
-//     </div>
-//   );
-// }
+      {/* The Topics page has its own <Switch> with more routes
+          that build on the /topics URL path. You can think of the
+          2nd <Route> here as an "index" page for all topics, or
+          the page that is shown when no topic is selected */}
+      <Switch>
+        <Route path={`${match.path}/:experienceId`}>
+          <Experience />
+        </Route>
+        <Route path={match.path}>
+          <h3>Choose an experience!</h3>
+        </Route>
+      </Switch>
+    </div>
+  );
+}
 
-// function Experience() {
-//   let { cityId } = useParams();
-//   return <h3>Requested experience ID: {experienceId}</h3>;
-// }
+function Experience() {
+  let { cityId } = useParams();
+  return <h3>Requested experience ID: {experienceId}</h3>;
+}
 
 
 // The below code is just for testing pusposes and should be deleted before demo day!
