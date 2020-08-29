@@ -1,8 +1,14 @@
 class ExperiencesController < ApplicationController
 
   def show
-    render json: @experience
+     @experience = Experience.find(params[:id])
+     render json: @experience
+
+    # if stale?(last_modified: @experience.updated_at)
+    #   render json: @experience
+    # end
   end
+
 
 
 end

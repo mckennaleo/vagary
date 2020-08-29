@@ -9,3 +9,5 @@
 3.times do
   User.create(name: "Darth", email: "Darth@Vader")
 end
+
+Experience.create(name: "Best Experience Eva!")
