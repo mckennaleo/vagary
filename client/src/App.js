@@ -7,16 +7,20 @@ import {
   useRouteMatch,
   useParams
 } from "react-router-dom";
+import Globe from './components/Globe';
 import axios from 'axios';
 import './App.css';
 
 export default function App() {
+
+  // const MyGlobe = (<Globe />);
+
   return (
     <Router>
       <div>
         <ul>
           <li>
-            <Link to="/">Home</Link> {/*globe*/}
+            <Link to="/">Globe</Link> {/*globe*/}
           </li>
           <li>
             <Link to="/login">Login</Link>
@@ -55,7 +59,8 @@ export default function App() {
 }
 
 function Home() {
-  return <h2>Home</h2>;
+  return <Globe />;
+  // return <h2>Login</h2>;
 }
 
 function Login() {
