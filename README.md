@@ -25,3 +25,22 @@ backend_test_final
 ## Start frontend server
 navigate to /client
 $ npm start 
+
+## BACKEND ROUTES
+
+avatar GET    /avatars/:id(.:format)        avatars#show
+badge GET    /badges/:id(.:format)         badges#show
+city GET    /cities/:id(.:format)         cities#show
+quiz GET    /quizzes/:id(.:format)        quizzes#show
+favourites POST   /favourites(.:format)         favourites#create
+favourite GET    /favourites/:id(.:format)     favourites#show
+          DELETE /favourites/:id(.:format)     favourites#destroy
+experience GET    /experiences/:id(.:format)    experiences#show
+quiz_question GET    /quiz_questions/:id(.:format) quiz_questions#show
+quiz_results POST   /quiz_results(.:format)       quiz_results#create
+quiz_result GET    /quiz_results/:id(.:format)   quiz_results#show
+login GET    /login(.:format)              sessions#new
+      POST   /login(.:format)              sessions#create
+logout GET    /logout(.:format)             sessions#destroy
+signup GET    /signup(.:format)             users#new
+users POST   /users(.:format)              users#create
