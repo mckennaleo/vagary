@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,7 +13,13 @@ import './App.css';
 
 export default function App() {
 
-  // const MyGlobe = (<Globe />);
+  const [experiences, setExperiences] = useState([])
+
+  useEffect(() => {
+    axios.get('/experiences/1') // this is a test. can be removed.
+    .then(res => setExperiences(res.data))
+  }, [])
+
 
   return (
     <Router>
@@ -116,7 +122,7 @@ function City() {
 
 function Experience() {
   let { cityId } = useParams();
-  return <h3>Requested experience ID: {experienceId}</h3>;
+  // return <h3>Requested experience ID: {experienceId}</h3>;
 }
 
 
