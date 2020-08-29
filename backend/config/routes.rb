@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :quiz_questions, only: [:show]
 
-  resources :quiz_results, only: [:show]
+  resources :quiz_results, only: [:show, :create]
 
     # these routes are for showing users a login form, logging them in, and logging them out.
     get '/login' => 'sessions#new'
