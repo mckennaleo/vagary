@@ -10,8 +10,7 @@
 Experience.create(name: "Best Experience Eva!")
 
 City.create(name: "Oaxaca", language: "es", coordinates: [])
-# 17.0732° N, 96.7266° W
-
+# 
 Quiz.create(name: “Oaxaca Quiz!“, city_id: 1)
 
 Quiz_question.create(question: “How many municipalities are in Oaxaca?“, correct_answer: “570”, incorrect_answer_1: “55", incorrect_answer_2: “90”, incorrect_answer_3: “120", quiz_id: 1)
