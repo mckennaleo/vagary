@@ -10,6 +10,7 @@ import {
 import Globe from './components/Globe';
 import Map from './components/Map';
 import 'leaflet/dist/leaflet.css';
+import CurrentCity from './components/CurrentCity';
 import axios from 'axios';
 import './App.css';
 
@@ -21,7 +22,7 @@ export default function App() {
 
   useEffect(() => {
     axios.get('/experiences/1') // this is a test. can be removed.
-    .then(res => setExperiences(res.data))
+      .then(res => setExperiences(res.data))
   }, [])
 
 
@@ -47,21 +48,11 @@ export default function App() {
         </ul>
 
         <Switch>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/account">
-            <Account />
-          </Route>
-          <Route path="/city"> {/*template literal with city name*/}
-            <City />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/account" component={Account} />
+          <Route path="/city" component={City} /> {/*template literal with city name*/}
+          <Route exact path="/" component={Globe} />
         </Switch>
       </div>
     </Router>
@@ -85,11 +76,20 @@ function Account() {
   return <h2>My Account</h2>;
 }
 
-function City() {
-  //let match = useRouteMatch();
-  
-  return <Map />;
 
+
+function City(props) {
+  console.log(props);
+  let city = props.location.state.city
+  return (
+    <div>
+      <h2>City</h2>
+      <CurrentCity
+        city={city}
+      />
+      <Map />
+    </div>
+  );
 }
 
 function Experience() {
