@@ -2,9 +2,9 @@ import React from "react";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import { Icon } from "leaflet";
 
-import "../App.css";
+import "../../App.css";
 
-export default function App() {
+export default function ExploreMap() {
   return (
     <Map center={[45.4, -75.7]} zoom={12}>
       <TileLayer
