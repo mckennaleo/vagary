@@ -1,19 +1,19 @@
 class BadgesController < ApplicationController
 
   def show
-    render json: @badge  # ???
+    @badge = Badge.find(badge_params)
+    render json: @badge
   end
-
-  private
 
   def set_badges
-    @badges = Badge.find(params[:id])
+    @badges = Badge.find(badge_params)
   end
+  
+  private
 
-  # def post_params
-  #   params.fetch(:post, {}).permit(:content)
-  # end
-
+  def badge_params
+    params.require(:badge).permit(:name, :image, :user_id)
+  end
 
 end
 

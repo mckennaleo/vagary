@@ -1,14 +1,14 @@
 class ExperiencesController < ApplicationController
 
   def show
-     @experience = Experience.find(params[:id])
+     @experience = Experience.find(experience_params)
      render json: @experience
-
-    # if stale?(last_modified: @experience.updated_at)
-    #   render json: @experience
-    # end
   end
 
+private
 
+def experience_params 
+  params.require(:experience).permit(:name, :url, :description, :coordinates, :city_id)
+end
 
 end
