@@ -1,6 +1,7 @@
 class FavouritesController < ApplicationController
 
   def show
+    @favourite = Favourite.find(favourite_params)
     render json: @favourite
   end
 
@@ -9,7 +10,7 @@ class FavouritesController < ApplicationController
   end 
 
   def destroy
-    @favourite = Favourite.find params[:id]
+    @favourite = Favourite.find(favourite_params)
     @favourite.destroy
   end
 

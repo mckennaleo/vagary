@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200828205414) do
+ActiveRecord::Schema.define(version: 20200831215802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "avatars", force: :cascade do |t|
     t.string   "name"
-    t.string   "avatar"
+    t.string   "avatar_img"
     t.string   "sprite"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20200828205414) do
   end
 
   create_table "quiz_results", force: :cascade do |t|
-    t.string   "result"
+    t.integer  "result"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "quiz_id"

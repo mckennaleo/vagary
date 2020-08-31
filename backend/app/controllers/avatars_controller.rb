@@ -1,18 +1,20 @@
 class AvatarsController < ApplicationController
   
   def show
-    render json: @avatar  # ???
+    @avatar = Avatar.find(avatar_params)
+    render json: @avatar
   end
 
   private
 
   def set_avatar
-    @avatar = Avatar.find(params[:id])
+    @avatar = Avatar.find(avatar_params)
   end
 
-  # def post_params
-  #   params.fetch(:post, {}).permit(:content)
-  # end
+  private 
 
+  def avatar_params
+    params.require(:avatar).permit(:name, :avatar_img, :sprite)
+  end
 
 end
