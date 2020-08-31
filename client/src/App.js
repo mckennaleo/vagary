@@ -3,16 +3,13 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useRouteMatch,
-  useParams
+  Link
 } from "react-router-dom";
 import Globe from './components/Globe';
-import Map from './components/Map';
 import 'leaflet/dist/leaflet.css';
-import CurrentCity from './components/CurrentCity';
 import axios from 'axios';
 import './App.css';
+import WelcomeToCity from './components/WelcomeToCity';
 
 
 
@@ -61,7 +58,6 @@ export default function App() {
 
 function Home() {
   return <Globe />;
-  // return <h2>Login</h2>;
 }
 
 function Login() {
@@ -77,25 +73,18 @@ function Account() {
 }
 
 
-
 function City(props) {
   console.log(props);
-  let city = props.location.state.city
+  const city = props.location.state.city.marker.cityName
   return (
     <div>
       <h2>City</h2>
-      <CurrentCity
-        city={city}
-      />
-      <Map />
+      <h1>I'm in {city}</h1> 
+      <WelcomeToCity />
     </div>
   );
 }
 
-function Experience() {
-  let { cityId } = useParams();
-  // return <h3>Requested experience ID: {experienceId}</h3>;
-}
 
 
 // The below code is just for testing pusposes and should be deleted before demo day!
@@ -130,27 +119,3 @@ function Experience() {
 
 // export default App;
 
-
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
