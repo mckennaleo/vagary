@@ -1,0 +1,4 @@
+
+> fibers@5.0.0 install /home/lkm/lighthouse/lhl-final/client/node_modules/fibers
+> node build.js || nodejs build.js
+
