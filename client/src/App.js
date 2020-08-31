@@ -76,11 +76,12 @@ function Account() {
 function City(props) {
   console.log(props);
   const city = props.location.state.city.marker.cityName
+  const coordinates = props.location.state.city.marker.coordinates
   return (
     <div>
       <h2>City</h2>
       <h1>I'm in {city}</h1> 
-      <WelcomeToCity />
+      <WelcomeToCity city={city} coordinates={coordinates}/>
     </div>
   );
 }
