@@ -10,12 +10,13 @@ export default function WelcomeToCity(props) {
       name: props.city,
       coordinates: props.coordinates,
       language: props.language,
+      cityId: props.city_id,
     },
   ];
 
-  const city = props.city;
-  const coordinates = props.coordinates;
-  const language = props.language;
+  // const city = props.city
+  // const coordinates = props.coordinates
+  // const language = props.language
 
   const [learn, setLearn] = useState(false);
   const [explore, setExplore] = useState(false);
@@ -53,8 +54,6 @@ export default function WelcomeToCity(props) {
     );
   }
 
-  const city_id = props.city_id;
-
   console.log("????", props);
 
   {
@@ -75,7 +74,7 @@ export default function WelcomeToCity(props) {
         Go to Explore
       </button>
       {/*<Explore city={city} coordinates={coordinates}/>*/}
-      <Explore city={city} coordinates={coordinates} city_id={city_id} />
+      {/* <Explore city={city} coordinates={coordinates} city_id={city_id}/> */}
     </div>
   );
 }
