@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios'
 
 
@@ -19,6 +19,28 @@ export default function SpeechBubble(props) {
     "Teşekkür ederim! Güle güle!",
     "Rica ederim. İyi günler!"
     ]
+
+    // Get translations from database
+
+    const [phrases, setPhrases] = useState({})
+
+    const setPhrases = phrases => setPhrases(prev => ({...prev, phrases }));
+
+    useEffect(() => {
+      axios.get("/translations")
+    })
+    .then(response => {
+      setPhrases(response.data)
+    })
+    .catch(error => console.log(error))
+
+    // axios
+    // .get('/translations/2')
+    // .then(response => {
+    //   console.log(response);
+    // })
+    // .catch(error => console.log(error));
+
 
 
   const phraseTranslate = (phrase, lang) => {

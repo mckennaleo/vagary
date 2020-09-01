@@ -99,15 +99,15 @@ function City(props) {
 //   state = { users: [] };
 
 //   componentDidMount() {
-//     axios
-//       .get('/api/users')
-//       .then(response => {
-//         console.log(response);
-//         this.setState({
-//           users: response.data,
-//         });
-//       })
-//       .catch(error => console.log(error));
+    // axios
+    //   .get('/api/users')
+    //   .then(response => {
+    //     console.log(response);
+    //     this.setState({
+    //       users: response.data,
+    //     });
+    //   })
+    //   .catch(error => console.log(error));
 //   }
 
 //   render() {

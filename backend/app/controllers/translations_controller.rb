@@ -8,7 +8,7 @@ class TranslationsController < ApplicationController
   private
 
   def translation_params
-    params.require(:translation).permit(:phrase, :city_id)
+    params.require(:translation).permit(:id, :phrase, :city_id)
   end
 
 
