@@ -1,7 +1,13 @@
 import React from 'react'
+import ExploreMap from './ExploreMap'
 
-export default function Learn() {
+export default function Explore(props) {
+
+  const city = props.city
+  const coordinates = props.coordinates
   return (
-    <p>Explore</p>
+    <div>
+      <ExploreMap city={city} coordinates={coordinates} />
+    </div>
   )
 }
