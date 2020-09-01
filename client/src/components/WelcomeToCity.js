@@ -10,12 +10,14 @@ export default function WelcomeToCity(props) {
   const cityParams = [{
     name: props.city,
     coordinates: props.coordinates,
-    language: props.language
+    language: props.language,
+    cityId: props.city_id
   }]
 
-  const city = props.city
-  const coordinates = props.coordinates
-  const language = props.language
+  // const city = props.city
+  // const coordinates = props.coordinates
+  // const language = props.language
+
 
   const [learn, setLearn] = useState(false);
   const [explore, setExplore] = useState(false);
@@ -49,8 +51,6 @@ export default function WelcomeToCity(props) {
   />)
   }
 
-  const city_id = props.city_id
-
   console.log("????", props)
 
   {/* need to take in props to get city name, conditional render background image based on city */}
@@ -63,7 +63,7 @@ export default function WelcomeToCity(props) {
        <button type="button" onClick={goToLearn} >Go to Learn</button>
        <button type="button" onClick={goToExplore} >Go to Explore</button>
        {/*<Explore city={city} coordinates={coordinates}/>*/}
-       <Explore city={city} coordinates={coordinates} city_id={city_id}/>
+       {/* <Explore city={city} coordinates={coordinates} city_id={city_id}/> */}
     </div>
   )
 }
