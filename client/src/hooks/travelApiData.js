@@ -1,8 +1,8 @@
 const axios = require('axios');
 
 export default async function makeRequest(locationId) {
-
-    axios({
+    
+    return axios({
     "method":"GET",
     "url":"https://tripadvisor1.p.rapidapi.com/attractions/list",
     "headers":{
@@ -16,11 +16,23 @@ export default async function makeRequest(locationId) {
     "sort": "ranking",
     "lunit": "km",
     "location_id": locationId,
-    "limit": "15",
+    "limit": "30",
     }
     })
     .then((response)=>{
-      console.log(response.data)
+      const locationData = response.data.data.filter(x => x.location_id !== '0' &&  x.photo).map(x => { 
+
+        return {
+          location_id: x.location_id,
+          name: x.name,
+          latitude: x.latitude,
+          longitude: x.longitude,
+          thumbnail: x.photo.images.thumbnail.url,
+          description: x.description
+        }
+      }); 
+
+      return locationData
     })
     .catch((error)=>{
       console.log(error)

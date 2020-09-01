@@ -1,17 +1,22 @@
 import React from 'react'
-import makeRequest from '../../hooks/travelApiData'
 import ExploreMap from './ExploreMap'
+import makeRequest from '../../hooks/travelApiData'
 
 export default function Explore(props) {
   console.log("????", props)
   const cityId = props.location.state.explore[0].cityId  
   const city = props.location.state.explore[0].name
   const coordinates = props.location.state.explore[0].coordinates   
-  console.log("CITYID", cityId)
   makeRequest(cityId)
+  .then(result => {
+  console.log("RESULT", result)
+
+  })
+  
+
   return (
     <div>
-      {<ExploreMap city={city} coordinates={coordinates} />}
+      {<ExploreMap city={city} coordinates={coordinates} cityId={cityId}/>}
     </div>
   )
 }
