@@ -16,7 +16,17 @@ export default function ExploreMap(props) {
         url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
       />
       {props.cityResults.map((position, idx) => (
-        <Marker key={position.name} position={position.coordinates}>
+        <Marker
+          key={position.name}
+          position={position.coordinates}
+          // toggles popup on hover
+          onMouseOver={(e) => {
+            e.target.openPopup();
+          }}
+          onMouseOut={(e) => {
+            e.target.closePopup();
+          }}
+        >
           <Popup>
             <span>{position.name}</span> <br />
             <img src={position.thumbnail} />
