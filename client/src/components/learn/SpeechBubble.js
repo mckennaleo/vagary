@@ -20,6 +20,7 @@ export default function SpeechBubble(props) {
       .then(results => {
         // console.log(results)
         setPhrases(results.data);
+
       })
       .catch(err => console.log(err.message));
   }, []);
