@@ -81,20 +81,13 @@ function City(props) {
   //console.log(props);
   const city = props.location.state.city.marker.cityName
   const coordinates = props.location.state.city.marker.coordinates
-<<<<<<< HEAD
   const language = props.location.state.city.marker.language
-=======
   const city_id = props.location.state.city.marker.city_id
->>>>>>> feature/map
   return (
     <div>
       <h2>City</h2>
       <h1>I'm in {city}</h1> 
-<<<<<<< HEAD
-      <WelcomeToCity city={city} coordinates={coordinates} language={language}/>
-=======
-      <WelcomeToCity city={city} coordinates={coordinates} city_id={city_id}/>
->>>>>>> feature/map
+      <WelcomeToCity city={city} coordinates={coordinates} language={language} city_id={city_id}/>
     </div>
   );
 }
