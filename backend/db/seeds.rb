@@ -14,12 +14,13 @@ City.create(name: "Oaxaca", language: "es", latitude: 17.06544, longitude: -96.7
 City.create(name: "Istanbul", language: "tr", latitude: 41.015137, longitude: 48.979530)
 City.create(name: ‘Ho Chi Minh City (Saigon)’, language: ‘vi’, longitude: 10.762622, longitude: 106.660172)
 
-# CITY QUIZZES
+# EXPERIENCE QUIZZES
 Quiz.create(name: "Oaxaca Quiz!", city_id: 1) # quiz.id: 1
-Quiz.create(name: "How Well Do You Know Istanbul?", city_id: 2) # quiz.id: 4
+Quiz.create(name: "How Well Do You Know Istanbul?", city_id: 2) # quiz.id: 2
+Quiz.create(name: ‘How Well Do You Know Saigon?’, city_id: 3) # quiz.id: 3
 
 
-# CITY QUIZZES
+# EXPERIENCE QUIZZES QUESTIONS
 
 # Oaxaca city quiz questions
 Quiz_question.create(question: "How many municipalities are in Oaxaca?", correct_answer: "570", incorrect_answer_1: "55", incorrect_answer_4: "90", incorrect_answer_3: "140", quiz_id: 1)
@@ -40,12 +41,22 @@ Quiz_question.create(question: ‘“Kapalıçarşı” in Turkish means:’, co
 Quiz_question.create(question: ‘The Grand Bazaar at Istanbul is often regarded as one of the first ________ of the world’, correct_answer: ‘Shopping malls’, incorrect_answer_1: ‘Coffee shops’, incorrect_answer_4: ‘Banks’, incorrect_answer_3: ‘Shoe stores’, quiz_id: 2)
 Quiz_question.create(question: ‘What is involved in making a traditional cup of Turkish coffee?’, correct_answer: ‘Sand’, incorrect_answer_1: ‘Sea water’, incorrect_answer_4: ‘Hot stones’, incorrect_answer_3: ‘Beans grown in Turkey, duh’, quiz_id: 2)
 
+Quiz_question.create(question: ‘The apartment block at 42 Nguyen Hue is now full of _______’, correct_answer: ‘Coffee shops’, incorrect_answer_1: ‘Jewellery stalls’, incorrect_answer_2: ‘Galleries’, incorrect_answer_3: ‘Daycare centres’, quiz_id: 3)
+Quiz_question.create(question: ‘Thien Hau Temple was built by _________’, correct_answer: ‘Cantonese immigrants’, incorrect_answer_1: ‘Construction workers, of course!’, incorrect_answer_2: ‘Thai immigrants’, incorrect_answer_3: ‘Architecture buffs’, quiz_id: 3)
+Quiz_question.create(question: ‘Who is Thien Hau?’, correct_answer: ‘The goddess of the sea’, incorrect_answer_1: ‘The goddess of war’, incorrect_answer_2: ‘The goddess of love and peace’, incorrect_answer_3: ‘Vietnam’s first lady’, quiz_id: 3)
+Quiz_question.create(question: ‘During which tragic period in Vietnam’s history were Cu Chi Tunnels created?’, correct_answer: ‘The Vietnam War’, incorrect_answer_1: ‘World War II’, incorrect_answer_2: ‘World War I’, incorrect_answer_3: ‘American Civil War’, quiz_id: 3)
+Quiz_question.create(question: ‘Where can you find mangrove forest near Saigon?’, correct_answer: ‘Monkey Island’, incorrect_answer_1: ‘Hanoi’, incorrect_answer_2: ‘Ho Chi Minh City’, incorrect_answer_3: ‘Crocodile Island’, quiz_id: 3)
+Quiz_question.create(question: ‘What animals besides monkeys can be found on the Monkey Island?’, correct_answer: ‘Crocodiles’, incorrect_answer_1: ‘Tigers’, incorrect_answer_2: ‘Flamingoes’, incorrect_answer_3: ‘Cats’, quiz_id: 3)
+Quiz_question.create(question: ‘What attraction is located in the middle of Saigon?’, correct_answer: ‘Ben Thanh Market’, incorrect_answer_1: ‘Cu Chi tunnels’, incorrect_answer_2: ‘Thien Hau Temple’, incorrect_answer_3: ‘Ha Long Bay’, quiz_id: 3)
+Quiz_question.create(question: ‘Ben Thanh Market welcomes more than _________ visitors per day’, correct_answer: ‘10,000’, incorrect_answer_1: ‘1,000,000’, incorrect_answer_2: ‘500,000’, incorrect_answer_3: ‘2,500’, quiz_id: 3)
+
+
 
 # LANGUAGE QUIZZES
 Quiz.create(name: "How Well Can You Speak Turkish?", city_id: 2) # quiz.id: 4
 Quiz.create(name: ‘How Well Can You Speak Vietnamese?’, city_id: 3) #quiz.id: 5
 
-# LANGUAGE QUIZZES
+# LANGUAGE QUIZZES QUESTIONS
 
 # Turkish language quiz
 Quiz_question.create(question: "How do you say Hello in Turkish?", correct_answer: "Merhaba", incorrect_answer_1: "Nedir", incorrect_answer_4: "Bonjour", incorrect_answer_3: "Haba", quiz_id: 4)
@@ -57,13 +68,13 @@ Quiz_question.create(question: "Can you say: “I'm lost” in Turkish?", correc
 Quiz_question.create(question: "How about “thank you”?", correct_answer: "teşekkür ederim", incorrect_answer_1: "Ederim teşekkür ", incorrect_answer_4: "Rica ederim", incorrect_answer_3: "Bilmiyorum", quiz_id: 4)
 Quiz_question.create(question: "How do you say “Good-bye”?", correct_answer: "Güle güle", incorrect_answer_1: "Yarın görüşürüz", incorrect_answer_4: "Kötü", incorrect_answer_3: "So long", quiz_id: 4)
 
-Quiz_question.create(question: ‘How do you say “Hello” in Vietnamese?’, correct_answer: ‘Xin chào’, incorrect_answer_1: ‘Ciao’, incorrect_answer_2: ‘Chào-chào’, incorrect_answer_3: ‘Tạm biệt’, quiz_id: ???)
-Quiz_question.create(question: ‘How can you ask “How are you”?’, correct_answer: ‘Bạn khỏe không’, incorrect_answer_1: ‘Bạn khỏe thong’, incorrect_answer_2: ‘Không’, incorrect_answer_3: ‘Bạn bao nhiêu tuổi’, quiz_id: ???)
-Quiz_question.create(question: ‘What is the Vietnamese for “Help”?’, correct_answer: ‘’, incorrect_answer_1: ‘’, incorrect_answer_2: ‘’, incorrect_answer_3: ‘’, quiz_id: ???)
-Quiz_question.create(question: ‘How do you inquire about the price?’, correct_answer: ‘Bao nhiêu’, incorrect_answer_1: ‘Củ Chi’, incorrect_answer_2: ‘Vé’, incorrect_answer_3: ‘Bao’, quiz_id: ???)
-Quiz_question.create(question: ‘How do you say “Please”?’, correct_answer: ‘Xin vui lòng’, incorrect_answer_1: ‘Tôi khỏe’, incorrect_answer_2: ‘Cảm ơn bạn’, incorrect_answer_3: ‘Lòng’, quiz_id: ???)
-Quiz_question.create(question: ‘Can you say “Thank you”?’, correct_answer: ‘Cảm ơn bạn’, incorrect_answer_1: ‘Tạm biệt’, incorrect_answer_2: ‘Không có gì’, incorrect_answer_3: ‘Dự án này thật tuyệt’, quiz_id: ???)
-Quiz_question.create(question: ‘How do you say “Have a nice day” in Vietnamese?’, correct_answer: ‘Chúc một ngày tốt lành.’, incorrect_answer_1: ‘Hẹn gặp bạn vào ngày mai’, incorrect_answer_2: ‘Bạn khỏe không’, incorrect_answer_3: ‘Xin chào’, quiz_id: ???)
-Quiz_question.create(question: ‘What about “Good-bye”?’, correct_answer: ‘Tạm biệt’, incorrect_answer_1: ‘Buổi sáng tốt lành’, incorrect_answer_2: ‘Vui mừng’, incorrect_answer_3: ‘Cho tôi xin hai vé’, quiz_id: ???)
+Quiz_question.create(question: ‘How do you say “Hello” in Vietnamese?’, correct_answer: ‘Xin chào’, incorrect_answer_1: ‘Ciao’, incorrect_answer_2: ‘Chào-chào’, incorrect_answer_3: ‘Tạm biệt’, quiz_id: 5)
+Quiz_question.create(question: ‘How can you ask “How are you”?’, correct_answer: ‘Bạn khỏe không’, incorrect_answer_1: ‘Bạn khỏe thong’, incorrect_answer_2: ‘Không’, incorrect_answer_3: ‘Bạn bao nhiêu tuổi’, quiz_id: 5)
+Quiz_question.create(question: ‘What is the Vietnamese for “Help”?’, correct_answer: ‘’, incorrect_answer_1: ‘’, incorrect_answer_2: ‘’, incorrect_answer_3: ‘’, quiz_id: 5)
+Quiz_question.create(question: ‘How do you inquire about the price?’, correct_answer: ‘Bao nhiêu’, incorrect_answer_1: ‘Củ Chi’, incorrect_answer_2: ‘Vé’, incorrect_answer_3: ‘Bao’, quiz_id: 5)
+Quiz_question.create(question: ‘How do you say “Please”?’, correct_answer: ‘Xin vui lòng’, incorrect_answer_1: ‘Tôi khỏe’, incorrect_answer_2: ‘Cảm ơn bạn’, incorrect_answer_3: ‘Lòng’, quiz_id: 5)
+Quiz_question.create(question: ‘Can you say “Thank you”?’, correct_answer: ‘Cảm ơn bạn’, incorrect_answer_1: ‘Tạm biệt’, incorrect_answer_2: ‘Không có gì’, incorrect_answer_3: ‘Dự án này thật tuyệt’, quiz_id: 5)
+Quiz_question.create(question: ‘How do you say “Have a nice day” in Vietnamese?’, correct_answer: ‘Chúc một ngày tốt lành.’, incorrect_answer_1: ‘Hẹn gặp bạn vào ngày mai’, incorrect_answer_2: ‘Bạn khỏe không’, incorrect_answer_3: ‘Xin chào’, quiz_id: 5)
+Quiz_question.create(question: ‘What about “Good-bye”?’, correct_answer: ‘Tạm biệt’, incorrect_answer_1: ‘Buổi sáng tốt lành’, incorrect_answer_2: ‘Vui mừng’, incorrect_answer_3: ‘Cho tôi xin hai vé’, quiz_id: 5)
     
     
