@@ -17,7 +17,6 @@ export default class ExploreMap extends React.Component {
 
       ]
     };
-    console.log("MARKERS", this.state.markers)
   }
 
   addMarker = (e) => {
@@ -26,10 +25,11 @@ export default class ExploreMap extends React.Component {
     this.setState({markers})
   }
   render() {
-  console.log("THIS.STATE", this.state)
-    const lat = this.props.coordinates[0];
-    const long = this.props.coordinates[1];
-        console.log("PROPS", this.props)
+  console.log("THIS", this)
+
+    const lat = this.props.coordinates[0]
+    const long = this.props.coordinates[1]
+
     return (
       <Map
         center={[lat, long]} 
