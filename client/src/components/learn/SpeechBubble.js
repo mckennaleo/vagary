@@ -1,7 +1,25 @@
 import React from 'react';
+import axios from 'axios'
 
 
-export default function SpeechBubble() {
+export default function SpeechBubble(props) {
+
+  const language = props.language
+  console.log("LANGUAGE?", language)
+
+  const phrases = [
+    "Merhaba adın nedir?",
+    "Merhaba, benim adım Ata.",
+    "Nasılsın?",
+    "Ben iyiyim teşekkür ederim.",
+    "Bana yardım eder misiniz? Kayboldum.",
+    "Elbette!",
+    "Ayasofya'ya nasıl gidebilirim?",
+    "Karşıdan karşıya geçerken sola dönün. Sultanahmet Camii'nin karşısında.",
+    "Teşekkür ederim! Güle güle!",
+    "Rica ederim. İyi günler!"
+    ]
+
 
   const phraseTranslate = (phrase, lang) => {
     console.log("button clicked")
@@ -28,7 +46,9 @@ export default function SpeechBubble() {
   }
 
   return (
+    <section>
     <p>hello</p>
     <button type="button" onClick={ () =>{phraseTranslate(phrases[0], language)}}>{phrases[0]}</button>
+    </section>
   )
 }
