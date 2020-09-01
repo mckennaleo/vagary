@@ -1,31 +1,25 @@
-import React, { Component, useEffect, useState } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import Globe from './components/Globe';
-import 'leaflet/dist/leaflet.css';
-import axios from 'axios';
-import './App.css';
-import WelcomeToCity from './components/WelcomeToCity';
-
-
+import React, { Component, useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Globe from "./components/Globe";
+import "leaflet/dist/leaflet.css";
+import axios from "axios";
+import "./App.css";
+import WelcomeToCity from "./components/WelcomeToCity";
+import CircleMenu from "./components/CircleMenu";
 
 export default function App() {
-
-  const [experiences, setExperiences] = useState([])
+  const [experiences, setExperiences] = useState([]);
 
   useEffect(() => {
-    axios.get('/experiences/1') // this is a test. can be removed.
-      .then(res => setExperiences(res.data))
-  }, [])
-
+    axios
+      .get("/experiences/1") // this is a test. can be removed.
+      .then((res) => setExperiences(res.data));
+  }, []);
 
   return (
     <Router>
       <div>
+        <CircleMenu />
         <ul>
           <li>
             <Link to="/">Globe</Link> {/*globe*/}
@@ -48,7 +42,8 @@ export default function App() {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/account" component={Account} />
-          <Route path="/city" component={City} /> {/*template literal with city name*/}
+          <Route path="/city" component={City} />{" "}
+          {/*template literal with city name*/}
           <Route exact path="/" component={Globe} />
         </Switch>
       </div>
@@ -72,21 +67,18 @@ function Account() {
   return <h2>My Account</h2>;
 }
 
-
 function City(props) {
   console.log(props);
-  const city = props.location.state.city.marker.cityName
-  const coordinates = props.location.state.city.marker.coordinates
+  const city = props.location.state.city.marker.cityName;
+  const coordinates = props.location.state.city.marker.coordinates;
   return (
     <div>
       <h2>City</h2>
-      <h1>I'm in {city}</h1> 
-      <WelcomeToCity city={city} coordinates={coordinates}/>
+      <h1>I'm in {city}</h1>
+      <WelcomeToCity city={city} coordinates={coordinates} />
     </div>
   );
 }
-
-
 
 // The below code is just for testing pusposes and should be deleted before demo day!
 // class App extends Component {
@@ -119,4 +111,3 @@ function City(props) {
 // }
 
 // export default App;
-
