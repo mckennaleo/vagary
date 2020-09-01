@@ -51,7 +51,7 @@ export default function WelcomeToCity(props) {
   />)
   }
 
-  console.log("????", props)
+  // console.log("????", props)
 
   {/* need to take in props to get city name, conditional render background image based on city */}
 

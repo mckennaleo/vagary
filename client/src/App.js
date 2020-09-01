@@ -19,10 +19,10 @@ export default function App() {
 
   const [experiences, setExperiences] = useState([])
 
-  useEffect(() => {
-    axios.get('/experiences/1') // this is a test. can be removed.
-      .then(res => setExperiences(res.data))
-  }, [])
+  // useEffect(() => {
+  //   axios.get('/experiences/1') // this is a test. can be removed.
+  //     .then(res => setExperiences(res.data))
+  // }, [])
 
 
   return (
@@ -88,6 +88,7 @@ function City(props) {
       <h2>City</h2>
       <h1>I'm in {city}</h1> 
       <WelcomeToCity city={city} coordinates={coordinates} language={language} city_id={city_id}/>
+
     </div>
   );
 }
