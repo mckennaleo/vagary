@@ -11,6 +11,7 @@ import axios from 'axios';
 import './App.css';
 import WelcomeToCity from './components/WelcomeToCity';
 import Learn from './components/learn/Learn';
+import Explore from './components/explore/Explore';
 
 
 
@@ -51,6 +52,7 @@ export default function App() {
           <Route path="/account" component={Account} />
           <Route path="/city" component={City} /> {/*template literal with city name*/}
           <Route path="/learn" component={Learn} />
+          <Route path="/explore" component={Explore} />
           <Route exact path="/" component={Globe} />
         </Switch>
       </div>
