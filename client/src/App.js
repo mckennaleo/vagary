@@ -5,7 +5,7 @@ import "leaflet/dist/leaflet.css";
 import axios from "axios";
 import "./App.css";
 import WelcomeToCity from "./components/WelcomeToCity";
-import CircleMenu from "./components/CircleMenu";
+import CircleMenu from "./CircleMenu";
 
 export default function App() {
   const [experiences, setExperiences] = useState([]);
@@ -20,6 +20,8 @@ export default function App() {
     <Router>
       <div>
         <CircleMenu />
+      </div>
+      <div>
         <ul>
           <li>
             <Link to="/">Globe</Link> {/*globe*/}
