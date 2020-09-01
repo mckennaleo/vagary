@@ -11,11 +11,10 @@ import Explore from "./components/explore/Explore";
 export default function App() {
   const [experiences, setExperiences] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get("/experiences/1") // this is a test. can be removed.
-      .then((res) => setExperiences(res.data));
-  }, []);
+  // useEffect(() => {
+  //   axios.get('/experiences/1') // this is a test. can be removed.
+  //     .then(res => setExperiences(res.data))
+  // }, [])
 
   return (
     <Router>

@@ -14,10 +14,6 @@ export default function WelcomeToCity(props) {
     },
   ];
 
-  // const city = props.city
-  // const coordinates = props.coordinates
-  // const language = props.language
-
   const [learn, setLearn] = useState(false);
   const [explore, setExplore] = useState(false);
 
@@ -54,7 +50,7 @@ export default function WelcomeToCity(props) {
     );
   }
 
-  console.log("????", props);
+  // console.log("????", props)
 
   {
     /* need to take in props to get city name, conditional render background image based on city */
