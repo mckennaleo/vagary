@@ -77,11 +77,12 @@ function City(props) {
   console.log(props);
   const city = props.location.state.city.marker.cityName
   const coordinates = props.location.state.city.marker.coordinates
+  const city_id = props.location.state.city.marker.city_id
   return (
     <div>
       <h2>City</h2>
       <h1>I'm in {city}</h1> 
-      <WelcomeToCity city={city} coordinates={coordinates}/>
+      <WelcomeToCity city={city} coordinates={coordinates} city_id={city_id}/>
     </div>
   );
 }

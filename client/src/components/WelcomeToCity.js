@@ -7,7 +7,7 @@ export default function WelcomeToCity(props) {
   const city = props.city
   const coordinates = props.coordinates
 
-  console.log("????", city)
+  console.log("????", props)
 
   console.log("????", coordinates)
   {/* need to take in props to get city name, conditional render background image based on city */}

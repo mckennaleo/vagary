@@ -34,6 +34,7 @@ export default function Globe() {
       color: 'purple',
       coordinates: [17.0654200, -96.7236500],
       value: 50,
+      city_id: "150801"
     },
     {
       id: 'marker2',
@@ -42,14 +43,16 @@ export default function Globe() {
       color: 'purple',
       coordinates: [45.501689, -73.567256],
       value: 50,
+      city_id: "155032"
     },
     {
       id: 'marker3',
       cityName: 'Saigon', 
       country: 'Vietnam',
       color: 'purple',
-      coordinates: [10.64975, 106.76198],
+      coordinates: [10.762622, 106.660172],
       value: 50,
+      city_id: "293925"
     },
     {
       id: 'marker4',
@@ -58,6 +61,7 @@ export default function Globe() {
       color: 'purple',
       coordinates: [47.49622, 19.04588],
       value: 50,
+      city_id: "274887"
     },
     {
       id: 'marker5',
@@ -66,6 +70,7 @@ export default function Globe() {
       color: 'purple',
       coordinates: [41.015137, 28.979530],
       value: 50,
+      city_id: "293974"
     }
   ];
 
