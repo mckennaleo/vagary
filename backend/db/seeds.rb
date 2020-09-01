@@ -14,6 +14,20 @@ City.create(name: "Oaxaca", language: "es", latitude: 17.06544, longitude: -96.7
 City.create(name: "Istanbul", language: "tr", latitude: 41.015137, longitude: 48.979530)
 City.create(name: "Ho Chi Minh City (Saigon)", language: "vi", latitude: 10.762622, longitude: 106.660172)
 
+
+# PHRASE TRANSLATIONS
+Translation.create(phrase: "Merhaba adın nedir?", city_id: 2)
+Translation.create(phrase: "Merhaba, benim adım Ata.", city_id: 2)
+Translation.create(phrase: "Nasılsın?", city_id: 2)
+Translation.create(phrase: "Ben iyiyim teşekkür ederim.", city_id: 2)
+Translation.create(phrase: "Bana yardım eder misiniz? Kayboldum.", city_id: 2)
+Translation.create(phrase: "Elbette!", city_id: 2)
+Translation.create(phrase: "Ayasofya'ya nasıl gidebilirim?", city_id: 2)
+Translation.create(phrase: "Karşıdan karşıya geçerken sola dönün. Sultanahmet Camii'nin karşısında.", city_id: 2)
+Translation.create(phrase: "Teşekkür ederim! Güle güle!", city_id: 2)
+Translation.create(phrase: "Rica ederim. İyi günler!", city_id: 2)
+
+
 # EXPERIENCE QUIZZES
 Quiz.create(name: "Oaxaca Quiz!", city_id: 1) # quiz.id: 1
 Quiz.create(name: "How Well Do You Know Istanbul?", city_id: 2) # quiz.id: 2
