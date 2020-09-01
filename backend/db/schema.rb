@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200831222340) do
+ActiveRecord::Schema.define(version: 20200901202308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,14 @@ ActiveRecord::Schema.define(version: 20200831222340) do
     t.index ["city_id"], name: "index_quizzes_on_city_id", using: :btree
   end
 
+  create_table "translations", force: :cascade do |t|
+    t.string   "phrase"
+    t.integer  "city_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_translations_on_city_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -109,5 +117,6 @@ ActiveRecord::Schema.define(version: 20200831222340) do
   add_foreign_key "quiz_results", "quizzes"
   add_foreign_key "quiz_results", "users"
   add_foreign_key "quizzes", "cities"
+  add_foreign_key "translations", "cities"
   add_foreign_key "users", "avatars"
 end

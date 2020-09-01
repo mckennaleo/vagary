@@ -1,18 +1,20 @@
 import React from 'react'
-import axios from 'axios'
+import SpeechBubble from './SpeechBubble'
+
+
 
 export default function Learn(props) {
 
-  const city = props.city
-  const language = props.language
-
   console.log('props', props)
 
+  const city = props.location.state.learn[0].name
+  const language = props.location.state.learn[0].language
+
   return (
+    <section>
     <h1>you made it!</h1>
+    <SpeechBubble language={language}/>
+      
+    </section>
   )
 }
-
-
-
-

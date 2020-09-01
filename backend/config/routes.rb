@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  # namespace :api do
-  #   resources :users
-  # end
+  namespace :api do
+    resources :users
+  end
   
   resources :avatars, only: [:show]
 
@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   resources :quiz_questions, only: [:show]
 
   resources :quiz_results, only: [:show, :create]
+
+  resources :translations, only: [:show, :index]
 
     # these routes are for showing users a login form, logging them in, and logging them out.
     get '/login' => 'sessions#new'

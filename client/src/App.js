@@ -9,12 +9,6 @@ import Learn from "./components/learn/Learn";
 import Explore from "./components/explore/Explore";
 
 export default function App() {
-  const [experiences, setExperiences] = useState([]);
-
-  // useEffect(() => {
-  //   axios.get('/experiences/1') // this is a test. can be removed.
-  //     .then(res => setExperiences(res.data))
-  // }, [])
 
   return (
     <Router>
@@ -93,15 +87,15 @@ function City(props) {
 //   state = { users: [] };
 
 //   componentDidMount() {
-//     axios
-//       .get('/api/users')
-//       .then(response => {
-//         console.log(response);
-//         this.setState({
-//           users: response.data,
-//         });
-//       })
-//       .catch(error => console.log(error));
+    // axios
+    //   .get('/api/users')
+    //   .then(response => {
+    //     console.log(response);
+    //     this.setState({
+    //       users: response.data,
+    //     });
+    //   })
+    //   .catch(error => console.log(error));
 //   }
 
 //   render() {
