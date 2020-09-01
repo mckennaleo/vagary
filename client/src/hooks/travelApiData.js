@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 export default async function makeRequest(locationId) {
-    
+    // returns data retrieved from GET req to TripAdvosor api
     return axios({
     "method":"GET",
     "url":"https://tripadvisor1.p.rapidapi.com/attractions/list",
@@ -20,15 +20,16 @@ export default async function makeRequest(locationId) {
     }
     })
     .then((response)=>{
-      const locationData = response.data.data.filter(x => x.location_id !== '0' &&  x.photo).map(x => { 
+      // filters out "experiences", which don't have photos or actual location, so that only landmarks remain. Then parses the return object
+      const locationData = response.data.data.filter(landmark => landmark.location_id !== '0' &&  landmark.photo).map(landmark => { 
 
         return {
-          location_id: x.location_id,
-          name: x.name,
-          latitude: x.latitude,
-          longitude: x.longitude,
-          thumbnail: x.photo.images.thumbnail.url,
-          description: x.description
+          location_id: landmark.location_id,
+          name: landmark.name,
+          latitude: landmark.latitude,
+          longitude: landmark.longitude,
+          thumbnail: landmark.photo.images.thumbnail.url,
+          description: landmark.description
         }
       }); 
 
