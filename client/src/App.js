@@ -87,8 +87,7 @@ function City(props) {
     <div>
       <h2>City</h2>
       <h1>I'm in {city}</h1> 
-      <WelcomeToCity city={city} coordinates={coordinates} language={language}/>
-      <WelcomeToCity city={city} coordinates={coordinates} city_id={city_id}/>
+      <WelcomeToCity city={city} coordinates={coordinates} language={language} city_id={city_id}/>
     </div>
   );
 }
