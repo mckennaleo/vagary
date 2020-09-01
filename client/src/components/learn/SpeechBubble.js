@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 
 
@@ -7,44 +7,27 @@ export default function SpeechBubble(props) {
   const language = props.language
   console.log("LANGUAGE?", language)
 
-  const phrases = [
-    "Merhaba adın nedir?",
-    "Merhaba, benim adım Ata.",
-    "Nasılsın?",
-    "Ben iyiyim teşekkür ederim.",
-    "Bana yardım eder misiniz? Kayboldum.",
-    "Elbette!",
-    "Ayasofya'ya nasıl gidebilirim?",
-    "Karşıdan karşıya geçerken sola dönün. Sultanahmet Camii'nin karşısında.",
-    "Teşekkür ederim! Güle güle!",
-    "Rica ederim. İyi günler!"
-    ]
+    
 
-    // Get translations from database
+  const [phrases, setPhrases] = useState([])
 
-    const [phrases, setPhrases] = useState({})
-
-    const setPhrases = phrases => setPhrases(prev => ({...prev, phrases }));
-
-    useEffect(() => {
-      axios.get("/translations")
+  // Get translations from database
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: `/translations`
     })
-    .then(response => {
-      setPhrases(response.data)
-    })
-    .catch(error => console.log(error))
+      .then(results => {
+        // console.log(results)
+        setPhrases(results.data);
 
-    // axios
-    // .get('/translations/2')
-    // .then(response => {
-    //   console.log(response);
-    // })
-    // .catch(error => console.log(error));
-
+      })
+      .catch(err => console.log(err.message));
+  }, []);
 
 
   const phraseTranslate = (phrase, lang) => {
-    console.log("button clicked")
+    // console.log("button clicked")
     axios({
       "method":"GET",
       "url":"https://nlp-translation.p.rapidapi.com/v1/translate",
@@ -69,8 +52,7 @@ export default function SpeechBubble(props) {
 
   return (
     <section>
-    <p>hello</p>
-    <button type="button" onClick={ () =>{phraseTranslate(phrases[0], language)}}>{phrases[0]}</button>
+      {phrases.map((phrase) => <button type="button" onClick={ () =>{phraseTranslate(phrase.phrase, language)}}>{phrase.phrase}</button>)}
     </section>
   )
 }

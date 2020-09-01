@@ -5,6 +5,11 @@ class TranslationsController < ApplicationController
     render json: @translation
   end
 
+  def index
+    appointments = Appointment.all
+    render json: appointments.to_json
+  end
+  
   private
 
   def translation_params
