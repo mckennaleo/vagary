@@ -21,7 +21,6 @@ export default class ExploreMap extends React.Component {
   }
 
   addMarker = (e) => {
-    console.log("This is e", e)
     const {markers} = this.state.markers
     markers.push(e.latlng)
     this.setState({markers})

@@ -6,6 +6,7 @@ export default function WelcomeToCity(props) {
 
   const city = props.city
   const coordinates = props.coordinates
+  const city_id = props.city_id
 
   console.log("????", props)
 
@@ -15,7 +16,7 @@ export default function WelcomeToCity(props) {
   return(
     <div>
        {/* Placeholder for now - city background + buttons to redirect to Learn + Explore */}
-       <Explore city={city} coordinates={coordinates}/>
+       <Explore city={city} coordinates={coordinates} city_id={city_id}/>
     </div>
   )
 }
