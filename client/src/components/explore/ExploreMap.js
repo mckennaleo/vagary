@@ -26,6 +26,7 @@ export default function ExploreMap(props) {
           onMouseOut={(e) => {
             e.target.closePopup();
           }}
+          onClick={(e) => {}}
         >
           <Popup>
             <span>{position.name}</span> <br />
