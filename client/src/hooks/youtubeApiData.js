@@ -2,8 +2,6 @@ import searchYoutube from 'youtube-api-v3-search';
 //const API_KEY = "AIzaSyCtjX_YfwNdKzOiyXI9Sw606wmb6LB-8xE";
 const API_KEY = "AIzaSyD8FkTfWz0ETmR1NZ7NYo1X8iq75rBbXAw";
 
-
-
 export default function Youtube(searchTerm) {
   const options = {
     q: searchTerm,
