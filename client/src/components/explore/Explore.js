@@ -25,7 +25,7 @@ export default function Explore(props) {
           coordinates: [landmark.latitude, landmark.longitude],
           name: landmark.name,
           thumbnail: landmark.thumbnail,
-          photo: landmark.photo.images.small.url,
+          photo: landmark.photo,
           description: landmark.description,
         });
       }
@@ -34,7 +34,7 @@ export default function Explore(props) {
   }, []);
 
   return (
-    <div>
+    <div class="exploreCity">
       {
         <span>
           <ExploreMap
@@ -43,9 +43,11 @@ export default function Explore(props) {
             cityId={cityId}
             cityResults={cityResults}
           />
-          <ExploreDisplay />
         </span>
       }
+      <span>
+        <ExploreDisplay />
+      </span>
     </div>
   );
 }

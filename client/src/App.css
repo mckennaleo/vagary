@@ -37,6 +37,11 @@
   }
 }
 
+.exploreCity {
+  display: flex;
+  justify-content: space-between;
+}
+
 .leaflet-container {
   display: flex;
   justify-content: center;
