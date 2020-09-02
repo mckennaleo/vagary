@@ -17,6 +17,7 @@
     "react-dom": "^16.13.1",
     "react-globe": "^5.0.2",
     "react-leaflet": "^2.7.0",
+    "react-player": "^2.6.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "sass": "^1.3.0",

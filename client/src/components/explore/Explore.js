@@ -14,14 +14,15 @@ export default function Explore(props) {
 
   // retrieves results of GET request to TravelAdvisor api
   useEffect(() => {
+      const cityResults = [];
     makeRequest(cityId).then((result) => {
-      // console.log(result)
+      console.log("RESULTSOIUGBL:IGUY")
 
       // initiates cityResult
-      const cityResults = [];
 
       // loops through result arr of obj to get data
       for (let landmark of result) {
+        
         // populates cityResults with data needed for pins on the city map
         cityResults.push({
           coordinates: [landmark.latitude, landmark.longitude],
@@ -31,6 +32,7 @@ export default function Explore(props) {
           description: landmark.description,
         });
       }
+      console.log("RESULT", result)
       setCityResults(cityResults);
     });
   }, []);
