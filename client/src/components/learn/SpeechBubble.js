@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { getPhrasesByCityId } from '../helpers/selectors'
+import "../SpeechBubble.scss"
 
 export default function SpeechBubble(props) {
 
@@ -8,6 +9,7 @@ export default function SpeechBubble(props) {
   const city = props.city
 
   const [phrases, setPhrases] = useState([])
+  const [translation, setTranslation] = useState(null)
 
   // Get translations from database
   useEffect(() => {
@@ -23,6 +25,7 @@ export default function SpeechBubble(props) {
 
   //API request to translate phrase to English on click
   const phraseTranslate = (phrase, lang) => {
+
     axios({
       "method":"GET",
       "url":"https://nlp-translation.p.rapidapi.com/v1/translate",
@@ -38,7 +41,7 @@ export default function SpeechBubble(props) {
       }
       })
       .then((response)=>{
-        console.log(response.data.translated_text.en)
+        setTranslation(response.data.translated_text.en)
       })
       .catch((error)=>{
         console.log(error)
@@ -46,8 +49,14 @@ export default function SpeechBubble(props) {
   }
 
   return (
+    <div>
     <section>
-      {getPhrasesByCityId(phrases, city).map((phrase) => <button type="button" key={phrase.id} onClick={ () =>{phraseTranslate(phrase.phrase, language)}}>{phrase.phrase}</button>)}
+      {getPhrasesByCityId(phrases, city).map((phrase) => <button className="speech-bubble" type="button" key={phrase.id} onClick={ () => {translation ? setTranslation(null) : phraseTranslate(phrase.phrase, language)}}>
+      {phrase.phrase}
+      </button>)}
+
+      {translation ? <p class="speech-bubble">{translation}</p> : null}
     </section>
+    </div>
   )
 }
