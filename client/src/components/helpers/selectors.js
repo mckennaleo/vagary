@@ -10,5 +10,15 @@ const getPhrasesByCityId = (phrasesData, city) => {
 
 }
 
-export { getPhrasesByCityId };
+const getTranslationQuestionsByCityId = (translationQuestionsData, city) => {
+  let theQuestions;
+  if (city === 'Istanbul') {
+    theQuestions = 4
+  } else if (city === 'Saigon') {
+    theQuestions = 5
+  }
+  return translationQuestionsData.filter(item => item.quiz_id === theQuestions)
+}
+
+export { getPhrasesByCityId, getTranslationQuestionsByCityId };
 

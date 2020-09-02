@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { getPhrasesByCityId } from '../helpers/selectors'
+import { Redirect } from "react-router-dom";
 import "../SpeechBubble.scss"
 
 export default function SpeechBubble(props) {
@@ -8,9 +9,7 @@ export default function SpeechBubble(props) {
   const cityParams = [
     {
       name: props.city,
-      coordinates: props.coordinates,
       language: props.language,
-      cityId: props.city_id,
     },
   ];
 
@@ -21,22 +20,6 @@ export default function SpeechBubble(props) {
   const [translation, setTranslation] = useState(null)
   const [translationQuiz, setTranslationQuiz] = useState(false);
 
-  const goToTranslationQuiz = () => {
-    // console.log(city)
-    setTranslationQuiz(cityParams);
-  };
-
-  if (translationQuiz) {
-    return (
-      <Redirect
-        push
-        to={{
-          pathname: "/quiz",
-          state: { translationQuiz },
-        }}
-      />
-    );
-  }
 
   // Get translations from database
   useEffect(() => {
@@ -73,6 +56,23 @@ export default function SpeechBubble(props) {
       .catch((error)=>{
         console.log(error)
       })
+  }
+
+  const goToTranslationQuiz = () => {
+    // console.log(city)
+    setTranslationQuiz(cityParams);
+  };
+
+  if (translationQuiz) {
+    return (
+      <Redirect
+        push
+        to={{
+          pathname: "/quiz",
+          state: { translationQuiz },
+        }}
+      />
+    );
   }
 
   return (
