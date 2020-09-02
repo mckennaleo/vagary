@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ExploreMap from "./ExploreMap";
+import ExploreDisplay from "./ExploreDisplay";
 import makeRequest from "../../hooks/travelApiData";
 
 export default function Explore(props) {
@@ -24,6 +25,8 @@ export default function Explore(props) {
           coordinates: [landmark.latitude, landmark.longitude],
           name: landmark.name,
           thumbnail: landmark.thumbnail,
+          photo: landmark.photo,
+          description: landmark.description,
         });
       }
       setCityResults(cityResults);
@@ -31,15 +34,20 @@ export default function Explore(props) {
   }, []);
 
   return (
-    <div>
+    <div class="exploreCity">
       {
-        <ExploreMap
-          city={city}
-          coordinates={coordinates}
-          cityId={cityId}
-          cityResults={cityResults}
-        />
+        <span>
+          <ExploreMap
+            city={city}
+            coordinates={coordinates}
+            cityId={cityId}
+            cityResults={cityResults}
+          />
+        </span>
       }
+      <span>
+        <ExploreDisplay />
+      </span>
     </div>
   );
 }
