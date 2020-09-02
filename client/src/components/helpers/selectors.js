@@ -1,15 +1,14 @@
 
 const getPhrasesByCityId = (phrasesData, city) => {
-//is it 2 or 3?
-
-if (city === 'Istanbul') {
-  return phrasesData.filter(item => item.city_id === 2)
-}
-
-if (city === 'Saigon') {
-  return phrasesData.filter(item => item.city_id === 3)
-}
+  let theCity;
+  if (city === 'Istanbul') {
+    theCity = 2
+  } else if (city === 'Saigon') {
+    theCity = 3
+  }
+  return phrasesData.filter(item => item.city_id === theCity)
 
 }
 
 export { getPhrasesByCityId };
+
