@@ -5,13 +5,16 @@ import "leaflet/dist/leaflet.css";
 import axios from "axios";
 import "./App.css";
 import WelcomeToCity from "./components/WelcomeToCity";
+import CircleMenu from "./components/CircleMenu";
 import Learn from "./components/learn/Learn";
 import Explore from "./components/explore/Explore";
 
 export default function App() {
-
   return (
     <Router>
+      <div>
+        <CircleMenu />
+      </div>
       <div>
         <ul>
           <li>
@@ -87,15 +90,15 @@ function City(props) {
 //   state = { users: [] };
 
 //   componentDidMount() {
-    // axios
-    //   .get('/api/users')
-    //   .then(response => {
-    //     console.log(response);
-    //     this.setState({
-    //       users: response.data,
-    //     });
-    //   })
-    //   .catch(error => console.log(error));
+// axios
+//   .get('/api/users')
+//   .then(response => {
+//     console.log(response);
+//     this.setState({
+//       users: response.data,
+//     });
+//   })
+//   .catch(error => console.log(error));
 //   }
 
 //   render() {
