@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
+import classNames from 'classnames';
 import ExploreMap from "./explore/ExploreMap";
 import Explore from "./explore/Explore";
 import Learn from "./learn/Learn";
 
 export default function WelcomeToCity(props) {
+
+  if (props.city === 'Istanbul')
+  const backgroundClass = classNames("background", {
+    "background--Istanbul"
+  })
+
   const cityParams = [
     {
       name: props.city,
