@@ -4,13 +4,9 @@ import classNames from 'classnames';
 import ExploreMap from "./explore/ExploreMap";
 import Explore from "./explore/Explore";
 import Learn from "./learn/Learn";
+import "./LayoutMain.scss"
 
 export default function WelcomeToCity(props) {
-
-  if (props.city === 'Istanbul')
-  const backgroundClass = classNames("background", {
-    "background--Istanbul"
-  })
 
   const cityParams = [
     {
