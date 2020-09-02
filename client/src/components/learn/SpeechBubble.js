@@ -16,16 +16,13 @@ export default function SpeechBubble(props) {
       url: `/translations`
     })
       .then(results => {
-        console.log(results.data)
         setPhrases(results.data)
       })
       .catch(err => console.log(err.message));
   }, []);
 
-  
-
+  //API request to translate phrase to English on click
   const phraseTranslate = (phrase, lang) => {
-    // console.log("button clicked")
     axios({
       "method":"GET",
       "url":"https://nlp-translation.p.rapidapi.com/v1/translate",
@@ -50,7 +47,7 @@ export default function SpeechBubble(props) {
 
   return (
     <section>
-      {getPhrasesByCityId(phrases, city).map((phrase) => <button type="button" onClick={ () =>{phraseTranslate(phrase.phrase, language)}}>{phrase.phrase}</button>)}
+      {getPhrasesByCityId(phrases, city).map((phrase) => <button type="button" key={phrase.id} onClick={ () =>{phraseTranslate(phrase.phrase, language)}}>{phrase.phrase}</button>)}
     </section>
   )
 }
