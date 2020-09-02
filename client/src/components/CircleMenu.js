@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 // radio
 import MusicNoteIcon from "@material-ui/icons/MusicNote";
 // home/globe
