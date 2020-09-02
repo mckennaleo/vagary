@@ -20,5 +20,20 @@ const getTranslationQuestionsByCityId = (translationQuestionsData, city) => {
   return translationQuestionsData.filter(item => item.quiz_id === theQuestions)
 }
 
-export { getPhrasesByCityId, getTranslationQuestionsByCityId };
+const quizValidator = (q, a) => {
+  let ans = Object.values(a)
+  let counter = 0;
+  q.forEach((question, index) => {
+    if (ans[index] === question.correct_answer ){
+      counter ++
+    } else {
+      //console.log('wrong answer', ans[index])
+    }
+  })
+    console.log(counter)
+    return counter
+  }
+ 
+
+export { getPhrasesByCityId, getTranslationQuestionsByCityId, quizValidator };
 
