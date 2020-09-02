@@ -53,16 +53,6 @@ export default function WelcomeToCity(props) {
     );
   }
 
-  // console.log("????", props)
-
-  {
-    /* need to take in props to get city name, conditional render background image based on city */
-  }
-
-  {
-    /* make onclick listener, set state, redirect needs to be rendered (needs to be returned)  */
-  }
-
   return (
     <div>
       {/* Placeholder for now - city background + buttons to redirect to Learn + Explore */}

@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { getPhrasesByCityId } from '../helpers/selectors'
+import { Redirect } from "react-router-dom";
 import "../SpeechBubble.scss"
 
 export default function SpeechBubble(props) {
+
+  const cityParams = [
+    {
+      name: props.city,
+      language: props.language,
+    },
+  ];
 
   const language = props.language
   const city = props.city
 
   const [phrases, setPhrases] = useState([])
   const [translation, setTranslation] = useState(null)
+  const [translationQuiz, setTranslationQuiz] = useState(false);
+
 
   // Get translations from database
   useEffect(() => {
@@ -48,6 +58,23 @@ export default function SpeechBubble(props) {
       })
   }
 
+  const goToTranslationQuiz = () => {
+    // console.log(city)
+    setTranslationQuiz(cityParams);
+  };
+
+  if (translationQuiz) {
+    return (
+      <Redirect
+        push
+        to={{
+          pathname: "/quiz",
+          state: { translationQuiz },
+        }}
+      />
+    );
+  }
+
   return (
 
     <div id="speech-container">
@@ -61,7 +88,7 @@ export default function SpeechBubble(props) {
     <section className="quiz-area">
       <h3>Translations</h3>
       {translation ? <p className="speech-bubble">{translation}</p> : null}
-      <button type="button">Take Quiz!</button>
+      <button type="button" onClick={goToTranslationQuiz}>Take Quiz!</button>
     </section>
 
     </div>

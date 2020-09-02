@@ -11,15 +11,15 @@ Rails.application.routes.draw do
 
   resources :cities, only: [:show]
 
-  resources :quizzes, only: [:show]
+  resources :quizzes, only: [:show, :index]
 
   resources :favourites, only: [:show, :create, :destroy]
 
   resources :experiences, only: [:show]
 
-  resources :quiz_questions, only: [:show]
+  resources :quiz_questions, only: [:show, :index]
 
-  resources :quiz_results, only: [:show, :create]
+  resources :quiz_results, only: [:show, :create, :index]
 
   resources :translations, only: [:show, :index]
 

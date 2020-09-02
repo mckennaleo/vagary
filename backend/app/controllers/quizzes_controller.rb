@@ -1,5 +1,10 @@
 class QuizzesController < ApplicationController
 
+  def index
+    quizzes = Quiz.all
+    render json: quizzes.to_json
+  end
+
   def show
     @quiz = quiz.find(quiz_params)
     render json: @quiz

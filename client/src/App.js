@@ -8,6 +8,7 @@ import WelcomeToCity from "./components/WelcomeToCity";
 import CircleMenu from "./components/CircleMenu";
 import Learn from "./components/learn/Learn";
 import Explore from "./components/explore/Explore";
+import TranslationQuiz from "./components/learn/TranslationQuiz";
 
 export default function App() {
   return (
@@ -42,6 +43,7 @@ export default function App() {
           {/*template literal with city name*/}
           <Route path="/learn" component={Learn} />
           <Route path="/explore" component={Explore} />
+          <Route path="/quiz" component={TranslationQuiz} />
           <Route exact path="/" component={Globe} />
         </Switch>
       </div>
