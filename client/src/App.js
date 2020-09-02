@@ -6,15 +6,16 @@ import axios from "axios";
 import "./App.css";
 import WelcomeToCity from "./components/WelcomeToCity";
 import CircleMenu from "./CircleMenu";
+import Learn from "./components/learn/Learn";
+import Explore from "./components/explore/Explore";
 
 export default function App() {
   const [experiences, setExperiences] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get("/experiences/1") // this is a test. can be removed.
-      .then((res) => setExperiences(res.data));
-  }, []);
+  // useEffect(() => {
+  //   axios.get('/experiences/1') // this is a test. can be removed.
+  //     .then(res => setExperiences(res.data))
+  // }, [])
 
   return (
     <Router>
@@ -46,6 +47,8 @@ export default function App() {
           <Route path="/account" component={Account} />
           <Route path="/city" component={City} />{" "}
           {/*template literal with city name*/}
+          <Route path="/learn" component={Learn} />
+          <Route path="/explore" component={Explore} />
           <Route exact path="/" component={Globe} />
         </Switch>
       </div>
@@ -70,14 +73,21 @@ function Account() {
 }
 
 function City(props) {
-  console.log(props);
+  //console.log(props);
   const city = props.location.state.city.marker.cityName;
   const coordinates = props.location.state.city.marker.coordinates;
+  const language = props.location.state.city.marker.language;
+  const city_id = props.location.state.city.marker.city_id;
   return (
     <div>
       <h2>City</h2>
       <h1>I'm in {city}</h1>
-      <WelcomeToCity city={city} coordinates={coordinates} />
+      <WelcomeToCity
+        city={city}
+        coordinates={coordinates}
+        language={language}
+        city_id={city_id}
+      />
     </div>
   );
 }

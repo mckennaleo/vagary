@@ -1,10 +1,14 @@
 import React, { Component } from "react";
-import HelpIcon from "@material-ui/icons/Help";
+// radio
 import MusicNoteIcon from "@material-ui/icons/MusicNote";
-import LocationCityIcon from "@material-ui/icons/LocationCity";
-import HomeIcon from "@material-ui/icons/Home";
-import FaceIcon from "@material-ui/icons/Face";
-import LanguageIcon from "@material-ui/icons/Language";
+// home/globe
+import PublicIcon from "@material-ui/icons/Public";
+// logout
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+// my room
+import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
+// compass
+import ExploreIcon from "@material-ui/icons/Explore";
 
 import "./CircleMenu.css";
 
@@ -23,25 +27,20 @@ export default class CircleMenu extends React.Component {
           <span className="lines line-1"></span>
           <span className="lines line-2"></span>
           <span className="lines line-3"></span>
+          <ExploreIcon />
         </label>
 
-        <a href="#" className="menu-item green">
-          <LocationCityIcon />
-        </a>
         <a href="#" className="menu-item orange">
           <MusicNoteIcon />
         </a>
-        <a href="#" className="menu-item purple">
-          <HomeIcon />
+        <a href="/" className="menu-item purple">
+          <PublicIcon />
         </a>
-        <a href="#" className="menu-item red">
-          <FaceIcon />
+        <a href="" className="menu-item red">
+          <ExitToAppIcon />
         </a>
         <a href="#" className="menu-item blue">
-          <LanguageIcon />
-        </a>
-        <a href="#" className="menu-item lightblue">
-          <HelpIcon />
+          <MeetingRoomIcon />
         </a>
       </nav>
     );
