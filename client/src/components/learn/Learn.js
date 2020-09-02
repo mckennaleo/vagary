@@ -13,6 +13,7 @@ export default function Learn(props) {
   return (
     <section>
     <SpeechBubble city={city} language={language}/>
+    
       
     </section>
   )

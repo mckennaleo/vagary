@@ -5,11 +5,38 @@ import "../SpeechBubble.scss"
 
 export default function SpeechBubble(props) {
 
+  const cityParams = [
+    {
+      name: props.city,
+      coordinates: props.coordinates,
+      language: props.language,
+      cityId: props.city_id,
+    },
+  ];
+
   const language = props.language
   const city = props.city
 
   const [phrases, setPhrases] = useState([])
   const [translation, setTranslation] = useState(null)
+  const [translationQuiz, setTranslationQuiz] = useState(false);
+
+  const goToTranslationQuiz = () => {
+    // console.log(city)
+    setTranslationQuiz(cityParams);
+  };
+
+  if (translationQuiz) {
+    return (
+      <Redirect
+        push
+        to={{
+          pathname: "/quiz",
+          state: { translationQuiz },
+        }}
+      />
+    );
+  }
 
   // Get translations from database
   useEffect(() => {
@@ -61,7 +88,7 @@ export default function SpeechBubble(props) {
     <section className="quiz-area">
       <h3>Translations</h3>
       {translation ? <p className="speech-bubble">{translation}</p> : null}
-      <button type="button">Take Quiz!</button>
+      <button type="button" onClick={goToTranslationQuiz}>Take Quiz!</button>
     </section>
 
     </div>
