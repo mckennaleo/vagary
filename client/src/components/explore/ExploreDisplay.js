@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import makeRequest from "../../hooks/travelApiData";
 
-export default class ExploreDisplay extends React.Component {
-  render() {
+export default function ExploreDisplay(props) {
+  console.log(props)
     return (
       <article>
-        <div class="landmarkDescription">this is my description</div>
-        <div class="landmarkPhoto">this is my image</div>
+        <img src={props.display && props.display.photo} />
+        <p>{props.display && props.display.name}</p>
+        <div class="landmarkDescription">{props.display && props.display.description}</div>
       </article>
     );
-  }
+  
 }

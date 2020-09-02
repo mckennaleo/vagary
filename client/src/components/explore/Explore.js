@@ -9,6 +9,8 @@ export default function Explore(props) {
   const city = props.location.state.explore[0].name;
   const coordinates = props.location.state.explore[0].coordinates;
   const [cityResults, setCityResults] = useState([]);
+  const [display, setDisplay] = useState();
+  
 
   // retrieves results of GET request to TravelAdvisor api
   useEffect(() => {
@@ -35,18 +37,21 @@ export default function Explore(props) {
 
   return (
     <div class="exploreCity">
-      {
-        <span>
-          <ExploreMap
-            city={city}
-            coordinates={coordinates}
-            cityId={cityId}
-            cityResults={cityResults}
-          />
-        </span>
-      }
+      
+     <span>
+        <ExploreMap
+          city={city}
+          coordinates={coordinates}
+          cityId={cityId}
+          cityResults={cityResults}
+          onSelect={setDisplay}
+        />
+      </span>      
       <span>
-        <ExploreDisplay />
+        <ExploreDisplay 
+          display={display}
+
+        />
       </span>
     </div>
   );
