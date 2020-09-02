@@ -31,7 +31,7 @@ export default async function makeRequest(locationId) {
             latitude: landmark.latitude,
             longitude: landmark.longitude,
             thumbnail: landmark.photo.images.thumbnail.url,
-            photo: landmark.photo.images.small.url,
+            photo: landmark.photo.images.large.url,
             description: landmark.description,
           };
         });
