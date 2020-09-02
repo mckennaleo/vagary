@@ -2,8 +2,8 @@ import React, { Component, useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Globe from "./components/Globe";
 import "leaflet/dist/leaflet.css";
-import axios from "axios";
 import "./App.css";
+import "./components/LayoutMain.scss"
 import WelcomeToCity from "./components/WelcomeToCity";
 import CircleMenu from "./components/CircleMenu";
 import Learn from "./components/learn/Learn";
@@ -71,8 +71,9 @@ function City(props) {
   const coordinates = props.location.state.city.marker.coordinates;
   const language = props.location.state.city.marker.language;
   const city_id = props.location.state.city.marker.city_id;
+  
   return (
-    <div>
+    <div className={`background--${city}`}>
       <h2>City</h2>
       <h1>I'm in {city}</h1>
       <WelcomeToCity

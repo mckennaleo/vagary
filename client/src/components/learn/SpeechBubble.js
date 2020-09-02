@@ -49,14 +49,21 @@ export default function SpeechBubble(props) {
   }
 
   return (
-    <div>
-    <section>
+
+    <div id="speech-container">
+      
+    <section className="bubbles">
       {getPhrasesByCityId(phrases, city).map((phrase) => <button className="speech-bubble" type="button" key={phrase.id} onClick={ () => {translation ? setTranslation(null) : phraseTranslate(phrase.phrase, language)}}>
       {phrase.phrase}
       </button>)}
-
-      {translation ? <p class="speech-bubble">{translation}</p> : null}
     </section>
+    
+    <section className="quiz-area">
+      <h3>Translations</h3>
+      {translation ? <p className="speech-bubble">{translation}</p> : null}
+      <button type="button">Take Quiz!</button>
+    </section>
+
     </div>
   )
 }
