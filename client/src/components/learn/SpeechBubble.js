@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-
+import { getPhrasesByCityId } from '../helpers/selectors'
 
 export default function SpeechBubble(props) {
 
   const language = props.language
-  console.log("LANGUAGE?", language)
-
-    
+  const city = props.city
 
   const [phrases, setPhrases] = useState([])
 
@@ -18,13 +16,13 @@ export default function SpeechBubble(props) {
       url: `/translations`
     })
       .then(results => {
-        // console.log(results)
-        setPhrases(results.data);
-
+        console.log(results.data)
+        setPhrases(results.data)
       })
       .catch(err => console.log(err.message));
   }, []);
 
+  
 
   const phraseTranslate = (phrase, lang) => {
     // console.log("button clicked")
@@ -52,7 +50,7 @@ export default function SpeechBubble(props) {
 
   return (
     <section>
-      {phrases.map((phrase) => <button type="button" onClick={ () =>{phraseTranslate(phrase.phrase, language)}}>{phrase.phrase}</button>)}
+      {getPhrasesByCityId(phrases, city).map((phrase) => <button type="button" onClick={ () =>{phraseTranslate(phrase.phrase, language)}}>{phrase.phrase}</button>)}
     </section>
   )
 }
