@@ -11,7 +11,7 @@ export default function ExploreDisplay(props) {
     Youtube(props.display.name)
     .then(id => {
       setVideoId(id);
-    videoURL = 'https://www.youtube.com/watch?v=' + videoId
+    videoURL = 'https://www.youtube.com/watch?v=xWodT0rjw0Y'
     })};
   console.log("URL", videoURL)
     return (
@@ -19,11 +19,10 @@ export default function ExploreDisplay(props) {
         <img src={props.display && props.display.photo} />
         <p>{props.display && props.display.name}</p>
         <div>{props.display && props.display.description}</div>
-        <ReactPlayer controls
-        url={videoURL}
+        <ReactPlayer 
+          controls
+          url={videoURL}
         />
-        
-    
       </article>
    
     );
