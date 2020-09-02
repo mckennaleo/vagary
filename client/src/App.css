@@ -1,3 +1,7 @@
+* {
+  font-family: 'Oswald', sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -37,6 +41,12 @@
   }
 }
 
+.Saigon{
+  background-image: url(./docs/saigon.jpg);
+}
+
+
+
 /*---------- EXPLORE ----------*/
 
 .exploreCity {
@@ -58,8 +68,21 @@
 }
 
 .explore-display {
-  display: block;
+  display: flex;
+  flex-direction: column;
+}
 
+.display-img {
+  height: 50%;
+  width: 50%;
+}
+
+.explore-title {
+  font-size: larger
+}
+
+.explore-text {
+  font-size: small
 }
 
 @import "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css";

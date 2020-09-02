@@ -11,7 +11,7 @@ import Explore from "./components/explore/Explore";
 
 export default function App() {
   return (
-    <Router>
+    <Router class={`${city}`}>
       <div>
         <CircleMenu />
       </div>
@@ -71,6 +71,8 @@ function City(props) {
   const coordinates = props.location.state.city.marker.coordinates;
   const language = props.location.state.city.marker.language;
   const city_id = props.location.state.city.marker.city_id;
+  const background = props.location.state.city.marker.background;
+
   return (
     <div>
       <h2>City</h2>
@@ -80,6 +82,7 @@ function City(props) {
         coordinates={coordinates}
         language={language}
         city_id={city_id}
+        background={background}
       />
     </div>
   );

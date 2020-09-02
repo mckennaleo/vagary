@@ -10,16 +10,20 @@ export default function ExploreDisplay(props) {
   if (props.display !== undefined) {
     Youtube(props.display.name).then((id) => {
       setVideoId(id);
-      videoURL = "https://www.youtube.com/watch?v=xWodT0rjw0Y";
     });
   }
+  videoURL = "https://www.youtube.com/watch?v=xWodT0rjw0Y";
   console.log("URL", videoURL);
   return (
     <article class="explore-display">
-      <img src={props.display && props.display.photo} />
-      <p>{props.display && props.display.name}</p>
-      <div>{props.display && props.display.description}</div>
-      <ReactPlayer controls url="https://www.youtube.com/watch?v=xWodT0rjw0Y" />
+      <img src={props.display && props.display.photo} class="display-img" />
+      <p class="explore-title">{props.display && props.display.name}</p>
+      <div class="explore-text">
+        {props.display && props.display.description}
+      </div>
+      <div>
+        <ReactPlayer url={videoURL} className="react-player" playing />
+      </div>
     </article>
   );
 }
