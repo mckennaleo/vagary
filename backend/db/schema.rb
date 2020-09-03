@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200901202308) do
+ActiveRecord::Schema.define(version: 20200903175913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,14 @@ ActiveRecord::Schema.define(version: 20200901202308) do
     t.integer  "experience_id"
     t.index ["experience_id"], name: "index_favourites_on_experience_id", using: :btree
     t.index ["user_id"], name: "index_favourites_on_user_id", using: :btree
+  end
+
+  create_table "playlists", force: :cascade do |t|
+    t.string   "uri"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "city_id"
+    t.index ["city_id"], name: "index_playlists_on_city_id", using: :btree
   end
 
   create_table "quiz_questions", force: :cascade do |t|
@@ -113,6 +121,7 @@ ActiveRecord::Schema.define(version: 20200901202308) do
   add_foreign_key "experiences", "cities"
   add_foreign_key "favourites", "experiences"
   add_foreign_key "favourites", "users"
+  add_foreign_key "playlists", "cities"
   add_foreign_key "quiz_questions", "quizzes"
   add_foreign_key "quiz_results", "quizzes"
   add_foreign_key "quiz_results", "users"
