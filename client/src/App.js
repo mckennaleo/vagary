@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Globe from "./components/Globe";
 import "leaflet/dist/leaflet.css";
 import "./App.css";
-import "./components/LayoutMain.scss"
+import "./components/LayoutMain.scss";
 import WelcomeToCity from "./components/WelcomeToCity";
 import CircleMenu from "./components/CircleMenu";
 import Learn from "./components/learn/Learn";
@@ -18,12 +18,16 @@ export default function App() {
       <div>
         <CircleMenu />
       </div>
+<<<<<<< HEAD
       <div class="spotify">
         <Spotify />
       </div>
 
       <div>
         
+=======
+      <div>
+>>>>>>> feature/exploreLandmark
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
@@ -62,7 +66,8 @@ function City(props) {
   const coordinates = props.location.state.city.marker.coordinates;
   const language = props.location.state.city.marker.language;
   const city_id = props.location.state.city.marker.city_id;
-  
+  const background = props.location.state.city.marker.background;
+
   return (
     <div className={`background--${city}`}>
       <h2>City</h2>
@@ -72,6 +77,7 @@ function City(props) {
         coordinates={coordinates}
         language={language}
         city_id={city_id}
+        background={background}
       />
     </div>
   );

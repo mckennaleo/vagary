@@ -47,6 +47,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     arel (7.1.4)
     bcrypt (3.1.15)
+    bcrypt (3.1.15-java)
     builder (3.2.4)
     byebug (11.0.1)
     case_transform (0.2)
@@ -59,6 +60,9 @@ GEM
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.13.1)
+    ffi (1.13.1-java)
+    ffi (1.13.1-x64-mingw32)
+    ffi (1.13.1-x86-mingw32)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (4.1.0)
@@ -88,8 +92,10 @@ GEM
     multipart-post (2.1.1)
     netrc (0.11.0)
     nio4r (2.5.2)
+    nio4r (2.5.2-java)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
+<<<<<<< HEAD
     oauth2 (1.4.4)
       faraday (>= 0.8, < 2.0)
       jwt (>= 1.0, < 3.0)
@@ -104,7 +110,18 @@ GEM
       omniauth (~> 1.2)
     pg (1.2.3)
     public_suffix (3.1.1)
+=======
+    nokogiri (1.10.10-java)
+    nokogiri (1.10.10-x64-mingw32)
+      mini_portile2 (~> 2.4.0)
+    nokogiri (1.10.10-x86-mingw32)
+      mini_portile2 (~> 2.4.0)
+    pg (1.2.3)
+    pg (1.2.3-x64-mingw32)
+    pg (1.2.3-x86-mingw32)
+>>>>>>> feature/exploreLandmark
     puma (3.12.6)
+    puma (3.12.6-java)
     rack (2.2.3)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
@@ -159,17 +176,29 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.0.1)
     thread_safe (0.3.6)
+    thread_safe (0.3.6-java)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
+<<<<<<< HEAD
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
+=======
+    tzinfo-data (1.2020.1)
+      tzinfo (>= 1.0.0)
+>>>>>>> feature/exploreLandmark
     websocket-driver (0.6.5)
+      websocket-extensions (>= 0.1.0)
+    websocket-driver (0.6.5-java)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
 
 PLATFORMS
+  java
   ruby
+  x64-mingw32
+  x86-mingw32
+  x86-mswin32
 
 DEPENDENCIES
   active_model_serializers
