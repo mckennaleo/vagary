@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ExploreMap from "./ExploreMap";
 import makeRequest from "../../hooks/travelApiData";
+import Spotify from "../spotify/Spotify"
 
 export default function Explore(props) {
   // assigns cityId, name and coordinates to be used later in an api request
