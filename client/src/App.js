@@ -36,8 +36,8 @@ export default function App() {
         </ul>
 
         <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
+          <Route path="/login" component={SignIn} />
+          <Route path="/register" component={SignUp} />
           <Route path="/account" component={Account} />
           <Route path="/city" component={City} />{" "}
           {/*template literal with city name*/}
