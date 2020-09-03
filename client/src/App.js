@@ -9,6 +9,7 @@ import CircleMenu from "./components/CircleMenu";
 import Learn from "./components/learn/Learn";
 import Explore from "./components/explore/Explore";
 import TranslationQuiz from "./components/learn/TranslationQuiz";
+import Spotify from "./components/spotify/Spotify";
 
 export default function App() {
   return (
@@ -16,9 +17,11 @@ export default function App() {
       <div>
         <CircleMenu />
       </div>
-      <div>
-        
+      <div class="spotify">
+        <Spotify />
+      </div>
 
+      <div>
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
@@ -58,6 +61,9 @@ function City(props) {
   const language = props.location.state.city.marker.language;
   const city_id = props.location.state.city.marker.city_id;
   const background = props.location.state.city.marker.background;
+  console.log("CITY", city);
+  console.log("PROPS", props);
+  console.log("BACKGROUND", background);
 
   return (
     <div className={`background--${city}`}>
