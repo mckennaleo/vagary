@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
+import classNames from 'classnames';
 import ExploreMap from "./explore/ExploreMap";
 import Explore from "./explore/Explore";
 import Learn from "./learn/Learn";
+import "./LayoutMain.scss"
 
 export default function WelcomeToCity(props) {
+
   const cityParams = [
     {
       name: props.city,
@@ -49,16 +52,6 @@ export default function WelcomeToCity(props) {
         }}
       />
     );
-  }
-
-  // console.log("????", props)
-
-  {
-    /* need to take in props to get city name, conditional render background image based on city */
-  }
-
-  {
-    /* make onclick listener, set state, redirect needs to be rendered (needs to be returned)  */
   }
 
   return (

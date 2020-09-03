@@ -30,6 +30,18 @@ Translation.create(phrase: "Karşıdan karşıya geçerken sola dönün. Sultana
 Translation.create(phrase: "Teşekkür ederim! Güle güle!", city_id: 2)
 Translation.create(phrase: "Rica ederim. İyi günler!", city_id: 2)
 
+# Ho Chi Minh City (Saigon) phrase translation
+Translation.create(phrase: "Xin chào, bạn khỏe không?", city_id: 3)
+Translation.create(phrase: "Xin chào, tôi khỏe, cảm ơn!", city_id: 3)
+Translation.create(phrase: "Làm thế nào để tôi giúp bạn?", city_id: 3)
+Translation.create(phrase: "Vé tham quan địa đạo Củ Chi bao nhiêu?", city_id: 3)
+Translation.create(phrase: "Vé vào cửa là 90.000đ.", city_id: 3)
+Translation.create(phrase: "Cho tôi xin hai vé.", city_id: 3)
+Translation.create(phrase: "Của bạn đây. Bạn thanh toán hôm nay như thế nào?", city_id: 3)
+Translation.create(phrase: "Tiền mặt, xin vui lòng.", city_id: 3)
+Translation.create(phrase: "Cảm ơn bạn. Tạm biệt!", city_id: 3)
+Translation.create(phrase: "Chúc một ngày tốt lành.", city_id: 3)
+
 
 # EXPERIENCES
 

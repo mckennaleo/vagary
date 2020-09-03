@@ -2,12 +2,13 @@ import React, { Component, useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Globe from "./components/Globe";
 import "leaflet/dist/leaflet.css";
-import axios from "axios";
 import "./App.css";
+import "./components/LayoutMain.scss"
 import WelcomeToCity from "./components/WelcomeToCity";
 import CircleMenu from "./components/CircleMenu";
 import Learn from "./components/learn/Learn";
 import Explore from "./components/explore/Explore";
+import TranslationQuiz from "./components/learn/TranslationQuiz";
 
 export default function App() {
   return (
@@ -42,6 +43,7 @@ export default function App() {
           {/*template literal with city name*/}
           <Route path="/learn" component={Learn} />
           <Route path="/explore" component={Explore} />
+          <Route path="/quiz" component={TranslationQuiz} />
           <Route exact path="/" component={Globe} />
         </Switch>
       </div>
@@ -74,7 +76,7 @@ function City(props) {
   const background = props.location.state.city.marker.background;
 
   return (
-    <div>
+    <div className={`background--${city}`}>
       <h2>City</h2>
       <h1>I'm in {city}</h1>
       <WelcomeToCity

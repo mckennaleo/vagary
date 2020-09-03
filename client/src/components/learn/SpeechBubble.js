@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-
+import { getPhrasesByCityId } from '../helpers/selectors'
+import { Redirect } from "react-router-dom";
+import "../SpeechBubble.scss"
 
 export default function SpeechBubble(props) {
 
-  const language = props.language
-  console.log("LANGUAGE?", language)
+  const cityParams = [
+    {
+      name: props.city,
+      language: props.language,
+    },
+  ];
 
-    
+  const language = props.language
+  const city = props.city
 
   const [phrases, setPhrases] = useState([])
+  const [translation, setTranslation] = useState(null)
+  const [translationQuiz, setTranslationQuiz] = useState(false);
+
 
   // Get translations from database
   useEffect(() => {
@@ -18,16 +28,14 @@ export default function SpeechBubble(props) {
       url: `/translations`
     })
       .then(results => {
-        // console.log(results)
-        setPhrases(results.data);
-
+        setPhrases(results.data)
       })
       .catch(err => console.log(err.message));
   }, []);
 
-
+  //API request to translate phrase to English on click
   const phraseTranslate = (phrase, lang) => {
-    // console.log("button clicked")
+
     axios({
       "method":"GET",
       "url":"https://nlp-translation.p.rapidapi.com/v1/translate",
@@ -43,16 +51,46 @@ export default function SpeechBubble(props) {
       }
       })
       .then((response)=>{
-        console.log(response.data.translated_text.en)
+        setTranslation(response.data.translated_text.en)
       })
       .catch((error)=>{
         console.log(error)
       })
   }
 
+  const goToTranslationQuiz = () => {
+    // console.log(city)
+    setTranslationQuiz(cityParams);
+  };
+
+  if (translationQuiz) {
+    return (
+      <Redirect
+        push
+        to={{
+          pathname: "/quiz",
+          state: { translationQuiz },
+        }}
+      />
+    );
+  }
+
   return (
-    <section>
-      {phrases.map((phrase) => <button type="button" onClick={ () =>{phraseTranslate(phrase.phrase, language)}}>{phrase.phrase}</button>)}
+
+    <div id="speech-container">
+      
+    <section className="bubbles">
+      {getPhrasesByCityId(phrases, city).map((phrase) => <button className="speech-bubble" type="button" key={phrase.id} onClick={ () => {translation ? setTranslation(null) : phraseTranslate(phrase.phrase, language)}}>
+      {phrase.phrase}
+      </button>)}
     </section>
+    
+    <section className="quiz-area">
+      <h3>Translations</h3>
+      {translation ? <p className="speech-bubble">{translation}</p> : null}
+      <button type="button" onClick={goToTranslationQuiz}>Take Quiz!</button>
+    </section>
+
+    </div>
   )
 }
