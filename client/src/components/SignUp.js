@@ -70,11 +70,12 @@ export default function SignUp(props) {
         ...user
       })
       .then(results => {
-        console.log(results)
         localStorage.setItem("token", results.data.token)
         localStorage.setItem("email", results.data.user.email)
+        localStorage.setItem("userId", results.data.user.id)
         props.setUser(results.data.user.email)
         props.setToken(results.data.token)
+        props.setUserId(results.data.user.id)
       })
 
   }

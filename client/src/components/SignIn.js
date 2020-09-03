@@ -70,17 +70,17 @@ export default function SignIn(props) {
 
     // console.log(name, email, avatar, password, passwordConfirmation)
       const user = {email, password}
-      console.log(user)
+      //console.log(user)
       axios.post("http://localhost:3001/api/login", {
         ...user
       })
       .then(results => {
-        console.log("do we get email?", results.data.email)
-        console.log("localStorage", localStorage)
         localStorage.setItem("token", results.data.token)
         localStorage.setItem("email", results.data.email)
+        localStorage.setItem("userId", results.data.id)
         props.setUser(results.data.email)
         props.setToken(results.data.token)
+        props.setUserId(results.data.id)
       })
 
   }

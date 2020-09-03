@@ -15,22 +15,25 @@ import TranslationQuiz from "./components/learn/TranslationQuiz";
 export default function App() {
   const [user, setUser] = useState(null)
   const [token, setToken] = useState(null)
+  const [userId, setUserId] = useState(null)
 
   useEffect(() => {
     console.log(localStorage)
     const localUser = localStorage.getItem("email")
     const localToken = localStorage.getItem("token")
-    console.log(localUser, localToken)
-    if (localUser && localToken) {
+    const localId = localStorage.getItem("id")
+    console.log(localUser, localToken, userId)
+    if (localUser && localToken && localId) {
       setUser(localUser)
       setToken(localToken)
+      setUserId(localId)
     }
   },[])
 
   return (
     <Router>
       <div>
-        <CircleMenu />
+        <CircleMenu setUser={setUser} setToken={setToken}/>
       </div>
       <div>
         <ul>
@@ -52,12 +55,13 @@ export default function App() {
           <li>
             {token && token}
             {user && user}
+            {userId && userId}
           </li>
         </ul>
 
         <Switch>
-          <Route path="/sign-in" component={() =><SignIn setUser={setUser} setToken={setToken}/>} />
-          <Route path="/sign-up" component={() =><SignUp setUser={setUser} setToken={setToken}/>} />
+          <Route path="/sign-in" component={() =><SignIn setUser={setUser} setToken={setToken} setUserId={setUserId}/>} />
+          <Route path="/sign-up" component={() =><SignUp setUser={setUser} setToken={setToken} setUserId={setUserId}/>} />
           <Route path="/my-room" />
           <Route path="/city" component={City} />{" "}
           {/*template literal with city name*/}
@@ -71,12 +75,7 @@ export default function App() {
   );
 }
 
-function Home() {
-  return <Globe />;
-}
-
 function City(props) {
-  //console.log(props);
   const city = props.location.state.city.marker.cityName;
   const coordinates = props.location.state.city.marker.coordinates;
   const language = props.location.state.city.marker.language;
