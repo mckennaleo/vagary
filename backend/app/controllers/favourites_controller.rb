@@ -1,5 +1,5 @@
 class FavouritesController < ApplicationController
-
+  
   def show
     @favourite = Favourite.find(favourite_params)
     render json: @favourite

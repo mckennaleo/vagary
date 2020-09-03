@@ -1,28 +1,43 @@
 class SessionsController < ApplicationController
 
-  def new
-  end
-
   def create
-    # checks user exists + password is correct
-    if @user = User.authenticate_with_credentials(user_params)
-      # saves user id in browser cookie so user can navigate freely
-      session[:user_id] = @user.id
-      redirect_to '/'
+    @user = User.find_by(email: session_params[:email])
+    
+    if @user && @user.authenticate(session_params[:password])
+      login!
+      render json: {
+        logged_in: true,
+        user: @user
+      }
     else
-      redirect_to '/login'
+      render json: { 
+        status: 401,
+        errors: ['no such user', 'verify credentials and try again or signup']
+      }
     end
   end
-
-  def destroy
-    session[:user_id] = nil
-    redirect_to '/login'
+def is_logged_in?
+    if logged_in? && current_user
+      render json: {
+        logged_in: true,
+        user: current_user
+      }
+    else
+      render json: {
+        logged_in: false,
+        message: 'no such user'
+      }
+    end
   end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :avatar_id)
+def destroy
+    logout!
+    render json: {
+      status: 200,
+      logged_out: true
+    }
   end
-
+private
+def session_params
+    params.require(:user).permit(:username, :email, :password)
+  end
 end
