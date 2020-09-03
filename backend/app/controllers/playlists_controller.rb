@@ -5,7 +5,7 @@ class PlaylistsController < ApplicationController
   end
 
   def index
-    translations = Playlist.all
+    playlists = Playlist.all
     render json: playlists.to_json
   end
 
