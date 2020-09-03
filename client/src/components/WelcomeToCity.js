@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import classNames from 'classnames';
+// import classNames from 'classnames';
 import ExploreMap from "./explore/ExploreMap";
 import Explore from "./explore/Explore";
 import Learn from "./learn/Learn";
-import "./LayoutMain.scss"
+import "./LayoutMain.scss";
 
 export default function WelcomeToCity(props) {
-
   const cityParams = [
     {
       name: props.city,
       coordinates: props.coordinates,
       language: props.language,
       cityId: props.city_id,
-      background: props.background
+      background: props.background,
     },
   ];
 
