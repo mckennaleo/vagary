@@ -14,6 +14,7 @@ export default function WelcomeToCity(props) {
       coordinates: props.coordinates,
       language: props.language,
       cityId: props.city_id,
+      background: props.background
     },
   ];
 

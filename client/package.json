@@ -10,7 +10,10 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.20.0",
+<<<<<<< HEAD
     "classnames": "^2.2.6",
+=======
+>>>>>>> 53367a89d794c059a7352e974e0ae96d372e0769
     "fibers": "^3.1.0",
     "leaflet": "^1.6.0",
     "node-sass": "^4.0.0",
@@ -18,12 +21,19 @@
     "react-dom": "^16.13.1",
     "react-globe": "^5.0.2",
     "react-leaflet": "^2.7.0",
+    "react-player": "^2.6.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "sass": "^1.3.0",
     "sass-loader": "^8.0.2",
     "three": "^0.102.0",
+<<<<<<< HEAD
     "typescript": "^3.2.1"
+=======
+    "typescript": "^3.2.1",
+    "youtube-api-v3-search": "^1.2.1",
+    "youtube-search-api-with-axios": "^2.0.0"
+>>>>>>> 53367a89d794c059a7352e974e0ae96d372e0769
   },
   "scripts": {
     "start": "react-scripts start -w",
