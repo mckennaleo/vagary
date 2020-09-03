@@ -1,6 +1,5 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import axios from 'axios';
 import Globe from "./components/Globe";
 import "leaflet/dist/leaflet.css";
 import "./App.css";
@@ -39,13 +38,13 @@ export default function App() {
             <Link to="/">Globe</Link> {/*globe*/}
           </li>
           <li>
-            <Link to="/login">Login</Link>
+            <Link to="/sign-in">Sign In</Link>
           </li>
           <li>
-            <Link to="/register">Register</Link>
+            <Link to="/sign-up">Sign Up</Link>
           </li>
           <li>
-            <Link to="/account">My Account</Link>
+            <Link to="/my-room">My Room</Link>
           </li>
           <li>
             <Link to="/city">City</Link> {/*template literal with city name*/}
@@ -57,9 +56,9 @@ export default function App() {
         </ul>
 
         <Switch>
-          <Route path="/login" component={() =><SignIn setUser={setUser} setToken={setToken}/>} />
-          <Route path="/register" component={() =><SignUp setUser={setUser} setToken={setToken}/>} />
-          <Route path="/account" component={Account} />
+          <Route path="/sign-in" component={() =><SignIn setUser={setUser} setToken={setToken}/>} />
+          <Route path="/sign-up" component={() =><SignUp setUser={setUser} setToken={setToken}/>} />
+          <Route path="/my-room" />
           <Route path="/city" component={City} />{" "}
           {/*template literal with city name*/}
           <Route path="/learn" component={Learn} />
@@ -74,24 +73,6 @@ export default function App() {
 
 function Home() {
   return <Globe />;
-}
-
-function Login() {
-  // request for token from backend
-  axios.create({
-    baseURL: '/api/users',
-    headers: {
-      // Authorization: {put your token here}
-    }
-  })
-
-  return (<SignIn />);
-}
-
-
-
-function Account() {
-  return <h2>My Account</h2>;
 }
 
 function City(props) {
@@ -115,34 +96,3 @@ function City(props) {
   );
 }
 
-// The below code is just for testing pusposes and should be deleted before demo day!
-// class App extends Component {
-//   state = { users: [] };
-
-//   componentDidMount() {
-// axios
-//   .get('/api/users')
-//   .then(response => {
-//     console.log(response);
-//     this.setState({
-//       users: response.data,
-//     });
-//   })
-//   .catch(error => console.log(error));
-//   }
-
-//   render() {
-//     return (
-//       <div className='App'>
-//         <h1>Users</h1>
-//         {this.state.users.map(user => (
-//           <div key={user.id}>
-//             {user.name} {user.email}
-//           </div>
-//         ))}
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;

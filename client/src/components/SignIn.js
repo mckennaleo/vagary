@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -57,11 +58,35 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignInSide() {
+export default function SignIn(props) {
   const classes = useStyles();
 
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    // console.log(name, email, avatar, password, passwordConfirmation)
+      const user = {email, password}
+      console.log(user)
+      axios.post("http://localhost:3001/api/login", {
+        ...user
+      })
+      .then(results => {
+        console.log("do we get email?", results.data.email)
+        console.log("localStorage", localStorage)
+        localStorage.setItem("token", results.data.token)
+        localStorage.setItem("email", results.data.email)
+        props.setUser(results.data.email)
+        props.setToken(results.data.token)
+      })
+
+  }
+
   return (
-    <Grid container component="main" className={classes.root}>
+    <Grid container component="main" className={classes.root} onSubmit={handleSubmit}>
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
@@ -83,6 +108,8 @@ export default function SignInSide() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange = {(evt) => setEmail(evt.target.value)}
+              value = {email}
             />
             <TextField
               variant="outlined"
@@ -94,6 +121,8 @@ export default function SignInSide() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange = {(evt) => setPassword(evt.target.value)}
+              value = {password}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

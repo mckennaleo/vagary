@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-//axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+
 
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -61,9 +61,7 @@ export default function SignUp(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    alert("hello")
 
-    //setUserData({...userData})
 
     // console.log(name, email, avatar, password, passwordConfirmation)
       const user = {name, email, avatar, password, password_confirmation: passwordConfirmation}

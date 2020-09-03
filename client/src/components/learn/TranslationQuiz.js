@@ -21,7 +21,7 @@ export default function TranslationQuiz(props) {
 
   const handleChange = (questionId, answer) => {
     // debugger
-    setChosenAnswers({...chosenAnswers, [questionId]: answer})
+    setChosenAnswers({...chosenAnswers})
   };
 
   // Get translations from database
