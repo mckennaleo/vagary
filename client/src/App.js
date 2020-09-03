@@ -17,23 +17,7 @@ export default function App() {
         <CircleMenu />
       </div>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Globe</Link> {/*globe*/}
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
-          <li>
-            <Link to="/account">My Account</Link>
-          </li>
-          <li>
-            <Link to="/city">City</Link> {/*template literal with city name*/}
-          </li>
-        </ul>
+        
 
         <Switch>
           <Route path="/login" component={Login} />
@@ -73,12 +57,8 @@ function City(props) {
   const coordinates = props.location.state.city.marker.coordinates;
   const language = props.location.state.city.marker.language;
   const city_id = props.location.state.city.marker.city_id;
-<<<<<<< HEAD
-  
-=======
   const background = props.location.state.city.marker.background;
 
->>>>>>> 53367a89d794c059a7352e974e0ae96d372e0769
   return (
     <div className={`background--${city}`}>
       <h2>City</h2>
