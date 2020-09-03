@@ -38,6 +38,7 @@ export default function Explore(props) {
   }, []);
 
   return (
+    <div className={`background--${city}`}>
     <div class="exploreCity">
       
      <span>
@@ -47,6 +48,7 @@ export default function Explore(props) {
           cityId={cityId}
           cityResults={cityResults}
           onSelect={setDisplay}
+          class="explore-map"
         />
       </span>      
       <span>
@@ -55,6 +57,7 @@ export default function Explore(props) {
 
         />
       </span>
+    </div>
     </div>
   );
 }
