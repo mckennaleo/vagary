@@ -1,5 +1,5 @@
 class QuizQuestionsController < ApplicationController
-
+  before_action :authorize_request
   def index
     quiz_questions = QuizQuestion.all
     render json: quiz_questions.to_json

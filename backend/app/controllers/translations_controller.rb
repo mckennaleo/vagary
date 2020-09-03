@@ -1,5 +1,5 @@
 class TranslationsController < ApplicationController
-
+  before_action :authorize_request
   def show
     @translation = Translation.find(translation_params)
     render json: @translation

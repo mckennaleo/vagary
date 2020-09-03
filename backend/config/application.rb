@@ -12,7 +12,7 @@ require "action_cable/engine"
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
-require 'jwt'
+# require 'jwt'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -31,17 +31,3 @@ module Backend
   end
 end
 
-
-# .issue, which will be responsible for generating a JWT from a given user's information, and a .decode method, which will decode a given JWT:
-
-class Auth
-
-  def self.issue(payload)
-    
-  end
-
-  def self.decode(token)
-    
-  end
-
-end
