@@ -24,9 +24,12 @@ Rails.application.routes.draw do
   resources :translations, only: [:show, :index]
 
     # these routes are for showing users a login form, logging them in, and logging them out.
-    get '/login' => 'sessions#new'
-    post '/login' => 'sessions#create'
-    get '/logout' => 'sessions#destroy'
+    # get '/login' => 'sessions#new'
+    # post '/login' => 'sessions#create'
+    # get '/logout' => 'sessions#destroy'
+    post '/login', to: 'sessions#create'
+    delete '/logout', to: 'sessions#destroy'
+    get '/logged_in', to: 'sessions#is_logged_in?'
   
     # These routes will be for signup. The first renders a form in the browse, the second will 
     # receive the form and create a user in our database using the data given to us by the user.

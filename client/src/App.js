@@ -56,6 +56,14 @@ function Home() {
 }
 
 function Login() {
+  // request for token from backend
+  axios.create({
+    baseURL: '/api/users',
+    headers: {
+      // Authorization: {put your token here}
+    }
+  })
+
   return <h2>Login</h2>;
 }
 

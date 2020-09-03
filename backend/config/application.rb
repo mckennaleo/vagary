@@ -12,6 +12,8 @@ require "action_cable/engine"
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
+require 'jwt'
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -27,4 +29,19 @@ module Backend
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
   end
+end
+
+
+# .issue, which will be responsible for generating a JWT from a given user's information, and a .decode method, which will decode a given JWT:
+
+class Auth
+
+  def self.issue(payload)
+    
+  end
+
+  def self.decode(token)
+    
+  end
+
 end

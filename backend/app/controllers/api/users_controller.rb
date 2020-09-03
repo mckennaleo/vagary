@@ -1,28 +1,54 @@
 class Api::UsersController < ApplicationController
   def index
-    users = User.all
-    render json: users
+    @users = User.all
+    if @users
+      render json: {
+        users: @users
+      }
+    else
+      render json: {
+        status: 500,
+        errors: ['no users found']
+      }
+    end
   end
 
   def new
   end
 
+  def show
+        @user = User.find(params[:id])
+   if @user
+      render json: {
+        user: @user
+      }
+    else
+      render json: {
+        status: 500,
+        errors: ['user not found']
+      }
+    end
+  end
+
   def create
     @user = User.new(user_params)
-    #stores all emails in lowercase to avoid errors
-    @user.email.downcase!
-    @user.save
     if @user.save
-      session[:user_id] = @user.id
-      redirect_to '/'
-    else
-      redirect_to '/signup'
+      login!
+      render json: {
+        status: :created,
+        user: @user
+      }
+    else 
+      render json: {
+        status: 500,
+        errors: @user.errors.full_messages
+      }
     end
   end
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
 end
