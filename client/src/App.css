@@ -1,5 +1,5 @@
 * {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 .App {
@@ -41,18 +41,11 @@
   }
 }
 
-.Saigon{
-  background-image: url(./docs/saigon.jpg);
-}
-
-
-
 /*---------- EXPLORE ----------*/
 
 .exploreCity {
   display: flex;
   justify-content: space-around;
-  
 }
 
 .leaflet-container {
@@ -78,11 +71,11 @@
 }
 
 .explore-title {
-  font-size: larger
+  font-size: larger;
 }
 
 .explore-text {
-  font-size: small
+  font-size: small;
 }
 
 @import "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css";

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Globe from "./components/Globe";
 import "leaflet/dist/leaflet.css";
 import "./App.css";
-import "./components/LayoutMain.scss"
+import "./components/LayoutMain.scss";
 import WelcomeToCity from "./components/WelcomeToCity";
 import CircleMenu from "./components/CircleMenu";
 import Learn from "./components/learn/Learn";
@@ -12,7 +12,7 @@ import TranslationQuiz from "./components/learn/TranslationQuiz";
 
 export default function App() {
   return (
-    <Router class={`${city}`}>
+    <Router>
       <div>
         <CircleMenu />
       </div>
