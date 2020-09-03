@@ -8,30 +8,28 @@ export default function Spotify() {
   const theme = "black"; // or 'white'
   const uri =
     "spotify:playlist:4pkof2WT0Spca1pX3j2dh4?si=gsmRtNJLSlycwVsT18p3dw";
-  useEffect(() => {
-    const data = getPlaylist();
-    data
-      .then((result) => {
-        console.log("DATA AFTER: ", data);
-        console.log("RESULT: ", result);
-        // console.log("URI: ", playlistURI);
 
-        const playlistData = result.map((playlist) => {
-          console.log("PLAYLIST URI: ", playlist.uri);
-          console.log("cityID: ", playlist.city_id);
-          console.log("playlistID: ", playlist.id);
+  const data = getPlaylist();
+  data
+    .then((result) => {
+      console.log("DATA AFTER: ", data);
+      console.log("RESULT: ", result);
 
-          return {
-            playlistURI: playlist.uri,
-            cityID: playlist.city_id,
-          };
-        });
-        return playlistData;
-      })
-      .catch((error) => {
-        console.log(error);
+      const playlistData = result.map((playlist) => {
+        console.log("PLAYLIST URI: ", playlist.uri);
+        console.log("cityID: ", playlist.city_id);
+        console.log("playlistID: ", playlist.id);
+
+        return {
+          playlistURI: playlist.uri,
+          cityID: playlist.city_id,
+        };
       });
-  }, []);
+      return playlistData;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 
   return (
     <SpotifyPlayer

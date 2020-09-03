@@ -9,8 +9,9 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
 // compass
 import ExploreIcon from "@material-ui/icons/Explore";
-
+import IconButton from "@material-ui/core/iconbutton'";
 import "./CircleMenu.css";
+import Spotify from "./components/spotify/Spotify";
 
 export default class CircleMenu extends React.Component {
   render() {
@@ -30,9 +31,14 @@ export default class CircleMenu extends React.Component {
           <ExploreIcon />
         </label>
 
-        <a href="#" className="menu-item orange">
-          <MusicNoteIcon />
-        </a>
+        <IconButton className="menu-item orange">
+          <MusicNoteIcon
+            onClick={() => {
+              <Spotify />;
+            }}
+          />
+        </IconButton>
+
         <a href="/" className="menu-item purple">
           <PublicIcon />
         </a>

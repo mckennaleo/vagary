@@ -9,7 +9,7 @@ import CircleMenu from "./components/CircleMenu";
 import Learn from "./components/learn/Learn";
 import Explore from "./components/explore/Explore";
 import TranslationQuiz from "./components/learn/TranslationQuiz";
-import Spotify from "./components/spotify/Spotify";
+//import Spotify from "./components/spotify/Spotify";
 
 export default function App() {
   return (
@@ -17,9 +17,9 @@ export default function App() {
       <div>
         <CircleMenu />
       </div>
-      <div class="spotify">
+      {/* <div class="spotify">
         <Spotify />
-      </div>
+      </div> */}
 
       <div>
         <Switch>
