@@ -9,6 +9,8 @@ import CircleMenu from "./components/CircleMenu";
 import Learn from "./components/learn/Learn";
 import Explore from "./components/explore/Explore";
 import TranslationQuiz from "./components/learn/TranslationQuiz";
+import Spotify from "./components/spotify/Spotify"
+
 
 export default function App() {
   return (
@@ -16,25 +18,12 @@ export default function App() {
       <div>
         <CircleMenu />
       </div>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Globe</Link> {/*globe*/}
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
-          <li>
-            <Link to="/account">My Account</Link>
-          </li>
-          <li>
-            <Link to="/city">City</Link> {/*template literal with city name*/}
-          </li>
-        </ul>
+      <div class="spotify">
+        <Spotify />
+      </div>
 
+      <div>
+        
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
@@ -52,7 +41,7 @@ export default function App() {
 }
 
 function Home() {
-  return <Globe />;
+  return <Globe />
 }
 
 function Login() {
