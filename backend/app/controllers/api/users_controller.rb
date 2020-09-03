@@ -13,13 +13,17 @@ class Api::UsersController < ApplicationController
   end
   # POST /users
   def create
-    @user = User.new(user_params)
+    puts params
+    puts params
+    @user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], avatar_id: params[:avatar])
     if @user.save
-      render json: @user, status: :created
+      token = encode_token(@user.id)  
+      render json: {user: @user, token: token}, status: :created
     else
       render json: { errors: @user.errors.full_messages },
              status: :unprocessable_entity
     end
+    
   end
   # PUT /users/{username}
   def update

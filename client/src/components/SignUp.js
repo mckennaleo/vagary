@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
+//axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -46,11 +49,40 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+
+export default function SignUp(props) {
   const classes = useStyles();
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [avatar, setAvatar] = useState("")
+  const [password, setPassword] = useState("")
+  const [passwordConfirmation, setPasswordConfirmation] = useState("")
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    alert("hello")
+
+    //setUserData({...userData})
+
+    // console.log(name, email, avatar, password, passwordConfirmation)
+      const user = {name, email, avatar, password, password_confirmation: passwordConfirmation}
+      console.log(user)
+      axios.post("http://localhost:3001/api/users", {
+        ...user
+      })
+      .then(results => {
+        console.log(results)
+        localStorage.setItem("token", results.data.token)
+        localStorage.setItem("email", results.data.user.email)
+        props.setUser(results.data.user.email)
+        props.setToken(results.data.token)
+      })
+
+  }
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" onSubmit={handleSubmit}>
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -61,19 +93,21 @@ export default function SignUp() {
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
                 autoComplete="fname"
-                name="firstName"
+                name="name"
                 variant="outlined"
                 required
                 fullWidth
-                id="firstName"
-                label="First Name"
+                id="Name"
+                label="Name"
                 autoFocus
+                onChange = {(evt) => setName(evt.target.value)}
+                value = {name}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            {/* <Grid item xs={12} sm={6}>
               <TextField
                 variant="outlined"
                 required
@@ -83,7 +117,7 @@ export default function SignUp() {
                 name="lastName"
                 autoComplete="lname"
               />
-            </Grid>
+            </Grid> */}
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -93,6 +127,21 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange = {(evt) => setEmail(evt.target.value)}
+                value = {email}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="avatar"
+                label="avatar"
+                name="avatar"
+                autoComplete="1"
+                onChange = {(evt) => setAvatar(evt.target.value)}
+                value = {avatar}
               />
             </Grid>
             <Grid item xs={12}>
@@ -105,14 +154,30 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange = {(evt) => setPassword(evt.target.value)}
+                value = {password}
               />
             </Grid>
             <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="password confirmation"
+                label="Password confirmation"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                onChange = {(evt) => setPasswordConfirmation(evt.target.value)}
+                value = {passwordConfirmation}
+              />
+            </Grid>
+            {/* <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
                 label="I want to receive inspiration, marketing promotions and updates via email."
               />
-            </Grid>
+            </Grid> */}
           </Grid>
           <Button
             type="submit"
@@ -125,7 +190,7 @@ export default function SignUp() {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/login" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>

@@ -1,9 +1,12 @@
 import React, { Component, useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import axios from 'axios';
 import Globe from "./components/Globe";
 import "leaflet/dist/leaflet.css";
 import "./App.css";
 import "./components/LayoutMain.scss"
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
 import WelcomeToCity from "./components/WelcomeToCity";
 import CircleMenu from "./components/CircleMenu";
 import Learn from "./components/learn/Learn";
@@ -11,6 +14,20 @@ import Explore from "./components/explore/Explore";
 import TranslationQuiz from "./components/learn/TranslationQuiz";
 
 export default function App() {
+  const [user, setUser] = useState(null)
+  const [token, setToken] = useState(null)
+
+  useEffect(() => {
+    console.log(localStorage)
+    const localUser = localStorage.getItem("email")
+    const localToken = localStorage.getItem("token")
+    console.log(localUser, localToken)
+    if (localUser && localToken) {
+      setUser(localUser)
+      setToken(localToken)
+    }
+  },[])
+
   return (
     <Router>
       <div>
@@ -33,11 +50,15 @@ export default function App() {
           <li>
             <Link to="/city">City</Link> {/*template literal with city name*/}
           </li>
+          <li>
+            {token && token}
+            {user && user}
+          </li>
         </ul>
 
         <Switch>
-          <Route path="/login" component={SignIn} />
-          <Route path="/register" component={SignUp} />
+          <Route path="/login" component={() =><SignIn setUser={setUser} setToken={setToken}/>} />
+          <Route path="/register" component={() =><SignUp setUser={setUser} setToken={setToken}/>} />
           <Route path="/account" component={Account} />
           <Route path="/city" component={City} />{" "}
           {/*template literal with city name*/}
@@ -64,12 +85,10 @@ function Login() {
     }
   })
 
-  return <h2>Login</h2>;
+  return (<SignIn />);
 }
 
-function Register() {
-  return <h2>Register</h2>;
-}
+
 
 function Account() {
   return <h2>My Account</h2>;

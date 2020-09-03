@@ -12,7 +12,11 @@ class ApplicationController < ActionController::API
       render json: { errors: e.message }, status: :unauthorized
     end
   end
-  
+  def encode_token(user_id)
+
+    JsonWebToken.encode(user_id: user_id)  
+   end
+
 end
 
 

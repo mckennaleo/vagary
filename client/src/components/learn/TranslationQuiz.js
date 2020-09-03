@@ -17,7 +17,7 @@ export default function TranslationQuiz(props) {
 
   const [questions, setQuestions] = useState([])
   const [chosenAnswers, setChosenAnswers] = useState({});
-  const [] = useState({})
+  const [quizResult, setQuizResult] = useState({})
 
   const handleChange = (questionId, answer) => {
     // debugger
@@ -37,6 +37,11 @@ export default function TranslationQuiz(props) {
       .catch(err => console.log(err.message));
   }, []);
 
+  //if user is logged in
+  //make post request to /quiz_results with result + quiz_id
+
+  console.log("quizResult", quizResult)
+
   return (
     <section>
       {questions.map((question) => {
@@ -51,13 +56,16 @@ export default function TranslationQuiz(props) {
           </FormControl>
           )
     })}
-    <FormControl>
-     <Button type="button" variant="outlined" color="primary" className='' onClick={() => quizValidator(questions, chosenAnswers)}>
-          Submit
+      <FormControl>
+      <Button type="button" variant="outlined" color="primary" className='' onClick={() => setQuizResult(quizValidator(questions, chosenAnswers))}>
+            Submit
       </Button>
-    </FormControl>
-    </section>
 
+        
+
+      </FormControl>
+    </section>
+   
   )
 }
 
