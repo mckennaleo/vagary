@@ -129,4 +129,7 @@ QuizQuestion.create(question: "Can you say “Thank you”?", correct_answer: "C
 QuizQuestion.create(question: "How do you say “Have a nice day” in Vietnamese?", correct_answer: "Chúc một ngày tốt lành.", incorrect_answer_1: "Hẹn gặp bạn vào ngày mai", incorrect_answer_2: "Bạn khỏe không", incorrect_answer_3: "Xin chào", quiz_id: 5)
 QuizQuestion.create(question: "What about “Good-bye”?", correct_answer: "Tạm biệt", incorrect_answer_1: "Buổi sáng tốt lành", incorrect_answer_2: "Vui mừng", incorrect_answer_3: "Cho tôi xin hai vé", quiz_id: 5)
     
-    
+# PLAYLISTS
+Playlist.create(uri: "spotify:playlist:50cAhfdSSu1CQZpWMMZyw5", city_id: 1)
+Playlist.create(uri: "spotify:playlist:7qiesZR3pwTVGGqV4lVxQu", city_id: 2)
+Playlist.create(uri: "spotify:playlist:4pkof2WT0Spca1pX3j2dh4?si=gsmRtNJLSlycwVsT18p3dw", city_id: 3)
