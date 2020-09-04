@@ -24,14 +24,13 @@ export default function Spotify(props) {
           });
         console.log("RESULT FROM GETCITY:", result);
         console.log("NEW URI: ", newUri[0]);
-        return newUri[0];
+        uri = newUri[0];
+        return uri;
       })
       .catch((error) => {
         console.log(error);
       });
     //uri = getNewUri;
-    console.log("getNewUri: ", getNewUri);
-    return getNewUri;
   }
 
   return (
