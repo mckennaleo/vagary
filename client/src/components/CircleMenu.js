@@ -48,9 +48,13 @@ export default function CircleMenu(props){
             <a href="/sign-in" className="menu-item red">
               <Face SignIn={SignIn}/>
               </a>}
+          {props.user ? 
         <a href="/my-room" className="menu-item blue">
           <MeetingRoomIcon />
-        </a>
+        </a> :
+        <a href="/sign-in" className="menu-item blue">
+        <MeetingRoomIcon />
+        </a>}
       </nav>
     );
 }
