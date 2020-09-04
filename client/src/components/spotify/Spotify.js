@@ -32,7 +32,7 @@ export default function Spotify() {
   return (
     <SpotifyPlayer
       class="spotify"
-      uri={selectedCityData.URI}
+      uri={cityData.URI} // undefined for now
       size={size}
       view={view}
       theme={theme}
