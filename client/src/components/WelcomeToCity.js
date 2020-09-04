@@ -22,7 +22,7 @@ export default function WelcomeToCity(props) {
     }
   ];
 
-  console.log("CityParams: ", cityParams);
+  // console.log("CityParams: ", cityParams);
 
   const [learn, setLearn] = useState(false);
   const [explore, setExplore] = useState(false);

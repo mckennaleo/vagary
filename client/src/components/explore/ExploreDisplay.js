@@ -15,26 +15,11 @@ export default function ExploreDisplay(props) {
     },
   ];
   const city = props.city
-  const goToCityQuiz = () => {
-    // console.log(city)
-  setCityQuiz(cityParams);
-  };
-  if (cityQuiz) {
-    return (
-      <Redirect
-      cityParams={cityParams}
-        push
-        to={{
-          pathname: "/cityquiz",
-          state: { cityQuiz },
-        }}
-      />
-    );
-  }
 
 
   let videoURL = "";
   console.log("PROPS", props);
+
   useEffect(() => {
     console.log("FIRING")
   if (props.display !== undefined) {
@@ -44,6 +29,25 @@ export default function ExploreDisplay(props) {
   }, [videoId, props.display])
     videoURL = `https://www.youtube.com/watch?v=${videoId}`
     console.log("PROPS", props)
+
+    const goToCityQuiz = () => {
+      // console.log(city)
+    setCityQuiz(cityParams);
+    };
+    if (cityQuiz) {
+      return (
+        <Redirect
+        cityParams={cityParams}
+          push
+          to={{
+            pathname: "/cityquiz",
+            state: { cityQuiz },
+          }}
+        />
+      );
+    }
+  
+
     return (
       <article class="explore-display">
         <img src={props.display && props.display.photo} class="display-img"/>
