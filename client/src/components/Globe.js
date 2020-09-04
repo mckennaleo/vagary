@@ -42,6 +42,7 @@ export default function Globe({user, token, userId}) {
       coordinates: [17.06542, -96.72365],
       value: 50,
       city_id: "150801",
+      background: "../docs/oaxaca.jpg"
     },
     {
       id: "marker2",
@@ -52,6 +53,7 @@ export default function Globe({user, token, userId}) {
       coordinates: [45.501689, -73.567256],
       value: 50,
       city_id: "155032",
+      background: "../docs/montreal.jpg"
     },
     {
       id: "marker3",
@@ -62,6 +64,7 @@ export default function Globe({user, token, userId}) {
       coordinates: [10.762622, 106.660172],
       value: 50,
       city_id: "293925",
+      background: "../docs/saigon.jpg"
     },
     {
       id: "marker4",
@@ -72,6 +75,7 @@ export default function Globe({user, token, userId}) {
       coordinates: [47.49622, 19.04588],
       value: 50,
       city_id: "274887",
+      background: "../docs/budapest.jpg"
     },
     {
       id: "marker5",
@@ -82,6 +86,7 @@ export default function Globe({user, token, userId}) {
       coordinates: [41.015137, 28.97953],
       value: 50,
       city_id: "293974",
+      background: "../docs/istanbul.jpg"
     },
   ];
 

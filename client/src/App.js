@@ -70,7 +70,6 @@ export default function App(props) {
             {userId && userId}
           </li>
         </ul>
-
         <Switch>
           <Route path="/sign-in" component={() =><SignIn setUser={setUser} setToken={setToken} setUserId={setUserId}/>} />
           <Route path="/sign-up" component={() =><SignUp setUser={setUser} setToken={setToken} setUserId={setUserId}/>} />
