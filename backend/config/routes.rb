@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'playlists/show'
+
+  get 'playlists/index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   namespace :api do
@@ -9,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :badges, only: [:show]
 
-  resources :cities, only: [:show]
+  resources :cities, only: [:show, :index]
 
   resources :quizzes, only: [:show, :index]
 
@@ -22,6 +26,8 @@ Rails.application.routes.draw do
   resources :quiz_results, only: [:show, :create, :index]
 
   resources :translations, only: [:show, :index]
+
+  resources :playlists, only: [:show, :index]
 
     # these routes are for showing users a login form, logging them in, and logging them out.
     get '/login' => 'sessions#new'

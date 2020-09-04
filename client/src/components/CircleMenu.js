@@ -9,7 +9,6 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
 // compass
 import ExploreIcon from "@material-ui/icons/Explore";
-
 import "./CircleMenu.css";
 
 export default class CircleMenu extends React.Component {
@@ -31,7 +30,9 @@ export default class CircleMenu extends React.Component {
         </label>
 
         <a href="#" className="menu-item orange">
-          <MusicNoteIcon />
+          <div>
+            <MusicNoteIcon />
+          </div>
         </a>
         <a href="/" className="menu-item purple">
           <PublicIcon />

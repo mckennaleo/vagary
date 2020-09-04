@@ -9,11 +9,10 @@ import CircleMenu from "./components/CircleMenu";
 import Learn from "./components/learn/Learn";
 import Explore from "./components/explore/Explore";
 import TranslationQuiz from "./components/learn/TranslationQuiz";
-import Spotify from "./components/spotify/Spotify"
+import Spotify from "./components/spotify/Spotify";
 
 
 export default function App(props) {
-  console.log(props)
   return (
     <Router>
       <div>
@@ -37,26 +36,23 @@ export default function App(props) {
       </div>
     </Router>
   );
+
+  function Home() {
+    return <Globe />;
+  }
+
+  function Login() {
+    return <h2>Login</h2>;
+  }
+
+  function Register() {
+    return <h2>Register</h2>;
+  }
+
+  function Account() {
+    return <h2>My Account</h2>;
+  }
 }
-
-function Home(props) {
-
-
-  return <Globe />
-}
-
-function Login() {
-  return <h2>Login</h2>;
-}
-
-function Register() {
-  return <h2>Register</h2>;
-}
-
-function Account() {
-  return <h2>My Account</h2>;
-}
-
 function City(props) {
   //console.log(props);
   const city = props.location.state.city.marker.cityName;
@@ -64,9 +60,14 @@ function City(props) {
   const language = props.location.state.city.marker.language;
   const city_id = props.location.state.city.marker.city_id;
   const background = props.location.state.city.marker.background;
-
+  console.log("CITY", city);
+  console.log("PROPS", props);
+  console.log("BACKGROUND", background);
   return (
     <div className={`background--${city}`}>
+      {/* <div class="spotify">
+        <Spotify city={city} />
+      </div> */}
       <h2>City</h2>
       <h1>I'm in {city}</h1>
       <WelcomeToCity
@@ -78,11 +79,9 @@ function City(props) {
       />
     </div>
   );
+  
 }
 
-App.defaultProps = {
-  city: "Globe"
-}
 // The below code is just for testing pusposes and should be deleted before demo day!
 // class App extends Component {
 //   state = { users: [] };

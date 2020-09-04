@@ -96,6 +96,17 @@ GEM
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    nokogiri (1.10.10-java)
+    nokogiri (1.10.10-x64-mingw32)
+      mini_portile2 (~> 2.4.0)
+    nokogiri (1.10.10-x86-mingw32)
+      mini_portile2 (~> 2.4.0)
+    pg (1.2.3)
+    pg (1.2.3-x64-mingw32)
+    pg (1.2.3-x86-mingw32)
+>>>>>>> 34f3ac9a561f3b52ea5ff3cb6f593d6af0f7b92c
     oauth2 (1.4.4)
       faraday (>= 0.8, < 2.0)
       jwt (>= 1.0, < 3.0)
@@ -110,6 +121,7 @@ GEM
       omniauth (~> 1.2)
     pg (1.2.3)
     public_suffix (3.1.1)
+<<<<<<< HEAD
 =======
     nokogiri (1.10.10-java)
     nokogiri (1.10.10-x64-mingw32)
@@ -120,6 +132,8 @@ GEM
     pg (1.2.3-x64-mingw32)
     pg (1.2.3-x86-mingw32)
 >>>>>>> feature/exploreLandmark
+=======
+>>>>>>> 34f3ac9a561f3b52ea5ff3cb6f593d6af0f7b92c
     puma (3.12.6)
     puma (3.12.6-java)
     rack (2.2.3)
@@ -180,6 +194,7 @@ GEM
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
 <<<<<<< HEAD
+<<<<<<< HEAD
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
@@ -187,6 +202,13 @@ GEM
     tzinfo-data (1.2020.1)
       tzinfo (>= 1.0.0)
 >>>>>>> feature/exploreLandmark
+=======
+    tzinfo-data (1.2020.1)
+      tzinfo (>= 1.0.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.7)
+>>>>>>> 34f3ac9a561f3b52ea5ff3cb6f593d6af0f7b92c
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-driver (0.6.5-java)
