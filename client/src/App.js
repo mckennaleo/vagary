@@ -11,20 +11,21 @@ import CircleMenu from "./components/CircleMenu";
 import Learn from "./components/learn/Learn";
 import Explore from "./components/explore/Explore";
 import TranslationQuiz from "./components/learn/TranslationQuiz";
+import MyRoom from "./components/MyRoom";
 
 export default function App(props) {
   const [user, setUser] = useState(null)
   const [token, setToken] = useState(null)
   const [userId, setUserId] = useState(null)
 
-  console.log("??????", props)
+  //console.log("??????", props)
 
   useEffect(() => {
-    console.log(localStorage)
+    //console.log(localStorage)
     const localUser = localStorage.getItem("email")
     const localToken = localStorage.getItem("token")
     const localId = localStorage.getItem("id")
-    console.log(localUser, localToken, userId)
+    //console.log(localUser, localToken, userId)
     if (localUser && localToken && localId) {
       setUser(localUser)
       setToken(localToken)
@@ -64,7 +65,7 @@ export default function App(props) {
         <Switch>
           <Route path="/sign-in" component={() =><SignIn setUser={setUser} setToken={setToken} setUserId={setUserId}/>} />
           <Route path="/sign-up" component={() =><SignUp setUser={setUser} setToken={setToken} setUserId={setUserId}/>} />
-          <Route path="/my-room" />
+          <Route path="/my-room" component={() =><MyRoom user={user} token={token} userId={userId} />} />
           <Route path="/city" component={City}/>:
           {/*template literal with city name*/}
           <Route path="/learn" component={Learn} />
@@ -82,7 +83,13 @@ function City(props) {
   const coordinates = props.location.state.city.marker.coordinates;
   const language = props.location.state.city.marker.language;
   const city_id = props.location.state.city.marker.city_id;
-  
+  const userEmail = props.location.state.city.userData.user;
+  const userId = props.location.state.city.userData.userId;
+  const userToken = props.location.state.city.userData.token;
+
+  //console.log("CITY PROPS", props)
+  //console.log("userEmail, userId, userToken", userEmail, userId, userToken)
+
   return (
     <div className={`background--${city}`}>
       <h2>City</h2>
@@ -92,6 +99,9 @@ function City(props) {
         coordinates={coordinates}
         language={language}
         city_id={city_id}
+        userEmail={userEmail}
+        userId={userId}
+        userToken={userToken}
       />
     </div>
   );
