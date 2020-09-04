@@ -16,8 +16,8 @@ import IconButton from "@material-ui/core/IconButton"
 import "./CircleMenu.css";
 
 
-export default class CircleMenu extends React.Component {
-  render() {
+export default function CircleMenu(props){
+
     return (
       <nav className="menu">
         <input
@@ -41,7 +41,7 @@ export default class CircleMenu extends React.Component {
           <PublicIcon />
         </a>
         <a href="" className="menu-item red">
-        <IconButton>
+        <IconButton onClick={() => props.logout()}>
           <ExitToAppIcon />
           </IconButton>
         </a>
@@ -50,5 +50,4 @@ export default class CircleMenu extends React.Component {
         </a>
       </nav>
     );
-  }
 }

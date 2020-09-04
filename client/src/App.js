@@ -24,8 +24,8 @@ export default function App(props) {
     //console.log(localStorage)
     const localUser = localStorage.getItem("email")
     const localToken = localStorage.getItem("token")
-    const localId = localStorage.getItem("id")
-    //console.log(localUser, localToken, userId)
+    const localId = localStorage.getItem("userId")
+    console.log(localUser, localToken, userId)
     if (localUser && localToken && localId) {
       setUser(localUser)
       setToken(localToken)
@@ -33,10 +33,19 @@ export default function App(props) {
     }
   },[])
 
+  const logout = () => {
+    localStorage.removeItem("email")
+    localStorage.removeItem("token")
+    localStorage.removeItem("userId")
+    setUser(null)
+    setToken(null)
+    setUserId(null)
+  }
+
   return (
     <Router>
       <div>
-        <CircleMenu setUser={setUser} setToken={setToken}/>
+        <CircleMenu logout={logout}/>
       </div>
       <div>
         <ul>
