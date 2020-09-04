@@ -15,7 +15,7 @@ import CityQuiz from "./components/explore/CityQuiz";
 import Spotify from "./components/spotify/Spotify";
 import MyRoom from "./components/MyRoom";
 
-export default function App() {
+export default function App(props) {
   const [user, setUser] = useState(null)
   const [token, setToken] = useState(null)
   const [userId, setUserId] = useState(null)
