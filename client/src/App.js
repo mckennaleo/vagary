@@ -13,6 +13,7 @@ import Spotify from "./components/spotify/Spotify";
 
 
 export default function App(props) {
+  console.log("PROPS", props)
   return (
     <Router>
       <div>
@@ -80,6 +81,9 @@ function City(props) {
     </div>
   );
   
+}
+App.defaultProps = {
+  current: "Globe"
 }
 
 // The below code is just for testing pusposes and should be deleted before demo day!

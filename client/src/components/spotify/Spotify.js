@@ -3,8 +3,8 @@ import SpotifyPlayer from "react-spotify-player";
 import getPlaylist from "../../hooks/playlistData.js";
 // import getCity from "../../hooks/cityData.js";
 
-export default function Spotify(props) {
-  console.log("CITY NAME!!!: ", props);
+export default function Spotify() {
+
 
   const size = "compact";
   const view = "coverart"; // or 'coverart'
