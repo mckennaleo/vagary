@@ -11,6 +11,7 @@ export default function MyRoom(props) {
   useEffect(() => {
       Promise.all([
         axios.get("/quiz_results"),
+        axios.get("/quizzes"),
         axios.get("/favourites"),
       ])
       .then(results => {
