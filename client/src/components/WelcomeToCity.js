@@ -7,12 +7,17 @@ import Learn from "./learn/Learn";
 import "./LayoutMain.scss";
 
 export default function WelcomeToCity(props) {
-  const cityParams = [
+  console.log("WELCOME TO CITY PROPS: ", props);
+
+  const params = [
     {
       name: props.city,
       coordinates: props.coordinates,
       language: props.language,
       cityId: props.city_id,
+      userEmail: props.userEmail,
+      userId: props.userId,
+      userToken: props.userToken,
     },
   ];
 
@@ -21,11 +26,11 @@ export default function WelcomeToCity(props) {
 
   const goToLearn = () => {
     // console.log(city)
-    setLearn(cityParams);
+    setLearn(params);
   };
   const goToExplore = () => {
     // console.log(city)
-    setExplore(cityParams);
+    setExplore(params);
   };
 
   if (learn) {
