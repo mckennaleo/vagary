@@ -1,7 +1,7 @@
 class QuizResultsController < ApplicationController
-  before_action :authorize_request
+  before_action :authorize_request, except: :index
   def index
-    quiz_results = QuizResult.all
+    quiz_results = QuizResult.all    
     render json: quiz_results.to_json
   end
 
