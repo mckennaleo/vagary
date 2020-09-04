@@ -63,6 +63,6 @@ const quizValidator = (q, a) => {
   }
  
 
-export { getPhrasesByCityId, getTranslationQuestionsByCityId, quizValidator, getQuizResultsByUserId };
+export { getPhrasesByCityId, getTranslationQuestionsByCityId, quizValidator, getQuizResultsByUserId, getCityQuestionsByCityId };
 
 
