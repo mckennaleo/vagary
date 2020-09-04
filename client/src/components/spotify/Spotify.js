@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import SpotifyPlayer from "react-spotify-player";
-import getPlaylist from "../../hooks/playlistData.js";
+import getPlaylist from "../../hooks/cityData.js";
 import getCity from "../../hooks/cityData.js";
 
 export default function Spotify() {
@@ -14,31 +14,20 @@ export default function Spotify() {
   let cityID;
   let uri = "spotify:playlist:5NbleROaHyKOZDwJEPm7f5?si=FgpZbIBMTKOlTUjBi5zv-w";
 
-  const playlistData = getPlaylist();
-  playlistData
+  const cityData = getCity()
     .then((result) => {
-      console.log("RESULT: ", result);
-
-      const playlistData = result.map((playlist) => {
-        console.log("PLAYLIST URI: ", playlist.uri);
-        console.log("cityID: ", playlist.city_id);
-        console.log("playlistID: ", playlist.id);
+      const selectedCityDataData = result.map((city) => {
+        console.log("city URI: ", city.uri);
+        console.log("cityID: ", city.city_id);
+        console.log("playlistID: ", city.id);
 
         return {
-          playlistURI: playlist.uri,
-          cityID: playlist.city_id,
+          URI: city.playlist,
+          cityName: city.name,
         };
       });
-      return playlistData;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-
-  const cityData = getCity();
-  cityData
-    .then((result) => {
-      console.log(result);
+      console.log("SELECTED CITY: ", selectedCityData);
+      return selectedCityData;
     })
     .catch((error) => {
       console.log(error);
