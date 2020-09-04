@@ -34,7 +34,7 @@ export default function CircleMenu(props){
           <span className="lines line-3"></span>
           <ExploreIcon />
         </label>
-        <a href="/explore" className="menu-item orange">
+        <a href="/" className="menu-item orange">
           <MusicNoteIcon />
         </a>
         <a href="/" className="menu-item purple">
