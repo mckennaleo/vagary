@@ -9,18 +9,18 @@ import CircleMenu from "./components/CircleMenu";
 import Learn from "./components/learn/Learn";
 import Explore from "./components/explore/Explore";
 import TranslationQuiz from "./components/learn/TranslationQuiz";
-//import Spotify from "./components/spotify/Spotify";
+import Spotify from "./components/spotify/Spotify";
 
-export default function App() {
+export default function App(props) {
+  console.log("PROPS APP: ", props);
   return (
     <Router>
       <div>
         <CircleMenu />
       </div>
-      {/* <div class="spotify">
+      <div class="spotify">
         <Spotify />
-      </div> */}
-
+      </div>
       <div>
         <Switch>
           <Route path="/login" component={Login} />
@@ -36,22 +36,22 @@ export default function App() {
       </div>
     </Router>
   );
-}
 
-function Home() {
-  return <Globe />;
-}
+  function Home() {
+    return <Globe />;
+  }
 
-function Login() {
-  return <h2>Login</h2>;
-}
+  function Login() {
+    return <h2>Login</h2>;
+  }
 
-function Register() {
-  return <h2>Register</h2>;
-}
+  function Register() {
+    return <h2>Register</h2>;
+  }
 
-function Account() {
-  return <h2>My Account</h2>;
+  function Account() {
+    return <h2>My Account</h2>;
+  }
 }
 
 function City(props) {
@@ -67,6 +67,9 @@ function City(props) {
 
   return (
     <div className={`background--${city}`}>
+      {/* <div class="spotify">
+        <Spotify city={city} />
+      </div> */}
       <h2>City</h2>
       <h1>I'm in {city}</h1>
       <WelcomeToCity
@@ -79,35 +82,3 @@ function City(props) {
     </div>
   );
 }
-
-// The below code is just for testing pusposes and should be deleted before demo day!
-// class App extends Component {
-//   state = { users: [] };
-
-//   componentDidMount() {
-// axios
-//   .get('/api/users')
-//   .then(response => {
-//     console.log(response);
-//     this.setState({
-//       users: response.data,
-//     });
-//   })
-//   .catch(error => console.log(error));
-//   }
-
-//   render() {
-//     return (
-//       <div className='App'>
-//         <h1>Users</h1>
-//         {this.state.users.map(user => (
-//           <div key={user.id}>
-//             {user.name} {user.email}
-//           </div>
-//         ))}
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;

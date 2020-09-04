@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :badges, only: [:show]
 
-  resources :cities, only: [:show]
+  resources :cities, only: [:show, :index]
 
   resources :quizzes, only: [:show, :index]
 
