@@ -40,11 +40,11 @@ export default class CircleMenu extends React.Component {
         <a href="/" className="menu-item purple">
           <PublicIcon />
         </a>
-        {/* <a href="" className="menu-item red"> */}
+        <a href="" className="menu-item red">
         <IconButton>
           <ExitToAppIcon />
           </IconButton>
-        {/* </a> */}
+        </a>
         <a href="#" className="menu-item blue">
           <MeetingRoomIcon />
         </a>
