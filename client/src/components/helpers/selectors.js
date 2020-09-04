@@ -33,7 +33,24 @@ const quizValidator = (q, a) => {
     console.log(counter)
     return counter
   }
+
+
+  // use when making axios request to backend quiz_results index
+  //invocate ie: getQuizResultsByUserId(2, quizData, resultsData)
+  const getQuizResultsByUserId = (userId, quizzes, results) => {
+    let output = []
+      const filterResults = results.filter(result => 
+      result.user_id === userId)
+      for (quiz of quizzes) {
+        for (result of filterResults) {
+          if (result.quiz_id === quiz.id) {
+            output.push({quiz: quiz.name, result: result.result})
+          }
+        }
+      }
+      return output
+  }
  
 
-export { getPhrasesByCityId, getTranslationQuestionsByCityId, quizValidator };
+export { getPhrasesByCityId, getTranslationQuestionsByCityId, quizValidator, getQuizResultsByUserId };
 
