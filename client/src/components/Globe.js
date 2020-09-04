@@ -13,14 +13,10 @@ export default function Globe({user, token, userId}) {
     token,
     userId
   }
-
-  console.log("userData", userData)
-
   // on marker hover, show city name
   function markerTooltipRenderer(marker) {
     return `${marker.cityName}, ${marker.country}`;
   }
-
   const options = {
     markerTooltipRenderer,
     focusAnimationDuration: 2000,
@@ -42,7 +38,7 @@ export default function Globe({user, token, userId}) {
       coordinates: [17.06542, -96.72365],
       value: 50,
       city_id: "150801",
-      background: "../docs/oaxaca.jpg"
+      background: "../docs/oaxaca.jpg",
     },
     {
       id: "marker2",
@@ -53,7 +49,7 @@ export default function Globe({user, token, userId}) {
       coordinates: [45.501689, -73.567256],
       value: 50,
       city_id: "155032",
-      background: "../docs/montreal.jpg"
+      background: "../docs/montreal.jpg",
     },
     {
       id: "marker3",
@@ -64,7 +60,7 @@ export default function Globe({user, token, userId}) {
       coordinates: [10.762622, 106.660172],
       value: 50,
       city_id: "293925",
-      background: "../docs/saigon.jpg"
+      background: "../docs/saigon.jpg",
     },
     {
       id: "marker4",
@@ -75,7 +71,7 @@ export default function Globe({user, token, userId}) {
       coordinates: [47.49622, 19.04588],
       value: 50,
       city_id: "274887",
-      background: "../docs/budapest.jpg"
+      background: "../docs/budapest.jpg",
     },
     {
       id: "marker5",
@@ -86,13 +82,14 @@ export default function Globe({user, token, userId}) {
       coordinates: [41.015137, 28.97953],
       value: 50,
       city_id: "293974",
-      background: "../docs/istanbul.jpg"
+      background: "../docs/istanbul.jpg",
     },
   ];
 
-  const [city, setCity] = useState(null);
   const [details, setDetails] = useState(null);
   const [activeGlobe, setActiveGlobe] = useState(true);
+  const city = props.city;
+  const setCity = props.setCity;
 
   function onClickMarker(marker, markerObject, city) {
     setCity({
@@ -114,7 +111,7 @@ export default function Globe({user, token, userId}) {
   }
 
   const yesHandler = () => {
-    // console.log(city)
+    console.log("CITY FROM GLOBE: ", city);
     setActiveGlobe(false);
   };
 
@@ -128,6 +125,7 @@ export default function Globe({user, token, userId}) {
       />
     );
   }
+
   // simple component usage
   return (
     <div>
@@ -156,6 +154,7 @@ export default function Globe({user, token, userId}) {
       )}
 
       <ReactGlobe
+        name="globe"
         height="100vh"
         markers={markers}
         options={options}

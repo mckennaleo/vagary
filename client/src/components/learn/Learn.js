@@ -7,7 +7,7 @@ export default function Learn(props) {
   const city = props.location.state.learn[0].name
   const language = props.location.state.learn[0].language
   const userId = props.location.state.learn[0].userId
-  
+
   return (
     <section>
     <SpeechBubble city={city} language={language} userId={userId} />

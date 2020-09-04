@@ -20,6 +20,17 @@ const getTranslationQuestionsByCityId = (translationQuestionsData, city) => {
   return translationQuestionsData.filter(item => item.quiz_id === theQuestions)
 }
 
+const getCityQuestionsByCityId = (cityQuestionsData, city) => {
+    let theQuestions;
+    if (city === 'Istanbul') {
+      theQuestions = 2
+    } else if (city === 'Saigon') {
+      theQuestions = 3
+    }
+    return cityQuestionsData.filter(item => item.quiz_id === theQuestions)
+
+}
+
 const quizValidator = (q, a) => {
   let ans = Object.values(a)
   let counter = 0;
@@ -53,4 +64,5 @@ const quizValidator = (q, a) => {
  
 
 export { getPhrasesByCityId, getTranslationQuestionsByCityId, quizValidator, getQuizResultsByUserId };
+
 

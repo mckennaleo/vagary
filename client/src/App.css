@@ -1,5 +1,5 @@
 * {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 .App {
@@ -100,5 +100,7 @@
   opacity: 1;
   width: 90%;
 }
+
+
 
 @import "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css";
