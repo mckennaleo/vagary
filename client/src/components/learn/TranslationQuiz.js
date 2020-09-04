@@ -20,9 +20,9 @@ export default function TranslationQuiz(props) {
   const [quizResult, setQuizResult] = useState({})
 
   const handleChange = (questionId, answer) => {
-    setChosenAnswers({...chosenAnswers})
+    setChosenAnswers({...chosenAnswers, [questionId]: answer})
   };
-
+  
   // Get translations from database
   useEffect(() => {
     axios({
@@ -30,7 +30,7 @@ export default function TranslationQuiz(props) {
       url: `/quiz_questions`
     })
       .then(results => {
-        //console.log(results.data)
+        console.log(results.data)
         setQuestions(getTranslationQuestionsByCityId(results.data, city))
       })
       .catch(err => console.log(err.message));

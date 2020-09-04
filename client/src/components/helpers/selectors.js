@@ -41,8 +41,8 @@ const quizValidator = (q, a) => {
     let output = []
       const filterResults = results.filter(result => 
       result.user_id === userId)
-      for (quiz of quizzes) {
-        for (result of filterResults) {
+      for (const quiz of quizzes) {
+        for (const result of filterResults) {
           if (result.quiz_id === quiz.id) {
             output.push({quiz: quiz.name, result: result.result})
           }
