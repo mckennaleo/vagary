@@ -16,7 +16,6 @@ export default function Explore(props) {
   useEffect(() => {
       const cityResults = [];
     makeRequest(cityId).then((result) => {
-      console.log("RESULTSOIUGBL:IGUY")
 
       // initiates cityResult
 
