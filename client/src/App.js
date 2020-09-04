@@ -70,7 +70,7 @@ export default function App(props) {
           <Route path="/learn" component={Learn} />
           <Route path="/explore" component={Explore} />
           <Route path="/quiz" component={TranslationQuiz} />
-          <Route exact path="/" component={() =><Globe user={user} token={token} userId={userId} />} />
+          <Route exact path="/" component={() =><Globe user={user} token={token} userId={userId}/>} />
         </Switch>
       </div>
     </Router>
