@@ -134,5 +134,9 @@ QuizQuestion.create(question: "How do you say “Please”?", correct_answer: "X
 QuizQuestion.create(question: "Can you say “Thank you”?", correct_answer: "Cảm ơn bạn", incorrect_answer_1: "Tạm biệt", incorrect_answer_2: "Không có gì", incorrect_answer_3: "Dự án này thật tuyệt", quiz_id: 5)
 QuizQuestion.create(question: "How do you say “Have a nice day” in Vietnamese?", correct_answer: "Chúc một ngày tốt lành.", incorrect_answer_1: "Hẹn gặp bạn vào ngày mai", incorrect_answer_2: "Bạn khỏe không", incorrect_answer_3: "Xin chào", quiz_id: 5)
 QuizQuestion.create(question: "What about “Good-bye”?", correct_answer: "Tạm biệt", incorrect_answer_1: "Buổi sáng tốt lành", incorrect_answer_2: "Vui mừng", incorrect_answer_3: "Cho tôi xin hai vé", quiz_id: 5)
-    
+
+# QUIZ RESULTS
+QuizResult.create(result: 7, quiz_id: 5, user_id: 1)
+QuizResult.create(result: 5, quiz_id: 4, user_id: 1)
+QuizResult.create(result: 3, quiz_id: 4, user_id: 2)
     
