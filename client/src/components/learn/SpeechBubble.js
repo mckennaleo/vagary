@@ -19,6 +19,7 @@ export default function SpeechBubble(props) {
   const [phrases, setPhrases] = useState([])
   const [translation, setTranslation] = useState(null)
   const [translationQuiz, setTranslationQuiz] = useState(false);
+  
 
 
   // Get translations from database
@@ -63,17 +64,21 @@ export default function SpeechBubble(props) {
     setTranslationQuiz(cityParams);
   };
 
+ 
+
   if (translationQuiz) {
     return (
       <Redirect
         push
         to={{
-          pathname: "/quiz",
+          pathname: "/translationquiz",
           state: { translationQuiz },
         }}
       />
     );
   }
+
+
 
   return (
 
@@ -88,7 +93,7 @@ export default function SpeechBubble(props) {
     <section className="quiz-area">
       <h3>Translations</h3>
       {translation ? <p className="speech-bubble">{translation}</p> : null}
-      <button type="button" onClick={goToTranslationQuiz}>Take Quiz!</button>
+      <button type="button" onClick={goToTranslationQuiz}>Take Language Quiz!</button>
     </section>
 
     </div>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ReactGlobe from "react-globe";
 import { Redirect } from "react-router-dom";
-import Spotify from "./spotify/Spotify";
 
 // import optional tippy styles for tooltip support
 import "tippy.js/dist/tippy.css";
@@ -81,10 +80,10 @@ export default function Globe(props) {
     },
   ];
 
-  const [city, setCity] = useState(null);
   const [details, setDetails] = useState(null);
   const [activeGlobe, setActiveGlobe] = useState(true);
-
+  const city = props.city;
+  const setCity = props.setCity;
 
   function onClickMarker(marker, markerObject, city) {
     setCity({
@@ -105,7 +104,7 @@ export default function Globe(props) {
   }
 
   const yesHandler = () => {
-    // console.log(city)
+    console.log("CITY FROM GLOBE: ", city);
     setActiveGlobe(false);
   };
 
@@ -120,9 +119,6 @@ export default function Globe(props) {
     );
   }
 
-  ReactGlobe.defaultProps = {
-    name: "globe"
-  }
   // simple component usage
   return (
     <div>
@@ -149,7 +145,7 @@ export default function Globe(props) {
           </form>
         </div>
       )}
-    
+
       <ReactGlobe
         name="globe"
         height="100vh"

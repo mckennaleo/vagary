@@ -1,12 +1,12 @@
 const axios = require("axios");
 
-export default async function getPlaylist() {
+export default async function getCity() {
   return axios({
     method: "GET",
-    url: "http://localhost:3001/playlists",
+    url: "http://localhost:3001/cities",
   })
     .then((response) => {
-      console.log("PLAYLISTS: ", response.data);
+      console.log("CITIES: ", response.data);
       return response.data;
     })
     .catch((error) => {

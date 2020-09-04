@@ -9,18 +9,20 @@ import CircleMenu from "./components/CircleMenu";
 import Learn from "./components/learn/Learn";
 import Explore from "./components/explore/Explore";
 import TranslationQuiz from "./components/learn/TranslationQuiz";
+import CityQuiz from "./components/explore/CityQuiz";
 import Spotify from "./components/spotify/Spotify";
 
 
 export default function App(props) {
-  console.log("PROPS", props)
+  const [city, setCity] = useState(null);
+  
   return (
     <Router>
       <div>
         <CircleMenu />
       </div>
       <div class="spotify">
-        <Spotify />
+        {/* <Spotify /> */}
       </div>
       <div>
         <Switch>
@@ -31,16 +33,24 @@ export default function App(props) {
           {/*template literal with city name*/}
           <Route path="/learn" component={Learn} />
           <Route path="/explore" component={Explore} />
-          <Route path="/quiz" component={TranslationQuiz} />
-          <Route exact path="/" component={Globe} />
+          <Route path="/translationquiz" component={TranslationQuiz} />
+          <Route path="/cityquiz" component={CityQuiz} />
+          <Route
+            exact path="/"
+            render={(routeProps) => (
+              <Globe 
+              {...routeProps}
+              city={city}
+              setCity={setCity}
+               />
+          )}
+/>
         </Switch>
       </div>
     </Router>
   );
 
-  function Home() {
-    return <Globe />;
-  }
+  
 
   function Login() {
     return <h2>Login</h2>;
@@ -54,16 +64,17 @@ export default function App(props) {
     return <h2>My Account</h2>;
   }
 }
+
 function City(props) {
-  //console.log(props);
+  console.log("PROPS", props);
   const city = props.location.state.city.marker.cityName;
   const coordinates = props.location.state.city.marker.coordinates;
   const language = props.location.state.city.marker.language;
   const city_id = props.location.state.city.marker.city_id;
   const background = props.location.state.city.marker.background;
-  console.log("CITY", city);
-  console.log("PROPS", props);
-  console.log("BACKGROUND", background);
+  // console.log("CITY", city);
+  // console.log("PROPS", props);
+  // console.log("BACKGROUND", background);
   return (
     <div className={`background--${city}`}>
       {/* <div class="spotify">
@@ -82,9 +93,7 @@ function City(props) {
   );
   
 }
-App.defaultProps = {
-  current: "Globe"
-}
+
 
 // The below code is just for testing pusposes and should be deleted before demo day!
 // class App extends Component {

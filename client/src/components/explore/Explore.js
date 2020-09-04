@@ -16,7 +16,6 @@ export default function Explore(props) {
   useEffect(() => {
     const cityResults = [];
     makeRequest(cityId).then((result) => {
-      console.log("RESULTSOIUGBL:IGUY");
 
       // initiates cityResult
 
@@ -31,7 +30,6 @@ export default function Explore(props) {
           description: landmark.description,
         });
       }
-      console.log("RESULT", result);
       setCityResults(cityResults);
     });
   }, []);
@@ -50,7 +48,10 @@ export default function Explore(props) {
         />
       </span>
       <span>
-        <ExploreDisplay display={display} />
+        <ExploreDisplay 
+        city={city}
+        display={display} 
+        />
       </span>
     </div>
     </div>
