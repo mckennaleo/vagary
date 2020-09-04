@@ -41,9 +41,7 @@ export default function CircleMenu(props){
           <PublicIcon />
         </a>
         <a href="" className="menu-item red">
-        <IconButton onClick={() => props.logout()}>
-          <ExitToAppIcon />
-          </IconButton>
+          <ExitToAppIcon onClick={() => props.logout()}/>
         </a>
         <a href="#" className="menu-item blue">
           <MeetingRoomIcon />
