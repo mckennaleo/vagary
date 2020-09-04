@@ -85,15 +85,15 @@ export default function Globe(props) {
   const city = props.city;
   const setCity = props.setCity;
 
-  function onClickMarker(marker, markerObject, city) {
-    setCity({
-      type: "CLICK",
-      marker,
-      markerObjectID: markerObject.uuid,
-      pointerCityPosition: { x: city.clientX, y: city.clientY },
-    });
-    setDetails(markerTooltipRenderer(marker));
-  }
+  // function onClickMarker(marker, markerObject, city) {
+  // setCity({
+  //   type: "CLICK",
+  //   marker,
+  //   markerObjectID: markerObject.uuid,
+  //   pointerCityPosition: { x: city.clientX, y: city.clientY },
+  // });
+  // setDetails(markerTooltipRenderer(marker));
+  // }
 
   function onDefocus(previousFocus) {
     setCity({
@@ -103,8 +103,15 @@ export default function Globe(props) {
     setDetails(null);
   }
 
-  const yesHandler = () => {
+  const yesHandler = (marker, markerObject, city) => {
+    setCity({
+      type: "CLICK",
+      marker,
+      markerObjectID: markerObject.uuid,
+      pointerCityPosition: { x: city.clientX, y: city.clientY },
+    });
     console.log("CITY FROM GLOBE: ", city);
+    setDetails(markerTooltipRenderer(marker));
     setActiveGlobe(false);
   };
 
