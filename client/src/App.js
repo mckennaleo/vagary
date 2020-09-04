@@ -42,7 +42,7 @@ export default function App() {
   return (
     <Router>
       <div>
-        <CircleMenu logout={logout} user={user} token={token} userId={userId}/>
+        <CircleMenu logout={logout} user={user}/>
       </div>
       <div>
         <ul>
