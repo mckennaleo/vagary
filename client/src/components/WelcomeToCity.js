@@ -58,7 +58,7 @@ export default function WelcomeToCity(props) {
   return (
     <div>
       <h1>Welcome to {city}</h1>
-      <button type="button" onClick={goToLearn}>
+      <button class="alert alert-primary" type="button" onClick={goToLearn}>
         Go to Learn
       </button>
       <button type="button" onClick={goToExplore}>
