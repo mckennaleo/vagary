@@ -70,10 +70,7 @@ GEM
       domain_name (~> 0.5)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
-<<<<<<< HEAD
     jsonapi-renderer (0.2.2)
-=======
->>>>>>> e952e4649949c83d0efa3201e30d1fd42fbd012b
     jwt (2.2.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -103,9 +100,6 @@ GEM
       mini_portile2 (~> 2.4.0)
     nokogiri (1.10.10-x86-mingw32)
       mini_portile2 (~> 2.4.0)
-    pg (1.2.3)
-    pg (1.2.3-x64-mingw32)
-    pg (1.2.3-x86-mingw32)
     oauth2 (1.4.4)
       faraday (>= 0.8, < 2.0)
       jwt (>= 1.0, < 3.0)
@@ -119,6 +113,8 @@ GEM
       oauth2 (~> 1.1)
       omniauth (~> 1.2)
     pg (1.2.3)
+    pg (1.2.3-x64-mingw32)
+    pg (1.2.3-x86-mingw32)
     public_suffix (3.1.1)
     puma (3.12.6)
     puma (3.12.6-java)

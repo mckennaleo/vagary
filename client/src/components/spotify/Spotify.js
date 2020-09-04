@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import SpotifyPlayer from "react-spotify-player";
-import getPlaylist from "../../hooks/cityData.js";
 import getCity from "../../hooks/cityData.js";
 
-export default function Spotify() {
+export default function Spotify(props) {
   const size = "compact";
   const view = "coverart"; // or 'coverart'
   const theme = "black"; // or 'white'
 
-  let city;
-  let cityID;
+  const city = props.city;
+  console.log("CITY FROM SPOTIFY: ", city);
+
   let uri = "spotify:playlist:5NbleROaHyKOZDwJEPm7f5?si=FgpZbIBMTKOlTUjBi5zv-w";
 
   const cityData = getCity()
@@ -29,6 +29,7 @@ export default function Spotify() {
       console.log(error);
     });
 
+  console.log("cityData: ", cityData);
   return (
     <SpotifyPlayer
       class="spotify"

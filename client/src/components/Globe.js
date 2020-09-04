@@ -1,27 +1,16 @@
 import React, { useState } from "react";
 import ReactGlobe from "react-globe";
 import { Redirect } from "react-router-dom";
-import Spotify from "./spotify/Spotify";
 
 // import optional tippy styles for tooltip support
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 
-export default function Globe({user, token, userId}) {
-
-  const userData = {
-    user,
-    token,
-    userId
-  }
-
-  console.log("userData", userData)
-
+export default function Globe(props) {
   // on marker hover, show city name
   function markerTooltipRenderer(marker) {
     return `${marker.cityName}, ${marker.country}`;
   }
-
   const options = {
     markerTooltipRenderer,
     focusAnimationDuration: 2000,
@@ -91,15 +80,15 @@ export default function Globe({user, token, userId}) {
     },
   ];
 
-  const [city, setCity] = useState(null);
   const [details, setDetails] = useState(null);
   const [activeGlobe, setActiveGlobe] = useState(true);
+  const city = props.city;
+  const setCity = props.setCity;
 
   function onClickMarker(marker, markerObject, city) {
     setCity({
       type: "CLICK",
       marker,
-      userData,
       markerObjectID: markerObject.uuid,
       pointerCityPosition: { x: city.clientX, y: city.clientY },
     });
@@ -115,7 +104,7 @@ export default function Globe({user, token, userId}) {
   }
 
   const yesHandler = () => {
-    // console.log(city)
+    console.log("CITY FROM GLOBE: ", city);
     setActiveGlobe(false);
   };
 
@@ -129,6 +118,7 @@ export default function Globe({user, token, userId}) {
       />
     );
   }
+
   // simple component usage
   return (
     <div>
@@ -150,13 +140,14 @@ export default function Globe({user, token, userId}) {
             </button>
             <button type="button" onClick={onDefocus}>
               No
-            </button>
+            </button>{" "}
             {/* FIX Should zoom out per onDefocus function...*/}
           </form>
         </div>
       )}
 
       <ReactGlobe
+        name="globe"
         height="100vh"
         markers={markers}
         options={options}
