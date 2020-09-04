@@ -70,7 +70,10 @@ GEM
       domain_name (~> 0.5)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
+<<<<<<< HEAD
     jsonapi-renderer (0.2.2)
+=======
+>>>>>>> e952e4649949c83d0efa3201e30d1fd42fbd012b
     jwt (2.2.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -198,6 +201,7 @@ DEPENDENCIES
   active_model_serializers
   bcrypt (~> 3.1.7)
   byebug
+  jwt (~> 2.2)
   listen (~> 3.0.5)
   pg (>= 0.18, < 2.0)
   puma (~> 3.0)

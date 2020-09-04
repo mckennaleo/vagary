@@ -6,6 +6,7 @@ import makeRequest from "../../hooks/travelApiData";
 
 export default function Explore(props) {
   // assigns cityId, name and coordinates to be used later in an api request
+  console.log("Explore props", props);
   const cityId = props.location.state.explore[0].cityId;
   const city = props.location.state.explore[0].name;
   const coordinates = props.location.state.explore[0].coordinates;
@@ -16,8 +17,6 @@ export default function Explore(props) {
   useEffect(() => {
     const cityResults = [];
     makeRequest(cityId).then((result) => {
-      console.log("RESULTSOIUGBL:IGUY");
-
       // initiates cityResult
 
       // loops through result arr of obj to get data
@@ -37,19 +36,22 @@ export default function Explore(props) {
   }, []);
 
   return (
-    <div class="exploreCity">
-      <span>
-        <ExploreMap
-          city={city}
-          coordinates={coordinates}
-          cityId={cityId}
-          cityResults={cityResults}
-          onSelect={setDisplay}
-        />
-      </span>
-      <span>
-        <ExploreDisplay display={display} />
-      </span>
+    <div className={`background--${city}`}>
+      <div class="exploreCity">
+        <span>
+          <ExploreMap
+            city={city}
+            coordinates={coordinates}
+            cityId={cityId}
+            cityResults={cityResults}
+            onSelect={setDisplay}
+            class="explore-map"
+          />
+        </span>
+        <span>
+          <ExploreDisplay display={display} />
+        </span>
+      </div>
     </div>
   );
 }
