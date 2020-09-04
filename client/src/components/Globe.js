@@ -6,7 +6,7 @@ import { Redirect } from "react-router-dom";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 
-export default function Globe({user, token, userId}) {
+export default function Globe({user, token, userId, city, setCity}) {
 
   const userData = {
     user,
@@ -88,8 +88,8 @@ export default function Globe({user, token, userId}) {
 
   const [details, setDetails] = useState(null);
   const [activeGlobe, setActiveGlobe] = useState(true);
-  const city = props.city;
-  const setCity = props.setCity;
+  // const city = props.city;
+  // const setCity = props.setCity;
 
   function onClickMarker(marker, markerObject, city) {
     setCity({
