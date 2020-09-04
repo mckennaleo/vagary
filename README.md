@@ -17,7 +17,8 @@
 
 ## Start backend server:
 navigate to /backend
-$ rails s -p 3001 -b 0.0.0.0
+$ `rails s -p 3001 -b 0.0.0.0`
+- reset db: `rails db:reset` &  `rails db:migrate`
 
 ## database name (development):
 backend_test_final

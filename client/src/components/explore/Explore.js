@@ -5,6 +5,7 @@ import makeRequest from "../../hooks/travelApiData";
 
 export default function Explore(props) {
   // assigns cityId, name and coordinates to be used later in an api request
+  console.log('Explore props', props)
   const cityId = props.location.state.explore[0].cityId;
   const city = props.location.state.explore[0].name;
   const coordinates = props.location.state.explore[0].coordinates;

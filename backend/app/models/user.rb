@@ -5,12 +5,8 @@ class User < ApplicationRecord
   validates :password, :presence => true,
                        :confirmation => true,
                        :length => {:within => 6..40},
-                       :on => :create
+                       if: -> { new_record? || !password.nil? }
 
-validates :password, :presence => true,
-                     :confirmation => true,
-                     :length => {:within => 6..40},
-                     :on => :update
 
 
   belongs_to :avatar
