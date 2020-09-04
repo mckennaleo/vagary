@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getPhrasesByCityId } from "../helpers/selectors";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import "../SpeechBubble.scss";
 
 export default function SpeechBubble(props) {

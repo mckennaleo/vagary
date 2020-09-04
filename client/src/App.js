@@ -45,28 +45,6 @@ export default function App() {
         <CircleMenu logout={logout} user={user}/>
       </div>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Globe</Link> {/*globe*/}
-          </li>
-          <li>
-            <Link to="/sign-in">Sign In</Link>
-          </li>
-          <li>
-            <Link to="/sign-up">Sign Up</Link>
-          </li>
-          <li>
-            <Link to="/my-room">My Room</Link>
-          </li>
-          <li>
-            <Link to="/city">City</Link> {/*template literal with city name*/}
-          </li>
-          <li>
-            {token && token}
-            {user && user}
-            {userId && userId}
-          </li>
-        </ul>
         <Switch>
           <Route path="/sign-in" component={() =><SignIn setUser={setUser} setToken={setToken} setUserId={setUserId}/>} />
           <Route path="/sign-up" component={() =><SignUp setUser={setUser} setToken={setToken} setUserId={setUserId}/>} />
@@ -92,8 +70,6 @@ function City(props) {
 
   return (
     <div className={`background--${city}`}>
-      <h2>City</h2>
-      <h1>I'm in {city}</h1>
       <WelcomeToCity
         city={city}
         coordinates={coordinates}
