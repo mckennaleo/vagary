@@ -1,4 +1,5 @@
 import React from "react";
+import SignIn from "./SignIn"
 // radio
 import MusicNoteIcon from "@material-ui/icons/MusicNote";
 // home/globe
@@ -40,10 +41,14 @@ export default function CircleMenu(props){
         <a href="/" className="menu-item purple">
           <PublicIcon />
         </a>
-        <a href="" className="menu-item red">
-          <ExitToAppIcon onClick={() => props.logout()}/>
-        </a>
-        <a href="#" className="menu-item blue">
+          {props.user ? 
+          <a href="/" className="menu-item red">
+            <ExitToAppIcon onClick={() => props.logout()}/>
+            </a> : 
+            <a href="/sign-in" className="menu-item red">
+              <Face SignIn={SignIn}/>
+              </a>}
+        <a href="/my-room" className="menu-item blue">
           <MeetingRoomIcon />
         </a>
       </nav>

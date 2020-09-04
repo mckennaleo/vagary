@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, useHistory } from "react-router-dom";
 import Globe from "./components/Globe";
 import "leaflet/dist/leaflet.css";
 import "./App.css";
@@ -13,15 +13,12 @@ import Explore from "./components/explore/Explore";
 import TranslationQuiz from "./components/learn/TranslationQuiz";
 import MyRoom from "./components/MyRoom";
 
-export default function App(props) {
+export default function App() {
   const [user, setUser] = useState(null)
   const [token, setToken] = useState(null)
   const [userId, setUserId] = useState(null)
 
-  //console.log("??????", props)
-
   useEffect(() => {
-    //console.log(localStorage)
     const localUser = localStorage.getItem("email")
     const localToken = localStorage.getItem("token")
     const localId = localStorage.getItem("userId")
@@ -45,7 +42,7 @@ export default function App(props) {
   return (
     <Router>
       <div>
-        <CircleMenu logout={logout}/>
+        <CircleMenu logout={logout} user={user} token={token} userId={userId}/>
       </div>
       <div>
         <ul>
