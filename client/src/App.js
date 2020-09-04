@@ -88,12 +88,7 @@ function City(props) {
   const coordinates = props.location.state.city.marker.coordinates;
   const language = props.location.state.city.marker.language;
   const city_id = props.location.state.city.marker.city_id;
-  const userEmail = props.location.state.city.userData.user;
   const userId = props.location.state.city.userData.userId;
-  const userToken = props.location.state.city.userData.token;
-
-  //console.log("CITY PROPS", props)
-  //console.log("userEmail, userId, userToken", userEmail, userId, userToken)
 
   return (
     <div className={`background--${city}`}>
@@ -104,9 +99,7 @@ function City(props) {
         coordinates={coordinates}
         language={language}
         city_id={city_id}
-        userEmail={userEmail}
         userId={userId}
-        userToken={userToken}
       />
     </div>
   );
