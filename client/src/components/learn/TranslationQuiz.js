@@ -20,7 +20,6 @@ export default function TranslationQuiz(props) {
   const [quizResult, setQuizResult] = useState({})
 
   const handleChange = (questionId, answer) => {
-    // debugger
     setChosenAnswers({...chosenAnswers})
   };
 
