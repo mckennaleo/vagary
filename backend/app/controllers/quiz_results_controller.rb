@@ -11,7 +11,7 @@ class QuizResultsController < ApplicationController
   end
 
   def create
-    @quiz_results = QuizResult.new(quiz_results_params)
+    quiz_results = QuizResult.new(quiz_results_params)
   end
 
   private
