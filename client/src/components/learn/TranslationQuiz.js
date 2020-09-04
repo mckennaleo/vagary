@@ -10,17 +10,16 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 
 export default function TranslationQuiz(props) {
-
-  console.log("C QUOI", props)
   const language = props.location.state.translationQuiz[0].language
   const city = props.location.state.translationQuiz[0].name
+  const userId = props.location.state.translationQuiz[0].userId
 
   const [questions, setQuestions] = useState([])
   const [chosenAnswers, setChosenAnswers] = useState({});
   const [quizResult, setQuizResult] = useState({})
 
   const handleChange = (questionId, answer) => {
-    setChosenAnswers({...chosenAnswers})
+    setChosenAnswers({...chosenAnswers, [questionId]: answer})
   };
 
   // Get translations from database
