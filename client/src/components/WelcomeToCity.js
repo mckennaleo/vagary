@@ -8,6 +8,8 @@ import "./LayoutMain.scss"
 
 export default function WelcomeToCity(props) {
 
+  console.log("PROPS: ", props)
+
   const cityParams = [
     {
       name: props.city,

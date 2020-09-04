@@ -12,10 +12,12 @@ import Learn from "./components/learn/Learn";
 import Explore from "./components/explore/Explore";
 import TranslationQuiz from "./components/learn/TranslationQuiz";
 
-export default function App() {
+export default function App(props) {
   const [user, setUser] = useState(null)
   const [token, setToken] = useState(null)
   const [userId, setUserId] = useState(null)
+
+  console.log("??????", props)
 
   useEffect(() => {
     console.log(localStorage)
@@ -63,12 +65,12 @@ export default function App() {
           <Route path="/sign-in" component={() =><SignIn setUser={setUser} setToken={setToken} setUserId={setUserId}/>} />
           <Route path="/sign-up" component={() =><SignUp setUser={setUser} setToken={setToken} setUserId={setUserId}/>} />
           <Route path="/my-room" />
-          <Route path="/city" component={City} />{" "}
+          <Route path="/city" component={City}/>:
           {/*template literal with city name*/}
           <Route path="/learn" component={Learn} />
           <Route path="/explore" component={Explore} />
           <Route path="/quiz" component={TranslationQuiz} />
-          <Route exact path="/" component={Globe} />
+          <Route exact path="/" component={() =><Globe user={user} token={token} userId={userId} />} />
         </Switch>
       </div>
     </Router>
