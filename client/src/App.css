@@ -1,3 +1,7 @@
+* {
+  font-family: 'Oswald', sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -37,6 +41,18 @@
   }
 }
 
+/*---------- EXPLORE ----------*/
+
+.exploreCity {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color:rgba(170, 183, 184, 0.4);
+  width: 70%;
+  padding: 5em;
+}
+
+
 .leaflet-container {
   display: flex;
   justify-content: center;
@@ -47,6 +63,42 @@
   border-color: black;
   border-style: solid;
   border-width: 5px;
+  
+}
+
+.explore-player {
+  display: flex;
+  width: 90%;
+  opacity: 1;
+}
+
+.explore-display {
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  
+  background-blend-mode: lighten;
+  align-items: center;
+  justify-content: center;
+}
+
+.display-img {
+  height: 90%;
+  width: 90%;
+  opacity: 1;
+}
+
+.explore-title {
+  font-size: larger;
+  opacity: 1;
+  width: 90%;
+}
+
+.explore-text {
+  font-size: small;
+  opacity: 1;
+  width: 90%;
 }
 
 @import "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css";
