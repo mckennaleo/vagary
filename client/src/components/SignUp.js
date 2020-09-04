@@ -63,6 +63,7 @@ export default function SignUp(props) {
     // console.log(name, email, avatar, password, passwordConfirmation)
       const user = {name, email, avatar, password, password_confirmation: passwordConfirmation}
       console.log(user)
+      
       axios.post("http://localhost:3001/api/users", {
         ...user
       })

@@ -35,7 +35,7 @@ const quizValidator = (q, a) => {
   }
 
 
-  // use when making axios request to backend quiz_results index
+  // use when making axios request to backend quiz_results index to show in 'my room'
   //invocate ie: getQuizResultsByUserId(2, quizData, resultsData)
   const getQuizResultsByUserId = (userId, quizzes, results) => {
     let output = []
