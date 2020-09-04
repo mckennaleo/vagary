@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SpotifyPlayer from "react-spotify-player";
 import getCity from "../../hooks/cityData.js";
+import Globe from "../Globe";
 
 export default function Spotify(props) {
   const size = "compact";
@@ -22,21 +23,20 @@ export default function Spotify(props) {
             .map((city) => {
               return (uri = city.playlist);
             });
-          console.log("RESULT FROM GETCITY:", result);
+          // console.log("RESULT FROM GETCITY:", result);
           uri = newUri[0];
 
-          console.log("FINAL URI: ", uri);
+          // console.log("FINAL URI: ", uri);
           setplaylist(uri);
         })
         .catch((error) => {
           console.log(error);
         });
       newUri = uri;
-      console.log("NEEEW: ", getCity());
+      // console.log("NEEEW: ", getCity());
     }
-    //return newUri;
   }, [props.city]);
-  console.log("GET NEW: ", getNewUri); // why undefined??
+  // console.log("GET NEW: ", getNewUri); // why undefined??
   return (
     <SpotifyPlayer
       class="spotify"
