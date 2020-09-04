@@ -5,7 +5,8 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show, :index]
   end
   post '/api/login', to: 'authentication#login'
-  post '/api/test', to: 'authentication#test'
+  post '/api/logout', to: 'authentication#logout'
+  # post '/api/test', to: 'authentication#test'
   
   resources :avatars, only: [:show]
 

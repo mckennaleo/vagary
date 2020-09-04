@@ -3,17 +3,21 @@ import React from "react";
 import MusicNoteIcon from "@material-ui/icons/MusicNote";
 // home/globe
 import PublicIcon from "@material-ui/icons/Public";
+// login
+import Face from "@material-ui/icons/Face";
 // logout
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 // my room
 import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
 // compass
 import ExploreIcon from "@material-ui/icons/Explore";
-
+// button
+import IconButton from "@material-ui/core/IconButton"
 import "./CircleMenu.css";
 
-export default class CircleMenu extends React.Component {
-  render() {
+
+export default function CircleMenu(props){
+
     return (
       <nav className="menu">
         <input
@@ -37,12 +41,13 @@ export default class CircleMenu extends React.Component {
           <PublicIcon />
         </a>
         <a href="" className="menu-item red">
+        <IconButton onClick={() => props.logout()}>
           <ExitToAppIcon />
+          </IconButton>
         </a>
         <a href="#" className="menu-item blue">
           <MeetingRoomIcon />
         </a>
       </nav>
     );
-  }
 }

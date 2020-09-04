@@ -12,8 +12,17 @@ class AuthenticationController < ApplicationController
       render json: { error: 'unauthorized' }, status: :unauthorized
     end
   end
-  def test
-    render json: {status: 'fuck yeea'}
+  
+  # def test
+  #   render json: {status: 'fuck yeea'}
+  # end
+
+  def logout
+    reset_session
+    render json: {
+      status: 200,
+      logged_out: true
+    }
   end
 
   private
