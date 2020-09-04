@@ -4,8 +4,6 @@ import getPlaylist from "../../hooks/cityData.js";
 import getCity from "../../hooks/cityData.js";
 
 export default function Spotify() {
-  //console.log("CITY NAME!!!: ", props.city);
-
   const size = "compact";
   const view = "coverart"; // or 'coverart'
   const theme = "black"; // or 'white'
@@ -16,17 +14,15 @@ export default function Spotify() {
 
   const cityData = getCity()
     .then((result) => {
-      const selectedCityDataData = result.map((city) => {
-        console.log("city URI: ", city.uri);
-        console.log("cityID: ", city.city_id);
-        console.log("playlistID: ", city.id);
+      const selectedCityData = result.map((city) => {
+        console.log("playlist: ", city.playlist);
 
         return {
           URI: city.playlist,
           cityName: city.name,
         };
       });
-      console.log("SELECTED CITY: ", selectedCityData);
+      console.log("SELECTED CITY DATA: ", selectedCityData);
       return selectedCityData;
     })
     .catch((error) => {
