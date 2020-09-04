@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import classNames from 'classnames';
+// import classNames from 'classnames';
 import ExploreMap from "./explore/ExploreMap";
 import Explore from "./explore/Explore";
 import Learn from "./learn/Learn";
-import "./LayoutMain.scss"
+import "./LayoutMain.scss";
 
 export default function WelcomeToCity(props) {
+
   const city = props.city;
 
   const params = [
@@ -20,6 +21,8 @@ export default function WelcomeToCity(props) {
       userToken: props.userToken,
     }
   ];
+
+  console.log("CityParams: ", cityParams);
 
   const [learn, setLearn] = useState(false);
   const [explore, setExplore] = useState(false);

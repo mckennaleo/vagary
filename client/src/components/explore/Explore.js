@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ExploreMap from "./ExploreMap";
 import ExploreDisplay from "./ExploreDisplay";
 import makeRequest from "../../hooks/travelApiData";
+//import Spotify from "../spotify/Spotify";
 
 export default function Explore(props) {
   // assigns cityId, name and coordinates to be used later in an api request
@@ -11,18 +12,16 @@ export default function Explore(props) {
   const coordinates = props.location.state.explore[0].coordinates;
   const [cityResults, setCityResults] = useState([]);
   const [display, setDisplay] = useState();
-  
 
   // retrieves results of GET request to TravelAdvisor api
   useEffect(() => {
-      const cityResults = [];
+    const cityResults = [];
     makeRequest(cityId).then((result) => {
 
       // initiates cityResult
 
       // loops through result arr of obj to get data
       for (let landmark of result) {
-        
         // populates cityResults with data needed for pins on the city map
         cityResults.push({
           coordinates: [landmark.latitude, landmark.longitude],
@@ -32,7 +31,6 @@ export default function Explore(props) {
           description: landmark.description,
         });
       }
-      console.log("RESULT", result)
       setCityResults(cityResults);
     });
   }, []);
@@ -40,8 +38,7 @@ export default function Explore(props) {
   return (
     <div className={`background--${city}`}>
     <div class="exploreCity">
-      
-     <span>
+      <span>
         <ExploreMap
           city={city}
           coordinates={coordinates}
@@ -50,11 +47,11 @@ export default function Explore(props) {
           onSelect={setDisplay}
           class="explore-map"
         />
-      </span>      
+      </span>
       <span>
         <ExploreDisplay 
-          display={display}
-
+        city={city}
+        display={display} 
         />
       </span>
     </div>
