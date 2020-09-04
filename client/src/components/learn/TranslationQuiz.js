@@ -25,6 +25,8 @@ export default function TranslationQuiz(props) {
     setChosenAnswers({ ...chosenAnswers, [questionId]: answer })
   };
 
+
+
   // Get translations from database
   useEffect(() => {
     axios({
@@ -46,13 +48,21 @@ export default function TranslationQuiz(props) {
   const handleSubmit = (e) => {
     e.preventDefault()
 
+    // get correct quiz_id based on city name.
+    let quizId = "";
+    if (city === 'Istanbul') {
+      quizId = 4
+    } else if (city === 'Saigon') {
+      quizId = 5
+    }
+
     const result = quizValidator(questions, chosenAnswers)
     setUserQuizResult(result)
     console.log(userQuizResult)
 
     const resultToPost = {
       result: result,
-      quiz_id: 4,
+      quiz_id: quizId,
       user_id: userId
     }
 
