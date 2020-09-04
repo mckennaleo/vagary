@@ -22,10 +22,9 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Vagary
       </Link>{' '}
       {new Date().getFullYear()}
-      {'.'}
     </Typography>
   );
 }
@@ -35,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundImage: 'url(https://i.ibb.co/CBmKjtd/view-from-plane.jpg)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
@@ -113,8 +112,8 @@ export default function SignIn(props) {
               name="email"
               autoComplete="email"
               autoFocus
-              onChange = {(evt) => setEmail(evt.target.value)}
-              value = {email}
+              onChange={(evt) => setEmail(evt.target.value)}
+              value={email}
             />
             <TextField
               variant="outlined"
@@ -126,12 +125,8 @@ export default function SignIn(props) {
               type="password"
               id="password"
               autoComplete="current-password"
-              onChange = {(evt) => setPassword(evt.target.value)}
-              value = {password}
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+              onChange={(evt) => setPassword(evt.target.value)}
+              value={password}
             />
             <Button
               type="submit"
@@ -143,13 +138,8 @@ export default function SignIn(props) {
               Sign In
             </Button>
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/sign-up" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

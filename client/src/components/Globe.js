@@ -14,8 +14,6 @@ export default function Globe({user, token, userId}) {
     userId
   }
 
-  console.log("userData", userData)
-
   // on marker hover, show city name
   function markerTooltipRenderer(marker) {
     return `${marker.cityName}, ${marker.country}`;
