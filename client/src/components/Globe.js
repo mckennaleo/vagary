@@ -6,7 +6,16 @@ import { Redirect } from "react-router-dom";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 
-export default function Globe(props) {
+export default function Globe({user, token, userId}) {
+
+  const userData = {
+    user,
+    token,
+    userId
+  }
+
+  console.log("userData", userData)
+  
   // on marker hover, show city name
   function markerTooltipRenderer(marker) {
     return `${marker.cityName}, ${marker.country}`;
@@ -89,6 +98,7 @@ export default function Globe(props) {
     setCity({
       type: "CLICK",
       marker,
+      userData,
       markerObjectID: markerObject.uuid,
       pointerCityPosition: { x: city.clientX, y: city.clientY },
     });
@@ -140,7 +150,7 @@ export default function Globe(props) {
             </button>
             <button type="button" onClick={onDefocus}>
               No
-            </button>{" "}
+            </button>
             {/* FIX Should zoom out per onDefocus function...*/}
           </form>
         </div>
