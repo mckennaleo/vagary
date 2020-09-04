@@ -18,7 +18,7 @@ export default function Spotify() {
         console.log("playlist: ", city.playlist);
 
         return {
-          URI: city.playlist,
+          URI: city.playlist || uri,
           cityName: city.name,
         };
       });
@@ -32,7 +32,7 @@ export default function Spotify() {
   return (
     <SpotifyPlayer
       class="spotify"
-      uri={uri}
+      uri={selectedCityData.URI}
       size={size}
       view={view}
       theme={theme}
