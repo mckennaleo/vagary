@@ -12,22 +12,17 @@ import TranslationQuiz from "./components/learn/TranslationQuiz";
 import Spotify from "./components/spotify/Spotify"
 
 
-export default function App() {
+export default function App(props) {
+  console.log(props)
   return (
     <Router>
       <div>
         <CircleMenu />
       </div>
-<<<<<<< HEAD
       <div class="spotify">
         <Spotify />
       </div>
-
       <div>
-        
-=======
-      <div>
->>>>>>> feature/exploreLandmark
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
@@ -44,7 +39,9 @@ export default function App() {
   );
 }
 
-function Home() {
+function Home(props) {
+
+
   return <Globe />
 }
 
@@ -83,6 +80,9 @@ function City(props) {
   );
 }
 
+App.defaultProps = {
+  city: "Globe"
+}
 // The below code is just for testing pusposes and should be deleted before demo day!
 // class App extends Component {
 //   state = { users: [] };

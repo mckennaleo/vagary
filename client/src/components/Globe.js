@@ -6,12 +6,11 @@ import { Redirect } from "react-router-dom";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 
-export default function Globe() {
+export default function Globe(props) {
   // on marker hover, show city name
   function markerTooltipRenderer(marker) {
     return `${marker.cityName}, ${marker.country}`;
   }
-
   const options = {
     markerTooltipRenderer,
     focusAnimationDuration: 2000,
@@ -85,6 +84,7 @@ export default function Globe() {
   const [details, setDetails] = useState(null);
   const [activeGlobe, setActiveGlobe] = useState(true);
 
+
   function onClickMarker(marker, markerObject, city) {
     setCity({
       type: "CLICK",
@@ -118,6 +118,10 @@ export default function Globe() {
       />
     );
   }
+
+  ReactGlobe.defaultProps = {
+    name: "globe"
+  }
   // simple component usage
   return (
     <div>
@@ -144,8 +148,9 @@ export default function Globe() {
           </form>
         </div>
       )}
-
+    
       <ReactGlobe
+        name="globe"
         height="100vh"
         markers={markers}
         options={options}
