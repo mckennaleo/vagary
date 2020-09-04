@@ -7,6 +7,7 @@ export default async function getCity() {
   })
     .then((response) => {
       console.log("CITIES: ", response.data);
+      console.log("RESPONSE: ", response.data);
       return response.data;
     })
     .catch((error) => {

@@ -58,7 +58,7 @@ export default function App(props) {
 }
 
 function City(props) {
-  console.log("PROPS", props);
+  //console.log("PROPS", props);
   const city = props.location.state.city.marker.cityName;
   const coordinates = props.location.state.city.marker.coordinates;
   const language = props.location.state.city.marker.language;

@@ -7,33 +7,37 @@ export default function Spotify(props) {
   const view = "coverart"; // or 'coverart'
   const theme = "black"; // or 'white'
 
-  const city = props.city;
-  console.log("CITY FROM SPOTIFY: ", city);
+  const cityClicked = props.city;
+  let newUri;
 
+  // spaceSounds playlist
   let uri = "spotify:playlist:5NbleROaHyKOZDwJEPm7f5?si=FgpZbIBMTKOlTUjBi5zv-w";
 
-  const cityData = getCity()
-    .then((result) => {
-      const selectedCityData = result.map((city) => {
-        console.log("playlist: ", city.playlist);
-
-        return {
-          URI: city.playlist || uri,
-          cityName: city.name,
-        };
+  if (cityClicked) {
+    console.log("cityClicked Name: ", cityClicked.marker.cityName);
+    const getNewUri = getCity()
+      .then((result) => {
+        newUri = result
+          .filter((city) => city.name === cityClicked.marker.cityName)
+          .map((city) => {
+            return (uri = city.playlist);
+          });
+        console.log("RESULT FROM GETCITY:", result);
+        console.log("NEW URI: ", newUri[0]);
+        return newUri[0];
+      })
+      .catch((error) => {
+        console.log(error);
       });
-      console.log("SELECTED CITY DATA: ", selectedCityData);
-      return selectedCityData;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    //uri = getNewUri;
+    console.log("getNewUri: ", getNewUri);
+    return getNewUri;
+  }
 
-  console.log("cityData: ", cityData);
   return (
     <SpotifyPlayer
       class="spotify"
-      uri={cityData.URI} // undefined for now
+      uri={uri}
       size={size}
       view={view}
       theme={theme}
