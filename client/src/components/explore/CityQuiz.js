@@ -37,7 +37,6 @@ export default function CityQuiz(props) {
   // handle submission to db
   const handleSubmit = (e) => {
     e.preventDefault();
-
     // get correct quiz_id based on city name.
     let quizId = "";
     if (city === "Istanbul") {
@@ -45,7 +44,6 @@ export default function CityQuiz(props) {
     } else if (city === "Saigon") {
       quizId = 3;
     }
-
     const result = quizValidator(questions, chosenAnswers);
     setUserQuizResult(result);
 
