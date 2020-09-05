@@ -10,22 +10,24 @@ import Globe from "./components/Globe";
 import "leaflet/dist/leaflet.css";
 import "./App.css";
 import "./components/LayoutMain.scss";
-import SignIn from "./components/SignIn";
-import SignUp from "./components/SignUp";
 import WelcomeToCity from "./components/WelcomeToCity";
 import CircleMenu from "./components/CircleMenu";
 import Learn from "./components/learn/Learn";
 import Explore from "./components/explore/Explore";
+import Spotify from "./components/spotify/Spotify";
+
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
+import MyRoom from "./components/MyRoom";
 import TranslationQuiz from "./components/learn/TranslationQuiz";
 import CityQuiz from "./components/explore/CityQuiz";
-import Spotify from "./components/spotify/Spotify";
-import MyRoom from "./components/MyRoom";
 
 export default function App(props) {
+  const [city, setCity] = useState(null);
+
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const [userId, setUserId] = useState(null);
-  const [city, setCity] = useState(null);
 
   useEffect(() => {
     const localUser = localStorage.getItem("email");
@@ -51,21 +53,45 @@ export default function App(props) {
   return (
     <Router>
       <div>
-        <CircleMenu />
+        <CircleMenu logout={logout} user={user} />
       </div>
       <div class="spotify">
         <Spotify city={city} />
       </div>
       <div>
         <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/account" component={Account} />
-          <Route path="/city" component={City} />{" "}
+          <Route
+            path="/sign-in"
+            component={() => (
+              <SignIn
+                setUser={setUser}
+                setToken={setToken}
+                setUserId={setUserId}
+              />
+            )}
+          />
+          <Route
+            path="/sign-up"
+            component={() => (
+              <SignUp
+                setUser={setUser}
+                setToken={setToken}
+                setUserId={setUserId}
+              />
+            )}
+          />
+          <Route
+            path="/my-room"
+            component={() => (
+              <MyRoom user={user} token={token} userId={userId} />
+            )}
+          />
+          <Route path="/city" component={City} />:
           {/*template literal with city name*/}
           <Route path="/learn" component={Learn} />
           <Route path="/explore" component={Explore} />
-          <Route path="/quiz" component={TranslationQuiz} />
+          <Route path="/translationquiz" component={TranslationQuiz} />
+          <Route path="/cityquiz" component={CityQuiz} />
           <Route
             exact
             path="/"

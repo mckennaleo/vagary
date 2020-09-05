@@ -23,7 +23,8 @@ export default function Spotify(props) {
             .map((city) => {
               return (uri = city.playlist);
             });
-          console.log("RESULT FROM GETCITY:", result);
+          // console.log("RESULT FROM GETCITY:", result);
+          uri = newUri[0];
 
           console.log("FINAL URI: ", uri);
           setPlaylist(uri);
@@ -31,8 +32,8 @@ export default function Spotify(props) {
         .catch((error) => {
           console.log(error);
         });
-
-      console.log("NEEEW: ", playlist);
+      newUri = uri;
+      // console.log("NEEEW: ", getCity());
     }
   }, [props.city]);
   console.log("GET NEW: ", playlist);
