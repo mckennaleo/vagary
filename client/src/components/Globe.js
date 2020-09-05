@@ -5,6 +5,7 @@ import { Redirect } from "react-router-dom";
 // import optional tippy styles for tooltip support
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
+import "./Globe.scss";
 
 export default function Globe({ user, token, userId, city, setCity }) {
   const userData = {
@@ -129,11 +130,9 @@ export default function Globe({ user, token, userId, city, setCity }) {
   return (
     <div>
       {details && (
-        <div
+        <div class="travel-prompt"
           style={{
-            background: "white",
             position: "absolute",
-            fontSize: 20,
             bottom: 0,
             right: 0,
             padding: 12,
