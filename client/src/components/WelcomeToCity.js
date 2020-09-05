@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-// import classNames from 'classnames';
-import ExploreMap from "./explore/ExploreMap";
-import Explore from "./explore/Explore";
-import Learn from "./learn/Learn";
 import "./LayoutMain.scss";
 
 export default function WelcomeToCity(props) {
@@ -20,8 +16,6 @@ export default function WelcomeToCity(props) {
       userToken: props.userToken,
     },
   ];
-
-  // console.log("CityParams: ", cityParams);
 
   const [learn, setLearn] = useState(false);
   const [explore, setExplore] = useState(false);
