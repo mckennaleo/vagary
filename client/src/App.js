@@ -29,10 +29,10 @@ export default function App(props) {
   const [userId, setUserId] = useState(null);
 
   useEffect(() => {
-    const localUser = localStorage.getItem("email");
-    const localToken = localStorage.getItem("token");
-    const localId = localStorage.getItem("userId");
-    console.log(localUser, localToken, userId);
+    const localUser = localStorage.getItem("email")
+    const localToken = localStorage.getItem("token")
+    const localId = localStorage.getItem("userId")
+    console.log(localUser, localToken, localId)
     if (localUser && localToken && localId) {
       setUser(localUser);
       setToken(localToken);
