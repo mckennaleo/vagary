@@ -79,7 +79,8 @@ export default function TranslationQuiz(props) {
       .then(results => {
         console.log(results)
       })
-    }
+      .catch((err) => console.log(err.message));
+    };
 
 
   }
