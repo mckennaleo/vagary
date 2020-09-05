@@ -51,45 +51,21 @@ export default function App(props) {
   return (
     <Router>
       <div>
-        <CircleMenu logout={logout} user={user} />
+        <CircleMenu />
       </div>
       <div class="spotify">
-        <Spotify />
+        <Spotify city={city} />
       </div>
       <div>
         <Switch>
-          <Route
-            path="/sign-in"
-            component={() => (
-              <SignIn
-                setUser={setUser}
-                setToken={setToken}
-                setUserId={setUserId}
-              />
-            )}
-          />
-          <Route
-            path="/sign-up"
-            component={() => (
-              <SignUp
-                setUser={setUser}
-                setToken={setToken}
-                setUserId={setUserId}
-              />
-            )}
-          />
-          <Route
-            path="/my-room"
-            component={() => (
-              <MyRoom user={user} token={token} userId={userId} />
-            )}
-          />
-          <Route path="/city" component={City} />:
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/account" component={Account} />
+          <Route path="/city" component={City} />{" "}
           {/*template literal with city name*/}
           <Route path="/learn" component={Learn} />
           <Route path="/explore" component={Explore} />
-          <Route path="/translationquiz" component={TranslationQuiz} />
-          <Route path="/cityquiz" component={CityQuiz} />
+          <Route path="/quiz" component={TranslationQuiz} />
           <Route
             exact
             path="/"
