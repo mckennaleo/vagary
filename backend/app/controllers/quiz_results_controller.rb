@@ -1,5 +1,5 @@
 class QuizResultsController < ApplicationController
-  # before_action :authorize_request, except: :index
+  before_action :authorize_request, except: :index
 
   def index
     quiz_results = QuizResult.all    
