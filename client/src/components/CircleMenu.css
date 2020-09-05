@@ -12,7 +12,6 @@ a {
   margin-left: -20px;
   position: absolute;
   color: #871996;
-  text-align: center;
   line-height: 50px;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
@@ -20,56 +19,11 @@ a {
   transition: -webkit-transform ease-out 200ms;
   transition: transform ease-out 200ms;
   transition: transform ease-out 200ms, -webkit-transform ease-out 200ms;
+  text-align: center;
 }
 
 .menu-open {
   display: none;
-}
-
-/* .lines {
-  width: 25px;
-  height: 3px;
-  background: #596778;
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -12.5px;
-  margin-top: -1.5px;
-  -webkit-transition: -webkit-transform 200ms;
-  transition: -webkit-transform 200ms;
-  transition: transform 200ms;
-  transition: transform 200ms, -webkit-transform 200ms;
-}
-
-.line-1 {
-  -webkit-transform: translate3d(0, -8px, 0);
-  transform: translate3d(0, -8px, 0);
-}
-
-.line-2 {
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-
-.line-3 {
-  -webkit-transform: translate3d(0, 8px, 0);
-  transform: translate3d(0, 8px, 0);
-} */
-
-.menu-open:checked + .menu-open-button .line-1 {
-  -webkit-transform: translate3d(0, 0, 0) rotate(45deg);
-  transform: translate3d(0, 0, 0) rotate(45deg);
-}
-
-.menu-open:checked + .menu-open-button .line-2 {
-  -webkit-transform: translate3d(0, 0, 0) scale(0.1, 1);
-  transform: translate3d(0, 0, 0) scale(0.1, 1);
-}
-
-.menu-open:checked + .menu-open-button .line-3 {
-  -webkit-transform: translate3d(0, 0, 0) rotate(-45deg);
-  transform: translate3d(0, 0, 0) rotate(-45deg);
 }
 
 .menu {
@@ -79,22 +33,13 @@ a {
   z-index: 1000;
   position: absolute;
   margin: auto;
-  margin-left: 1em;
+  margin-left: 2em;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   width: 50px;
   height: 50px;
-}
-
-.spotify {
-  display: flex;
-  justify-content: flex-end;
-  z-index: 1000;
-  position: absolute;
-  margin: 0 0 auto auto;
-  width: 100%;
 }
 
 .menu-item {
@@ -111,17 +56,17 @@ a {
   transition-duration: 180ms;
 }
 
-.menu-item:nth-child(4) {
+.menu-item:nth-child(1) {
   -webkit-transition-duration: 180ms;
   transition-duration: 180ms;
 }
 
-.menu-item:nth-child(5) {
+.menu-item:nth-child(2) {
   -webkit-transition-duration: 180ms;
   transition-duration: 180ms;
 }
 
-.menu-item:nth-child(6) {
+.menu-item:nth-child(3) {
   -webkit-transition-duration: 180ms;
   transition-duration: 180ms;
 }
@@ -166,67 +111,68 @@ a {
 
 .menu-open:checked ~ .menu-item:nth-child(4) {
   transition-duration: 280ms;
-  -webkit-transition-duration: 280ms;
-  -webkit-transform: translate3d(90.9466px, -52.47586px, 0);
-  transform: translate3d(90.9466px, -52.47586px, 0);
+  -webkit-transition-duration: 380ms;
+  -webkit-transform: translate3d(90.9466px, 0px, 0);
+  transform: translate3d(90.9466px, 0px, 0);
 }
 
 .menu-open:checked ~ .menu-item:nth-child(5) {
   transition-duration: 380ms;
-  -webkit-transition-duration: 380ms;
-  -webkit-transform: translate3d(90.9466px, 52.47586px, 0);
-  transform: translate3d(90.9466px, 52.47586px, 0);
-}
-
-.menu-open:checked ~ .menu-item:nth-child(6) {
-  transition-duration: 480ms;
   -webkit-transition-duration: 480ms;
   -webkit-transform: translate3d(0.08361px, 104.99997px, 0);
   transform: translate3d(0.08361px, 104.99997px, 0);
 }
 
-.blue {
+.my-room {
   background-color: #669ae1;
   box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
 }
 
-.blue:hover {
+.my-room:hover {
   color: #669ae1;
+  background-color: #eeeeee;
   text-shadow: none;
 }
 
-.red {
-  background-color: #fe4365;
+.sign-in {
+  background-color: #ff6961;
   box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
 }
 
-.red:hover {
-  color: #fe4365;
+.sign-in:hover {
+  color: #ff6961;
+  background-color: #eeeeee;
   text-shadow: none;
 }
 
-.purple {
+.home {
   background-color: #c49cde;
   box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
 }
 
-.purple:hover {
+.home:hover {
   color: #c49cde;
+  background-color: #eeeeee;
   text-shadow: none;
 }
 
-.orange {
+.player {
   background-color: #fc913a;
   box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
 }
 
-.orange:hover {
+.player:hover {
   color: #fc913a;
+  background-color: #eeeeee;
   text-shadow: none;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 
 .credit {
@@ -244,4 +190,8 @@ a {
 
 .credit a:hover {
   text-decoration: underline;
+}
+
+.icon {
+  margin-bottom: 0.7em;
 }
