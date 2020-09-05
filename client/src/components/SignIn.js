@@ -68,19 +68,11 @@ export default function SignIn(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-<<<<<<< HEAD
-    // console.log(name, email, avatar, password, passwordConfirmation)
       const user = {email, password}
-      // console.log('USER******', user)
-      axios.post("http://localhost:3001/api/login", {
-        ...user
-=======
-    const user = { email, password };
-    //console.log(user)
+
     axios
       .post("http://localhost:3001/api/login", {
         ...user,
->>>>>>> 070c788b7ea83b5e8b0e04a959a434b64e1c55a1
       })
       .then((results) => {
         localStorage.setItem("token", results.data.token);

@@ -5,6 +5,11 @@ class QuizQuestionsController < ApplicationController
     render json: quiz_questions.to_json
   end
 
+  def index_count
+    quiz_questions = QuizQuestion.group(:quiz_id).count
+    render json: quiz_questions.to_json
+  end
+
   def show
     @quiz_question = QuizQuestion.find(quiz_question_params)
     render json: @quiz_question
