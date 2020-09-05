@@ -15,12 +15,17 @@ import CircleMenu from "./components/CircleMenu";
 import Learn from "./components/learn/Learn";
 import Explore from "./components/explore/Explore";
 import Spotify from "./components/spotify/Spotify";
-
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import MyRoom from "./components/MyRoom";
 import TranslationQuiz from "./components/learn/TranslationQuiz";
 import CityQuiz from "./components/explore/CityQuiz";
+import {
+  FacebookIcon,
+  FacebookShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+} from "react-share";
 
 export default function App(props) {
   const [city, setCity] = useState(null);
@@ -29,10 +34,10 @@ export default function App(props) {
   const [userId, setUserId] = useState(null);
 
   useEffect(() => {
-    const localUser = localStorage.getItem("email")
-    const localToken = localStorage.getItem("token")
-    const localId = localStorage.getItem("userId")
-    console.log(localUser, localToken, localId)
+    const localUser = localStorage.getItem("email");
+    const localToken = localStorage.getItem("token");
+    const localId = localStorage.getItem("userId");
+    console.log(localUser, localToken, localId);
     if (localUser && localToken && localId) {
       setUser(localUser);
       setToken(localToken);
@@ -56,6 +61,22 @@ export default function App(props) {
       </div>
       <div class="spotify">
         <Spotify city={city} />
+      </div>
+      <div class="share">
+        <TwitterShareButton
+          url="someurl"
+          hashtag="#vagary"
+          className="share-button"
+        >
+          <TwitterIcon size={32} round={true} />
+        </TwitterShareButton>
+        <FacebookShareButton
+          url="someurl"
+          hashtag="#vagary"
+          className="share-button"
+        >
+          <FacebookIcon size={32} round={true} />
+        </FacebookShareButton>
       </div>
       <div>
         <Switch>
