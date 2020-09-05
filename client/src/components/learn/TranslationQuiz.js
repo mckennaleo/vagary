@@ -14,6 +14,9 @@ export default function TranslationQuiz(props) {
   const city = props.location.state.translationQuiz[0].name
   const userId = props.location.state.translationQuiz[0].userId
 
+  console.log("????", userId)
+  console.log("WHAT ARE THESE", props)
+
   const [questions, setQuestions] = useState([])
   const [chosenAnswers, setChosenAnswers] = useState({});
   const [userQuizResult, setUserQuizResult] = useState(null)
