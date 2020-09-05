@@ -15,7 +15,7 @@ export default function TranslationQuiz(props) {
   // const userId = props.location.state.translationQuiz[0].userId
   const userId = localStorage.getItem('userId')
   const token = localStorage.getItem('token')
-
+  
 
   // console.log("????", userId)
   // console.log("WHAT ARE THESE", props)
@@ -41,16 +41,17 @@ export default function TranslationQuiz(props) {
         setQuestions(getTranslationQuestionsByCityId(results.data, city))
       })
       .catch(err => console.log(err.message));
-  }, []);
-
-  //if user is logged in
-  //make post request to /quiz_results with result + quiz_id
-  console.log("userQuizResult", userQuizResult)
+    }, []);
+    
+    //if user is logged in
+    //make post request to /quiz_results with result + quiz_id
+    console.log("THE QUESTIONS", questions)
+    console.log("userQuizResult", userQuizResult)
 
   // handle submission to db
   const handleSubmit = (e) => {
     e.preventDefault()
-
+    console.log(e)
     // get correct quiz_id based on city name.
     let quizId = "";
     if (city === 'Istanbul') {
@@ -58,10 +59,11 @@ export default function TranslationQuiz(props) {
     } else if (city === 'Saigon') {
       quizId = 5
     }
-
+    console.log("CHOSEN ANSWERS!", chosenAnswers)
     const result = quizValidator(questions, chosenAnswers)
+    console.log("RESULTTTTT", result)
     setUserQuizResult(result)
-    console.log(userQuizResult)
+    console.log("User Quiz Result ",userQuizResult)
 
     const resultToPost = {
       result: result,
