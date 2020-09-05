@@ -12,7 +12,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 export default function TranslationQuiz(props) {
   const language = props.location.state.translationQuiz[0].language
   const city = props.location.state.translationQuiz[0].name
-  const userId = props.location.state.translationQuiz[0].userId
+  // const userId = props.location.state.translationQuiz[0].userId
+  const userId = localStorage.getItem('userId')
+
+
 
   const [questions, setQuestions] = useState([])
   const [chosenAnswers, setChosenAnswers] = useState({});
@@ -21,7 +24,9 @@ export default function TranslationQuiz(props) {
   const handleChange = (questionId, answer) => {
     setChosenAnswers({...chosenAnswers, [questionId]: answer})
   };
-
+  console.log('USER ID ON TQUIZ', userId)
+  console.log('CITY ID ON TQUIZ', city)
+  console.log('LANGUAGE ID ON TQUIZ', language)
   // Get translations from database
   useEffect(() => {
     axios({
@@ -62,7 +67,7 @@ export default function TranslationQuiz(props) {
     }
 
     console.log(resultToPost)
-    axios.post("http://localhost:3001/quiz_results", resultToPost)
+    axios.post("http://localhost:3001/quiz_results", {...resultToPost})
       .then(results => {
         console.log(results)
       })

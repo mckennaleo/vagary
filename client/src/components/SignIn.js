@@ -68,12 +68,14 @@ export default function SignIn(props) {
   const [password, setPassword] = useState("")
 
 
+
+
   const handleSubmit = (e) => {
     e.preventDefault()
 
     // console.log(name, email, avatar, password, passwordConfirmation)
       const user = {email, password}
-      //console.log(user)
+      console.log('USER******', user)
       axios.post("http://localhost:3001/api/login", {
         ...user
       })
