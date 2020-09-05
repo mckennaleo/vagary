@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SignIn from "./SignIn";
 // radio
 import MusicNoteIcon from "@material-ui/icons/MusicNote";
@@ -15,6 +15,7 @@ import ExploreIcon from "@material-ui/icons/Explore";
 // button
 import IconButton from "@material-ui/core/IconButton";
 import "./CircleMenu.css";
+import Tooltip from "@material-ui/core/Tooltip";
 
 export default function CircleMenu(props) {
   return (
@@ -27,33 +28,42 @@ export default function CircleMenu(props) {
         id="menu-open"
       />
       <label className="menu-open-button" for="menu-open">
-        <span className="lines line-1"></span>
-        <span className="lines line-2"></span>
-        <span className="lines line-3"></span>
         <ExploreIcon />
       </label>
-      <a href="/explore" className="menu-item orange">
-        <MusicNoteIcon />
+      <a href="#" className="menu-item player">
+        <Tooltip title="Player" placement="right-start">
+          <MusicNoteIcon />
+        </Tooltip>
       </a>
-      <a href="/" className="menu-item purple">
-        <PublicIcon />
+      <a href="/" className="menu-item home">
+        <Tooltip title="Home" placement="right-start">
+          <PublicIcon />
+        </Tooltip>
       </a>
       {props.user ? (
-        <a href="/" className="menu-item red">
-          <ExitToAppIcon onClick={() => props.logout()} />
+        <a href="/" className="menu-item sign-in">
+          <Tooltip title="Logout" placement="right-start">
+            <ExitToAppIcon onClick={() => props.logout()} />
+          </Tooltip>
         </a>
       ) : (
-        <a href="/sign-in" className="menu-item red">
-          <Face SignIn={SignIn} />
+        <a href="/sign-in" className="menu-item sign-in">
+          <Tooltip title="Login" placement="right-start">
+            <Face SignIn={SignIn} />
+          </Tooltip>
         </a>
       )}
       {props.user ? (
-        <a href="/my-room" className="menu-item blue">
-          <MeetingRoomIcon />
+        <a href="/my-room" className="menu-item my-room">
+          <Tooltip title="My Room" placement="right-start">
+            <MeetingRoomIcon />
+          </Tooltip>
         </a>
       ) : (
-        <a href="/sign-in" className="menu-item blue">
-          <MeetingRoomIcon />
+        <a href="/sign-in" className="menu-item my-room">
+          <Tooltip title="My Room" placement="right-start">
+            <MeetingRoomIcon />
+          </Tooltip>
         </a>
       )}
     </nav>
