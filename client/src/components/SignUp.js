@@ -1,28 +1,27 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
+      {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
@@ -30,16 +29,12 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -47,45 +42,43 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 export default function SignUp(props) {
   const classes = useStyles();
   const history = useHistory();
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [avatar, setAvatar] = useState("")
-  const [password, setPassword] = useState("")
-  const [passwordConfirmation, setPasswordConfirmation] = useState("")
-
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    // console.log(name, email, avatar, password, passwordConfirmation)
-      const user = {name, email, avatar, password, password_confirmation: passwordConfirmation}
-      console.log(user)
-      
-      axios.post("http://localhost:3001/api/users", {
-        ...user
-      })
-      .then(results => {
-        localStorage.setItem("token", results.data.token)
-        localStorage.setItem("email", results.data.user.email)
-        localStorage.setItem("userId", results.data.user.id)
-        props.setUser(results.data.user.email)
-        props.setToken(results.data.token)
-        props.setUserId(results.data.user.id)
-        history.push("/")
-      })
+    e.preventDefault();
+    const user = {
+      name,
+      email,
+      password,
+      password_confirmation: passwordConfirmation,
+    };
+    console.log(user);
 
-  }
+    axios
+      .post("http://localhost:3001/api/users", {
+        ...user,
+      })
+      .then((results) => {
+        localStorage.setItem("token", results.data.token);
+        localStorage.setItem("email", results.data.user.email);
+        localStorage.setItem("userId", results.data.user.id);
+        props.setUser(results.data.user.email);
+        props.setToken(results.data.token);
+        props.setUserId(results.data.user.id);
+        history.push("/");
+      });
+  };
 
   return (
     <Container component="main" maxWidth="xs" onSubmit={handleSubmit}>
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
@@ -101,8 +94,8 @@ export default function SignUp(props) {
                 id="Name"
                 label="Name"
                 autoFocus
-                onChange = {(evt) => setName(evt.target.value)}
-                value = {name}
+                onChange={(evt) => setName(evt.target.value)}
+                value={name}
               />
             </Grid>
             <Grid item xs={12}>
@@ -114,21 +107,8 @@ export default function SignUp(props) {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
-                onChange = {(evt) => setEmail(evt.target.value)}
-                value = {email}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="avatar"
-                label="avatar"
-                name="avatar"
-                autoComplete="1"
-                onChange = {(evt) => setAvatar(evt.target.value)}
-                value = {avatar}
+                onChange={(evt) => setEmail(evt.target.value)}
+                value={email}
               />
             </Grid>
             <Grid item xs={12}>
@@ -141,8 +121,8 @@ export default function SignUp(props) {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                onChange = {(evt) => setPassword(evt.target.value)}
-                value = {password}
+                onChange={(evt) => setPassword(evt.target.value)}
+                value={password}
               />
             </Grid>
             <Grid item xs={12}>
@@ -155,8 +135,8 @@ export default function SignUp(props) {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                onChange = {(evt) => setPasswordConfirmation(evt.target.value)}
-                value = {passwordConfirmation}
+                onChange={(evt) => setPasswordConfirmation(evt.target.value)}
+                value={passwordConfirmation}
               />
             </Grid>
           </Grid>

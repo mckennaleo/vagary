@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
   before_action :authorize_request, except: :create
-  before_action :find_user, except: %i[create index]
+
   # GET /users
   def index
     @users = User.all
@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
   def create
     puts params
     puts params
-    @user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], avatar_id: params[:avatar])
+    @user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
     if @user.save
       token = encode_token(@user.id)  
       render json: {user: @user, token: token}, status: :created
@@ -47,7 +47,7 @@ class Api::UsersController < ApplicationController
 
   def user_params
     params.permit(
-      :avatar, :name, :username, :email, :password, :password_confirmation
+      :name, :username, :email, :password, :password_confirmation
     )
   end
 

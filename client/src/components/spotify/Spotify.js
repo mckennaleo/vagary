@@ -32,7 +32,7 @@ export default function Spotify(props) {
         .catch((error) => {
           console.log(error);
         });
-      newUri = uri;
+      // newUri = uri;
       // console.log("NEEEW: ", getCity());
     }
   }, [props.city]);
