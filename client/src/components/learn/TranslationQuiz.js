@@ -14,7 +14,7 @@ export default function TranslationQuiz(props) {
   const city = props.location.state.translationQuiz[0].name
   // const userId = props.location.state.translationQuiz[0].userId
   const userId = localStorage.getItem('userId')
-
+  const token = localStorage.getItem('token')
 
 
   const [questions, setQuestions] = useState([])
@@ -67,7 +67,7 @@ export default function TranslationQuiz(props) {
     }
 
     console.log(resultToPost)
-    axios.post("http://localhost:3001/quiz_results", {...resultToPost})
+    axios.post("http://localhost:3001/quiz_results", {...resultToPost}, {headers: {"Authorization" : `Bearer ${token}`}})
       .then(results => {
         console.log(results)
       })

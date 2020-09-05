@@ -75,7 +75,7 @@ export default function SignIn(props) {
 
     // console.log(name, email, avatar, password, passwordConfirmation)
       const user = {email, password}
-      console.log('USER******', user)
+      // console.log('USER******', user)
       axios.post("http://localhost:3001/api/login", {
         ...user
       })
