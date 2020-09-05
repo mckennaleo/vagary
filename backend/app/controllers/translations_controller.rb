@@ -1,5 +1,5 @@
 class TranslationsController < ApplicationController
-  # before_action :authorize_request
+  before_action :authorize_request, except: :index
   def show
     @translation = Translation.find(translation_params)
     render json: @translation
