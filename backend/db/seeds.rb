@@ -20,7 +20,7 @@ Experience.create(name: "Best Experience Eva!")
 # CITIES
 City.create(name: "Oaxaca", language: "es", latitude: 17.06544, longitude: -96.74365, playlist: "spotify:playlist:50cAhfdSSu1CQZpWMMZyw5")
 City.create(name: "Istanbul", language: "tr", latitude: 41.015137, longitude: 48.979530, playlist: "spotify:playlist:7qiesZR3pwTVGGqV4lVxQu")
-City.create(name: "Ho Chi Minh City (Saigon)", language: "vi", latitude: 10.762622, longitude: 106.660172, playlist: "spotify:playlist:4pkof2WT0Spca1pX3j2dh4?si=gsmRtNJLSlycwVsT18p3dw")
+City.create(name: "Saigon", language: "vi", latitude: 10.762622, longitude: 106.660172, playlist: "spotify:playlist:4pkof2WT0Spca1pX3j2dh4?si=gsmRtNJLSlycwVsT18p3dw")
 
 
 # PHRASE TRANSLATIONS

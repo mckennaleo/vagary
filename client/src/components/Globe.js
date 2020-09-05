@@ -6,13 +6,12 @@ import { Redirect } from "react-router-dom";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 
-export default function Globe({user, token, userId, city, setCity}) {
-
+export default function Globe({ user, token, userId, city, setCity }) {
   const userData = {
     user,
     token,
-    userId
-  }
+    userId,
+  };
   // on marker hover, show city name
   function markerTooltipRenderer(marker) {
     return `${marker.cityName}, ${marker.country}`;
