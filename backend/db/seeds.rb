@@ -20,11 +20,7 @@ Experience.create(name: "Best Experience Eva!")
 # CITIES
 City.create(name: "Oaxaca", language: "es", latitude: 17.06544, longitude: -96.74365, playlist: "spotify:playlist:50cAhfdSSu1CQZpWMMZyw5")
 City.create(name: "Istanbul", language: "tr", latitude: 41.015137, longitude: 48.979530, playlist: "spotify:playlist:7qiesZR3pwTVGGqV4lVxQu")
-<<<<<<< HEAD
 City.create(name: "Saigon", language: "vi", latitude: 10.762622, longitude: 106.660172, playlist: "spotify:playlist:4pkof2WT0Spca1pX3j2dh4?si=gsmRtNJLSlycwVsT18p3dw")
-=======
-City.create(name: "Ho Chi Minh City (Saigon)", language: "vi", latitude: 10.762622, longitude: 106.660172, playlist: "spotify:playlist:4pkof2WT0Spca1pX3j2dh4?si=gsmRtNJLSlycwVsT18p3dw")
->>>>>>> b5d46c8645b87ca1fca00871d991a3a39f81fbb5
 
 
 # PHRASE TRANSLATIONS
@@ -140,11 +136,8 @@ QuizQuestion.create(question: "Can you say “Thank you”?", correct_answer: "C
 QuizQuestion.create(question: "How do you say “Have a nice day” in Vietnamese?", correct_answer: "Chúc một ngày tốt lành.", incorrect_answer_1: "Hẹn gặp bạn vào ngày mai", incorrect_answer_2: "Bạn khỏe không", incorrect_answer_3: "Xin chào", quiz_id: 5)
 QuizQuestion.create(question: "What about “Good-bye”?", correct_answer: "Tạm biệt", incorrect_answer_1: "Buổi sáng tốt lành", incorrect_answer_2: "Vui mừng", incorrect_answer_3: "Cho tôi xin hai vé", quiz_id: 5)    
 QuizQuestion.create(question: "What about “Good-bye”?", correct_answer: "Tạm biệt", incorrect_answer_1: "Buổi sáng tốt lành", incorrect_answer_2: "Vui mừng", incorrect_answer_3: "Cho tôi xin hai vé", quiz_id: 5)
-<<<<<<< HEAD
-=======
 
 # QUIZ RESULTS
 QuizResult.create(result: 7, quiz_id: 5, user_id: 1)
 QuizResult.create(result: 5, quiz_id: 4, user_id: 1)
 QuizResult.create(result: 3, quiz_id: 4, user_id: 2)
->>>>>>> b5d46c8645b87ca1fca00871d991a3a39f81fbb5
