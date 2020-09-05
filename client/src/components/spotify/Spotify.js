@@ -7,7 +7,7 @@ export default function Spotify(props) {
   const size = "compact";
   const view = "coverart"; // or 'coverart'
   const theme = "black"; // or 'white'
-  const [playlist, setplaylist] = useState();
+  const [playlist, setPlaylist] = useState();
 
   // spaceSounds playlist
   let uri = "spotify:playlist:5NbleROaHyKOZDwJEPm7f5?si=FgpZbIBMTKOlTUjBi5zv-w";
@@ -27,7 +27,7 @@ export default function Spotify(props) {
           uri = newUri[0];
 
           // console.log("FINAL URI: ", uri);
-          setplaylist(uri);
+          setPlaylist(uri);
         })
         .catch((error) => {
           console.log(error);
