@@ -24,7 +24,6 @@ import CityQuiz from "./components/explore/CityQuiz";
 
 export default function App(props) {
   const [city, setCity] = useState(null);
-
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const [userId, setUserId] = useState(null);

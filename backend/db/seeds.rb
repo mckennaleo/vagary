@@ -11,9 +11,6 @@ User.create(name: "test Name", email: "test@test.com", password: "123456789")
 User.create(name: "John Smith", email: "test2@test.com", password: "123456789")
 User.create(name: "alyssa", email: "apple@core.com", password: "password")
 
-#AVATARS
-Avatar.create(name: "avatar", avatar_img: "image", sprite: "sprite")
-
 # TEST
 Experience.create(name: "Best Experience Eva!")
 

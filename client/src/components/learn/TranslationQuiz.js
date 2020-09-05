@@ -17,6 +17,9 @@ export default function TranslationQuiz(props) {
   const token = localStorage.getItem('token')
 
 
+  console.log("????", userId)
+  console.log("WHAT ARE THESE", props)
+
   const [questions, setQuestions] = useState([])
   const [chosenAnswers, setChosenAnswers] = useState({});
   const [userQuizResult, setUserQuizResult] = useState(null)

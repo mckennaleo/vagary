@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get 'playlists/show'
-
   get 'playlists/index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -11,10 +10,6 @@ Rails.application.routes.draw do
   post '/api/login', to: 'authentication#login'
   post '/api/logout', to: 'authentication#logout'
   # post '/api/test', to: 'authentication#test'
-  
-  resources :avatars, only: [:show]
-
-  resources :badges, only: [:show]
 
   resources :cities, only: [:show, :index]
 
