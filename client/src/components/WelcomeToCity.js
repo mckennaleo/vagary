@@ -7,7 +7,6 @@ import Learn from "./learn/Learn";
 import "./LayoutMain.scss";
 
 export default function WelcomeToCity(props) {
-
   const city = props.city;
 
   const params = [
@@ -19,10 +18,10 @@ export default function WelcomeToCity(props) {
       userEmail: props.userEmail,
       userId: props.userId,
       userToken: props.userToken,
-    }
+    },
   ];
 
-  //console.log("CityParams: ", cityParams);
+  // console.log("CityParams: ", cityParams);
 
   const [learn, setLearn] = useState(false);
   const [explore, setExplore] = useState(false);
