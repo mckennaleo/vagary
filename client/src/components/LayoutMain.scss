@@ -5,9 +5,9 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  text-align:center;
-  margin:auto;
-  padding:0;
+  text-align: center;
+  margin: auto;
+  padding: 0;
 }
 .background--Saigon {
   background-image: url("../components/assets/saigon.jpg");
@@ -16,9 +16,9 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  text-align:center;
-  margin:auto;
-  padding:0;
+  text-align: center;
+  margin: auto;
+  padding: 0;
 }
 .background--Montréal {
   background-image: url("../components/assets/montreal.jpg");
@@ -27,9 +27,9 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  text-align:center;
-  margin:auto;
-  padding:0;
+  text-align: center;
+  margin: auto;
+  padding: 0;
 }
 .background--Budapest {
   background-image: url("../components/assets/budapest.jpg");
@@ -38,9 +38,9 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  text-align:center;
-  margin:auto;
-  padding:0;
+  text-align: center;
+  margin: auto;
+  padding: 0;
 }
 .background--Oaxaca {
   background-image: url("../components/assets/oaxaca.jpg");
@@ -49,9 +49,9 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  text-align:center;
-  margin:auto;
-  padding:0;
+  text-align: center;
+  margin: auto;
+  padding: 0;
 }
 .background--My-Room {
   background-image: url("../components/assets/my-room.jpg");
@@ -60,7 +60,16 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  text-align:center;
-  margin:auto;
-  padding:0;
+  text-align: center;
+  margin: auto;
+  padding: 0;
+}
+
+.spotify {
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1000;
+  position: absolute;
+  margin: 0 0 auto auto;
+  width: 100%;
 }

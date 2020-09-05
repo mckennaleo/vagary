@@ -135,6 +135,6 @@ QuizQuestion.create(question: "What about “Good-bye”?", correct_answer: "T�
 QuizQuestion.create(question: "What about “Good-bye”?", correct_answer: "Tạm biệt", incorrect_answer_1: "Buổi sáng tốt lành", incorrect_answer_2: "Vui mừng", incorrect_answer_3: "Cho tôi xin hai vé", quiz_id: 5)
 
 # QUIZ RESULTS
-QuizResult.create(result: 7, quiz_id: 5, user_id: 1)
-QuizResult.create(result: 5, quiz_id: 4, user_id: 1)
-QuizResult.create(result: 3, quiz_id: 4, user_id: 2)
+QuizResult.create(result: 75, quiz_id: 5, user_id: 1)
+QuizResult.create(result: 12.5, quiz_id: 4, user_id: 1)
+QuizResult.create(result: 25, quiz_id: 4, user_id: 2)
