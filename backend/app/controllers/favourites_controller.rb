@@ -1,7 +1,12 @@
 class FavouritesController < ApplicationController
   
+  def index
+    favourites = Favourite.all
+    render json: favourites.to_json
+  end
+  
   def show
-    @favourite = Favourite.find(favourite_params)
+    favourite = Favourite.find(favourite_params)
     render json: @favourite
   end
 

@@ -10,17 +10,16 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 
 export default function TranslationQuiz(props) {
-
-  console.log("C QUOI", props)
   const language = props.location.state.translationQuiz[0].language
   const city = props.location.state.translationQuiz[0].name
+  const userId = props.location.state.translationQuiz[0].userId
 
   const [questions, setQuestions] = useState([])
   const [chosenAnswers, setChosenAnswers] = useState({});
-  const [quizResult, setQuizResult] = useState({})
+  const [userQuizResult, setUserQuizResult] = useState(null)
 
   const handleChange = (questionId, answer) => {
-    setChosenAnswers({...chosenAnswers})
+    setChosenAnswers({...chosenAnswers, [questionId]: answer})
   };
 
   // Get translations from database
@@ -30,7 +29,7 @@ export default function TranslationQuiz(props) {
       url: `/quiz_questions`
     })
       .then(results => {
-        //console.log(results.data)
+        console.log(results.data)
         setQuestions(getTranslationQuestionsByCityId(results.data, city))
       })
       .catch(err => console.log(err.message));
@@ -38,33 +37,60 @@ export default function TranslationQuiz(props) {
 
   //if user is logged in
   //make post request to /quiz_results with result + quiz_id
+  console.log("userQuizResult", userQuizResult)
 
-  console.log("quizResult", quizResult)
+  // handle submission to db
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    // get correct quiz_id based on city name.
+    let quizId = "";
+    if (city === 'Istanbul') {
+      quizId = 4
+    } else if (city === 'Saigon') {
+      quizId = 5
+    }
+
+    const result = quizValidator(questions, chosenAnswers)
+    setUserQuizResult(result)
+    console.log(userQuizResult)
+
+    const resultToPost = {
+      result: result,
+      quiz_id: quizId,
+      user_id: userId
+    }
+
+    console.log(resultToPost)
+    axios.post("http://localhost:3001/quiz_results", resultToPost)
+      .then(results => {
+        console.log(results)
+      })
+
+  }
 
   return (
     <section>
-      {questions.map((question) => {
-        return (<FormControl component="fieldset">
-            <FormLabel component="legend">{question.question}</FormLabel>
-            <RadioGroup aria-label="gender" name="gender1" >
-              <FormControlLabel value="answer-1" control={<Radio />} chosenAnswers={chosenAnswers} onChange={() => handleChange(question.id, question.correct_answer)} label={question.correct_answer} />
-              <FormControlLabel value="answer-2" control={<Radio />} chosenAnswers={chosenAnswers} onChange={() => handleChange(question.id, question.incorrect_answer_1)} label={question.incorrect_answer_1} />
-              <FormControlLabel value="answer-3" control={<Radio />} chosenAnswers={chosenAnswers} onChange={() => handleChange(question.id, question.incorrect_answer_2)} label={question.incorrect_answer_2} />
-              <FormControlLabel value="answer-4" control={<Radio />} chosenAnswers={chosenAnswers} onChange={() => handleChange(question.id, question.incorrect_answer_3)} label={question.incorrect_answer_3} />
-            </RadioGroup>
-          </FormControl>
+      <form id="quiz-form" onSubmit={handleSubmit}>
+        {questions.map((question) => {
+          return (
+            <FormControl component="fieldset">
+              <FormLabel component="legend">{question.question}</FormLabel>
+              <RadioGroup aria-label="gender" name="gender1" >
+                <FormControlLabel value="answer-1" control={<Radio />} chosenAnswers={chosenAnswers} onChange={() => handleChange(question.id, question.correct_answer)} label={question.correct_answer} />
+                <FormControlLabel value="answer-2" control={<Radio />} chosenAnswers={chosenAnswers} onChange={() => handleChange(question.id, question.incorrect_answer_1)} label={question.incorrect_answer_1} />
+                <FormControlLabel value="answer-3" control={<Radio />} chosenAnswers={chosenAnswers} onChange={() => handleChange(question.id, question.incorrect_answer_2)} label={question.incorrect_answer_2} />
+                <FormControlLabel value="answer-4" control={<Radio />} chosenAnswers={chosenAnswers} onChange={() => handleChange(question.id, question.incorrect_answer_3)} label={question.incorrect_answer_3} />
+              </RadioGroup>
+            </FormControl>
           )
-    })}
-      <FormControl>
-      <Button type="button" variant="outlined" color="primary" className='' onClick={() => setQuizResult(quizValidator(questions, chosenAnswers))}>
-            Submit
-      </Button>
+        })
+        }
+        <input type="submit" variant="outlined" color="primary" className='' value="Submit" />
 
-        
 
-      </FormControl>
+      </form>
     </section>
-   
   )
 }
 

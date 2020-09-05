@@ -30,7 +30,6 @@ export default function Explore(props) {
           description: landmark.description,
         });
       }
-      console.log("RESULT", result);
       setCityResults(cityResults);
     });
   }, []);
@@ -49,7 +48,7 @@ export default function Explore(props) {
           />
         </span>
         <span>
-          <ExploreDisplay display={display} />
+          <ExploreDisplay city={city} display={display} />
         </span>
       </div>
     </div>

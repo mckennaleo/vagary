@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :quizzes, only: [:show, :index]
 
-  resources :favourites, only: [:show, :create, :destroy]
+  resources :favourites, only: [:index, :show, :create, :destroy]
 
   resources :experiences, only: [:show]
 
