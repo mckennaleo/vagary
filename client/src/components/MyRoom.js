@@ -64,7 +64,7 @@ export default function MyRoom({ userId }) {
               <h5 class="card-title">My Language Quiz Results</h5>
               {userQuizResults.map((result) => (
                 <p class="card-text" key={result.id}>
-                  {result.quiz}: {result.result}/8
+                  {result.quiz} {result.result}%
                 </p> 
               ))}
             </div>

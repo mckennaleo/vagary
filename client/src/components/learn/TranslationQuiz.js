@@ -51,7 +51,10 @@ export default function TranslationQuiz(props) {
   // handle submission to db
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(e)
+
+    if(!token) {
+      alert("Please Login or create and Account to Submit a Quiz.")
+    } else {
     // get correct quiz_id based on city name.
     let quizId = "";
     if (city === 'Istanbul') {
@@ -76,6 +79,8 @@ export default function TranslationQuiz(props) {
       .then(results => {
         console.log(results)
       })
+    }
+
 
   }
 
