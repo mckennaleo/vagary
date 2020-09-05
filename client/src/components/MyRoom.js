@@ -47,6 +47,7 @@ export default function MyRoom({ userId }) {
     <div className="background--My-Room">
       <div class="container">
         <div class="row">
+        <div class="col-lg">
           <div class="card w-50">
             <div class="card-body">
               <h5 class="card-title">My Profile</h5>
@@ -56,6 +57,8 @@ export default function MyRoom({ userId }) {
               </a>
             </div>
           </div>
+          </div>
+          <div class="col-lg">
           <div class="card w-50">
             <div class="card-body">
               <h5 class="card-title">My Language Quiz Results</h5>
@@ -64,6 +67,7 @@ export default function MyRoom({ userId }) {
                   {result.quiz}: {result.result}/8
                 </p> 
               ))}
+            </div>
             </div>
           </div>
         </div>
