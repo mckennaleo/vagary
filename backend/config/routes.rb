@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :experiences, only: [:show]
 
-  resources :quiz_questions, only: [:show, :index]
+  resources :quiz_questions, only: [:show, :index, :index_count]
 
   resources :quiz_results, only: [:show, :create, :index]
 
@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 
   resources :playlists, only: [:show, :index]
 
+  get '/quiz-questions-count' => 'quiz_questions#index_count'
+ 
     # these routes are for showing users a login form, logging them in, and logging them out.
     # get '/login' => 'sessions#new'
     # post '/login' => 'sessions#create'

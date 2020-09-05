@@ -17,8 +17,8 @@ export default function TranslationQuiz(props) {
   const token = localStorage.getItem('token')
 
 
-  console.log("????", userId)
-  console.log("WHAT ARE THESE", props)
+  // console.log("????", userId)
+  // console.log("WHAT ARE THESE", props)
 
   const [questions, setQuestions] = useState([])
   const [chosenAnswers, setChosenAnswers] = useState({});
@@ -27,9 +27,9 @@ export default function TranslationQuiz(props) {
   const handleChange = (questionId, answer) => {
     setChosenAnswers({...chosenAnswers, [questionId]: answer})
   };
-  console.log('USER ID ON TQUIZ', userId)
-  console.log('CITY ID ON TQUIZ', city)
-  console.log('LANGUAGE ID ON TQUIZ', language)
+  // console.log('USER ID ON TQUIZ', userId)
+  // console.log('CITY ID ON TQUIZ', city)
+  // console.log('LANGUAGE ID ON TQUIZ', language)
   // Get translations from database
   useEffect(() => {
     axios({
