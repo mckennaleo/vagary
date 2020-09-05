@@ -5,6 +5,11 @@ class CitiesController < ApplicationController
     render json: @city
   end
 
+  def index
+    cities = City.all
+    render json: cities.to_json
+  end
+
 private
 
 def city_params
