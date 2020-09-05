@@ -10,27 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200904155202) do
+ActiveRecord::Schema.define(version: 20200905160932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "avatars", force: :cascade do |t|
-    t.string   "name"
-    t.string   "avatar_img"
-    t.string   "sprite"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "badges", force: :cascade do |t|
-    t.string   "name"
-    t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id"
-    t.index ["user_id"], name: "index_badges_on_user_id", using: :btree
-  end
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -106,11 +89,8 @@ ActiveRecord::Schema.define(version: 20200904155202) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "avatar_id"
-    t.index ["avatar_id"], name: "index_users_on_avatar_id", using: :btree
   end
 
-  add_foreign_key "badges", "users"
   add_foreign_key "experiences", "cities"
   add_foreign_key "favourites", "experiences"
   add_foreign_key "favourites", "users"
@@ -119,5 +99,4 @@ ActiveRecord::Schema.define(version: 20200904155202) do
   add_foreign_key "quiz_results", "users"
   add_foreign_key "quizzes", "cities"
   add_foreign_key "translations", "cities"
-  add_foreign_key "users", "avatars"
 end
