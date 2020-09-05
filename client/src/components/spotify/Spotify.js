@@ -26,7 +26,7 @@ export default function Spotify(props) {
           // console.log("RESULT FROM GETCITY:", result);
           uri = newUri[0];
 
-          // console.log("FINAL URI: ", uri);
+          console.log("FINAL URI: ", uri);
           setPlaylist(uri);
         })
         .catch((error) => {
@@ -36,7 +36,7 @@ export default function Spotify(props) {
       // console.log("NEEEW: ", getCity());
     }
   }, [props.city]);
-  // console.log("GET NEW: ", getNewUri); // why undefined??
+  console.log("GET NEW: ", playlist);
   return (
     <SpotifyPlayer
       class="spotify"
