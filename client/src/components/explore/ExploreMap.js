@@ -15,7 +15,8 @@ export default function ExploreMap(props) {
   // }
 
   return (
-    <article>
+    <article class="explore-map">
+      <p class="explore-map-text alert alert-primary">↓ Click a marker to explore ↓</p>
       <Map center={[lat, long]} zoom={13}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

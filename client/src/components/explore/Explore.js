@@ -36,15 +36,15 @@ export default function Explore(props) {
 
   return (
     <div className={`background--${city}`}>
-      <div class="exploreCity">
-        <span>
+      <div class="explore-city">
+        <span class="explore-map-container">
           <ExploreMap
             city={city}
             coordinates={coordinates}
             cityId={cityId}
             cityResults={cityResults}
             onSelect={setDisplay}
-            class="explore-map"
+            
           />
         </span>
         <span>

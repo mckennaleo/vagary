@@ -151,9 +151,6 @@ function City(props) {
 
   return (
     <div className={`background--${city}`}>
-      <h2>City</h2>
-      <h1>I'm in {city}</h1>
-
       <WelcomeToCity
         city={city}
         coordinates={coordinates}
