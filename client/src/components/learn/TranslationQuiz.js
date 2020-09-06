@@ -89,7 +89,6 @@ export default function TranslationQuiz(props) {
     <section className={`background--${city}`}>
       <form id="quiz-form" onSubmit={handleSubmit}>
         <div className="choice--cards">
-          <div><p>Hello, How Are you?</p></div>
         {questions.map((question) => {
           return (
             <FormControl component="fieldset">
@@ -106,6 +105,7 @@ export default function TranslationQuiz(props) {
       }
       </div>
         <div className="submit-area">
+          <h1>Translation Quiz</h1>
           <input type="submit" variant="outlined" color="primary" className="alert alert-primary" value="Submit" />
         </div>
 

@@ -11,8 +11,8 @@
 }
 
 .quiz-area, .submit-area  {
-	padding: 1em 0;
-	flex-basis: 300px;
+	padding: 1em .25em;
+	flex-basis: 312px;
 	flex-grow: 0;
 	flex-shrink: 0;
 	flex-grow: 2;
@@ -24,8 +24,9 @@
   p {
     color: #000;
 	}
-	button, fieldset {
-		justify-content: flex-end;
+	button, input, fieldset {
+		margin-top: 1em;
+		// justify-content: flex-end;
 	}
 }
 
@@ -39,11 +40,18 @@
 
 
 .choice--cards {
-	padding: 2rem;
+	padding: 2em;
 	background-color: #FFF;
+
+	fieldset {
+		text-align: left;
+		padding: 1em!important;
+		width: 300px!important;
+	}
+	
 }
 
-.MuiFormLabel-root {
+fieldset.MuiFormLabel-root {
 	text-align: left;
 	color: #669AE1!important;
 	font-weight: bold!important;
@@ -53,13 +61,7 @@
 
 // translationquiz
 
-fieldset {
-	text-align: left;
-	// box-sizing: border-box;
-	padding: 1em!important;
-	width: 300px!important;
-	// color: green
-}
+
 
 // .MuiFormControl-root{
 // 	width: 200px;
