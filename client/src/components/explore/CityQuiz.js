@@ -7,7 +7,7 @@ import FormLabel from "@material-ui/core/FormLabel";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Radio from "@material-ui/core/Radio";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-
+import "../SpeechBubble.scss";
 export default function CityQuiz(props) {
   const language = props.location.state.cityQuiz[0].language;
   const city = props.location.state.cityQuiz[0].name;
@@ -78,8 +78,9 @@ export default function CityQuiz(props) {
 
 
   return (
-    <section>
+    <section className={`background--${city}`}>
       <form id="quiz-form" onSubmit={handleSubmit}>
+      <div className="choice--cards">
         {questions.map((question) => {
           return (
             <FormControl component="fieldset">
@@ -125,13 +126,17 @@ export default function CityQuiz(props) {
             </FormControl>
           );
         })}
+        </div>
+        <div className="submit-area">
+        <h1>City Knowledge Quiz</h1>
         <input
           type="submit"
           variant="outlined"
           color="primary"
-          className=""
+          className="alert alert-primary"
           value="Submit"
         />
+        </div>
       </form>
     </section>
   );
