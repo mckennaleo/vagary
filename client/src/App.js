@@ -60,6 +60,10 @@ export default function App(props) {
         <CircleMenu logout={logout} user={user} />
       </div>
       <div class="top">
+      <div class="vagary-logo">
+        <img src="https://i.ibb.co/vwh6FGL/vagary-logo.png" alt="vagary-logo" border="0" width="130px" />
+      </div>
+      <div class="nav-right-side">
         <div class="spotify">
           <Spotify city={city} />
         </div>
@@ -79,6 +83,7 @@ export default function App(props) {
             <FacebookIcon size={32} round={true} />
           </FacebookShareButton>
         </div>
+      </div>
       </div>
       <div>
         <Switch>
