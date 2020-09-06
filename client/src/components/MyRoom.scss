@@ -28,11 +28,14 @@
 }
 
 .card-deck{ 
-  max-width: 75%;
+  padding-left: 25%;
+  padding-right: 25%;
 }
 
 .card-container {
-  
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 .card-title {
