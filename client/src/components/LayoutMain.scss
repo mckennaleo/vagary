@@ -65,24 +65,30 @@
   padding: 0;
 }
 
-.spotify {
+.top {
   display: flex;
   justify-content: flex-end;
-  z-index: 1000;
-  position: absolute;
-  margin: 0 0 auto auto;
-  width: 100%;
-}
 
-.share {
-  display: flex;
-  justify-content: flex-end;
-  z-index: 1000;
-  position: absolute;
-  margin: auto 0 auto 0;
-  width: 100%;
+  .spotify {
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1000;
+    position: absolute;
+    margin: 0 0 auto auto;
+    width: 100%;
+  }
 
-  .share-button {
-    margin: 0.5em;
+  .share {
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1000;
+    position: absolute;
+    margin-top: 4.5em;
+
+    .share-button {
+      display: flex;
+      flex-direction: column;
+      margin: 1em 1em 0 0;
+    }
   }
 }

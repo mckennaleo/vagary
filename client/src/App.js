@@ -59,24 +59,26 @@ export default function App(props) {
       <div>
         <CircleMenu logout={logout} user={user} />
       </div>
-      <div class="spotify">
-        <Spotify city={city} />
-      </div>
-      <div class="share">
-        <TwitterShareButton
-          url="someurl"
-          hashtag="#vagary"
-          className="share-button"
-        >
-          <TwitterIcon size={32} round={true} />
-        </TwitterShareButton>
-        <FacebookShareButton
-          url="someurl"
-          hashtag="#vagary"
-          className="share-button"
-        >
-          <FacebookIcon size={32} round={true} />
-        </FacebookShareButton>
+      <div class="top">
+        <div class="spotify">
+          <Spotify city={city} />
+        </div>
+        <div class="share">
+          <TwitterShareButton
+            url={window.location.href}
+            hashtag="#vagary"
+            className="share-button"
+          >
+            <TwitterIcon size={32} round={true} />
+          </TwitterShareButton>
+          <FacebookShareButton
+            url={window.location.href}
+            hashtag="#vagary"
+            className="share-button"
+          >
+            <FacebookIcon size={32} round={true} />
+          </FacebookShareButton>
+        </div>
       </div>
       <div>
         <Switch>
@@ -138,7 +140,7 @@ export default function App(props) {
 }
 
 function City(props) {
-  console.log("PROPS", props);
+  // console.log("PROPS", props);
   const city = props.location.state.city.marker.cityName;
   const coordinates = props.location.state.city.marker.coordinates;
   const language = props.location.state.city.marker.language;
