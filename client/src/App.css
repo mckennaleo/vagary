@@ -1,5 +1,7 @@
 * {
-  font-family: 'Righteous', cursive;
+  font-family: 'Roboto';
+  src: url('https://fonts.googleapis.com/css2?family=Marko+One&family=Roboto:wght@400;500&display=swap');
+  
 }
 
 .App {
