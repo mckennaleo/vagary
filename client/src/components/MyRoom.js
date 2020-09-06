@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getQuizResultsByUserId } from "./helpers/selectors";
+
+import PublicIcon from "@material-ui/icons/Public";
 import "./LayoutMain.scss";
+import "./MyRoom.scss";
 
 export default function MyRoom({ userId }) {
   const [state, setState] = useState({
@@ -30,48 +33,59 @@ export default function MyRoom({ userId }) {
       .catch((err) => console.log(err.message));
   }, []);
 
-  console.log("WHAT IS THIS", state);
-  console.log("QUIZZES???", state.quizzes);
-  console.log("QUIZ RESULTS???", state.quizResults);
-  console.log("QUIZ QUESTION COUNT???", state.quizQuestionCount);
-  console.log("USERID??", userId);
-
   const userQuizResults = getQuizResultsByUserId(
     Number(userId),
     state.quizzes,
     state.quizResults
   );
-  console.log(userQuizResults);
 
   return (
     <div className="background--My-Room">
-      <div class="container">
-        <div class="row">
-        <div class="col-lg">
-          <div class="card w-50">
-            <div class="card-body">
-              <h5 class="card-title">My Profile</h5>
-              <p class="card-text">Click here to edit your profile</p>
-              <a href="#" class="btn btn-secondary">
-                Edit
-              </a>
-            </div>
-          </div>
-          </div>
-          <div class="col-lg">
-          <div class="card w-50">
-            <div class="card-body">
-              <h5 class="card-title">My Language Quiz Results</h5>
-              {userQuizResults.map((result) => (
-                <p class="card-text" key={result.id}>
-                  {result.quiz} {result.result}%
-                </p> 
-              ))}
-            </div>
-            </div>
+      <div class="main">
+        <h1> My Room </h1>
+      <div class="card-deck">
+        <div class="card text-white bg-dark mb-3 bg-transparent">
+          {/* <img class="card-img-top" src="https://i.ibb.co/dJFTHNQ/profile-pic-copy.jpg" alt="profile-pic-copy" border="0"/> */}
+          <div class="card-body">
+            <h5 class="card-title">My Profile</h5>
+            <a href='/'><p class="card-text">Click here to edit your profile</p></a>
           </div>
         </div>
+        <div class="card text-white bg-dark mb-3 bg-transparent">
+          {/* <img class="card-img-top" src="https://i.ibb.co/HxzMPN5/quiz-pic-copy.jpg" alt="quiz-pic-copy" border="0"/> */}
+          <div class="card-body">
+            <h5 class="card-title">My Quiz Scores</h5>
+            <p class="card-sub-title-container">
+            <p class="card-sub-title">Quiz</p>
+            <p class="card-sub-title">Score</p>
+            </p>
+            <p class="card-text-container"> 
+            {userQuizResults.map((result) => (
+              <p class="card-text" key={result.id}>
+                {result.quiz}
+                </p>
+            ))}
+            {userQuizResults.map((result) => (
+              <p class="card-text-result" key={result.id}>
+                {result.result} out of 8
+              </p>
+            ))}
+            </p>
+          </div>
+        </div>
+        {/* <div class="card text-white bg-dark mb-3 bg-transparent">
+          <img class="card-img-top" src="https://i.ibb.co/kh12Dhs/favourites-pic-copy.jpg" alt="favourites-pic-copy" border="0"/>
+          <div class="card-body">
+            <h5 class="card-title">My Favourites</h5>
+            <p class="card-text">
+            </p>
+          </div>
+        </div> */}
       </div>
+    </div>
+    <a href="/" className="menu-item purple">
+        <PublicIcon />
+      </a>
     </div>
   );
 }
