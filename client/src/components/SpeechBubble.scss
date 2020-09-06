@@ -1,40 +1,102 @@
-#speech-container {
-  background-color: #c9c9c9;
+
+
+#speech-container, #quiz-form {
+	padding-top: 80px;
+	margin: 0 auto;
+	width: 80vw;
+	height: calc(100vh - 80px);
   display: flex;
   justify-content: space-evenly;
 
 }
 
-.quiz-area {
+.quiz-area, .submit-area  {
+	padding: 1em .25em;
+	flex-basis: 312px;
+	flex-grow: 0;
+	flex-shrink: 0;
+	flex-grow: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-basis: 40em;
-  background-color: #4f4e4e;
+	background-color: #8f8f8f;
   color: #FFF;
-
   p {
     color: #000;
-  }
-
+	}
+	button, input, fieldset {
+		margin-top: 1em;
+		// justify-content: flex-end;
+	}
 }
 
+.bubbles, .choice--cards {
+	background: rgba(69, 69, 69, 0.3);
+	border-radius: 20px 0 0 0;
+	overflow: hidden;
+	overflow: auto;
+	overflow: scroll;
+}
+
+
+.choice--cards {
+	padding: 2em;
+	background-color: #FFF;
+
+	fieldset {
+		text-align: left;
+		padding: 1em!important;
+		width: 300px!important;
+	}
+	
+}
+
+fieldset .MuiFormLabel-root {
+	text-align: left;
+	color: #669AE1;
+	font-weight: bold;
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+	width: 12px;
+	height: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1; 
+
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: rgba(135,25,150, 0.9); 
+	 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #871996;
+	// background: rgba(135,25,150, 0.3); 
+}
+
+
+// ********************************
 .speech-bubble {
-
-
 	// layout
 	position: relative;
 	max-width: 30em;
-	
   // looks
   margin: 1.75em;
 	background-color: #fff;
-	padding: 1.125em 1.5em;
+	padding: .8em 1.5em;
 	font-size: 1.25em;
 	border-radius: 1rem;
   box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
 }
-
 .speech-bubble::before {
 	// layout
 	content: '';
@@ -45,12 +107,10 @@
 	left: 1.5em; // offset should move with padding of parent
 	border: .75rem solid transparent;
 	border-top: none;
-
 	// looks
 	border-bottom-color: #fff;
 	filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
 }
-
 // dressing
 .speech-container {
 	font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;

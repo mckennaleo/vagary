@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-
+import "./LayoutMain.scss";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -126,6 +126,9 @@ export default function SignIn(props) {
               onChange={(evt) => setPassword(evt.target.value)}
               value={password}
             />
+            {/* <Typography>
+            <div class="alert alert-danger user--error" role="alert">Failed to sign in. Check email address and password.</div>
+            </Typography> */}
             <Button
               type="submit"
               fullWidth
