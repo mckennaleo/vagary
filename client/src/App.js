@@ -33,6 +33,8 @@ export default function App(props) {
   const [token, setToken] = useState(null);
   const [userId, setUserId] = useState(null);
 
+  console.log("props: ", props);
+
   useEffect(() => {
     const localUser = localStorage.getItem("email");
     const localToken = localStorage.getItem("token");
@@ -66,7 +68,7 @@ export default function App(props) {
         <div class="share">
           <TwitterShareButton
             url={window.location.href}
-            hashtag="#vagary"
+            hashtags={["vagary"]}
             className="share-button"
           >
             <TwitterIcon size={32} round={true} />
