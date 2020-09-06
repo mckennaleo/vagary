@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Globe from "./components/Globe";
 import "leaflet/dist/leaflet.css";
-import "./App.css";
+import "./App.scss";
 import "./components/LayoutMain.scss";
 import WelcomeToCity from "./components/WelcomeToCity";
 import CircleMenu from "./components/CircleMenu";
@@ -32,8 +32,6 @@ export default function App(props) {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const [userId, setUserId] = useState(null);
-
-  console.log("props: ", props);
 
   useEffect(() => {
     const localUser = localStorage.getItem("email");
@@ -142,7 +140,7 @@ export default function App(props) {
 }
 
 function City(props) {
-  // console.log("PROPS", props);
+  console.log("PROPS", props);
   const city = props.location.state.city.marker.cityName;
   const coordinates = props.location.state.city.marker.coordinates;
   const language = props.location.state.city.marker.language;

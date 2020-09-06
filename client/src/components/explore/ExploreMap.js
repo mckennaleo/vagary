@@ -1,11 +1,10 @@
-import React , { useState } from "react";
+import React, { useState } from "react";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import { Icon } from "leaflet";
 
-import "../../App.css";
+import "../../App.scss";
 
 export default function ExploreMap(props) {
-
   // landmark coordinates
   const lat = props.coordinates[0];
   const long = props.coordinates[1];
@@ -32,8 +31,8 @@ export default function ExploreMap(props) {
             onMouseOut={(e) => {
               e.target.closePopup();
             }}
-            onClick={(e) => { 
-              props.onSelect(position)
+            onClick={(e) => {
+              props.onSelect(position);
             }}
           >
             <Popup>
