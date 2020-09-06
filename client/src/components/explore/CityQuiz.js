@@ -16,7 +16,7 @@ export default function CityQuiz(props) {
 
   const [questions, setQuestions] = useState([]);
   const [chosenAnswers, setChosenAnswers] = useState({});
-  const [userQuizResult, setUserQuizResult] = useState(null)
+  const [userQuizResult, setUserQuizResult] = useState(null);
 
   const handleChange = (questionId, answer) => {
     setChosenAnswers({ ...chosenAnswers, [questionId]: answer });
@@ -39,7 +39,7 @@ export default function CityQuiz(props) {
     e.preventDefault();
 
     if (!token) {
-      alert("Please Login or create and Account to Submit a Quiz.")
+      alert("Please Login or create and Account to Submit a Quiz.");
     } else {
       // get correct quiz_id based on city name.
       let quizId = "";
@@ -71,71 +71,68 @@ export default function CityQuiz(props) {
           //console.log(results);
         })
         .catch((err) => console.log(err.message));
-    };
-
-  }
-
-
+    }
+  };
 
   return (
     <section className={`background--${city}`}>
       <form id="quiz-form" onSubmit={handleSubmit}>
-      <div className="choice--cards">
-        {questions.map((question) => {
-          return (
-            <FormControl component="fieldset">
-              <FormLabel component="legend">{question.question}</FormLabel>
-              <RadioGroup aria-label="gender" name="gender1">
-                <FormControlLabel
-                  value="answer-1"
-                  control={<Radio />}
-                  chosenAnswers={chosenAnswers}
-                  onChange={() =>
-                    handleChange(question.id, question.correct_answer)
-                  }
-                  label={question.correct_answer}
-                />
-                <FormControlLabel
-                  value="answer-2"
-                  control={<Radio />}
-                  chosenAnswers={chosenAnswers}
-                  onChange={() =>
-                    handleChange(question.id, question.incorrect_answer_1)
-                  }
-                  label={question.incorrect_answer_1}
-                />
-                <FormControlLabel
-                  value="answer-3"
-                  control={<Radio />}
-                  chosenAnswers={chosenAnswers}
-                  onChange={() =>
-                    handleChange(question.id, question.incorrect_answer_2)
-                  }
-                  label={question.incorrect_answer_2}
-                />
-                <FormControlLabel
-                  value="answer-4"
-                  control={<Radio />}
-                  chosenAnswers={chosenAnswers}
-                  onChange={() =>
-                    handleChange(question.id, question.incorrect_answer_3)
-                  }
-                  label={question.incorrect_answer_3}
-                />
-              </RadioGroup>
-            </FormControl>
-          );
-        })}
+        <div className="choice--cards">
+          {questions.map((question) => {
+            return (
+              <FormControl component="fieldset">
+                <FormLabel component="legend">{question.question}</FormLabel>
+                <RadioGroup aria-label="gender" name="gender1">
+                  <FormControlLabel
+                    value="answer-1"
+                    control={<Radio />}
+                    chosenAnswers={chosenAnswers}
+                    onChange={() =>
+                      handleChange(question.id, question.correct_answer)
+                    }
+                    label={question.correct_answer}
+                  />
+                  <FormControlLabel
+                    value="answer-2"
+                    control={<Radio />}
+                    chosenAnswers={chosenAnswers}
+                    onChange={() =>
+                      handleChange(question.id, question.incorrect_answer_1)
+                    }
+                    label={question.incorrect_answer_1}
+                  />
+                  <FormControlLabel
+                    value="answer-3"
+                    control={<Radio />}
+                    chosenAnswers={chosenAnswers}
+                    onChange={() =>
+                      handleChange(question.id, question.incorrect_answer_2)
+                    }
+                    label={question.incorrect_answer_2}
+                  />
+                  <FormControlLabel
+                    value="answer-4"
+                    control={<Radio />}
+                    chosenAnswers={chosenAnswers}
+                    onChange={() =>
+                      handleChange(question.id, question.incorrect_answer_3)
+                    }
+                    label={question.incorrect_answer_3}
+                  />
+                </RadioGroup>
+              </FormControl>
+            );
+          })}
         </div>
         <div className="submit-area">
-        <h1>City Knowledge Quiz</h1>
-        <input
-          type="submit"
-          variant="outlined"
-          color="primary"
-          className="alert alert-primary"
-          value="Submit"
-        />
+          <h1>City Knowledge Quiz</h1>
+          <input
+            type="submit"
+            variant="outlined"
+            color="primary"
+            className="alert alert-primary"
+            value="Submit"
+          />
         </div>
       </form>
     </section>
