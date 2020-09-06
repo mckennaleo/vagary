@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Globe from "./components/Globe";
 import "leaflet/dist/leaflet.css";
-import "./App.scss";
+import "./App.css";
 import "./components/LayoutMain.scss";
 import WelcomeToCity from "./components/WelcomeToCity";
 import CircleMenu from "./components/CircleMenu";
