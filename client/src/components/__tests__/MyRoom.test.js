@@ -14,7 +14,7 @@ describe("MyRoom", () => {
 
   it("renders Quiz Results section", () => {
     const { getByText } = render(<MyRoom />);
-    expect(getByText("My Language Quiz Results")).toBeInTheDocument();
+    expect(getByText("My Quiz Scores")).toBeInTheDocument();
   });
 
   it("renders with a b/g image", () => {
