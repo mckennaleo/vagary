@@ -48,16 +48,23 @@ export default function ExploreDisplay(props) {
 
   return (
     <article class="explore-display">
-      <img src={props.display && props.display.photo} class="display-img" />
-      <p class="explore-title">{props.display && props.display.name}</p>
+      <div class="display-img-container">
+        <img src={props.display && props.display.photo} class="display-img" />
+      </div>
+      <div>
+        <p class="explore-title">{props.display && props.display.name}</p>
+      </div>
       <div class="explore-text">
         {props.display && props.display.description}
       </div>
-      <button type="button" cityParams={cityParams} onClick={goToCityQuiz}>
-        Take City Knowledge Quiz!
-      </button>
+        
+      <div>
+        <button type="button" cityParams={cityParams} onClick={goToCityQuiz} class="alert alert-primary">
+          Take City Knowledge Quiz!
+        </button>
+      </div>
       <div class="explore-player">
-        <ReactPlayer controls url={videoURL} className="react-player" playing />
+        <ReactPlayer controls url={videoURL} className="react-player " playing />
       </div>
     </article>
   );

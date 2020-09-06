@@ -52,7 +52,7 @@ export default function WelcomeToCity(props) {
   }
 
   return (
-    <div class="city-box centered">
+    <div class="city-box">
       <div class="city-box-content">
         <h1>Welcome to {city}</h1>
         <article class="city-buttons">
