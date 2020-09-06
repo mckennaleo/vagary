@@ -14,10 +14,10 @@
   background: transparent;
   border-style: solid;
   border-color: white;
-  box-shadow: 0 4px 8px 0 white, 0 6px 20px white;
+  // box-shadow: 0 4px 8px 0 white, 0 6px 20px white;
   bottom: 1em;
   right: 1em;
-  border-radius: 15%;
+  border-radius: 3%;
 }
 
 .travel-prompt-header {
@@ -44,9 +44,9 @@
   font-weight: bold;
   color: #FCF4A3;
   width: 100%;
-  text-shadow: 2px 2px 10px #FCF4A3;
+  // text-shadow: 2px 2px 10px #FCF4A3;
 
-  filter: dropshadow(color=#FCF4A3, offx=2, offy=2);
+  // filter: dropshadow(color=#FCF4A3, offx=2, offy=2);
 }
 
 .travel-prompt-buttons {
