@@ -60,7 +60,7 @@ export default function CityQuiz(props) {
         user_id: userId,
       };
 
-      console.log("results to post", resultToPost);
+      // console.log("results to post", resultToPost);
       axios
         .post(
           "http://localhost:3001/quiz_results",

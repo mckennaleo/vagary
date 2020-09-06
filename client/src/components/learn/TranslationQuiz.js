@@ -51,7 +51,7 @@ export default function TranslationQuiz(props) {
   // handle submission to db
   const handleSubmit = (e) => {
     e.preventDefault()
-
+    //
     if(!token) {
       alert("Please Login or create and Account to Submit a Quiz.")
     } else {
@@ -62,9 +62,9 @@ export default function TranslationQuiz(props) {
     } else if (city === 'Saigon') {
       quizId = 5
     }
-    console.log("CHOSEN ANSWERS!", chosenAnswers)
+    // console.log("CHOSEN ANSWERS!", chosenAnswers)
     const result = quizValidator(questions, chosenAnswers)
-    console.log("RESULTTTTT", result)
+    // console.log("RESULTTTTT", result)
     setUserQuizResult(result)
     console.log("User Quiz Result ",userQuizResult)
 
@@ -102,7 +102,7 @@ export default function TranslationQuiz(props) {
           )
         })
         }
-        <input type="submit" variant="outlined" color="primary" className='' value="Submit" />
+        <input type="submit" variant="outlined" color="primary" className="alert alert-primary" value="Submit" />
 
 
       </form>

@@ -93,7 +93,7 @@ export default function SpeechBubble(props) {
       <section className="quiz-area">
         <h3>Translations</h3>
         {translation ? <p className="speech-bubble">{translation}</p> : null}
-        <button type="button" onClick={goToTranslationQuiz}>
+        <button type="button" className="alert alert-primary" onClick={goToTranslationQuiz}>
           Take Quiz!
         </button>
       </section>
