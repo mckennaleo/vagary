@@ -62,7 +62,7 @@ export default function SignIn(props) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [signInError, setSignInError] = useState(false)
 
 
   const handleSubmit = (e) => {
@@ -75,6 +75,7 @@ export default function SignIn(props) {
         ...user,
       })
       .then((results) => {
+        setSignInError(false)
         localStorage.setItem("token", results.data.token);
         localStorage.setItem("email", results.data.email);
         localStorage.setItem("userId", results.data.id);
@@ -82,6 +83,10 @@ export default function SignIn(props) {
         props.setToken(results.data.token);
         props.setUserId(results.data.id);
         history.push("/");
+      })    
+      .catch((error) => {
+        console.log(error);
+        setSignInError(true)
       });
   };
 
@@ -126,9 +131,9 @@ export default function SignIn(props) {
               onChange={(evt) => setPassword(evt.target.value)}
               value={password}
             />
-            {/* <Typography>
+            {signInError ? <Typography>
             <div class="alert alert-danger user--error" role="alert">Failed to sign in. Check email address and password.</div>
-            </Typography> */}
+            </Typography> : null}
             <Button
               type="submit"
               fullWidth
