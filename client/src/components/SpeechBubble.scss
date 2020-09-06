@@ -22,7 +22,13 @@
 	background-color: #8f8f8f;
   color: #FFF;
   p {
-    color: #000;
+    color: #000000
+	}
+	li {
+		text-align: left;
+	}
+	h1 {
+		padding-bottom: .5em;
 	}
 	button, input, fieldset {
 		margin-top: 1em;

@@ -15,7 +15,7 @@ export default function TranslationQuiz(props) {
   // const userId = props.location.state.translationQuiz[0].userId
   const userId = localStorage.getItem('userId')
   const token = localStorage.getItem('token')
-  
+
 
   // console.log("????", userId)
   // console.log("WHAT ARE THESE", props)
@@ -25,7 +25,7 @@ export default function TranslationQuiz(props) {
   const [userQuizResult, setUserQuizResult] = useState(null)
 
   const handleChange = (questionId, answer) => {
-    setChosenAnswers({...chosenAnswers, [questionId]: answer})
+    setChosenAnswers({ ...chosenAnswers, [questionId]: answer })
   };
   // console.log('USER ID ON TQUIZ', userId)
   // console.log('CITY ID ON TQUIZ', city)
@@ -41,45 +41,45 @@ export default function TranslationQuiz(props) {
         setQuestions(getTranslationQuestionsByCityId(results.data, city))
       })
       .catch(err => console.log(err.message));
-    }, []);
-    
-    //if user is logged in
-    //make post request to /quiz_results with result + quiz_id
-    console.log("THE QUESTIONS", questions)
-    console.log("userQuizResult", userQuizResult)
+  }, []);
+
+  //if user is logged in
+  //make post request to /quiz_results with result + quiz_id
+  console.log("THE QUESTIONS", questions)
+  console.log("userQuizResult", userQuizResult)
 
   // handle submission to db
   const handleSubmit = (e) => {
     e.preventDefault()
     //
-    if(!token) {
+    if (!token) {
       alert("Please Login or create and Account to Submit a Quiz.")
     } else {
-    // get correct quiz_id based on city name.
-    let quizId = "";
-    if (city === 'Istanbul') {
-      quizId = 4
-    } else if (city === 'Saigon') {
-      quizId = 5
-    }
-    // console.log("CHOSEN ANSWERS!", chosenAnswers)
-    const result = quizValidator(questions, chosenAnswers)
-    // console.log("RESULTTTTT", result)
-    setUserQuizResult(result)
-    console.log("User Quiz Result ",userQuizResult)
+      // get correct quiz_id based on city name.
+      let quizId = "";
+      if (city === 'Istanbul') {
+        quizId = 4
+      } else if (city === 'Saigon') {
+        quizId = 5
+      }
+      // console.log("CHOSEN ANSWERS!", chosenAnswers)
+      const result = quizValidator(questions, chosenAnswers)
+      // console.log("RESULTTTTT", result)
+      setUserQuizResult(result.toFixed(0))
+      console.log("User Quiz Result ", userQuizResult)
 
-    const resultToPost = {
-      result: result,
-      quiz_id: quizId,
-      user_id: userId
-    }
+      const resultToPost = {
+        result: result,
+        quiz_id: quizId,
+        user_id: userId
+      }
 
-    console.log(resultToPost)
-    axios.post("http://localhost:3001/quiz_results", {...resultToPost}, {headers: {"Authorization" : `Bearer ${token}`}})
-      .then(results => {
-        console.log(results)
-      })
-      .catch((err) => console.log(err.message));
+      console.log(resultToPost)
+      axios.post("http://localhost:3001/quiz_results", { ...resultToPost }, { headers: { "Authorization": `Bearer ${token}` } })
+        .then(results => {
+          console.log(results)
+        })
+        .catch((err) => console.log(err.message));
     };
 
 
@@ -89,27 +89,34 @@ export default function TranslationQuiz(props) {
     <section className={`background--${city}`}>
       <form id="quiz-form" onSubmit={handleSubmit}>
         <div className="choice--cards">
-        {questions.map((question) => {
-          return (
-            <FormControl component="fieldset">
-              <FormLabel component="legend">{question.question}</FormLabel>
-              <RadioGroup aria-label="gender" name="gender1" >
-                <FormControlLabel value="answer-1" control={<Radio />} chosenAnswers={chosenAnswers} onChange={() => handleChange(question.id, question.correct_answer)} label={question.correct_answer} />
-                <FormControlLabel value="answer-2" control={<Radio />} chosenAnswers={chosenAnswers} onChange={() => handleChange(question.id, question.incorrect_answer_1)} label={question.incorrect_answer_1} />
-                <FormControlLabel value="answer-3" control={<Radio />} chosenAnswers={chosenAnswers} onChange={() => handleChange(question.id, question.incorrect_answer_2)} label={question.incorrect_answer_2} />
-                <FormControlLabel value="answer-4" control={<Radio />} chosenAnswers={chosenAnswers} onChange={() => handleChange(question.id, question.incorrect_answer_3)} label={question.incorrect_answer_3} />
-              </RadioGroup>
-            </FormControl>
-          )
-        })
-      }
-      </div>
+          {questions.map((question, index) => {
+            return (
+              <FormControl component="fieldset">
+                <FormLabel component="legend">{index + 1}. {question.question}</FormLabel>
+                <RadioGroup aria-label="gender" name="gender1" >
+                  <FormControlLabel value="answer-1" control={<Radio />} chosenAnswers={chosenAnswers} onChange={() => handleChange(question.id, question.correct_answer)} label={question.correct_answer} />
+                  <FormControlLabel value="answer-2" control={<Radio />} chosenAnswers={chosenAnswers} onChange={() => handleChange(question.id, question.incorrect_answer_1)} label={question.incorrect_answer_1} />
+                  <FormControlLabel value="answer-3" control={<Radio />} chosenAnswers={chosenAnswers} onChange={() => handleChange(question.id, question.incorrect_answer_2)} label={question.incorrect_answer_2} />
+                  <FormControlLabel value="answer-4" control={<Radio />} chosenAnswers={chosenAnswers} onChange={() => handleChange(question.id, question.incorrect_answer_3)} label={question.incorrect_answer_3} />
+                </RadioGroup>
+              </FormControl>
+            )
+          })
+          }
+        </div>
         <div className="submit-area">
           <h1>Translation Quiz</h1>
-          <input type="submit" variant="outlined" color="primary" className="alert alert-primary" value="Submit" />
+          {userQuizResult ?
+            <div><h4>Results: <h1>{userQuizResult}%</h1></h4>
+              <h4>Correct Answers:</h4>
+              <ol>
+                {questions.map((question) => {
+                  return (<li>{question.correct_answer}</li>)
+                })}
+              </ol>
+            </div>
+            : <input type="submit" variant="outlined" color="primary" className="alert alert-primary" value="Submit" />}
         </div>
-
-
       </form>
     </section>
   )
