@@ -126,9 +126,6 @@ function City(props) {
 
   return (
     <div className={`background--${city}`}>
-      {/* <div class="spotify">
-        <Spotify city={city} />
-      </div> */}
       <h2>City</h2>
       <h1>I'm in {city}</h1>
 

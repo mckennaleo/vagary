@@ -37,36 +37,45 @@ export default function CityQuiz(props) {
   // handle submission to db
   const handleSubmit = (e) => {
     e.preventDefault();
-    // get correct quiz_id based on city name.
-    let quizId = "";
-    if (city === "Istanbul") {
-      quizId = 2;
-    } else if (city === "Saigon") {
-      quizId = 3;
-    }
-    const result = quizValidator(questions, chosenAnswers);
-    setUserQuizResult(result);
 
-    console.log("User quiz result", userQuizResult);
+    if (!token) {
+      alert("Please Login or create and Account to Submit a Quiz.")
+    } else {
+      // get correct quiz_id based on city name.
+      let quizId = "";
+      if (city === "Istanbul") {
+        quizId = 2;
+      } else if (city === "Saigon") {
+        quizId = 3;
+      }
 
-    const resultToPost = {
-      result: result,
-      quiz_id: quizId,
-      user_id: userId,
+      const result = quizValidator(questions, chosenAnswers);
+      setUserQuizResult(result);
+
+      console.log("User quiz result", userQuizResult);
+
+      const resultToPost = {
+        result: result,
+        quiz_id: quizId,
+        user_id: userId,
+      };
+
+      console.log("results to post", resultToPost);
+      axios
+        .post(
+          "http://localhost:3001/quiz_results",
+          { ...resultToPost },
+          { headers: { Authorization: `Bearer ${token}` } }
+        )
+        .then((results) => {
+          //console.log(results);
+        })
+        .catch((err) => console.log(err.message));
     };
 
-    console.log("results to post", resultToPost);
-    axios
-      .post(
-        "http://localhost:3001/quiz_results",
-        { ...resultToPost },
-        { headers: { Authorization: `Bearer ${token}` } }
-      )
-      .then((results) => {
-        //console.log(results);
-      })
-      .catch((err) => console.log(err.message));
-  };
+  }
+
+
 
   return (
     <section>
