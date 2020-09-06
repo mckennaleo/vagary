@@ -129,28 +129,35 @@ export default function Globe({ user, token, userId, city, setCity }) {
   // simple component usage
   return (
     <div>
+      {/* <div class="header">Where would you like to travel today?</div> */}
       {details && (
         <div class="travel-prompt"
           style={{
-            position: "absolute",
-            bottom: 0,
-            right: 0,
+            position: "fixed",
+            bottom: 50,
+            right: 50,
+            width: 200,
             padding: 12,
           }}
         >
           <form>
-            <h4>Would you like to visit {city.marker.cityName}?</h4>
-            <button type="button" onClick={yesHandler}>
-              Yes
+            <div class="travel-prompt-content">
+            <div class="travel-prompt-header">
+            <div class="travel-prompt-title">Welcome to Vagary</div>
+            <div class="travel-prompt-text">Are we off to {city.marker.cityName}?</div>
+            </div>
+            <div class="travel-prompt-buttons">
+            <button class="btn btn-outline-light" type="button" onClick={yesHandler}>
+              🛫
             </button>
-            <button type="button" onClick={onDefocus}>
-              No
+            <button class="btn btn-outline-light" type="button" onClick={onDefocus}>
+              🌎
             </button>
-            {/* FIX Should zoom out per onDefocus function...*/}
+            </div>
+            </div>
           </form>
         </div>
       )}
-
       <ReactGlobe
         name="globe"
         height="100vh"
