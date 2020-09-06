@@ -7,7 +7,7 @@ import FormLabel from "@material-ui/core/FormLabel";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Radio from "@material-ui/core/Radio";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-
+import "../SpeechBubble.scss";
 export default function CityQuiz(props) {
   const language = props.location.state.cityQuiz[0].language;
   const city = props.location.state.cityQuiz[0].name;
@@ -16,7 +16,7 @@ export default function CityQuiz(props) {
 
   const [questions, setQuestions] = useState([]);
   const [chosenAnswers, setChosenAnswers] = useState({});
-  const [userQuizResult, setUserQuizResult] = useState(null)
+  const [userQuizResult, setUserQuizResult] = useState(null);
 
   const handleChange = (questionId, answer) => {
     setChosenAnswers({ ...chosenAnswers, [questionId]: answer });
@@ -39,7 +39,7 @@ export default function CityQuiz(props) {
     e.preventDefault();
 
     if (!token) {
-      alert("Please Login or create and Account to Submit a Quiz.")
+      alert("Please Login or create and Account to Submit a Quiz.");
     } else {
       // get correct quiz_id based on city name.
       let quizId = "";
@@ -60,7 +60,7 @@ export default function CityQuiz(props) {
         user_id: userId,
       };
 
-      console.log("results to post", resultToPost);
+      // console.log("results to post", resultToPost);
       axios
         .post(
           "http://localhost:3001/quiz_results",
@@ -71,67 +71,69 @@ export default function CityQuiz(props) {
           //console.log(results);
         })
         .catch((err) => console.log(err.message));
-    };
-
-  }
-
-
+    }
+  };
 
   return (
-    <section>
+    <section className={`background--${city}`}>
       <form id="quiz-form" onSubmit={handleSubmit}>
-        {questions.map((question) => {
-          return (
-            <FormControl component="fieldset">
-              <FormLabel component="legend">{question.question}</FormLabel>
-              <RadioGroup aria-label="gender" name="gender1">
-                <FormControlLabel
-                  value="answer-1"
-                  control={<Radio />}
-                  chosenAnswers={chosenAnswers}
-                  onChange={() =>
-                    handleChange(question.id, question.correct_answer)
-                  }
-                  label={question.correct_answer}
-                />
-                <FormControlLabel
-                  value="answer-2"
-                  control={<Radio />}
-                  chosenAnswers={chosenAnswers}
-                  onChange={() =>
-                    handleChange(question.id, question.incorrect_answer_1)
-                  }
-                  label={question.incorrect_answer_1}
-                />
-                <FormControlLabel
-                  value="answer-3"
-                  control={<Radio />}
-                  chosenAnswers={chosenAnswers}
-                  onChange={() =>
-                    handleChange(question.id, question.incorrect_answer_2)
-                  }
-                  label={question.incorrect_answer_2}
-                />
-                <FormControlLabel
-                  value="answer-4"
-                  control={<Radio />}
-                  chosenAnswers={chosenAnswers}
-                  onChange={() =>
-                    handleChange(question.id, question.incorrect_answer_3)
-                  }
-                  label={question.incorrect_answer_3}
-                />
-              </RadioGroup>
-            </FormControl>
-          );
-        })}
-        <input
-          type="submit"
-          variant="outlined"
-          color="primary"
-          className=""
-          value="Submit"
-        />
+        <div className="choice--cards">
+          {questions.map((question) => {
+            return (
+              <FormControl component="fieldset">
+                <FormLabel component="legend">{question.question}</FormLabel>
+                <RadioGroup aria-label="gender" name="gender1">
+                  <FormControlLabel
+                    value="answer-1"
+                    control={<Radio />}
+                    chosenAnswers={chosenAnswers}
+                    onChange={() =>
+                      handleChange(question.id, question.correct_answer)
+                    }
+                    label={question.correct_answer}
+                  />
+                  <FormControlLabel
+                    value="answer-2"
+                    control={<Radio />}
+                    chosenAnswers={chosenAnswers}
+                    onChange={() =>
+                      handleChange(question.id, question.incorrect_answer_1)
+                    }
+                    label={question.incorrect_answer_1}
+                  />
+                  <FormControlLabel
+                    value="answer-3"
+                    control={<Radio />}
+                    chosenAnswers={chosenAnswers}
+                    onChange={() =>
+                      handleChange(question.id, question.incorrect_answer_2)
+                    }
+                    label={question.incorrect_answer_2}
+                  />
+                  <FormControlLabel
+                    value="answer-4"
+                    control={<Radio />}
+                    chosenAnswers={chosenAnswers}
+                    onChange={() =>
+                      handleChange(question.id, question.incorrect_answer_3)
+                    }
+                    label={question.incorrect_answer_3}
+                  />
+                </RadioGroup>
+              </FormControl>
+            );
+          })}
+        </div>
+        <div className="submit-area">
+          <h1>City Knowledge Quiz</h1>
+          <input
+            type="submit"
+            variant="outlined"
+            color="primary"
+            className="alert alert-primary"
+            value="Submit"
+          />
+        </div>
       </form>
     </section>
   );
