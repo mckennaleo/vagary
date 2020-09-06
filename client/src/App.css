@@ -60,7 +60,11 @@
 
 /*---------- WELCOME TO CITY ----------*/
 
-
+.main-welcome-to-city {
+  display: flex;
+  justify-content: center;
+  padding-top: 5em;
+}
 
 .city-box {
   display: flex;
@@ -71,9 +75,7 @@
   justify-content: center;
   background-color: rgba(170, 183, 184, 0.7);
   border-radius: 25px;
-  margin-left: 30%;
   font-family: 'Raleway', sans-serif;
-  
 }
 
 .city-box-content {

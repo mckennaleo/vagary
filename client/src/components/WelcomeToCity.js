@@ -52,6 +52,7 @@ export default function WelcomeToCity(props) {
   }
 
   return (
+    <div class="main-welcome-to-city">
     <div class="city-box">
       <div class="city-box-content">
         <h1>Welcome to {city}</h1>
@@ -63,6 +64,7 @@ export default function WelcomeToCity(props) {
             Go to Explore
           </button>
         </article>
+      </div>
       </div>
     </div>
   );
