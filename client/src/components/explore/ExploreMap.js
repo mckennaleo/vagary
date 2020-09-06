@@ -9,10 +9,6 @@ export default function ExploreMap(props) {
   const lat = props.coordinates[0];
   const long = props.coordinates[1];
 
-  // const displayLandmark = (position, clickedPosition) => {
-  //   props.cityResults.filter((landmark) => position.coordinates[0] === clickedPosition.lat.toString() && position.coordinates[1] === clickedPosition.lng.toString())
-  // }
-
   return (
     <article class="explore-map">
       <p class="explore-map-text alert alert-primary">↓ Click a marker to explore ↓</p>

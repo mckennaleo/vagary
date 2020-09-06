@@ -59,7 +59,11 @@ export default function WelcomeToCity(props) {
           <button class="alert alert-primary" type="button" onClick={goToLearn}>
             Go to Learn
           </button>
-          <button class="alert alert-primary" type="button" onClick={goToExplore}>
+          <button
+            class="alert alert-primary"
+            type="button"
+            onClick={goToExplore}
+          >
             Go to Explore
           </button>
         </article>
