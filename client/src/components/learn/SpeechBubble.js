@@ -91,7 +91,7 @@ export default function SpeechBubble(props) {
         ))}
       </section>
       <section className="quiz-area">
-        <h3>Translations</h3>
+        <h1>Translations</h1>
         {translation ? <p className="speech-bubble">{translation}</p> : null}
         <button type="button" className="alert alert-primary" onClick={goToTranslationQuiz}>
           Take Quiz!
