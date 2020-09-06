@@ -1,3 +1,4 @@
+
 .main {
   display: flex;
   justify-content: center;
@@ -5,8 +6,33 @@
   align-items: center;
 }
 
+.welcome-my-room {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+}
+
+.welcome-title {
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: x-large;
+  padding-bottom: 0.5em;
+}
+
+.welcome-subtitle {
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: medium;
+  padding-bottom: 1em;
+}
+
 .card-deck{ 
   max-width: 75%;
+}
+
+.card-container {
+  
 }
 
 .card-title {
