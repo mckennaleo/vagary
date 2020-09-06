@@ -84,6 +84,54 @@ export default function Globe({ user, token, userId, city, setCity }) {
       city_id: "293974",
       background: "../docs/istanbul.jpg",
     },
+    {
+      id: "marker6",
+      cityName: "Delhi",
+      country: "India",
+      color: "purple",
+      coordinates: [28.7041, 77.1025],
+      value: 50,
+    },
+    {
+      id: "marker7",
+      cityName: "Tangier",
+      country: "Morocco",
+      color: "purple",
+      coordinates: [35.7595, 5.8340],
+      value: 50,
+    },
+    {
+      id: "marker8",
+      cityName: "Sana'a",
+      country: "Yemen",
+      color: "purple",
+      coordinates: [15.3694, 44.1910],
+      value: 50,
+    },
+    {
+      id: "marker9",
+      cityName: "Abidjan",
+      country: "Côte d'Ivoire",
+      color: "purple",
+      coordinates: [5.3600, 4.0083],
+      value: 50,
+    },
+    {
+      id: "marker10",
+      cityName: "Shenzhen",
+      country: "China",
+      color: "purple",
+      coordinates: [22.5431, 114.0579],
+      value: 50,
+    },
+    {
+      id: "marker11",
+      cityName: "Saint Petersburg",
+      country: "Russia",
+      color: "purple",
+      coordinates: [59.9311, 30.3609],
+      value: 50,
+    },
   ];
 
   const [details, setDetails] = useState(null);
@@ -141,16 +189,14 @@ export default function Globe({ user, token, userId, city, setCity }) {
           <form>
             <div class="travel-prompt-content">
             <div class="travel-prompt-header">
-            <div class="travel-prompt-title">Welcome to Vagary</div>
+            {/* <div class="travel-prompt-title">Welcome to Vagary</div> */}
             <div class="travel-prompt-text">Are we off to {city.marker.cityName}?</div>
             </div>
             <div class="travel-prompt-buttons">
             <button class="btn btn-outline-light" type="button" onClick={yesHandler}>
               🛫
             </button>
-            <button class="btn btn-outline-light" type="button" onClick={onDefocus}>
-              🌎
-            </button>
+            <button class="btn btn-outline-light" type="button" onClick={onDefocus}>🌎</button>
             </div>
             </div>
           </form>
@@ -158,7 +204,7 @@ export default function Globe({ user, token, userId, city, setCity }) {
       )}
       <ReactGlobe
         name="globe"
-        height="100vh"
+        height="90vh"
         markers={markers}
         options={options}
         width="100%"

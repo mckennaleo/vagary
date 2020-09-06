@@ -1,3 +1,7 @@
+.root {
+  background: black;
+}
+
 .background--Istanbul {
   background-image: url("../components/assets/Istanbul-Wikimedia.jpg");
   background-color: #585959;
@@ -72,7 +76,19 @@
 
 .top {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+
+  .nav-right-side {
+    display: flex;
+
+  }
+
+  .share {
+    //display: flex;
+    //justify-content: flex-start;
+    //z-index: 1000;
+    //position: absolute;
+    //margin-top: 4.5em;
 
   .spotify {
     display: flex;
@@ -81,19 +97,12 @@
     position: absolute;
     margin: 0 0 auto auto;
     width: 100%;
+    padding-right: 2em;
   }
-
-  .share {
-    display: flex;
-    justify-content: flex-end;
-    z-index: 1000;
-    position: absolute;
-    margin-top: 4.5em;
-
     .share-button {
       display: flex;
       flex-direction: column;
-      margin: 1em 1em 0 0;
+      margin: 0.4em 1em 0em 1em;
     }
   }
 }

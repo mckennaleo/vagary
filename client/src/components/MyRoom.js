@@ -42,8 +42,14 @@ export default function MyRoom({ userId }) {
   return (
     <div className="background--My-Room">
       <div class="main">
-        <h1> My Room </h1>
       <div class="card-deck">
+      <div class="welcome-my-room">
+          <div class="welcome-title"> 
+          <img src="https://i.ibb.co/qWsPz62/cloud-purple-glow.png" alt="cloud-purple-glow" border="0"/>
+          </div>
+        {/* <div class="welcome-subtitle"> Time to rest and reflect. </div> */}
+        </div>
+        <div class="card-container">
         <div class="card text-white bg-dark mb-3 bg-transparent">
           {/* <img class="card-img-top" src="https://i.ibb.co/dJFTHNQ/profile-pic-copy.jpg" alt="profile-pic-copy" border="0"/> */}
           <div class="card-body">
@@ -81,6 +87,7 @@ export default function MyRoom({ userId }) {
             </p>
           </div>
         </div> */}
+      </div>
       </div>
     </div>
     <a href="/" className="menu-item purple">
