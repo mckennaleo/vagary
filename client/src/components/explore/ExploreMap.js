@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import { Icon } from "leaflet";
 import "../Explore.scss";
+import "../SpeechBubble.scss";
 import "../../App.css";
 
 export default function ExploreMap(props) {

@@ -105,8 +105,10 @@ export default function ExploreDisplay(props) {
       <div class="explore-text">
         {props.display && props.display.description}
       </div>
-      <div>
-        <button
+      <div class="quiz-button-header">
+        Ready to test your knowledge?
+      </div>
+      <button
           type="button"
           cityParams={cityParams}
           onClick={goToCityQuiz}
@@ -114,7 +116,7 @@ export default function ExploreDisplay(props) {
         >
           Take City Knowledge Quiz!
         </button>
-      </div>
+          
       <div class="explore-player" id="explore-player">
         <ReactPlayer
           controls

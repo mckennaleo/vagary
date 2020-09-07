@@ -1,22 +1,21 @@
 /*---------- EXPLORE ----------*/
 
 .explore-page-container {
+  display: flex;
+  flex-direction: column;
   margin-left: 10%;
   margin-right: 10%;
-
+  padding-top: 1em;
 }
 
 .explore-city {
   display: flex;
-  justify-content: center;
-  // align-items: top;
+  justify-content: flex-start;
+  align-items: center;
   border-radius: 25px;
   background-color: rgba(170, 183, 184, 0.6);
-  // margin-left: 5em;
   width: 100%;
   height: 80%;
-  // margin-left: 25%;
-  // margin-right: 25%;
 }
 
 .explore-display {
@@ -37,6 +36,7 @@
 .explore-map-container {
   display: flex;
   align-items: center;
+  padding: 1em;
 }
 
 .explore-map-text {
@@ -48,8 +48,8 @@
   justify-content: center;
   align-content: center;
   margin: absolute;
-  width: 50em;
-  height: 50em;
+  width: 35em;
+  height: 35em;
   border-color: black;
   border-style: solid;
   border-width: 5px;
