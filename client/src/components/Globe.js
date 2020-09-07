@@ -189,6 +189,8 @@ export default function Globe({ user, token, userId, city, setCity }) {
           <form>
             <div class="travel-prompt-content">
             <div class="travel-prompt-header">
+              <div class="travel-prompt-title">welcome aboard</div>
+              </div>
             <div class="travel-prompt-text">are we off to {city.marker.cityName}?</div>
             </div>
             <div class="travel-prompt-buttons">
@@ -196,7 +198,6 @@ export default function Globe({ user, token, userId, city, setCity }) {
               🛫
             </button>
             <button class="btn btn-outline-light" type="button" onClick={onDefocus}>🌎</button>
-            </div>
             </div>
           </form>
         </div>

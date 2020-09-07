@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../components/assets/globe-cloud-text.png");
+  background-image: url("../components/assets/globe-cloud-small.png");
   background-repeat: no-repeat;
   background-size: 430px 300px;
 }
@@ -13,13 +13,22 @@
   align-items: center;
 }
 
+.travel-prompt-title {
+  color: grey;
+  letter-spacing: 2px;
+  //color: 	#1E90FF;
+  font-weight: lighter;
+  font-size: x-large;
+  text-shadow: 2px 2px 10px grey;
+  filter: dropshadow(color=	grey, offx=2, offy=2);
+}
+
 .travel-prompt-text {
   display: flex;
   justify-content: center;
-  padding-top: 2.5em;
+  padding-top: 1em;
   padding-bottom: 0.5em;
   font-size: medium;
-  font-weight: bold;
   letter-spacing: 0.8px;
   color: #6F7F9E;
   width: 100%;
