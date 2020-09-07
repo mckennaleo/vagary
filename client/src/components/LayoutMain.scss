@@ -78,6 +78,15 @@
   display: flex;
   justify-content: space-between;
 
+  .vagary-logo {
+    margin-left: 2em;
+    margin-top: 1em;
+    background-image: url("../components/assets/vagary-logo-sparkle.png");
+    background-repeat: no-repeat;
+    background-size: 170px;
+    width: 170px;
+  }
+
   .nav-right-side {
     display: flex;
 
