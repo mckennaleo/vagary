@@ -136,6 +136,8 @@ export default function Globe({ user, token, userId, city, setCity }) {
 
   const [details, setDetails] = useState(null);
   const [activeGlobe, setActiveGlobe] = useState(true);
+  // const city = props.city;
+  // const setCity = props.setCity;
 
   function onClickMarker(marker, markerObject, city) {
     setCity({
