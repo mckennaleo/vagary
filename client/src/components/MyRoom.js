@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getQuizResultsByUserId } from "./helpers/selectors";
 import Tooltip from "@material-ui/core/Tooltip";
+import DeleteIcon from "@material-ui/icons/Delete";
 import "./LayoutMain.scss";
 import "./MyRoom.scss";
+
 export default function MyRoom({ userId }) {
   const [state, setState] = useState({
     quizzes: [],
@@ -97,12 +99,11 @@ export default function MyRoom({ userId }) {
                   <p class="card-text">
                     <strong>{fav.landmark}</strong>
                     <div>({fav.city})</div>
-                    <button
-                      className="btn btn-danger"
-                      onClick={(e) => deleteFav(fav.id, e)}
-                    >
-                      Delete
-                    </button>
+                    <span id="deleteBtn">
+                      <span>
+                        <DeleteIcon onClick={(e) => deleteFav(fav.id, e)} />
+                      </span>
+                    </span>
                   </p>
                 ))}
               </div>
