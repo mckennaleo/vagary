@@ -181,16 +181,18 @@ export default function Globe({ user, token, userId, city, setCity }) {
         <div class="travel-prompt"
           style={{
             position: "fixed",
-            bottom: 30,
-            right: 30,
-            width: 250,
-            height: 193,
+            top: 330,
+            right: 10,
+            width: 430,
+            height: 300,
             padding: 12,
           }}
         >
           <form>
             <div class="travel-prompt-content">
             <div class="travel-prompt-header">
+              <div class="travel-prompt-title">welcome aboard</div>
+              </div>
             <div class="travel-prompt-text">are we off to {city.marker.cityName}?</div>
             </div>
             <div class="travel-prompt-buttons">
@@ -199,13 +201,12 @@ export default function Globe({ user, token, userId, city, setCity }) {
             </button>
             <button class="btn btn-outline-light" type="button" onClick={onDefocus}>🌎</button>
             </div>
-            </div>
           </form>
         </div>
       )}
       <ReactGlobe
         name="globe"
-        height="90vh"
+        height="91vh"
         markers={markers}
         options={options}
         width="100%"
