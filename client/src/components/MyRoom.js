@@ -43,11 +43,16 @@ export default function MyRoom({ userId }) {
     state.quizResults
   );
 
-  // const getFavs = favs.map(fav => {
-  //   city: fav.city,
-  //   landmark: fav.landmark,
-  //   description: fav.description
-  // })
+  // const getFavs = favs.map((fav) => {
+  //   return (
+  //     (city = fav.city),
+  //     (landmark = fav.landmark),
+  //     (description = fav.description)
+  //   );
+  // city: fav.city,
+  // landmark: fav.landmark,
+  // description: fav.description
+  // });
 
   return (
     <div className="background--My-Room">
@@ -105,7 +110,23 @@ export default function MyRoom({ userId }) {
               />
               <div class="card-body">
                 <h5 class="card-title">My Favourites</h5>
-                <p class="card-text"></p>
+                <p class="card-sub-title-container">
+                  <p class="card-sub-title">City</p>
+                  <p class="card-sub-title">Landmark</p>
+                  {/* <p class="card-sub-title">Description</p> */}
+                </p>
+
+                <p class="card-text-container">
+                  {favs.map((fav) => (
+                    <p class="card-text">{fav.city}</p>
+                  ))}
+                  {favs.map((fav) => (
+                    <p class="card-text">{fav.landmark}</p>
+                  ))}
+                  {/* {favs.map((fav) => (
+                    <p class="card-text">{fav.description}</p>
+                  ))} */}
+                </p>
               </div>
             </div>
           </div>
