@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import "./LayoutMain.scss";
+import "./WelcomeToCity.scss";
 
 export default function WelcomeToCity(props) {
   const city = props.city;
@@ -53,22 +54,30 @@ export default function WelcomeToCity(props) {
 
   return (
     <div class="main-welcome-to-city">
-      <div class="playlist-prompt"></div>
+      <section class="welcome-header">
+        <span class="playlist-prompt">
+          <div class="cloud">
+          <img src="https://i.ibb.co/rQvvqHb/cloud-music-prompt.png" alt="cloud-music-prompt" border="0" width="300" />
+      </div>
+      </span>
+      </section>
+      <div class="welcome-body">
     <div class="city-box">
       <div class="city-box-content">
         <h1>Welcome to {city}</h1>
-        <article class="city-buttons">
+        <div class="city-buttons">
           <button class="alert alert-primary" type="button" onClick={goToLearn}>
-            Go to Learn
+            I want to learn
           </button>
           <button
             class="alert alert-primary"
             type="button"
             onClick={goToExplore}
           >
-            Go to Explore
+            I want to explore
           </button>
-        </article>
+          </div>
+        </div>
       </div>
       </div>
     </div>
