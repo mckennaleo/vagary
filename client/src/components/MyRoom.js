@@ -4,7 +4,6 @@ import { getQuizResultsByUserId } from "./helpers/selectors";
 import Tooltip from "@material-ui/core/Tooltip";
 import "./LayoutMain.scss";
 import "./MyRoom.scss";
-
 export default function MyRoom({ userId }) {
   const [state, setState] = useState({
     quizzes: [],
@@ -12,7 +11,6 @@ export default function MyRoom({ userId }) {
     quizQuestionCount: [],
     favourites: [],
   });
-
   useEffect(() => {
     Promise.all([
       axios.get("/quizzes"),
@@ -21,7 +19,6 @@ export default function MyRoom({ userId }) {
       axios.get("/favourites"),
     ])
       .then((all) => {
-        // console.log("FAVS: ", all[3].data);
         setState((prev) => ({
           ...prev,
           quizzes: all[0].data,
@@ -32,27 +29,14 @@ export default function MyRoom({ userId }) {
       })
       .catch((err) => console.log(err.message));
   }, []);
-
   const favs = state.favourites;
   console.log("FAVS: ", favs);
-
   const userQuizResults = getQuizResultsByUserId(
     Number(userId),
     state.quizzes,
     state.quizResults
   );
-
-  // const getFavs = favs.map((fav) => {
-  //   return (
-  //     (city = fav.city),
-  //     (landmark = fav.landmark),
-  //     (description = fav.description)
-  //   );
-  // city: fav.city,
-  // landmark: fav.landmark,
-  // description: fav.description
-  // });
-
+  
   return (
     <div className="background--My-Room">
       <div class="main">
@@ -64,7 +48,7 @@ export default function MyRoom({ userId }) {
             <div class="card-profile">
               <div class="card-title">profile</div>
               <div class="card-body">
-                <button type="button" class="btn btn-outline-light">
+                <button type="button" class="btn btn-outline-light" href="/edit">
                   edit
                 </button>
               </div>
@@ -76,7 +60,7 @@ export default function MyRoom({ userId }) {
                   <table class="table">
                     <thead></thead>
                     <tbody>
-                      <tr>
+                    <tr>
                         {userQuizResults.map((result) => (
                           <tr key={result.id}>
                             <td class="card-text">{result.quiz}</td>{" "}
