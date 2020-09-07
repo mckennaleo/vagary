@@ -11,7 +11,7 @@ import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
 // compass
 import ExploreIcon from "@material-ui/icons/Explore";
 // button
-import "./CircleMenu.css";
+import "./CircleMenu.scss";
 import Tooltip from "@material-ui/core/Tooltip";
 
 export default function CircleMenu(props) {

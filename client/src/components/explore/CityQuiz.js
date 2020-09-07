@@ -52,7 +52,7 @@ export default function CityQuiz(props) {
       }
 
       const result = quizValidator(questions, chosenAnswers);
-      setUserQuizResult(result.toFixed(0))
+      setUserQuizResult(result.toFixed(0));
 
       console.log("User quiz result", userQuizResult);
 
@@ -84,7 +84,9 @@ export default function CityQuiz(props) {
           {questions.map((question, index) => {
             return (
               <FormControl component="fieldset">
-                <FormLabel component="legend">{index + 1}. {question.question}</FormLabel>
+                <FormLabel component="legend">
+                  {index + 1}. {question.question}
+                </FormLabel>
                 <RadioGroup aria-label="gender" name="gender1">
                   <FormControlLabel
                     value="answer-1"
@@ -139,16 +141,27 @@ export default function CityQuiz(props) {
         </div> */}
         <div className="submit-area">
           <h1>City Quiz</h1>
-          {userQuizResult ?
-            <div><h4>Results: <h1>{userQuizResult}%</h1></h4>
+          {userQuizResult ? (
+            <div>
+              <h4>
+                Results: <h1>{userQuizResult}%</h1>
+              </h4>
               <h4>Correct Answers:</h4>
               <ol>
                 {questions.map((question) => {
-                  return (<li>{question.correct_answer}</li>)
+                  return <li>{question.correct_answer}</li>;
                 })}
               </ol>
             </div>
-            : <input type="submit" variant="outlined" color="primary" className="alert alert-primary" value="Submit" />}
+          ) : (
+            <input
+              type="submit"
+              variant="outlined"
+              color="primary"
+              className="alert alert-primary"
+              value="Submit"
+            />
+          )}
         </div>
       </form>
     </section>

@@ -6,12 +6,15 @@ class FavouritesController < ApplicationController
   end
   
   def show
-    favourite = Favourite.find(favourite_params)
-    render json: @favourite
+    favourites = Favourite.find(favourite_params)
+    render json: @favourites
   end
 
   def create
-    @favourite = Favourite.new(favourite_params)
+    @favourites = Favourite.new(user_id: params[:user_id], city: params[:city], landmark: params[:landmark], description: params[:description])
+    @favourites.save
+    # render json: @favourites
+    render json: {favourite: @favourites}, status: :ok
   end 
 
   def destroy
@@ -22,7 +25,7 @@ class FavouritesController < ApplicationController
   private
 
   def favourite_params
-    params.require(:favourite).permit(:user_id, :experience_id)
+    params.require(:favourite).permit(:user_id, :city, :landmark, :description)
   end
 
 end

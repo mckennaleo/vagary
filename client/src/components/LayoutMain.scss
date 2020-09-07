@@ -15,7 +15,8 @@
   padding: 0;
 }
 .background--Saigon {
-  background-image: url("../components/assets/saigon.jpg");  background-color: #585959;
+  background-image: url("../components/assets/saigon.jpg");
+  background-color: #585959;
   height: 91vh;
   background-size: cover;
   background-position: center center;
@@ -89,7 +90,6 @@
 
   .nav-right-side {
     display: flex;
-
   }
 
   .share {
@@ -99,15 +99,15 @@
     //position: absolute;
     //margin-top: 4.5em;
 
-  .spotify {
-    display: flex;
-    justify-content: flex-end;
-    z-index: 1000;
-    position: absolute;
-    margin: 0 0 auto auto;
-    width: 100%;
-    padding-right: 2em;
-  }
+    .spotify {
+      display: flex;
+      justify-content: flex-end;
+      z-index: 1000;
+      position: absolute;
+      margin: 0 0 auto auto;
+      width: 100%;
+      padding-right: 2em;
+    }
     .share-button {
       display: flex;
       flex-direction: column;
@@ -117,6 +117,6 @@
 }
 
 .user--error {
-  margin: .9em 0 0 0;
+  margin: 0.9em 0 0 0;
   text-align: center;
 }

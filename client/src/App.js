@@ -53,13 +53,12 @@ export default function App(props) {
     setUserId(null);
   };
   return (
-    <Router history={history} >
+    <Router history={history}>
       <div>
         <CircleMenu logout={logout} user={user} />
       </div>
       <div class="top">
-        <div class="vagary-logo">
-        </div>
+        <div class="vagary-logo"></div>
         <div class="nav-right-side">
           <div class="spotify">
             <Spotify city={city} />
