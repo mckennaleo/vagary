@@ -61,7 +61,6 @@ export default function App(props) {
       </div>
       <div class="top">
       <div class="vagary-logo">
-        <img src="https://i.ibb.co/vwh6FGL/vagary-logo.png" alt="vagary-logo" border="0" width="130px" />
       </div>
       <div class="nav-right-side">
         <div class="spotify">

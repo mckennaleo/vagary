@@ -53,6 +53,7 @@ export default function WelcomeToCity(props) {
 
   return (
     <div class="main-welcome-to-city">
+      <div class="playlist-prompt"></div>
     <div class="city-box">
       <div class="city-box-content">
         <h1>Welcome to {city}</h1>
