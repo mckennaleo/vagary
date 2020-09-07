@@ -182,6 +182,7 @@
   visibility: hidden;
   color: #dc143c;
   margin-top: 0.75em;
+  font-size: 50px;
 }
 
 #fave:hover {
