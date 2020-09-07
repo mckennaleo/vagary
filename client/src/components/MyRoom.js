@@ -21,7 +21,6 @@ export default function MyRoom({ userId }) {
       axios.get("/favourites"),
     ])
       .then((all) => {
-        // console.log("FAVS: ", all[3].data);
         setState((prev) => ({
           ...prev,
           quizzes: all[0].data,
@@ -42,16 +41,15 @@ export default function MyRoom({ userId }) {
     state.quizResults
   );
 
-  // const getFavs = favs.map((fav) => {
-  //   return (
-  //     (city = fav.city),
-  //     (landmark = fav.landmark),
-  //     (description = fav.description)
-  //   );
-  // city: fav.city,
-  // landmark: fav.landmark,
-  // description: fav.description
-  // });
+  // const deleteFave = (id) => {
+  //   return axios.delete(`/favourites/${id}`).then((response) => {
+  //     const selectedFave = favs.find((fav) => {
+  //       console.log("FAVS: ", favs);
+  //       //favourites.includes(id);
+  //     });
+  //     setState((prev) => ({ ...state, selectedFave: null }));
+  //   });
+  // };
 
   return (
     <div className="background--My-Room">
@@ -93,10 +91,11 @@ export default function MyRoom({ userId }) {
               <div class="card-title">favourites</div>
               <div class="card-body">
                 {favs.map((fav) => (
-                    <p class="card-text">
-                      <strong>{fav.landmark}</strong> ({fav.city})
-                    </p>
-                  ))}
+                  <p class="card-text">
+                    <strong>{fav.landmark}</strong>
+                    <div>({fav.city})</div>
+                  </p>
+                ))}
               </div>
             </div>
           </div>
