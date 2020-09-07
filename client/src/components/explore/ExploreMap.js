@@ -9,8 +9,8 @@ export default function ExploreMap(props) {
   const long = props.coordinates[1];
 
   const faveBtnToggle = () => {
-    const x = document.getElementById("fave");
-    x.style.visibility = "visible";
+    const favBtn = document.getElementById("fave");
+    favBtn.style.visibility = "visible";
   };
 
   return (

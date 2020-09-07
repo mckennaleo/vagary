@@ -180,6 +180,17 @@
 
 #fave {
   visibility: hidden;
+  color: #dc143c;
+  margin-top: 0.75em;
 }
+
+#fave:hover {
+  color: #fa8072;
+}
+
+/* .menu-item:hover {
+  background: #eeeeee;
+  color: #3290b1;
+} */
 
 @import "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css";
