@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getQuizResultsByUserId } from "./helpers/selectors";
-
+import Tooltip from "@material-ui/core/Tooltip";
 import PublicIcon from "@material-ui/icons/Public";
 import "./LayoutMain.scss";
 import "./MyRoom.scss";
@@ -110,18 +110,17 @@ export default function MyRoom({ userId }) {
               />
               <div class="card-body">
                 <h5 class="card-title">My Favourites</h5>
-                <p class="card-sub-title-container">
+                {/* <p class="card-sub-title-container">
                   <p class="card-sub-title">City</p>
-                  <p class="card-sub-title">Landmark</p>
-                  {/* <p class="card-sub-title">Description</p> */}
-                </p>
+                  <p class="card-sub-title">Landmark</p> */}
+                {/* <p class="card-sub-title">Description</p> */}
+                {/* </p> */}
 
                 <p class="card-text-container">
                   {favs.map((fav) => (
-                    <p class="card-text">{fav.city}</p>
-                  ))}
-                  {favs.map((fav) => (
-                    <p class="card-text">{fav.landmark}</p>
+                    <p class="card-text">
+                      <strong>{fav.landmark}</strong> ({fav.city})
+                    </p>
                   ))}
                   {/* {favs.map((fav) => (
                     <p class="card-text">{fav.description}</p>

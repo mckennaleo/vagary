@@ -2,6 +2,9 @@ import React, { Component, useState, useEffect } from "react";
 import Youtube from "../../hooks/youtubeApiData";
 import ReactPlayer from "react-player";
 import { Redirect } from "react-router-dom";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import Tooltip from "@material-ui/core/Tooltip";
+// import "../LayoutMain.scss";
 import axios from "axios";
 
 export default function ExploreDisplay(props) {
@@ -89,12 +92,22 @@ export default function ExploreDisplay(props) {
         <img src={props.display && props.display.photo} class="display-img" />
       </div>
       <div>
-        <p class="explore-title">{props.display && props.display.name}</p>
+        <p class="explore-title">
+          {props.display && props.display.name}
+          {/* <button onClick={addFavourite}>Save</button> */}
+          <Tooltip title="Favourite" placement="right-start">
+            <FavoriteIcon
+              className="fave"
+              fontSize="large"
+              color="error"
+              onClick={addFavourite}
+            />
+          </Tooltip>
+        </p>
       </div>
       <div class="explore-text">
         {props.display && props.display.description}
       </div>
-      <button onClick={addFavourite}>Save</button>
       <div>
         <button
           type="button"
