@@ -95,17 +95,27 @@ export default function MyRoom({ userId }) {
             <div class="card-favourite">
               <div class="card-title">favourites</div>
               <div class="card-body">
-                {favs.map((fav) => (
-                  <p class="card-text">
-                    <strong>{fav.landmark}</strong>
-                    <div>({fav.city})</div>
-                    <span id="deleteBtn">
-                      <span>
-                        <DeleteIcon onClick={(e) => deleteFav(fav.id, e)} />
-                      </span>
-                    </span>
-                  </p>
-                ))}
+                <table class="table">
+                  <thead></thead>
+                  <tbody>
+                    <tr>
+                      {favs.map((fav) => (
+                        <tr>
+                          <td class="card-text">
+                            {fav.landmark} ({fav.city})
+                            <span id="deleteBtn">
+                              <span>
+                                <DeleteIcon
+                                  onClick={(e) => deleteFav(fav.id, e)}
+                                />
+                              </span>
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
