@@ -80,7 +80,7 @@ export default function Edit(props) {
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
-          Edit Profile
+          Update Profile
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
@@ -147,14 +147,14 @@ export default function Edit(props) {
             color="primary"
             className={classes.submit}
           >
-            Submit
+            Save Changes
           </Button>
           <Grid container justify="flex-end">
-            <Grid item>
+            {/* <Grid item>
               <Link href="/login" variant="body2">
                 Already have an account? Sign in
               </Link>
-            </Grid>
+            </Grid> */}
           </Grid>
         </form>
       </div>
