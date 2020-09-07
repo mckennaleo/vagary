@@ -17,8 +17,6 @@ Rails.application.routes.draw do
 
   resources :favourites, only: [:index, :show, :create, :destroy]
 
-  resources :experiences, only: [:show]
-
   resources :quiz_questions, only: [:show, :index, :index_count]
 
   resources :quiz_results, only: [:show, :create, :index]

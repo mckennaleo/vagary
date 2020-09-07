@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200905211458) do
+ActiveRecord::Schema.define(version: 20200907015828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,23 +25,13 @@ ActiveRecord::Schema.define(version: 20200905211458) do
     t.string   "playlist"
   end
 
-  create_table "experiences", force: :cascade do |t|
-    t.string   "name"
-    t.string   "url"
-    t.string   "description"
-    t.string   "coordinates"
+  create_table "favourites", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "city_id"
-    t.index ["city_id"], name: "index_experiences_on_city_id", using: :btree
-  end
-
-  create_table "favourites", force: :cascade do |t|
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
     t.integer  "user_id"
-    t.integer  "experience_id"
-    t.index ["experience_id"], name: "index_favourites_on_experience_id", using: :btree
+    t.string   "city"
+    t.string   "landmark"
+    t.string   "description"
     t.index ["user_id"], name: "index_favourites_on_user_id", using: :btree
   end
 
@@ -91,8 +81,6 @@ ActiveRecord::Schema.define(version: 20200905211458) do
     t.datetime "updated_at",      null: false
   end
 
-  add_foreign_key "experiences", "cities"
-  add_foreign_key "favourites", "experiences"
   add_foreign_key "favourites", "users"
   add_foreign_key "quiz_questions", "quizzes"
   add_foreign_key "quiz_results", "quizzes"

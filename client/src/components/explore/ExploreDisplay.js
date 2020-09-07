@@ -21,13 +21,15 @@ export default function ExploreDisplay(props) {
   useEffect(() => {
     console.log("FIRING");
     if (props.display !== undefined) {
+      console.log("CITY: ", props.city);
+      console.log("NAME: ", props.display.name);
+      console.log("DESCR: ", props.display.description);
       Youtube(props.display.name).then((id) => {
         setVideoId(id);
       });
     }
   }, [videoId, props.display]);
   videoURL = `https://www.youtube.com/watch?v=${videoId}`;
-  console.log("PROPS", props);
 
   const goToCityQuiz = () => {
     // console.log(city)
@@ -53,18 +55,24 @@ export default function ExploreDisplay(props) {
       </div>
       <div>
         <p class="explore-title">{props.display && props.display.name}</p>
+        <button>Save</button>
       </div>
       <div class="explore-text">
         {props.display && props.display.description}
       </div>
-        
+
       <div>
-        <button type="button" cityParams={cityParams} onClick={goToCityQuiz} class="alert alert-primary">
+        <button
+          type="button"
+          cityParams={cityParams}
+          onClick={goToCityQuiz}
+          class="alert alert-primary"
+        >
           Take City Knowledge Quiz!
         </button>
       </div>
       <div class="explore-player">
-        <ReactPlayer controls url={videoURL} className="react-player " playing />
+        <ReactPlayer controls url={videoURL} className="react-player " />
       </div>
     </article>
   );

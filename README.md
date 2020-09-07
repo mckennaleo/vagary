@@ -40,7 +40,6 @@ quiz GET /quizzes/:id(.:format) quizzes#show
 favourites POST /favourites(.:format) favourites#create
 favourite GET /favourites/:id(.:format) favourites#show
 DELETE /favourites/:id(.:format) favourites#destroy
-experience GET /experiences/:id(.:format) experiences#show
 quiz_question GET /quiz_questions/:id(.:format) quiz_questions#show
 quiz_results POST /quiz_results(.:format) quiz_results#create
 quiz_result GET /quiz_results/:id(.:format) quiz_results#show
