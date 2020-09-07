@@ -3,9 +3,9 @@
 }
 
 .background--Istanbul {
-  background-image: url("../components/assets/Istanbul-Wikimedia.jpg");
+  background-image: url("../components/assets/istanbul.jpg");
   background-color: #585959;
-  height: 100vh;
+  height: 91vh;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -16,7 +16,7 @@
 }
 .background--Saigon {
   background-image: url("../components/assets/saigon.jpg");  background-color: #585959;
-  height: 100vh;
+  height: 91vh;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -28,7 +28,7 @@
 .background--Montréal {
   background-image: url("../components/assets/montreal.jpg");
   background-color: #585959;
-  height: 100vh;
+  height: 91vh;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -40,7 +40,7 @@
 .background--Budapest {
   background-image: url("../components/assets/budapest.jpg");
   background-color: #585959;
-  height: 100vh;
+  height: 91vh;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -52,7 +52,7 @@
 .background--Oaxaca {
   background-image: url("../components/assets/oaxaca.jpg");
   background-color: #585959;
-  height: 100vh;
+  height: 91vh;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -64,7 +64,7 @@
 .background--My-Room {
   background-image: url("../components/assets/my-room.jpg");
   background-color: #585959;
-  height: 100vh;
+  height: 91vh;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -77,6 +77,15 @@
 .top {
   display: flex;
   justify-content: space-between;
+
+  .vagary-logo {
+    margin-left: 2em;
+    margin-top: 0.5em;
+    background-image: url("../components/assets/vagary-logo-sparkle.png");
+    background-repeat: no-repeat;
+    background-size: 170px;
+    width: 170px;
+  }
 
   .nav-right-side {
     display: flex;

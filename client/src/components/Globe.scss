@@ -10,14 +10,14 @@
 
   filter: dropshadow(color=	#add8e6, offx=2, offy=2);
 }
+
 .travel-prompt {
-  background: transparent;
-  border-style: solid;
-  border-color: white;
-  // box-shadow: 0 4px 8px 0 white, 0 6px 20px white;
-  bottom: 1em;
-  right: 1em;
-  border-radius: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../components/assets/globe-cloud-text.png");
+  background-repeat: no-repeat;
+  background-size: 250px 193px;
 }
 
 .travel-prompt-header {
@@ -26,27 +26,14 @@
   align-items: center;
 }
 
-.travel-prompt-title {
-  color: #add8e6;
-  //color: 	#1E90FF;
-  font-weight: bold;
-  text-shadow: 2px 2px 10px #add8e6;
-
-  filter: dropshadow(color=	#add8e6, offx=2, offy=2);
-}
-
 .travel-prompt-text {
   display: flex;
   justify-content: center;
-  padding-top: 0.5em;
-  padding-bottom: 1em;
+  padding-top: 2.5em;
+  padding-bottom: 0.5em;
   font-size: small;
-  font-weight: bold;
-  color: #FCF4A3;
+  color: #6F7F9E;
   width: 100%;
-  // text-shadow: 2px 2px 10px #FCF4A3;
-
-  // filter: dropshadow(color=#FCF4A3, offx=2, offy=2);
 }
 
 .travel-prompt-buttons {
