@@ -8,12 +8,7 @@
   display: flex;
   justify-content: space-between;
   background: black;
-  height: 10vh;
-}
-
-.vagary-logo {
-  background: black;
-  padding-left: 2em;
+  height: 9vh;
 }
 
 .App {
@@ -62,12 +57,14 @@
 
 .main-welcome-to-city {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding-top: 5em;
 }
 
 .city-box {
   display: flex;
+  margin-top: 15em;
   width: 40em;
   height: 15em;
   flex-direction: column;
@@ -76,6 +73,18 @@
   background-color: rgba(170, 183, 184, 0.7);
   border-radius: 25px;
   font-family: 'Raleway', sans-serif;
+}
+
+
+.playlist-prompt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-image: url("./components/assets/globe-cloud-text.png");
+  background-repeat: no-repeat;
+  background-size: 150px 100px;
+
 }
 
 .city-box-content {

@@ -175,22 +175,21 @@ export default function Globe({ user, token, userId, city, setCity }) {
   // simple component usage
   return (
     <div>
-      {/* <div class="header">Where would you like to travel today?</div> */}
       {details && (
         <div class="travel-prompt"
           style={{
             position: "fixed",
-            bottom: 50,
-            right: 50,
-            width: 200,
+            bottom: 30,
+            right: 30,
+            width: 250,
+            height: 193,
             padding: 12,
           }}
         >
           <form>
             <div class="travel-prompt-content">
             <div class="travel-prompt-header">
-            {/* <div class="travel-prompt-title">Welcome to Vagary</div> */}
-            <div class="travel-prompt-text">Are we off to {city.marker.cityName}?</div>
+            <div class="travel-prompt-text">are we off to {city.marker.cityName}?</div>
             </div>
             <div class="travel-prompt-buttons">
             <button class="btn btn-outline-light" type="button" onClick={yesHandler}>
