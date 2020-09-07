@@ -54,22 +54,22 @@ export default function WelcomeToCity(props) {
   return (
     <div class="main-welcome-to-city">
       <div class="playlist-prompt"></div>
-    <div class="city-box">
-      <div class="city-box-content">
-        <h1>Welcome to {city}</h1>
-        <article class="city-buttons">
-          <button class="alert alert-primary" type="button" onClick={goToLearn}>
-            Go to Learn
-          </button>
-          <button
-            class="alert alert-primary"
-            type="button"
-            onClick={goToExplore}
-          >
-            Go to Explore
-          </button>
-        </article>
-      </div>
+      <div class="city-box">
+        <div class="city-box-content">
+          <h1>Welcome to {city}</h1>
+          <article class="city-buttons">
+            <button class="alert alert-primary" type="button" onClick={goToLearn}>
+              Go to Learn
+            </button>
+            <button
+              class="alert alert-primary"
+              type="button"
+              onClick={goToExplore}
+            >
+              Go to Explore
+            </button>
+          </article>
+        </div>
       </div>
     </div>
   );

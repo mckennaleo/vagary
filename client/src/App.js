@@ -6,6 +6,7 @@ import {
   Link,
   useHistory,
 } from "react-router-dom";
+import history from "browser-history";
 import Globe from "./components/Globe";
 import "leaflet/dist/leaflet.css";
 import "./App.css";
@@ -17,6 +18,7 @@ import Explore from "./components/explore/Explore";
 import Spotify from "./components/spotify/Spotify";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import Edit from "./components/Edit";
 import MyRoom from "./components/MyRoom";
 import TranslationQuiz from "./components/learn/TranslationQuiz";
 import CityQuiz from "./components/explore/CityQuiz";
@@ -32,7 +34,6 @@ export default function App(props) {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const [userId, setUserId] = useState(null);
-
   useEffect(() => {
     const localUser = localStorage.getItem("email");
     const localToken = localStorage.getItem("token");
@@ -44,7 +45,6 @@ export default function App(props) {
       setUserId(localId);
     }
   }, []);
-
   const logout = () => {
     localStorage.removeItem("email");
     localStorage.removeItem("token");
@@ -53,36 +53,34 @@ export default function App(props) {
     setToken(null);
     setUserId(null);
   };
-
   return (
-    <Router>
+    <Router history={history}>
       <div>
         <CircleMenu logout={logout} user={user} />
       </div>
       <div class="top">
-      <div class="vagary-logo">
-      </div>
-      <div class="nav-right-side">
-        <div class="spotify">
-          <Spotify city={city} />
+        <div class="vagary-logo"></div>
+        <div class="nav-right-side">
+          <div class="spotify">
+            <Spotify city={city} />
+          </div>
+          <div class="share">
+            <TwitterShareButton
+              url={window.location.href}
+              hashtags={["vagary"]}
+              className="share-button"
+            >
+              <TwitterIcon size={32} round={true} />
+            </TwitterShareButton>
+            <FacebookShareButton
+              url={window.location.href}
+              hashtag="#vagary"
+              className="share-button"
+            >
+              <FacebookIcon size={32} round={true} />
+            </FacebookShareButton>
+          </div>
         </div>
-        <div class="share">
-          <TwitterShareButton
-            url={window.location.href}
-            hashtags={["vagary"]}
-            className="share-button"
-          >
-            <TwitterIcon size={32} round={true} />
-          </TwitterShareButton>
-          <FacebookShareButton
-            url={window.location.href}
-            hashtag="#vagary"
-            className="share-button"
-          >
-            <FacebookIcon size={32} round={true} />
-          </FacebookShareButton>
-        </div>
-      </div>
       </div>
       <div>
         <Switch>
@@ -100,6 +98,16 @@ export default function App(props) {
             path="/sign-up"
             component={() => (
               <SignUp
+                setUser={setUser}
+                setToken={setToken}
+                setUserId={setUserId}
+              />
+            )}
+          />
+          <Route
+            path="/edit"
+            component={() => (
+              <Edit
                 setUser={setUser}
                 setToken={setToken}
                 setUserId={setUserId}
@@ -129,20 +137,16 @@ export default function App(props) {
       </div>
     </Router>
   );
-
   function Login() {
     return <h2>Login</h2>;
   }
-
   function Register() {
     return <h2>Register</h2>;
   }
-
   function Account() {
     return <h2>My Account</h2>;
   }
 }
-
 function City(props) {
   console.log("PROPS", props);
   const city = props.location.state.city.marker.cityName;
@@ -150,7 +154,6 @@ function City(props) {
   const language = props.location.state.city.marker.language;
   const city_id = props.location.state.city.marker.city_id;
   const userId = props.location.state.city.userData.userId;
-
   return (
     <div className={`background--${city}`}>
       <WelcomeToCity

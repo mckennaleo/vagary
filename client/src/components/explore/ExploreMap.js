@@ -12,6 +12,11 @@ export default function ExploreMap(props) {
     const favBtn = document.getElementById("fave");
     favBtn.style.visibility = "visible";
   };
+  const videoToggle = () => {
+    const x = document.getElementById("explore-player");
+    console.log(x);
+    x.style.visibility = "visible";
+  };
 
   return (
     <article class="explore-map">
@@ -37,6 +42,7 @@ export default function ExploreMap(props) {
             onClick={(e) => {
               props.onSelect(position);
               faveBtnToggle();
+              videoToggle();
             }}
           >
             <Popup>
