@@ -4,7 +4,6 @@ import { getQuizResultsByUserId } from "./helpers/selectors";
 import Tooltip from "@material-ui/core/Tooltip";
 import "./LayoutMain.scss";
 import "./MyRoom.scss";
-
 export default function MyRoom({ userId }) {
   const [state, setState] = useState({
     quizzes: [],
@@ -12,7 +11,6 @@ export default function MyRoom({ userId }) {
     quizQuestionCount: [],
     favourites: [],
   });
-
   useEffect(() => {
     Promise.all([
       axios.get("/quizzes"),
@@ -31,10 +29,8 @@ export default function MyRoom({ userId }) {
       })
       .catch((err) => console.log(err.message));
   }, []);
-
   const favs = state.favourites;
   console.log("FAVS: ", favs);
-
   const userQuizResults = getQuizResultsByUserId(
     Number(userId),
     state.quizzes,
@@ -62,7 +58,11 @@ export default function MyRoom({ userId }) {
             <div class="card-profile">
               <div class="card-title">profile</div>
               <div class="card-body">
-                <button type="button" class="btn btn-outline-light">
+                <button
+                  type="button"
+                  class="btn btn-outline-light"
+                  href="/edit"
+                >
                   edit
                 </button>
               </div>
