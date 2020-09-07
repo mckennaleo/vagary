@@ -14,7 +14,7 @@ class FavouritesController < ApplicationController
     @favourites = Favourite.new(user_id: params[:user_id], city: params[:city], landmark: params[:landmark], description: params[:description])
     @favourites.save
     # render json: @favourites
-    render json: {favourite: @favourites}, status: :created
+    render json: {favourite: @favourites}, status: :ok
   end 
 
   def destroy
