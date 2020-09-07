@@ -79,9 +79,7 @@ export default function MyRoom({ userId }) {
                       <tr>
                         {userQuizResults.map((result) => (
                           <tr key={result.id}>
-                            <td class="card-text">{result.quiz}</td>{" "}
-                            <td class="card-text-result">{result.result}%</td>
-                          </tr>
+                            <td class="card-text">{result.quiz}</td><td class="card-text-result">{result.result}%</td></tr>
                         ))}
                       </tr>
                     </tbody>
