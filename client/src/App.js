@@ -28,11 +28,7 @@ import {
   TwitterIcon,
   TwitterShareButton,
 } from "react-share";
-<<<<<<< HEAD
-=======
 
-
->>>>>>> debugging/leo
 export default function App(props) {
   const [city, setCity] = useState(null);
   const [user, setUser] = useState(null);
