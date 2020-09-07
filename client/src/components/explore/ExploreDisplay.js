@@ -6,6 +6,12 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import Tooltip from "@material-ui/core/Tooltip";
 import "../../App.css";
 import axios from "axios";
+import ReactDOM from 'react-dom'
+import ModalVideo from 'react-modal-video'
+ 
+
+
+
 
 export default function ExploreDisplay(props) {
   const userId = localStorage.getItem("userId");
@@ -22,7 +28,39 @@ export default function ExploreDisplay(props) {
   ];
 
   let videoURL = "";
-  console.log("PROPS", props);
+  console.log("VIDEO ID", videoId)
+
+
+class VideoPlayer extends React.Component {
+ 
+  constructor () {
+    super()
+    this.state = {
+      isOpen: false
+    }
+    this.openModal = this.openModal.bind(this)
+  }
+ 
+  openModal () {
+    this.setState({isOpen: true})
+  }
+ 
+  render () {
+    return (
+      <div class="explore-player-container">
+        <ModalVideo 
+          channel='youtube' 
+          isOpen={this.state.isOpen} 
+          videoId={videoId} 
+          onClose={() => this.setState({isOpen: false})}
+          width={1000}
+
+        />
+        <button class="alert alert-primary explore-button" onClick={this.openModal}>Take a video tour</button>
+      </div>
+    )
+  }
+}
 
   useEffect(() => {
     console.log("FIRING");
@@ -86,6 +124,8 @@ export default function ExploreDisplay(props) {
     }
   };
 
+  
+
   return (
     <article class="explore-display">
       <div class="display-img-container">
@@ -94,10 +134,10 @@ export default function ExploreDisplay(props) {
       <div>
         <p class="explore-title">
           <strong>{props.display && props.display.name}</strong>
-        </p>
         <Tooltip title="Add to Favourites" placement="right">
           <FavoriteIcon id="fave" onClick={addFavourite} />
         </Tooltip>
+        </p>
       </div>
       <div class="explore-text">
         {props.display && props.display.description}
@@ -107,18 +147,13 @@ export default function ExploreDisplay(props) {
           type="button"
           cityParams={cityParams}
           onClick={goToCityQuiz}
-          class="alert alert-primary"
+          class="alert alert-primary explore-button"
         >
           Take City Knowledge Quiz!
         </button>
-      </div>
       <div class="explore-player" id="explore-player">
-        <ReactPlayer
-          controls
-          url={videoURL}
-          className="react-player "
-          playing
-        />
+        <VideoPlayer class="explore-player" videoId={videoId} />
+      </div>
       </div>
     </article>
   );

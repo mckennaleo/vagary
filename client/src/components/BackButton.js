@@ -6,7 +6,7 @@ export default class BackButton extends Component {
   render() {
     return (
       <button
-        className="button icon-left"
+        className="alert alert-primary explore-button"
         onClick={(e) => {
           history(-1)
         }}
