@@ -93,12 +93,11 @@ export default function ExploreDisplay(props) {
       </div>
       <div>
         <p class="explore-title">
-          {props.display && props.display.name}
-          {/* <button onClick={addFavourite}>Save</button> */}
-          <Tooltip title="Favourite" placement="right">
-            <FavoriteIcon id="fave" onClick={addFavourite} />
-          </Tooltip>
+          <strong>{props.display && props.display.name}</strong>
         </p>
+        <Tooltip title="Add to Favourites" placement="right">
+          <FavoriteIcon id="fave" onClick={addFavourite} />
+        </Tooltip>
       </div>
       <div class="explore-text">
         {props.display && props.display.description}
