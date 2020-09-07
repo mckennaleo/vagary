@@ -49,7 +49,7 @@ export default function MyRoom({ userId }) {
           <img class="card-img-top" src="https://i.ibb.co/dJFTHNQ/profile-pic-copy.jpg" alt="profile-pic-copy" border="0"/>
           <div class="card-body">
             <h5 class="card-title">My Profile</h5>
-            <a href='/'><p class="card-text">Click here to edit your profile</p></a>
+            <a href='/edit'><p class="card-text">Click here to edit your profile</p></a>
           </div>
         </div>
         <div class="card text-white bg-dark mb-3 bg-transparent">

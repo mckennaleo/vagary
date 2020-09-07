@@ -17,6 +17,7 @@ import Explore from "./components/explore/Explore";
 import Spotify from "./components/spotify/Spotify";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import Edit from "./components/Edit";
 import MyRoom from "./components/MyRoom";
 import TranslationQuiz from "./components/learn/TranslationQuiz";
 import CityQuiz from "./components/explore/CityQuiz";
@@ -62,29 +63,35 @@ export default function App(props) {
         <CircleMenu logout={logout} user={user} />
       </div>
       <div class="top">
+        <div class="vagary-logo">
+          <img src="https://i.ibb.co/vwh6FGL/vagary-logo.png" alt="vagary-logo" border="0" width="130px" />
       <div class="vagary-logo">
       </div>
       <div class="nav-right-side">
         <div class="spotify">
           <Spotify city={city} />
         </div>
-        <div class="share">
-          <TwitterShareButton
-            url={window.location.href}
-            hashtags={["vagary"]}
-            className="share-button"
-          >
-            <TwitterIcon size={32} round={true} />
-          </TwitterShareButton>
-          <FacebookShareButton
-            url={window.location.href}
-            hashtag="#vagary"
-            className="share-button"
-          >
-            <FacebookIcon size={32} round={true} />
-          </FacebookShareButton>
+        <div class="nav-right-side">
+          <div class="spotify">
+            <Spotify city={city} />
+          </div>
+          <div class="share">
+            <TwitterShareButton
+              url={window.location.href}
+              hashtags={["vagary"]}
+              className="share-button"
+            >
+              <TwitterIcon size={32} round={true} />
+            </TwitterShareButton>
+            <FacebookShareButton
+              url={window.location.href}
+              hashtag="#vagary"
+              className="share-button"
+            >
+              <FacebookIcon size={32} round={true} />
+            </FacebookShareButton>
+          </div>
         </div>
-      </div>
       </div>
       <div>
         <Switch>
@@ -102,6 +109,16 @@ export default function App(props) {
             path="/sign-up"
             component={() => (
               <SignUp
+                setUser={setUser}
+                setToken={setToken}
+                setUserId={setUserId}
+              />
+            )}
+          />
+          <Route
+            path="/edit"
+            component={() => (
+              <Edit
                 setUser={setUser}
                 setToken={setToken}
                 setUserId={setUserId}
