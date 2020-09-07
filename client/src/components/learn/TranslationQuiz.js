@@ -8,6 +8,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import "../SpeechBubble.scss";
+import BackButton from "../BackButton.js"
 
 export default function TranslationQuiz(props) {
   const language = props.location.state.translationQuiz[0].language
@@ -87,6 +88,7 @@ export default function TranslationQuiz(props) {
 
   return (
     <section className={`background--${city}`}>
+      <BackButton />
       <form id="quiz-form" onSubmit={handleSubmit}>
         <div className="choice--cards">
           {questions.map((question, index) => {
