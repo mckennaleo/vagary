@@ -91,21 +91,31 @@ export default function ExploreDisplay(props) {
 
   return (
     <div class="explore-display">
-      <div class="display-img-container">
-        <img src={props.display && props.display.photo} class="display-img" />
-      </div>
-      <div>
-        <p class="explore-title">
-          <strong>{props.display && props.display.name}</strong>
-        </p>
+      <div class="explore-display-header">
+      <div class="explore-title">
+          {props.display && props.display.name}
+        </div>
+        <div class="explore-fav-button">
         <Tooltip title="Add to Favourites" placement="right">
           <FavoriteIcon id="fave" onClick={addFavourite} />
         </Tooltip>
+        </div>
       </div>
-      <div class="explore-text">
+      
+      <div class="explore-display-content">
+        <div class="explore-text">
         {props.display && props.display.description}
       </div>
-      <div class="quiz-button-header">
+      <div class="display-img-container">
+        <img src={props.display && props.display.photo} class="display-img" />
+        </div>
+      </div>
+
+      <div>
+        
+      </div>
+      
+      {/* <div class="quiz-button-header">
         Ready to test your knowledge?
       </div>
       <button
@@ -115,7 +125,7 @@ export default function ExploreDisplay(props) {
           class="alert alert-primary"
         >
           Take City Knowledge Quiz!
-        </button>
+        </button> */}
           
       <div class="explore-player" id="explore-player">
         <ReactPlayer
