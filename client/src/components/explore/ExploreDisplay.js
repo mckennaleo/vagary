@@ -1,19 +1,22 @@
 import React, { Component, useState, useEffect } from "react";
-import makeRequest from "../../hooks/travelApiData";
 import Youtube from "../../hooks/youtubeApiData";
 import ReactPlayer from "react-player";
 import { Redirect } from "react-router-dom";
+import axios from "axios";
 
 export default function ExploreDisplay(props) {
+  const userId = localStorage.getItem("userId");
+  const city = props.city;
+  const language = props.language;
+  const token = localStorage.getItem("token");
   const [videoId, setVideoId] = useState(null);
   const [cityQuiz, setCityQuiz] = useState(false);
   const cityParams = [
     {
-      name: props.city,
-      language: props.language,
+      name: city,
+      language: language,
     },
   ];
-  const city = props.city;
 
   let videoURL = "";
   console.log("PROPS", props);
@@ -21,9 +24,6 @@ export default function ExploreDisplay(props) {
   useEffect(() => {
     console.log("FIRING");
     if (props.display !== undefined) {
-      console.log("CITY: ", props.city);
-      console.log("NAME: ", props.display.name);
-      console.log("DESCR: ", props.display.description);
       Youtube(props.display.name).then((id) => {
         setVideoId(id);
       });
@@ -48,6 +48,41 @@ export default function ExploreDisplay(props) {
     );
   }
 
+  // handle submission to db
+  const addFavourite = (e) => {
+    const landmark = props.display.name;
+    const description = props.display.description;
+    if (props.display !== undefined) {
+      e.preventDefault();
+
+      if (!token) {
+        alert("Please login or create an account to save a landmark.");
+      } else {
+        const favourite = {
+          city: city,
+          landmark: landmark,
+          description: description,
+          user_id: userId,
+        };
+
+        axios
+          .post(
+            "http://localhost:3001/favourites",
+            { ...favourite }
+            // { headers: { Authorization: `Bearer ${token}` } }
+          )
+          .then((results) => {
+            console.log("CITY: ", city);
+            console.log("NAME: ", landmark);
+            console.log("DESCR: ", description);
+            console.log("USER: ", userId);
+            console.log("RESULTS: ", results);
+          })
+          .catch((err) => console.log(err.message));
+      }
+    }
+  };
+
   return (
     <article class="explore-display">
       <div class="display-img-container">
@@ -55,7 +90,7 @@ export default function ExploreDisplay(props) {
       </div>
       <div>
         <p class="explore-title">{props.display && props.display.name}</p>
-        <button>Save</button>
+        <button onClick={addFavourite}>Save</button>
       </div>
       <div class="explore-text">
         {props.display && props.display.description}
