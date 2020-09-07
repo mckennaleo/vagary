@@ -69,7 +69,7 @@ export default function MyRoom({ userId }) {
               />
               <div class="card-body">
                 <h5 class="card-title">My Profile</h5>
-                <a href="/">
+                <a href="/edit">
                   <p class="card-text">Click here to edit your profile</p>
                 </a>
               </div>
