@@ -179,10 +179,10 @@ export default function Globe({ user, token, userId, city, setCity }) {
         <div class="travel-prompt"
           style={{
             position: "fixed",
-            bottom: 30,
-            right: 30,
-            width: 250,
-            height: 193,
+            top: 330,
+            right: 10,
+            width: 430,
+            height: 300,
             padding: 12,
           }}
         >
@@ -203,7 +203,7 @@ export default function Globe({ user, token, userId, city, setCity }) {
       )}
       <ReactGlobe
         name="globe"
-        height="90vh"
+        height="91vh"
         markers={markers}
         options={options}
         width="100%"

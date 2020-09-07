@@ -1,23 +1,10 @@
-.header {
-  position: "fixed";
-  padding-top: 2em;
-  padding-left: 2em;
-  background: transparent;
-  color: #add8e6;
-  //color: 	#1E90FF;
-  font-weight: bold;
-  text-shadow: 2px 2px 10px #add8e6;
-
-  filter: dropshadow(color=	#add8e6, offx=2, offy=2);
-}
-
 .travel-prompt {
   display: flex;
   justify-content: center;
   align-items: center;
   background-image: url("../components/assets/globe-cloud-text.png");
   background-repeat: no-repeat;
-  background-size: 250px 193px;
+  background-size: 430px 300px;
 }
 
 .travel-prompt-header {
@@ -31,7 +18,9 @@
   justify-content: center;
   padding-top: 2.5em;
   padding-bottom: 0.5em;
-  font-size: small;
+  font-size: medium;
+  font-weight: bold;
+  letter-spacing: 0.8px;
   color: #6F7F9E;
   width: 100%;
 }
