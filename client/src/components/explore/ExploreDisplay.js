@@ -113,6 +113,8 @@ class VideoPlayer extends React.Component {
             // { headers: { Authorization: `Bearer ${token}` } }
           )
           .then((results) => {
+            const favBtn = document.getElementById("fave");
+            favBtn.style.color = "#fa8072";
             console.log("CITY: ", city);
             console.log("NAME: ", landmark);
             console.log("DESCR: ", description);
@@ -124,7 +126,15 @@ class VideoPlayer extends React.Component {
     }
   };
 
+<<<<<<< HEAD
   
+=======
+  // const faveBtnClicked = () => {
+  //   const favBtn = document.getElementById("fave");
+  //   favBtn.style.color = "#fa8072";
+  //   // favBtn.style.disabled = true;
+  // };
+>>>>>>> 72c2519a477e430c0156a685c4a410f9f7a1d81e
 
   return (
     <article class="explore-display">
