@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getQuizResultsByUserId } from "./helpers/selectors";
 import Tooltip from "@material-ui/core/Tooltip";
-import PublicIcon from "@material-ui/icons/Public";
 import "./LayoutMain.scss";
 import "./MyRoom.scss";
 
@@ -58,74 +57,46 @@ export default function MyRoom({ userId }) {
     <div className="background--My-Room">
       <div class="main">
         <div class="card-deck">
-          <div class="welcome-my-room" />
+          <div class="welcome-my-room">
+            <div class="welcome-my-room-title"></div>
+          </div>
           <div class="card-container">
-            <div class="card text-white bg-dark mb-3 bg-transparent">
-              <img
-                class="card-img-top"
-                src="https://i.ibb.co/dJFTHNQ/profile-pic-copy.jpg"
-                alt="profile-pic-copy"
-                border="0"
-              />
+            <div class="card-profile">
+              <div class="card-title">profile</div>
               <div class="card-body">
-                <h5 class="card-title">My Profile</h5>
-                <a href="/edit">
-                  <p class="card-text">Click here to edit your profile</p>
-                </a>
+                <button type="button" class="btn btn-outline-light">
+                  edit
+                </button>
               </div>
             </div>
-            <div class="card text-white bg-dark mb-3 bg-transparent">
-              <img
-                class="card-img-top"
-                src="https://i.ibb.co/HxzMPN5/quiz-pic-copy.jpg"
-                alt="quiz-pic-copy"
-                border="0"
-              />
+            <div class="card-quiz">
+              <div class="card-title">quiz scores</div>
               <div class="card-body">
-                <h5 class="card-title">My Quiz Scores</h5>
-                <p class="card-sub-title-container">
-                  <p class="card-sub-title">Quiz</p>
-                  <p class="card-sub-title">Score</p>
-                </p>
-                <p class="card-text-container">
-                  {userQuizResults.map((result) => (
-                    <p class="card-text" key={result.id}>
-                      {result.quiz}
-                    </p>
-                  ))}
-                  {userQuizResults.map((result) => (
-                    <p class="card-text-result" key={result.id}>
-                      {result.result} out of 8
-                    </p>
-                  ))}
-                </p>
+                <div class="main-quiz-table">
+                  <table class="table">
+                    <thead></thead>
+                    <tbody>
+                      <tr>
+                        {userQuizResults.map((result) => (
+                          <tr key={result.id}>
+                            <td class="card-text">{result.quiz}</td>{" "}
+                            <td class="card-text-result">{result.result}%</td>
+                          </tr>
+                        ))}
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
-            <div class="card text-white bg-dark mb-3 bg-transparent">
-              <img
-                class="card-img-top"
-                src="https://i.ibb.co/kh12Dhs/favourites-pic-copy.jpg"
-                alt="favourites-pic-copy"
-                border="0"
-              />
+            <div class="card-favourite">
+              <div class="card-title">favourites</div>
               <div class="card-body">
-                <h5 class="card-title">My Favourites</h5>
-                {/* <p class="card-sub-title-container">
-                  <p class="card-sub-title">City</p>
-                  <p class="card-sub-title">Landmark</p> */}
-                {/* <p class="card-sub-title">Description</p> */}
-                {/* </p> */}
-
-                <p class="card-text-container">
-                  {favs.map((fav) => (
+                {favs.map((fav) => (
                     <p class="card-text">
                       <strong>{fav.landmark}</strong> ({fav.city})
                     </p>
                   ))}
-                  {/* {favs.map((fav) => (
-                    <p class="card-text">{fav.description}</p>
-                  ))} */}
-                </p>
               </div>
             </div>
           </div>

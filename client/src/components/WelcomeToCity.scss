@@ -1,0 +1,75 @@
+/*---------- WELCOME TO CITY ----------*/
+
+
+.main-welcome-to-city {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.welcome-header {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding-bottom: 3em;
+}
+
+.playlist-prompt {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 0.5em;
+  animation: bounce;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+ }
+
+ @keyframes bounce {
+   20%, 50%, 80%, to {
+     transform: translateY(0);
+   }
+   40% {
+     transform: translateY(-6px);
+   }
+   70% {
+     transform: translateY(-3px);
+   }
+   90% {
+     transform: translateY(-1px);
+   }
+ }
+
+.cloud {
+
+}
+
+.welcome-body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.city-box {
+  display: flex;
+  width: 40em;
+  height: 15em;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(170, 183, 184, 0.7);
+  border-radius: 25px;
+}
+
+.city-box-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 10em;
+}
+
+.city-buttons {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around
+}
