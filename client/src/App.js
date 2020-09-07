@@ -6,6 +6,7 @@ import {
   Link,
   useHistory,
 } from "react-router-dom";
+import history from "browser-history";
 import Globe from "./components/Globe";
 import "leaflet/dist/leaflet.css";
 import "./App.css";
@@ -27,6 +28,11 @@ import {
   TwitterIcon,
   TwitterShareButton,
 } from "react-share";
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> debugging/leo
 export default function App(props) {
   const [city, setCity] = useState(null);
   const [user, setUser] = useState(null);
@@ -52,7 +58,7 @@ export default function App(props) {
     setUserId(null);
   };
   return (
-    <Router>
+    <Router history={history} >
       <div>
         <CircleMenu logout={logout} user={user} />
       </div>

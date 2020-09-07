@@ -88,7 +88,7 @@ QuizQuestion.create(question: "Oaxaca is the nation's second highest producer of
 QuizQuestion.create(question: "Where would you find most of the tourist attractions in Oaxaca?", correct_answer: "Valles Centrales", incorrect_answer_1: "La Cañada", incorrect_answer_2: "El Istmo", incorrect_answer_3: "Zipolite", quiz_id: 1)
 QuizQuestion.create(question: "Puerto Escondido's beach Playa Carrizalillo is famous for attracting international:", correct_answer: "Surfers", incorrect_answer_1: "Snorkelers", incorrect_answer_2: "Sand castle enthusiests", incorrect_answer_3: "Long-distance swimmers", quiz_id: 1)
 
-QuizQuestion.create(question: "What is a former name of Istabul?", correct_answer: "Constantinople", incorrect_answer_1: "Constantine Ville", incorrect_answer_2: "Ankara", incorrect_answer_3: "Byzantine", quiz_id: 2 )
+QuizQuestion.create(question: "What is a former name of Istanbul?", correct_answer: "Constantinople", incorrect_answer_1: "Constantine Ville", incorrect_answer_2: "Ankara", incorrect_answer_3: "Byzantine", quiz_id: 2 )
 QuizQuestion.create(question: "'The Sunken Palace' is the Turkish name for _______?", correct_answer: "Basilica Cisterns", incorrect_answer_1: "The Blue Mosque", incorrect_answer_2: "Grand Market", incorrect_answer_3: "Hagia Sophia", quiz_id: 2)
 QuizQuestion.create(question: "There is a statue of this animal in Istanbul:", correct_answer: "Cat", incorrect_answer_1: "Squirrel", incorrect_answer_2: "Dog", incorrect_answer_3: "Pigeon", quiz_id: 2)
 QuizQuestion.create(question: "What happened to the statue of Tombili a month after installation?", correct_answer: "It was stolen", incorrect_answer_1: "It was vandalized", incorrect_answer_2: "Someone put a hat on it", incorrect_answer_3: "Nothing happened, this is a trick question!", quiz_id: 2)
@@ -126,7 +126,7 @@ QuizQuestion.create(question: "How do you say “Good-bye”?", correct_answer: 
 
 QuizQuestion.create(question: "How do you say “Hello” in Vietnamese?", correct_answer: "Xin chào", incorrect_answer_1: "Ciao", incorrect_answer_2: "Chào-chào", incorrect_answer_3: "Tạm biệt", quiz_id: 5)
 QuizQuestion.create(question: "How can you ask “How are you”?", correct_answer: "Bạn khỏe không", incorrect_answer_1: "Bạn khỏe thong", incorrect_answer_2: "Không", incorrect_answer_3: "Bạn bao nhiêu tuổi", quiz_id: 5)
-QuizQuestion.create(question: "What is the Vietnamese for “Help”?", correct_answer: "", incorrect_answer_1: "", incorrect_answer_2: "", incorrect_answer_3: "", quiz_id: 5)
+QuizQuestion.create(question: "What is the Vietnamese for “Help”?", correct_answer: "Cứu giúp", incorrect_answer_1: "đúng", incorrect_answer_2: "xin chào", incorrect_answer_3: "trái", quiz_id: 5)
 QuizQuestion.create(question: "How do you inquire about the price?", correct_answer: "Bao nhiêu", incorrect_answer_1: "Củ Chi", incorrect_answer_2: "Vé", incorrect_answer_3: "Bao", quiz_id: 5)
 QuizQuestion.create(question: "How do you say “Please”?", correct_answer: "Xin vui lòng", incorrect_answer_1: "Tôi khỏe", incorrect_answer_2: "Cảm ơn bạn", incorrect_answer_3: "Lòng", quiz_id: 5)
 QuizQuestion.create(question: "Can you say “Thank you”?", correct_answer: "Cảm ơn bạn", incorrect_answer_1: "Tạm biệt", incorrect_answer_2: "Không có gì", incorrect_answer_3: "Dự án này thật tuyệt", quiz_id: 5)

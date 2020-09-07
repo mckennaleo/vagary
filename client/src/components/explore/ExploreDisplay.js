@@ -63,7 +63,7 @@ export default function ExploreDisplay(props) {
           Take City Knowledge Quiz!
         </button>
       </div>
-      <div class="explore-player">
+      <div class="explore-player" id="explore-player">
         <ReactPlayer controls url={videoURL} className="react-player " playing />
       </div>
     </article>

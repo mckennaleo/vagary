@@ -9,6 +9,12 @@ export default function ExploreMap(props) {
   const lat = props.coordinates[0];
   const long = props.coordinates[1];
 
+  const videoToggle = () => {
+    const x = document.getElementById("explore-player");
+    console.log(x);
+    x.style.visibility = "visible";
+  }
+
   return (
     <article class="explore-map">
       <p class="explore-map-text alert alert-primary">↓ Click a marker to explore ↓</p>
@@ -30,6 +36,7 @@ export default function ExploreMap(props) {
             }}
             onClick={(e) => {
               props.onSelect(position);
+              videoToggle();
             }}
           >
             <Popup>

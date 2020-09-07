@@ -156,6 +156,7 @@
   max-height: 15em;
   max-width: 27em;
   opacity: 1;
+  visibility: hidden;
 }
 
 .display-img-container {

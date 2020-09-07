@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ExploreMap from "./ExploreMap";
 import ExploreDisplay from "./ExploreDisplay";
 import makeRequest from "../../hooks/travelApiData";
+import BackButton from "../BackButton";
 //import Spotify from "../spotify/Spotify";
 
 export default function Explore(props) {
@@ -36,6 +37,9 @@ export default function Explore(props) {
 
   return (
     <div className={`background--${city}`}>
+      <div>
+        <BackButton />
+      </div>
       <div class="explore-city">
         <span class="explore-map-container">
           <ExploreMap
