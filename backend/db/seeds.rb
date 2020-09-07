@@ -126,7 +126,7 @@ QuizQuestion.create(question: "How do you say “Good-bye”?", correct_answer: 
 
 QuizQuestion.create(question: "How do you say “Hello” in Vietnamese?", correct_answer: "Xin chào", incorrect_answer_1: "Ciao", incorrect_answer_2: "Chào-chào", incorrect_answer_3: "Tạm biệt", quiz_id: 5)
 QuizQuestion.create(question: "How can you ask “How are you”?", correct_answer: "Bạn khỏe không", incorrect_answer_1: "Bạn khỏe thong", incorrect_answer_2: "Không", incorrect_answer_3: "Bạn bao nhiêu tuổi", quiz_id: 5)
-QuizQuestion.create(question: "What is the Vietnamese for “Help”?", correct_answer: "", incorrect_answer_1: "", incorrect_answer_2: "", incorrect_answer_3: "", quiz_id: 5)
+QuizQuestion.create(question: "What is the Vietnamese for “Help”?", correct_answer: "Cứu giúp", incorrect_answer_1: "đúng", incorrect_answer_2: "xin chào", incorrect_answer_3: "trái", quiz_id: 5)
 QuizQuestion.create(question: "How do you inquire about the price?", correct_answer: "Bao nhiêu", incorrect_answer_1: "Củ Chi", incorrect_answer_2: "Vé", incorrect_answer_3: "Bao", quiz_id: 5)
 QuizQuestion.create(question: "How do you say “Please”?", correct_answer: "Xin vui lòng", incorrect_answer_1: "Tôi khỏe", incorrect_answer_2: "Cảm ơn bạn", incorrect_answer_3: "Lòng", quiz_id: 5)
 QuizQuestion.create(question: "Can you say “Thank you”?", correct_answer: "Cảm ơn bạn", incorrect_answer_1: "Tạm biệt", incorrect_answer_2: "Không có gì", incorrect_answer_3: "Dự án này thật tuyệt", quiz_id: 5)
