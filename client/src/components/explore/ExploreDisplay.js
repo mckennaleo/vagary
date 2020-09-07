@@ -4,7 +4,7 @@ import ReactPlayer from "react-player";
 import { Redirect } from "react-router-dom";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import Tooltip from "@material-ui/core/Tooltip";
-// import "../LayoutMain.scss";
+import "../../App.css";
 import axios from "axios";
 
 export default function ExploreDisplay(props) {
@@ -95,9 +95,9 @@ export default function ExploreDisplay(props) {
         <p class="explore-title">
           {props.display && props.display.name}
           {/* <button onClick={addFavourite}>Save</button> */}
-          <Tooltip title="Favourite" placement="right-start">
+          <Tooltip title="Favourite" placement="right">
             <FavoriteIcon
-              className="fave"
+              id="fave"
               fontSize="large"
               color="error"
               onClick={addFavourite}
