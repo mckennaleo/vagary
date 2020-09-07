@@ -30,22 +30,25 @@ export default function MyRoom({ userId }) {
       .catch((err) => console.log(err.message));
   }, []);
   const favs = state.favourites;
-  console.log("FAVS: ", favs);
+  // console.log("FAVS: ", favs);
   const userQuizResults = getQuizResultsByUserId(
     Number(userId),
     state.quizzes,
     state.quizResults
   );
 
-  // const deleteFave = (id) => {
-  //   return axios.delete(`/favourites/${id}`).then((response) => {
-  //     const selectedFave = favs.find((fav) => {
-  //       console.log("FAVS: ", favs);
-  //       //favourites.includes(id);
-  //     });
-  //     setState((prev) => ({ ...state, selectedFave: null }));
-  //   });
-  // };
+  const deleteFav = (id, e) => {
+    axios
+      .delete(`/favourites/${id}`)
+      .then((response) => {
+        console.log("DELETE RES: ", response);
+        console.log("DELETE DATA: ", response.data);
+        console.log("STATE FAVS[0]: ", state.favourites[0]);
+        const favourites = state.favourites.filter((fav) => fav.id !== id);
+        setState((prev) => ({ ...prev, favourites }));
+      })
+      .catch((err) => console.log("ERROR: ", err.message));
+  };
 
   return (
     <div className="background--My-Room">
@@ -94,6 +97,12 @@ export default function MyRoom({ userId }) {
                   <p class="card-text">
                     <strong>{fav.landmark}</strong>
                     <div>({fav.city})</div>
+                    <button
+                      className="btn btn-danger"
+                      onClick={(e) => deleteFav(fav.id, e)}
+                    >
+                      Delete
+                    </button>
                   </p>
                 ))}
               </div>
