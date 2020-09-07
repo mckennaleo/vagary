@@ -15,9 +15,10 @@ class Api::UsersController < ApplicationController
   def create
     puts params
     puts params
-    @user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    @user = User.new(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
     if @user.save
-      token = encode_token(@user.id)  
+      # token = encode_token(@user.id)  
+      token = JsonWebToken.encode(user_id: @user.id)
       render json: {user: @user, token: token}, status: :created
     else
       render json: { errors: @user.errors.full_messages },
@@ -25,13 +26,19 @@ class Api::UsersController < ApplicationController
     end
     
   end
-  # PUT /users/{username}
+  # PUT /users/{id}
   def update
-    unless @user.update(user_params)
+    @user = User.find(params[:id])
+    @user.update(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    if @user.save
+      token = encode_token(@user.id)  
+      render json: {user: @user, token: token}, status: :created
+    else
       render json: { errors: @user.errors.full_messages },
              status: :unprocessable_entity
     end
   end
+
   # DELETE /users/{username}
   def destroy
     @user.destroy
