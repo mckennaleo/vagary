@@ -75,6 +75,8 @@ export default function ExploreDisplay(props) {
             // { headers: { Authorization: `Bearer ${token}` } }
           )
           .then((results) => {
+            const favBtn = document.getElementById("fave");
+            favBtn.style.color = "#fa8072";
             console.log("CITY: ", city);
             console.log("NAME: ", landmark);
             console.log("DESCR: ", description);
