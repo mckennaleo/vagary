@@ -1,20 +1,20 @@
-import React , { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-const history = require('browser-history')
+import React from "react";
+import history from 'browser-history';
 
-export default class BackButton extends Component {
-  render() {
+import "./LayoutMain.scss"
+
+export default function BackButton() {
     return (
+      <div class="back-button-style">
       <button
         className="button icon-left"
+        class="btn btn-light"
         onClick={(e) => {
           history(-1)
         }}
         >
-
       Go Back
-
       </button>
+      </div>
     )
-  }
 }

@@ -91,11 +91,18 @@ export default function SpeechBubble(props) {
         ))}
       </section>
       <section className="quiz-area">
-        <h1>Translations</h1>
+        <div class="translation-header">
+          Click the bubbles for translation
+        </div>
+        <div class="translation-space">
         {translation ? <p className="speech-bubble">{translation}</p> : null}
+        </div>
+        <div class="quiz-button-header">
+          Ready to test your knowledge?
         <button type="button" className="alert alert-primary" onClick={goToTranslationQuiz}>
           Take Quiz!
         </button>
+        </div>
       </section>
     </div>
   );
