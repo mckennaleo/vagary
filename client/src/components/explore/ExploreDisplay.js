@@ -90,12 +90,11 @@ export default function ExploreDisplay(props) {
       </div>
       <div>
         <p class="explore-title">{props.display && props.display.name}</p>
-        <button onClick={addFavourite}>Save</button>
       </div>
       <div class="explore-text">
         {props.display && props.display.description}
       </div>
-
+      <button onClick={addFavourite}>Save</button>
       <div>
         <button
           type="button"
