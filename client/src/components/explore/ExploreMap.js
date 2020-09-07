@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import { Icon } from "leaflet";
+import "../Explore.scss";
 import "../../App.css";
 
 export default function ExploreMap(props) {
@@ -20,9 +21,9 @@ export default function ExploreMap(props) {
 
   return (
     <article class="explore-map">
-      <p class="explore-map-text alert alert-primary">
+      {/* <p class="explore-map-text alert alert-primary">
         ↓ Click a marker to explore ↓
-      </p>
+      </p> */}
       <Map center={[lat, long]} zoom={13}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

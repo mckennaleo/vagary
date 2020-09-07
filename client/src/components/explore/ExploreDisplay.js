@@ -90,7 +90,7 @@ export default function ExploreDisplay(props) {
   };
 
   return (
-    <article class="explore-display">
+    <div class="explore-display">
       <div class="display-img-container">
         <img src={props.display && props.display.photo} class="display-img" />
       </div>
@@ -123,6 +123,6 @@ export default function ExploreDisplay(props) {
           playing
         />
       </div>
-    </article>
+    </div>
   );
 }

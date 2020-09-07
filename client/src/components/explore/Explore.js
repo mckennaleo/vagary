@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import ExploreMap from "./ExploreMap";
 import ExploreDisplay from "./ExploreDisplay";
 import makeRequest from "../../hooks/travelApiData";
+
 import BackButton from "../BackButton";
-//import Spotify from "../spotify/Spotify";
+import "../Explore.scss";
 
 export default function Explore(props) {
   // assigns cityId, name and coordinates to be used later in an api request
@@ -40,6 +41,7 @@ export default function Explore(props) {
       <div>
         <BackButton />
       </div>
+      <div class="explore-page-container">
       <div class="explore-city">
         <span class="explore-map-container">
           <ExploreMap
@@ -55,6 +57,7 @@ export default function Explore(props) {
           <ExploreDisplay city={city} display={display} />
         </span>
       </div>
+    </div>
     </div>
   );
 }
