@@ -102,7 +102,7 @@ export default function MyRoom({ userId }) {
                       {favs.map((fav) => (
                         <tr>
                           <td class="card-text">
-                            {fav.landmark} ({fav.city})
+                            {fav.landmark}({fav.city})
                             <span id="deleteBtn">
                               <span>
                                 <DeleteIcon
