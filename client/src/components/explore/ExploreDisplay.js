@@ -86,6 +86,12 @@ export default function ExploreDisplay(props) {
     }
   };
 
+  // const faveBtnClicked = () => {
+  //   const favBtn = document.getElementById("fave");
+  //   favBtn.style.color = "#fa8072";
+  //   // favBtn.style.disabled = true;
+  // };
+
   return (
     <article class="explore-display">
       <div class="display-img-container">
