@@ -50,7 +50,7 @@ export default function CityQuiz(props) {
       }
 
       const result = quizValidator(questions, chosenAnswers);
-      setUserQuizResult(result);
+      setUserQuizResult(result.toFixed(0))
 
       console.log("User quiz result", userQuizResult);
 
