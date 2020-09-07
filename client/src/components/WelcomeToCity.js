@@ -80,5 +80,6 @@ export default function WelcomeToCity(props) {
         </div>
       </div>
     </div>
+    </div>
   );
 }
