@@ -63,18 +63,26 @@ export default function WelcomeToCity(props) {
       </section>
       <div class="welcome-body">
     <div class="city-box">
+      <div class="city-box-header">
+      Welcome to {city}
+      </div>
       <div class="city-box-content">
-        <h1>Welcome to {city}</h1>
-        <div class="city-buttons">
-          <button class="alert alert-primary" type="button" onClick={goToLearn}>
-            I want to learn
+        
+        <div class="city-button-learn">
+          <span class="city-button-header">learn to speak the language</span>
+          <button class="btn btn-outline-light" type="button" onClick={goToLearn}>
+            learn
           </button>
+          </div>
+
+          <div class="city-button-explore">
+          <span class="city-button-header">explore sights and landmarks</span>
           <button
-            class="alert alert-primary"
+            class="btn btn-outline-light"
             type="button"
             onClick={goToExplore}
           >
-            I want to explore
+            explore
           </button>
           </div>
         </div>
