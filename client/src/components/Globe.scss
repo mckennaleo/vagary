@@ -10,6 +10,7 @@
 
   filter: dropshadow(color=	#add8e6, offx=2, offy=2);
 }
+
 .travel-prompt {
   display: flex;
   justify-content: center;
@@ -17,12 +18,6 @@
   background-image: url("../components/assets/globe-cloud-text.png");
   background-repeat: no-repeat;
   background-size: 250px 193px;
-  // border-style: solid;
-  // border-color: white;
-  // box-shadow: 0 4px 8px 0 white, 0 6px 20px white;
-  // bottom: 1em;
-  // right: 1em;
-  // border-radius: 3%;
 }
 
 .travel-prompt-header {
