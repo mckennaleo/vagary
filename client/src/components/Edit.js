@@ -49,7 +49,8 @@ export default function Edit(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-
+  const currentUserId = localStorage.getItem('userId')
+  const currentToken = localStorage.getItem('token')
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = {
@@ -61,10 +62,11 @@ export default function Edit(props) {
     console.log(user);
 
     axios
-      .post("http://localhost:3001/api/users", {
-        ...user,
-      })
+      .put(`http://localhost:3001/api/users/${currentUserId}`, {
+        ...user, 
+      }, { headers: { "Authorization": `Bearer ${currentToken}` } })
       .then((results) => {
+        console.log("IT SUBMITTED DATA")
         localStorage.setItem("token", results.data.token);
         localStorage.setItem("email", results.data.user.email);
         localStorage.setItem("userId", results.data.user.id);
