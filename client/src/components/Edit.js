@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp(props) {
+export default function Edit(props) {
   const classes = useStyles();
   const history = useHistory();
   const [name, setName] = useState("");
@@ -80,7 +80,7 @@ export default function SignUp(props) {
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
-          Sign up
+          Edit Profile
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
@@ -147,7 +147,7 @@ export default function SignUp(props) {
             color="primary"
             className={classes.submit}
           >
-            Sign Up
+            Submit
           </Button>
           <Grid container justify="flex-end">
             <Grid item>

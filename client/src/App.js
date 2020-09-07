@@ -17,6 +17,7 @@ import Explore from "./components/explore/Explore";
 import Spotify from "./components/spotify/Spotify";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import Edit from "./components/Edit";
 import MyRoom from "./components/MyRoom";
 import TranslationQuiz from "./components/learn/TranslationQuiz";
 import CityQuiz from "./components/explore/CityQuiz";
@@ -103,6 +104,16 @@ export default function App(props) {
             path="/sign-up"
             component={() => (
               <SignUp
+                setUser={setUser}
+                setToken={setToken}
+                setUserId={setUserId}
+              />
+            )}
+          />
+                    <Route
+            path="/edit"
+            component={() => (
+              <Edit
                 setUser={setUser}
                 setToken={setToken}
                 setUserId={setUserId}
