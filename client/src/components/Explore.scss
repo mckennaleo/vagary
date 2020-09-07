@@ -1,0 +1,100 @@
+/*---------- EXPLORE ----------*/
+
+.explore-city {
+  display: flex;
+  align-items: top;
+  background-color: rgba(170, 183, 184, 0.6);
+  margin-left: 5em;
+  width: 90%;
+  height: 100%;
+  padding: 5em;
+  padding-top: 0;
+}
+
+.explore-display {
+  max-height: 40em;
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.explore-display div + div {
+  margin-top: 1em;
+}
+
+.explore-map-container {
+  display: flex;
+  align-items: center;
+}
+
+.explore-map-text {
+  font-size: 25px;
+}
+
+.leaflet-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: absolute;
+  width: 50em;
+  height: 50em;
+  border-color: black;
+  border-style: solid;
+  border-width: 5px;
+}
+
+.explore-player {
+  display: flex;
+  max-height: 15em;
+  max-width: 27em;
+  opacity: 1;
+  visibility: hidden;
+}
+
+.display-img-container {
+  max-height: 18em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.display-img {
+  max-width: 100%;
+  max-height: 100%;
+  opacity: 1;
+  padding-bottom: 0;
+}
+
+.explore-title {
+  font-size: larger;
+  opacity: 1;
+  width: 90%;
+}
+
+.explore-text {
+  font-size: small;
+  opacity: 1;
+  width: 90%;
+}
+
+#fave {
+  visibility: hidden;
+  color: #dc143c;
+  /* margin-top: 0.25em; */
+  font-size: 50px;
+}
+
+#fave:hover {
+  color: #fa8072;
+}
+
+/* .menu-item:hover {
+  background: #eeeeee;
+  color: #3290b1;
+} */
+
+@import "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css";

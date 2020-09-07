@@ -1,11 +1,14 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
+import axios from "axios";
 import Youtube from "../../hooks/youtubeApiData";
 import ReactPlayer from "react-player";
-import { Redirect } from "react-router-dom";
+
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import Tooltip from "@material-ui/core/Tooltip";
-import "../../App.css";
-import axios from "axios";
+
+import "../Explore.scss";
+
 
 export default function ExploreDisplay(props) {
   const userId = localStorage.getItem("userId");
