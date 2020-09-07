@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import { Icon } from "leaflet";
-
 import "../../App.css";
 
 export default function ExploreMap(props) {
@@ -9,9 +8,21 @@ export default function ExploreMap(props) {
   const lat = props.coordinates[0];
   const long = props.coordinates[1];
 
+  const faveBtnToggle = () => {
+    const favBtn = document.getElementById("fave");
+    favBtn.style.visibility = "visible";
+  };
+  const videoToggle = () => {
+    const x = document.getElementById("explore-player");
+    console.log(x);
+    x.style.visibility = "visible";
+  };
+
   return (
     <article class="explore-map">
-      <p class="explore-map-text alert alert-primary">↓ Click a marker to explore ↓</p>
+      <p class="explore-map-text alert alert-primary">
+        ↓ Click a marker to explore ↓
+      </p>
       <Map center={[lat, long]} zoom={13}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -30,6 +41,8 @@ export default function ExploreMap(props) {
             }}
             onClick={(e) => {
               props.onSelect(position);
+              faveBtnToggle();
+              videoToggle();
             }}
           >
             <Popup>

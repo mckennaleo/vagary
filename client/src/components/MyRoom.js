@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getQuizResultsByUserId } from "./helpers/selectors";
-
+import Tooltip from "@material-ui/core/Tooltip";
 import "./LayoutMain.scss";
 import "./MyRoom.scss";
 
@@ -21,6 +21,7 @@ export default function MyRoom({ userId }) {
       axios.get("/favourites"),
     ])
       .then((all) => {
+        // console.log("FAVS: ", all[3].data);
         setState((prev) => ({
           ...prev,
           quizzes: all[0].data,
@@ -32,11 +33,25 @@ export default function MyRoom({ userId }) {
       .catch((err) => console.log(err.message));
   }, []);
 
+  const favs = state.favourites;
+  console.log("FAVS: ", favs);
+
   const userQuizResults = getQuizResultsByUserId(
     Number(userId),
     state.quizzes,
     state.quizResults
   );
+
+  // const getFavs = favs.map((fav) => {
+  //   return (
+  //     (city = fav.city),
+  //     (landmark = fav.landmark),
+  //     (description = fav.description)
+  //   );
+  // city: fav.city,
+  // landmark: fav.landmark,
+  // description: fav.description
+  // });
 
   return (
     <div className="background--My-Room">
@@ -77,7 +92,11 @@ export default function MyRoom({ userId }) {
             <div class="card-favourite">
               <div class="card-title">favourites</div>
               <div class="card-body">
-                <p class="card-text"></p>
+                {favs.map((fav) => (
+                    <p class="card-text">
+                      <strong>{fav.landmark}</strong> ({fav.city})
+                    </p>
+                  ))}
               </div>
             </div>
           </div>

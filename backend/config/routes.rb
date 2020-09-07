@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   namespace :api do
-    resources :users, only: [:create, :show, :index]
+    resources :users, only: [:create, :show, :update, :index]
   end
   post '/api/login', to: 'authentication#login'
   post '/api/logout', to: 'authentication#logout'
@@ -16,8 +16,6 @@ Rails.application.routes.draw do
   resources :quizzes, only: [:show, :index]
 
   resources :favourites, only: [:index, :show, :create, :destroy]
-
-  resources :experiences, only: [:show]
 
   resources :quiz_questions, only: [:show, :index, :index_count]
 
