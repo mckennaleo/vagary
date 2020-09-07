@@ -27,15 +27,11 @@ import {
   TwitterIcon,
   TwitterShareButton,
 } from "react-share";
-
 export default function App(props) {
   const [city, setCity] = useState(null);
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const [userId, setUserId] = useState(null);
-
-  console.log("props: ", props);
-
   useEffect(() => {
     const localUser = localStorage.getItem("email");
     const localToken = localStorage.getItem("token");
@@ -47,7 +43,6 @@ export default function App(props) {
       setUserId(localId);
     }
   }, []);
-
   const logout = () => {
     localStorage.removeItem("email");
     localStorage.removeItem("token");
@@ -56,7 +51,6 @@ export default function App(props) {
     setToken(null);
     setUserId(null);
   };
-
   return (
     <Router>
       <div>
@@ -64,12 +58,6 @@ export default function App(props) {
       </div>
       <div class="top">
         <div class="vagary-logo">
-          <img src="https://i.ibb.co/vwh6FGL/vagary-logo.png" alt="vagary-logo" border="0" width="130px" />
-      <div class="vagary-logo">
-      </div>
-      <div class="nav-right-side">
-        <div class="spotify">
-          <Spotify city={city} />
         </div>
         <div class="nav-right-side">
           <div class="spotify">
@@ -148,28 +136,23 @@ export default function App(props) {
       </div>
     </Router>
   );
-
   function Login() {
     return <h2>Login</h2>;
   }
-
   function Register() {
     return <h2>Register</h2>;
   }
-
   function Account() {
     return <h2>My Account</h2>;
   }
 }
-
 function City(props) {
-  // console.log("PROPS", props);
+  console.log("PROPS", props);
   const city = props.location.state.city.marker.cityName;
   const coordinates = props.location.state.city.marker.coordinates;
   const language = props.location.state.city.marker.language;
   const city_id = props.location.state.city.marker.city_id;
   const userId = props.location.state.city.userData.userId;
-
   return (
     <div className={`background--${city}`}>
       <WelcomeToCity
