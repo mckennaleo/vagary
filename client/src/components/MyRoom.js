@@ -78,7 +78,7 @@ export default function MyRoom({ userId }) {
               <div class="card-body">
                 {favs.map((fav) => (
                     <p class="card-text">
-                      <strong>{fav.landmark}</strong> ({fav.city})
+                      <strong> {fav.landmark}</strong> ({fav.city})
                     </p>
                   ))}
               </div>
