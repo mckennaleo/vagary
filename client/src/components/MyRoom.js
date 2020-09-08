@@ -53,7 +53,10 @@ export default function MyRoom({ userId }) {
         <div class="card-deck">
           <div class="welcome-my-room">
             <div class="welcome-my-room-title">
-            <img src="https://i.ibb.co/gvLms09/cloud-my-room.png" alt="cloud-my-room" />
+              <img
+                src="https://i.ibb.co/gvLms09/cloud-my-room.png"
+                alt="cloud-my-room"
+              />
             </div>
           </div>
           <div class="card-container">
