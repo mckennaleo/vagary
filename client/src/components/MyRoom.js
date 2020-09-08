@@ -58,12 +58,8 @@ export default function MyRoom({ userId }) {
             <div class="card-profile">
               <div class="card-title">profile</div>
               <div class="card-body">
-                <button
-                  type="button"
-                  class="btn btn-outline-light"
-                  href="/edit"
-                >
-                  edit
+                <button type="button" class="btn btn-outline-light">
+                  <a href="/edit">edit</a>
                 </button>
               </div>
             </div>

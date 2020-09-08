@@ -13,7 +13,6 @@ import "../SpeechBubble.scss";
 import BackButton from "../BackButton.js";
 
 export default function TranslationQuiz(props) {
-  const language = props.location.state.translationQuiz[0].language;
   const city = props.location.state.translationQuiz[0].name;
   const userId = localStorage.getItem("userId");
   const token = localStorage.getItem("token");
