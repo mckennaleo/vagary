@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
 import ReactDOM from "react-dom";
 import ModalVideo from "react-modal-video";
 import Youtube from "../../hooks/youtubeApiData";
@@ -16,16 +15,8 @@ import "../../App.css";
 export default function ExploreDisplay(props) {
   const userId = localStorage.getItem("userId");
   const city = props.city;
-  const language = props.language;
   const token = localStorage.getItem("token");
   const [videoId, setVideoId] = useState(null);
-  const [cityQuiz, setCityQuiz] = useState(false);
-  const cityParams = [
-    {
-      name: city,
-      language: language,
-    },
-  ];
 
   let videoURL = "";
   console.log("VIDEO ID", videoId);
@@ -73,23 +64,6 @@ export default function ExploreDisplay(props) {
     }
   }, [videoId, props.display]);
   videoURL = `https://www.youtube.com/watch?v=${videoId}`;
-
-  const goToCityQuiz = () => {
-    // console.log(city)
-    setCityQuiz(cityParams);
-  };
-  if (cityQuiz) {
-    return (
-      <Redirect
-        cityParams={cityParams}
-        push
-        to={{
-          pathname: "/cityquiz",
-          state: { cityQuiz },
-        }}
-      />
-    );
-  }
 
   // handle submission to db
   const addFavourite = (e) => {
@@ -171,19 +145,6 @@ export default function ExploreDisplay(props) {
         <VideoPlayer class="explore-player" videoId={videoId} />
       </div>
     </div>
-    <div class="quiz-button-header">
-    <div class="quiz-button-header-title">
-      Ready to test your knowledge?
-    </div>
-    <button
-      type="button"
-      cityParams={cityParams}
-      onClick={goToCityQuiz}
-      class="alert alert-primary"
-    >
-      Take Quiz!
-    </button>
-  </div>
   </>
   );
 }

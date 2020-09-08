@@ -11,6 +11,7 @@ export default function Explore(props) {
   // console.log("Explore props", props);
   const cityId = props.location.state.explore[0].cityId;
   const city = props.location.state.explore[0].name;
+  const language = props.location.state.explore[0].language;
   const coordinates = props.location.state.explore[0].coordinates;
   const [cityResults, setCityResults] = useState([]);
   const [display, setDisplay] = useState();
@@ -47,6 +48,7 @@ export default function Explore(props) {
           <ExploreMap
             city={city}
             coordinates={coordinates}
+            language={language}
             cityId={cityId}
             cityResults={cityResults}
             onSelect={setDisplay}
