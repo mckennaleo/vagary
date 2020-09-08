@@ -71,6 +71,7 @@ export default function ExploreDisplay(props) {
   const addFavourite = (e) => {
     const landmark = props.display.name;
     const description = props.display.description;
+
     if (props.display !== undefined) {
       e.preventDefault();
 
@@ -85,19 +86,11 @@ export default function ExploreDisplay(props) {
         };
 
         axios
-          .post(
-            "http://localhost:3001/favourites",
-            { ...favourite }
-            // { headers: { Authorization: `Bearer ${token}` } }
-          )
+          .post("http://localhost:3001/favourites", { ...favourite })
           .then((results) => {
             const favBtn = document.getElementById("fave");
             favBtn.style.color = "#fa8072";
-            console.log("CITY: ", city);
-            console.log("NAME: ", landmark);
-            console.log("DESCR: ", description);
-            console.log("USER: ", userId);
-            console.log("RESULTS: ", results);
+            favBtn.style.visibility = "visible";
           })
           .catch((err) => console.log(err.message));
       }

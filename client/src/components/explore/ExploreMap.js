@@ -28,7 +28,7 @@ export default function ExploreMap(props) {
   const videoToggle = () => {
     const x = document.getElementById("explore-player");
     x.style.visibility = "visible";
-  }
+  };
 
   const goToCityQuiz = () => {
     // console.log(city)
@@ -66,6 +66,9 @@ export default function ExploreMap(props) {
               e.target.closePopup();
             }}
             onClick={(e) => {
+              const favBtn = document.getElementById("fave");
+              // favBtn.style.color = "#dc143c";
+              // favBtn.style.visibility = "visible";
               props.onSelect(position);
               videoToggle();
             }}
