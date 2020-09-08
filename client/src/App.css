@@ -12,8 +12,7 @@ body {
   display: flex;
   justify-content: space-between;
   background: black;
-  min-height: 8vh;
-  height: auto;
+  height: 8.7vh;
 }
 
 .App {
