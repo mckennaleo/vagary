@@ -201,14 +201,18 @@ export default function Globe({ user, token, userId, city, setCity }) {
                 type="button"
                 onClick={yesHandler}
               >
-                🛫
+                <span role="img" aria-label="plane icon">
+                  🛫
+                </span>
               </button>
               <button
                 class="btn btn-outline-light"
                 type="button"
                 onClick={onDefocus}
               >
-                🌎
+                <span role="img" aria-label="planet icon">
+                  🌎
+                </span>
               </button>
             </div>
           </form>

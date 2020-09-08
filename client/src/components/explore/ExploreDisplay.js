@@ -15,8 +15,6 @@ export default function ExploreDisplay(props) {
   const token = localStorage.getItem("token");
   const [videoId, setVideoId] = useState(null);
 
-  let videoURL = "";
-
   class VideoPlayer extends React.Component {
     constructor() {
       super();
@@ -61,7 +59,7 @@ export default function ExploreDisplay(props) {
       });
     }
   }, [videoId, props.display]);
-  videoURL = `https://www.youtube.com/watch?v=${videoId}`;
+  const videoURL = `https://www.youtube.com/watch?v=${videoId}`;
 
   // handle submission to db
   const addFavourite = (e) => {
@@ -122,6 +120,7 @@ export default function ExploreDisplay(props) {
               <img
                 src={props.display && props.display.photo}
                 class="display-img"
+                alt="City"
               />
             </div>
             <div class="explore-text">

@@ -59,14 +59,13 @@ export default function ExploreMap(props) {
               e.target.closePopup();
             }}
             onClick={(e) => {
-              const favBtn = document.getElementById("fave");
               props.onSelect(position);
               videoToggle();
             }}
           >
             <Popup>
               <span>{position.name}</span> <br />
-              <img src={position.thumbnail} />
+              <img src={position.thumbnail} alt="landmark" />
             </Popup>
           </Marker>
         ))}

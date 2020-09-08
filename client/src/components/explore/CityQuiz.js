@@ -10,7 +10,6 @@ import "../SpeechBubble.scss";
 import BackButton from "../BackButton.js";
 
 export default function CityQuiz(props) {
-  const language = props.location.state.cityQuiz[0].language;
   const city = props.location.state.cityQuiz[0].name;
   const userId = localStorage.getItem("userId");
   const token = localStorage.getItem("token");

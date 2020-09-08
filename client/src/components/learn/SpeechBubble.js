@@ -12,6 +12,7 @@ export default function SpeechBubble(props) {
       userId: props.userId,
     },
   ];
+
   const API_KEY = process.env.REACT_APP_RAPID_API_KEY;
   const language = props.language;
   const city = props.city;
