@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import Axios from "axios";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
-import { Icon, latLngBounds } from "leaflet";
-
 import "../Explore.scss";
 import "../SpeechBubble.scss";
 import "../../App.css";
@@ -14,9 +11,6 @@ export default function ExploreMap(props) {
   const long = props.coordinates[1];
   const city = props.city;
   const language = props.language;
-
-  console.log("EXPLORE MAP PROPS", city, language);
-
   const [cityQuiz, setCityQuiz] = useState(false);
   const cityParams = [
     {
@@ -31,7 +25,6 @@ export default function ExploreMap(props) {
   };
 
   const goToCityQuiz = () => {
-    // console.log(city)
     setCityQuiz(cityParams);
   };
   if (cityQuiz) {

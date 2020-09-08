@@ -32,7 +32,6 @@ export default function MyRoom({ userId }) {
       .catch((err) => console.log(err.message));
   }, []);
   const favs = state.favourites;
-  // console.log("FAVS: ", favs);
   const userQuizResults = getQuizResultsByUserId(
     Number(userId),
     state.quizzes,
@@ -43,9 +42,6 @@ export default function MyRoom({ userId }) {
     axios
       .delete(`/favourites/${id}`)
       .then((response) => {
-        console.log("DELETE RES: ", response);
-        console.log("DELETE DATA: ", response.data);
-        console.log("STATE FAVS[0]: ", state.favourites[0]);
         const favourites = state.favourites.filter((fav) => fav.id !== id);
         setState((prev) => ({ ...prev, favourites }));
       })

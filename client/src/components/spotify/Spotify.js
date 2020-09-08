@@ -15,7 +15,6 @@ export default function Spotify(props) {
   const getNewUri = useEffect(() => {
     let newUri;
     if (cityClicked) {
-      //console.log("cityClicked Name: ", cityClicked.marker.cityName);
       getCity()
         .then((result) => {
           newUri = result
@@ -23,20 +22,15 @@ export default function Spotify(props) {
             .map((city) => {
               return (uri = city.playlist);
             });
-          // console.log("RESULT FROM GETCITY:", result);
           uri = newUri[0];
-
-          console.log("FINAL URI: ", uri);
           setPlaylist(uri);
         })
         .catch((error) => {
           console.log(error);
         });
-      // newUri = uri;
-      // console.log("NEEEW: ", getCity());
     }
   }, [props.city]);
-  console.log("GET NEW: ", playlist);
+
   return (
     <SpotifyPlayer
       class="spotify"

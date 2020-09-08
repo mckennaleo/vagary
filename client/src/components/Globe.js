@@ -97,7 +97,7 @@ export default function Globe({ user, token, userId, city, setCity }) {
       cityName: "Tangier",
       country: "Morocco",
       color: "purple",
-      coordinates: [35.7595, 5.8340],
+      coordinates: [35.7595, 5.834],
       value: 50,
     },
     {
@@ -105,7 +105,7 @@ export default function Globe({ user, token, userId, city, setCity }) {
       cityName: "Sana'a",
       country: "Yemen",
       color: "purple",
-      coordinates: [15.3694, 44.1910],
+      coordinates: [15.3694, 44.191],
       value: 50,
     },
     {
@@ -113,7 +113,7 @@ export default function Globe({ user, token, userId, city, setCity }) {
       cityName: "Abidjan",
       country: "Côte d'Ivoire",
       color: "purple",
-      coordinates: [5.3600, 4.0083],
+      coordinates: [5.36, 4.0083],
       value: 50,
     },
     {
@@ -136,8 +136,6 @@ export default function Globe({ user, token, userId, city, setCity }) {
 
   const [details, setDetails] = useState(null);
   const [activeGlobe, setActiveGlobe] = useState(true);
-  // const city = props.city;
-  // const setCity = props.setCity;
 
   function onClickMarker(marker, markerObject, city) {
     setCity({
@@ -159,7 +157,6 @@ export default function Globe({ user, token, userId, city, setCity }) {
   }
 
   const yesHandler = () => {
-    console.log("CITY FROM GLOBE: ", city);
     setActiveGlobe(false);
   };
 
@@ -178,7 +175,8 @@ export default function Globe({ user, token, userId, city, setCity }) {
   return (
     <div>
       {details && (
-        <div class="travel-prompt"
+        <div
+          class="travel-prompt"
           style={{
             position: "fixed",
             top: 330,
@@ -190,16 +188,28 @@ export default function Globe({ user, token, userId, city, setCity }) {
         >
           <form>
             <div class="travel-prompt-content">
-            <div class="travel-prompt-header">
-              <div class="travel-prompt-title">welcome aboard</div>
+              <div class="travel-prompt-header">
+                <div class="travel-prompt-title">welcome aboard</div>
               </div>
-            <div class="travel-prompt-text">are we off to {city.marker.cityName}?</div>
+              <div class="travel-prompt-text">
+                are we off to {city.marker.cityName}?
+              </div>
             </div>
             <div class="travel-prompt-buttons">
-            <button class="btn btn-outline-light" type="button" onClick={yesHandler}>
-              🛫
-            </button>
-            <button class="btn btn-outline-light" type="button" onClick={onDefocus}>🌎</button>
+              <button
+                class="btn btn-outline-light"
+                type="button"
+                onClick={yesHandler}
+              >
+                🛫
+              </button>
+              <button
+                class="btn btn-outline-light"
+                type="button"
+                onClick={onDefocus}
+              >
+                🌎
+              </button>
             </div>
           </form>
         </div>

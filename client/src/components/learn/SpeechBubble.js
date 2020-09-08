@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getPhrasesByCityId } from "../helpers/selectors";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import "../SpeechBubble.scss";
 
 export default function SpeechBubble(props) {
@@ -9,17 +9,17 @@ export default function SpeechBubble(props) {
     {
       name: props.city,
       language: props.language,
-      userId: props.userId
+      userId: props.userId,
     },
   ];
-  
-  const language = props.language
-  const city = props.city
+
+  const language = props.language;
+  const city = props.city;
 
   const [phrases, setPhrases] = useState([]);
   const [translation, setTranslation] = useState(null);
   const [translationQuiz, setTranslationQuiz] = useState(false);
-  
+
   // Get translations from database
   useEffect(() => {
     axios({
@@ -57,7 +57,6 @@ export default function SpeechBubble(props) {
   };
 
   const goToTranslationQuiz = () => {
-    // console.log(city)
     setTranslationQuiz(params);
   };
 
@@ -85,23 +84,26 @@ export default function SpeechBubble(props) {
               translation
                 ? setTranslation(null)
                 : phraseTranslate(phrase.phrase, language);
-            }}> 
+            }}
+          >
             {phrase.phrase}
           </button>
         ))}
       </section>
       <section className="quiz-area">
-        <div class="translation-header">
-          Click the bubbles for translation
-        </div>
+        <div class="translation-header">Click the bubbles for translation</div>
         <div class="translation-space">
-        {translation ? <p className="speech-bubble">{translation}</p> : null}
+          {translation ? <p className="speech-bubble">{translation}</p> : null}
         </div>
         <div class="quiz-button-header">
           Ready to test your knowledge?
-        <button type="button" className="alert alert-primary" onClick={goToTranslationQuiz}>
-          Take Quiz!
-        </button>
+          <button
+            type="button"
+            className="alert alert-primary"
+            onClick={goToTranslationQuiz}
+          >
+            Take Quiz!
+          </button>
         </div>
       </section>
     </div>
