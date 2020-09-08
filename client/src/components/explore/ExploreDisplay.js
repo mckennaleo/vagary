@@ -6,12 +6,8 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import Tooltip from "@material-ui/core/Tooltip";
 import "../../App.css";
 import axios from "axios";
-import ReactDOM from 'react-dom'
-import ModalVideo from 'react-modal-video'
- 
-
-
-
+import ReactDOM from "react-dom";
+import ModalVideo from "react-modal-video";
 
 export default function ExploreDisplay(props) {
   const userId = localStorage.getItem("userId");
@@ -28,39 +24,41 @@ export default function ExploreDisplay(props) {
   ];
 
   let videoURL = "";
-  console.log("VIDEO ID", videoId)
+  console.log("VIDEO ID", videoId);
 
-
-class VideoPlayer extends React.Component {
- 
-  constructor () {
-    super()
-    this.state = {
-      isOpen: false
+  class VideoPlayer extends React.Component {
+    constructor() {
+      super();
+      this.state = {
+        isOpen: false,
+      };
+      this.openModal = this.openModal.bind(this);
     }
-    this.openModal = this.openModal.bind(this)
-  }
- 
-  openModal () {
-    this.setState({isOpen: true})
-  }
- 
-  render () {
-    return (
-      <div class="explore-player-container">
-        <ModalVideo 
-          channel='youtube' 
-          isOpen={this.state.isOpen} 
-          videoId={videoId} 
-          onClose={() => this.setState({isOpen: false})}
-          width={1000}
 
-        />
-        <button class="alert alert-primary explore-button" onClick={this.openModal}>Take a video tour</button>
-      </div>
-    )
+    openModal() {
+      this.setState({ isOpen: true });
+    }
+
+    render() {
+      return (
+        <div class="explore-player-container">
+          <ModalVideo
+            channel="youtube"
+            isOpen={this.state.isOpen}
+            videoId={videoId}
+            onClose={() => this.setState({ isOpen: false })}
+            width={1000}
+          />
+          <button
+            class="alert alert-primary explore-button"
+            onClick={this.openModal}
+          >
+            Take a video tour
+          </button>
+        </div>
+      );
+    }
   }
-}
 
   useEffect(() => {
     console.log("FIRING");
@@ -93,6 +91,7 @@ class VideoPlayer extends React.Component {
   const addFavourite = (e) => {
     const landmark = props.display.name;
     const description = props.display.description;
+
     if (props.display !== undefined) {
       e.preventDefault();
 
@@ -111,6 +110,7 @@ class VideoPlayer extends React.Component {
           .then((results) => {
             const favBtn = document.getElementById("fave");
             favBtn.style.color = "#fa8072";
+            favBtn.style.visibility = "visible";
           })
           .catch((err) => console.log(err.message));
       }
@@ -125,9 +125,9 @@ class VideoPlayer extends React.Component {
       <div>
         <p class="explore-title">
           <strong>{props.display && props.display.name}</strong>
-        <Tooltip title="Add to Favourites" placement="right">
-          <FavoriteIcon id="fave" onClick={addFavourite} />
-        </Tooltip>
+          <Tooltip title="Add to Favourites" placement="right">
+            <FavoriteIcon id="fave" onClick={addFavourite} />
+          </Tooltip>
         </p>
       </div>
       <div class="explore-text">
@@ -142,9 +142,9 @@ class VideoPlayer extends React.Component {
         >
           Take City Knowledge Quiz!
         </button>
-      <div class="explore-player" id="explore-player">
-        <VideoPlayer class="explore-player" videoId={videoId} />
-      </div>
+        <div class="explore-player" id="explore-player">
+          <VideoPlayer class="explore-player" videoId={videoId} />
+        </div>
       </div>
     </article>
   );
