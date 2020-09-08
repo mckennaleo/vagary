@@ -128,15 +128,6 @@ export default function App(props) {
       </div>
     </Router>
   );
-  function Login() {
-    return <h2>Login</h2>;
-  }
-  function Register() {
-    return <h2>Register</h2>;
-  }
-  function Account() {
-    return <h2>My Account</h2>;
-  }
 }
 function City(props) {
   const city = props.location.state.city.marker.cityName;

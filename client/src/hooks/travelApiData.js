@@ -1,5 +1,5 @@
 const axios = require("axios");
-const API_KEY = process.env.REACT_APP_RAPID_API_KEY
+const API_KEY = process.env.REACT_APP_RAPID_API_KEY;
 
 export default async function makeRequest(locationId) {
   // returns data retrieved from GET req to TripAdvosor api
@@ -9,8 +9,7 @@ export default async function makeRequest(locationId) {
     headers: {
       "content-type": "application/json",
       "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-      "x-rapidapi-key":
-      API_KEY, 
+      "x-rapidapi-key": API_KEY,
       useQueryString: true,
     },
     params: {

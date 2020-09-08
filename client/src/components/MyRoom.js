@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getQuizResultsByUserId } from "./helpers/selectors";
-import Tooltip from "@material-ui/core/Tooltip";
 import DeleteIcon from "@material-ui/icons/Delete";
 import "./LayoutMain.scss";
 import "./MyRoom.scss";

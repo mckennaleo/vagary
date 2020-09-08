@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SpotifyPlayer from "react-spotify-player";
 import getCity from "../../hooks/cityData.js";
-import Globe from "../Globe";
 
 export default function Spotify(props) {
   const size = "compact";
@@ -12,7 +11,7 @@ export default function Spotify(props) {
   // spaceSounds playlist
   let uri = "spotify:playlist:5NbleROaHyKOZDwJEPm7f5?si=FgpZbIBMTKOlTUjBi5zv-w";
   const cityClicked = props.city;
-  const getNewUri = useEffect(() => {
+  useEffect(() => {
     let newUri;
     if (cityClicked) {
       getCity()
