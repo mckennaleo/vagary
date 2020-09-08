@@ -20,9 +20,11 @@ export default class VideoPlayer extends React.Component {
  
   render () {
     return (
-      <div>
+      <div class="explore-page-container">
+      <div class="explore-display">
         <ModalVideo channel='youtube' isOpen={this.state.isOpen} onClose={() => this.setState({isOpen: false})} />
         <button onClick={this.openModal}>Open</button>
+      </div>
       </div>
     )
   }

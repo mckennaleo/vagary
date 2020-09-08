@@ -36,6 +36,7 @@ export default function ExploreDisplay(props) {
 
     render() {
       return (
+        <div class="explore-display">
         <div class="explore-player-container">
           <ModalVideo
             channel="youtube"
@@ -50,6 +51,7 @@ export default function ExploreDisplay(props) {
           >
             Take a video tour
           </button>
+        </div>
         </div>
       );
     }
