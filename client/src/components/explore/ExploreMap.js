@@ -15,7 +15,7 @@ export default function ExploreMap(props) {
   const city = props.city;
   const language = props.language;
 
-  console.log("EXPLORE MAP PROPS", city, language)
+  console.log("EXPLORE MAP PROPS", city, language);
 
   const [cityQuiz, setCityQuiz] = useState(false);
   const cityParams = [
@@ -67,8 +67,6 @@ export default function ExploreMap(props) {
             }}
             onClick={(e) => {
               const favBtn = document.getElementById("fave");
-              // favBtn.style.color = "#dc143c";
-              // favBtn.style.visibility = "visible";
               props.onSelect(position);
               videoToggle();
             }}
@@ -82,19 +80,18 @@ export default function ExploreMap(props) {
       </Map>
 
       <div class="quiz-button-header">
-    <div class="quiz-button-header-title">
-      Ready to test your knowledge?
-    </div>
-    <button
-      type="button"
-      cityParams={cityParams}
-      onClick={goToCityQuiz}
-      class="alert alert-primary"
-    >
-      Take Quiz!
-    </button>
-  </div>
-      
+        <div class="quiz-button-header-title">
+          Ready to test your knowledge?
+        </div>
+        <button
+          type="button"
+          cityParams={cityParams}
+          onClick={goToCityQuiz}
+          class="alert alert-primary"
+        >
+          Take Quiz!
+        </button>
+      </div>
     </article>
   );
 }
