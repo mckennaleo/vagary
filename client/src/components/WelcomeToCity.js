@@ -57,7 +57,7 @@ export default function WelcomeToCity(props) {
       <section class="welcome-header">
         <span class="playlist-prompt">
           <div class="cloud">
-          <img src="https://i.ibb.co/rQvvqHb/cloud-music-prompt.png" alt="cloud-music-prompt" border="0" width="300" />
+          <img src="https://i.ibb.co/Mffk1cJ/cloud-music-prompt-iii.png" alt="cloud-music-prompt" border="0" width="300" />
       </div>
       </span>
       </section>
