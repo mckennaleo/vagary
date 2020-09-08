@@ -206,7 +206,7 @@ export default function Globe({ user, token, userId, city, setCity }) {
       )}
       <ReactGlobe
         name="globe"
-        height="91vh"
+        height="92vh"
         markers={markers}
         options={options}
         width="100%"
