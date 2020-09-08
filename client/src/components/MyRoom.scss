@@ -45,7 +45,7 @@
 
 .card-quiz {
   width: 100%;
-  background-color:  rgba(170, 183, 184, 0.7);
+  background-color: rgba(170, 183, 184, 0.7);
   border-radius: 25px;
   margin: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -59,7 +59,7 @@
 
 .card-profile {
   width: 75%;
-  background-color:  rgba(170, 183, 184, 0.7);
+  background-color: rgba(170, 183, 184, 0.7);
   border-radius: 25px;
   margin: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -67,7 +67,7 @@
 
 .card-favourite {
   width: 75%;
-  background-color:  rgba(170, 183, 184, 0.7);
+  background-color: rgba(170, 183, 184, 0.7);
   border-radius: 25px;
   margin: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -98,8 +98,8 @@
 }
 
 .card-text-result {
-  color: #FCF4A3;
-  font-weight: bold; 
+  color: #fcf4a3;
+  font-weight: bold;
   display: flex;
   color: #fcf4a3;
   font-weight: bold;
@@ -127,6 +127,16 @@
 .card-sub-title {
   font-size: smaller;
   font-weight: bold;
-  color: #714BA6;
+  color: #714ba6;
   letter-spacing: 1px;
+}
+
+#deleteBtn span {
+  color: #714ba6;
+  visibility: hidden;
+  // margin-right: 0;
+}
+
+.card-text:hover #deleteBtn span {
+  visibility: visible;
 }

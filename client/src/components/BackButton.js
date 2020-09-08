@@ -7,8 +7,7 @@ export default function BackButton() {
     return (
       <div class="back-button-style">
       <button
-        className="button icon-left"
-        class="btn btn-light"
+        className="alert alert-primary explore-button"
         onClick={(e) => {
           history(-1)
         }}

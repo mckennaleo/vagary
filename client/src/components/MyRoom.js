@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getQuizResultsByUserId } from "./helpers/selectors";
 import Tooltip from "@material-ui/core/Tooltip";
+import DeleteIcon from "@material-ui/icons/Delete";
 import "./LayoutMain.scss";
 import "./MyRoom.scss";
+
 export default function MyRoom({ userId }) {
   const [state, setState] = useState({
     quizzes: [],
@@ -30,13 +32,26 @@ export default function MyRoom({ userId }) {
       .catch((err) => console.log(err.message));
   }, []);
   const favs = state.favourites;
-  console.log("FAVS: ", favs);
+  // console.log("FAVS: ", favs);
   const userQuizResults = getQuizResultsByUserId(
     Number(userId),
     state.quizzes,
     state.quizResults
   );
-  
+
+  const deleteFav = (id, e) => {
+    axios
+      .delete(`/favourites/${id}`)
+      .then((response) => {
+        console.log("DELETE RES: ", response);
+        console.log("DELETE DATA: ", response.data);
+        console.log("STATE FAVS[0]: ", state.favourites[0]);
+        const favourites = state.favourites.filter((fav) => fav.id !== id);
+        setState((prev) => ({ ...prev, favourites }));
+      })
+      .catch((err) => console.log("ERROR: ", err.message));
+  };
+
   return (
     <div className="background--My-Room">
       <div class="main">
@@ -48,7 +63,11 @@ export default function MyRoom({ userId }) {
             <div class="card-profile">
               <div class="card-title">profile</div>
               <div class="card-body">
-                <button type="button" class="btn btn-outline-light" href="/edit">
+                <button
+                  type="button"
+                  class="btn btn-outline-light"
+                  href="/edit"
+                >
                   edit
                 </button>
               </div>
@@ -60,7 +79,7 @@ export default function MyRoom({ userId }) {
                   <table class="table">
                     <thead></thead>
                     <tbody>
-                    <tr>
+                      <tr>
                         {userQuizResults.map((result) => (
                           <tr key={result.id}>
                             <td class="card-text">{result.quiz}</td>{" "}
@@ -77,10 +96,16 @@ export default function MyRoom({ userId }) {
               <div class="card-title">favourites</div>
               <div class="card-body">
                 {favs.map((fav) => (
-                    <p class="card-text">
-                      <strong> {fav.landmark}</strong> ({fav.city})
-                    </p>
-                  ))}
+                  <p class="card-text">
+                    <strong>{fav.landmark}</strong>
+                    <div>({fav.city})</div>
+                    <span id="deleteBtn">
+                      <span>
+                        <DeleteIcon onClick={(e) => deleteFav(fav.id, e)} />
+                      </span>
+                    </span>
+                  </p>
+                ))}
               </div>
             </div>
           </div>

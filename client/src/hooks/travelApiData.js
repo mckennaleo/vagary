@@ -8,7 +8,7 @@ export default async function makeRequest(locationId) {
     headers: {
       "content-type": "application/json",
       "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-      "x-rapidapi-key": "5b36992ab6mshe9f65db62ee65a4p1857f8jsn47aa1edca8f5",
+      "x-rapidapi-key": "45ffc49841msh4ce989aa01f7abap1806c4jsn4b1d2c664651",
       useQueryString: true,
     },
     params: {

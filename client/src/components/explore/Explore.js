@@ -53,7 +53,7 @@ export default function Explore(props) {
             
           />
         </span>
-        <span>
+        <span class="explore-display">
           <ExploreDisplay city={city} display={display} />
         </span>
       </div>
