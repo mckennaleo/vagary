@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import ExploreMap from "./ExploreMap";
 import ExploreDisplay from "./ExploreDisplay";
 import makeRequest from "../../hooks/travelApiData";
-
 import BackButton from "../BackButton";
 import "../Explore.scss";
 
 export default function Explore(props) {
   // assigns cityId, name and coordinates to be used later in an api request
-  // console.log("Explore props", props);
   const cityId = props.location.state.explore[0].cityId;
   const city = props.location.state.explore[0].name;
   const language = props.location.state.explore[0].language;
@@ -21,7 +19,6 @@ export default function Explore(props) {
     const cityResults = [];
     makeRequest(cityId).then((result) => {
       // initiates cityResult
-
       // loops through result arr of obj to get data
       for (let landmark of result) {
         // populates cityResults with data needed for pins on the city map
@@ -43,23 +40,22 @@ export default function Explore(props) {
         <BackButton />
       </div>
       <div class="explore-page-container">
-      <div class="explore-city">
-        <span class="explore-map-container">
-          <ExploreMap
-            city={city}
-            coordinates={coordinates}
-            language={language}
-            cityId={cityId}
-            cityResults={cityResults}
-            onSelect={setDisplay}
-            
-          />
-        </span>
-        <span class="explore-display">
-          <ExploreDisplay city={city} display={display} />
-        </span>
+        <div class="explore-city">
+          <span class="explore-map-container">
+            <ExploreMap
+              city={city}
+              coordinates={coordinates}
+              language={language}
+              cityId={cityId}
+              cityResults={cityResults}
+              onSelect={setDisplay}
+            />
+          </span>
+          <span class="explore-display">
+            <ExploreDisplay city={city} display={display} />
+          </span>
+        </div>
       </div>
-    </div>
     </div>
   );
 }

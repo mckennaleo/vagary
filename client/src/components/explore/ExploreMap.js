@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import Axios from "axios";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
-import { Icon, latLngBounds } from "leaflet";
-
 import "../Explore.scss";
 import "../SpeechBubble.scss";
 import "../../App.css";
@@ -14,9 +11,6 @@ export default function ExploreMap(props) {
   const long = props.coordinates[1];
   const city = props.city;
   const language = props.language;
-
-  console.log("EXPLORE MAP PROPS", city, language)
-
   const [cityQuiz, setCityQuiz] = useState(false);
   const cityParams = [
     {
@@ -31,7 +25,6 @@ export default function ExploreMap(props) {
   };
 
   const goToCityQuiz = () => {
-    // console.log(city)
     setCityQuiz(cityParams);
   };
   if (cityQuiz) {
@@ -66,35 +59,31 @@ export default function ExploreMap(props) {
               e.target.closePopup();
             }}
             onClick={(e) => {
-              const favBtn = document.getElementById("fave");
-              // favBtn.style.color = "#dc143c";
-              // favBtn.style.visibility = "visible";
               props.onSelect(position);
               videoToggle();
             }}
           >
             <Popup>
               <span>{position.name}</span> <br />
-              <img src={position.thumbnail} />
+              <img src={position.thumbnail} alt="landmark" />
             </Popup>
           </Marker>
         ))}
       </Map>
 
       <div class="quiz-button-header">
-    <div class="quiz-button-header-title">
-      Ready to test your knowledge?
-    </div>
-    <button
-      type="button"
-      cityParams={cityParams}
-      onClick={goToCityQuiz}
-      class="alert alert-primary"
-    >
-      Take Quiz!
-    </button>
-  </div>
-      
+        <div class="quiz-button-header-title">
+          Ready to test your knowledge?
+        </div>
+        <button
+          type="button"
+          cityParams={cityParams}
+          onClick={goToCityQuiz}
+          class="alert alert-primary"
+        >
+          Take Quiz!
+        </button>
+      </div>
     </article>
   );
 }

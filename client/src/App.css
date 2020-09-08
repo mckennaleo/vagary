@@ -1,14 +1,13 @@
 * {
-  font-family: 'Roboto';
-  src: url('https://fonts.googleapis.com/css2?family=Marko+One&family=Roboto:wght@400;500&display=swap');
-  
+  font-family: "Roboto";
+  src: url("https://fonts.googleapis.com/css2?family=Marko+One&family=Roboto:wght@400;500&display=swap");
 }
 
 .top {
   display: flex;
   justify-content: space-between;
   background: black;
-  height: 9vh;
+  height: 7.95vh;
 }
 
 .App {
@@ -19,7 +18,6 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-  
 }
 
 @media (prefers-reduced-motion: no-preference) {

@@ -1,6 +1,5 @@
 /*---------- WELCOME TO CITY ----------*/
 
-
 .main-welcome-to-city {
   display: flex;
   flex-direction: column;
@@ -21,22 +20,25 @@
   animation: bounce;
   animation-duration: 2s;
   animation-iteration-count: infinite;
- }
+}
 
- @keyframes bounce {
-   20%, 50%, 80%, to {
-     transform: translateY(0);
-   }
-   40% {
-     transform: translateY(-6px);
-   }
-   70% {
-     transform: translateY(-3px);
-   }
-   90% {
-     transform: translateY(-1px);
-   }
- }
+@keyframes bounce {
+  20%,
+  50%,
+  80%,
+  to {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-6px);
+  }
+  70% {
+    transform: translateY(-3px);
+  }
+  90% {
+    transform: translateY(-1px);
+  }
+}
 
 .welcome-body {
   height: 100%;
@@ -60,13 +62,13 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.city-box-header{
+.city-box-header {
   margin-top: 2em;
   display: flex;
   justify-content: center;
   letter-spacing: 2px;
   color: white;
-  background-color: #714BA6;
+  background-color: #714ba6;
   padding: 1em;
   border-radius: 25px;
   font-size: xx-large;
@@ -93,7 +95,7 @@
   align-items: center;
   justify-content: space-around;
   border-radius: 25px;
-  background-color: #9DBBE3;
+  background-color: #9dbbe3;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -106,7 +108,7 @@
   align-items: center;
   justify-content: space-around;
   border-radius: 25px;
-  background-color: #9DBBE3;
+  background-color: #9dbbe3;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 

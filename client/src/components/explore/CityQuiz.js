@@ -2,16 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getCityQuestionsByCityId, quizValidator } from "../helpers/selectors";
 import FormControl from "@material-ui/core/FormControl";
-import Button from "@material-ui/core/Button";
 import FormLabel from "@material-ui/core/FormLabel";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Radio from "@material-ui/core/Radio";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import "../SpeechBubble.scss";
-import BackButton from "../BackButton.js"
+import BackButton from "../BackButton.js";
 
 export default function CityQuiz(props) {
-  const language = props.location.state.cityQuiz[0].language;
   const city = props.location.state.cityQuiz[0].name;
   const userId = localStorage.getItem("userId");
   const token = localStorage.getItem("token");
@@ -30,7 +28,6 @@ export default function CityQuiz(props) {
       url: `/quiz_questions`,
     })
       .then((results) => {
-        console.log("results data", results.data, city);
         setQuestions(getCityQuestionsByCityId(results.data, city));
       })
       .catch((err) => console.log(err.message));
@@ -54,24 +51,19 @@ export default function CityQuiz(props) {
       const result = quizValidator(questions, chosenAnswers);
       setUserQuizResult(result.toFixed(0));
 
-      console.log("User quiz result", userQuizResult);
-
       const resultToPost = {
         result: result,
         quiz_id: quizId,
         user_id: userId,
       };
 
-      // console.log("results to post", resultToPost);
       axios
         .post(
           "http://localhost:3001/quiz_results",
           { ...resultToPost },
           { headers: { Authorization: `Bearer ${token}` } }
         )
-        .then((results) => {
-          //console.log(results);
-        })
+        .then((results) => {})
         .catch((err) => console.log(err.message));
     }
   };
@@ -130,9 +122,7 @@ export default function CityQuiz(props) {
           })}
         </div>
         <div className="submit-area">
-        <div class="quiz-button-header">
-          Test your knowledge
-          </div>
+          <div class="quiz-button-header">Test your knowledge</div>
           {userQuizResult ? (
             <div>
               <h4>

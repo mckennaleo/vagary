@@ -11,7 +11,7 @@ export default function Youtube(searchTerm) {
     order: "relevance",
     maxResults: 1,
   };
-  console.log("Firing");
+
   return searchYoutube(API_KEY, options).then(
     (result) => result.items[0].id.videoId
   );

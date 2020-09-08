@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useHistory,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import history from "browser-history";
 import Globe from "./components/Globe";
 import "leaflet/dist/leaflet.css";
@@ -37,7 +31,6 @@ export default function App(props) {
     const localUser = localStorage.getItem("email");
     const localToken = localStorage.getItem("token");
     const localId = localStorage.getItem("userId");
-    console.log(localUser, localToken, localId);
     if (localUser && localToken && localId) {
       setUser(localUser);
       setToken(localToken);
@@ -120,7 +113,6 @@ export default function App(props) {
             )}
           />
           <Route path="/city" component={City} />:
-          {/*template literal with city name*/}
           <Route path="/learn" component={Learn} />
           <Route path="/explore" component={Explore} />
           <Route path="/translationquiz" component={TranslationQuiz} />
@@ -136,18 +128,8 @@ export default function App(props) {
       </div>
     </Router>
   );
-  function Login() {
-    return <h2>Login</h2>;
-  }
-  function Register() {
-    return <h2>Register</h2>;
-  }
-  function Account() {
-    return <h2>My Account</h2>;
-  }
 }
 function City(props) {
-  console.log("PROPS", props);
   const city = props.location.state.city.marker.cityName;
   const coordinates = props.location.state.city.marker.coordinates;
   const language = props.location.state.city.marker.language;
