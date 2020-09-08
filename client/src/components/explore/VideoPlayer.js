@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ModalVideo from 'react-modal-video'
+
+import "../Explore.scss";
  
 export default class VideoPlayer extends React.Component {
  

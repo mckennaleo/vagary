@@ -173,3 +173,25 @@
 }
 
 @import "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css";
+
+/*---------- EXPLORE PLAYER ----------*/
+
+.explore-player-container {
+  max-height: 100%;
+}
+
+.modal-video {
+  max-height: fit-content;
+}
+
+.modal-video-body {
+  max-height: fit-content;
+}
+
+.modal-video-inner {
+  max-height: fit-content;
+}
+
+.modal-video-movie-wrap {
+  padding: 0 !important;
+}

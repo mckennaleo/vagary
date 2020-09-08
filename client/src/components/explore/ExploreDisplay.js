@@ -135,6 +135,7 @@ export default function ExploreDisplay(props) {
   };
 
   return (
+    <>
     <div class="explore-display">
       <div class="explore-display-header">
         {props.display && props.display.name ? (
@@ -169,20 +170,20 @@ export default function ExploreDisplay(props) {
       <div class="explore-player" id="explore-player">
         <VideoPlayer class="explore-player" videoId={videoId} />
       </div>
-
-      <div class="quiz-button-header">
-        <div class="quiz-button-header-title">
-          Ready to test your knowledge?
-        </div>
-        <button
-          type="button"
-          cityParams={cityParams}
-          onClick={goToCityQuiz}
-          class="alert alert-primary"
-        >
-          Take Quiz!
-        </button>
-      </div>
     </div>
+    <div class="quiz-button-header">
+    <div class="quiz-button-header-title">
+      Ready to test your knowledge?
+    </div>
+    <button
+      type="button"
+      cityParams={cityParams}
+      onClick={goToCityQuiz}
+      class="alert alert-primary"
+    >
+      Take Quiz!
+    </button>
+  </div>
+  </>
   );
 }
