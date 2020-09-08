@@ -1,8 +1,3 @@
-body {
-  overflow-y: hidden;
-  overflow-x: hidden;
-}
-
 * {
   font-family: "Roboto";
   src: url("https://fonts.googleapis.com/css2?family=Marko+One&family=Roboto:wght@400;500&display=swap");
@@ -12,7 +7,8 @@ body {
   display: flex;
   justify-content: space-between;
   background: black;
-  height: 8.7vh;
+  height: 7.95vh;
+}
 
 .App {
   text-align: center;
