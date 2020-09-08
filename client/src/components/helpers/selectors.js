@@ -57,12 +57,6 @@ const getQuizResultsByUserId = (userId, quizzes, results) => {
   return output;
 };
 
-// const getFavouritesByUserId = (userId, city, landmark, description) => {
-//   let favs = [];
-
-//   return favs;
-// };
-
 export {
   getPhrasesByCityId,
   getTranslationQuestionsByCityId,

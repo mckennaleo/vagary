@@ -31,7 +31,7 @@
 
 .card-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   width: 100%;
   height: 100%;
   background-image: url(./assets/felt.png);
@@ -74,6 +74,7 @@
 
 .card-body {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
 }
@@ -89,6 +90,7 @@
 
 .card-text {
   display: flex;
+  justify-content: center;
   font-size: small;
   overflow: hidden;
   color: white;
@@ -114,12 +116,12 @@
 .card-text-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .card-sub-title-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   width: 100%;
 }
 
@@ -132,10 +134,12 @@
 
 #deleteBtn span {
   color: #714ba6;
-  visibility: hidden;
-  // margin-right: 0;
+  // visibility: hidden;
+  display: none;
+  margin-right: 0;
 }
 
 .card-text:hover #deleteBtn span {
-  visibility: visible;
+  // visibility: visible;
+  display: block;
 }

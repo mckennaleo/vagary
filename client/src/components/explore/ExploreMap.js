@@ -13,11 +13,13 @@ export default function ExploreMap(props) {
   const videoToggle = () => {
     const x = document.getElementById("explore-player");
     x.style.visibility = "visible";
-  }
+  };
 
   return (
     <article class="explore-map">
-      <p class="explore-map-text alert alert-primary">↓ Click a marker to explore ↓</p>
+      <p class="explore-map-text alert alert-primary">
+        ↓ Click a marker to explore ↓
+      </p>
       <Map center={[lat, long]} zoom={13}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -35,6 +37,9 @@ export default function ExploreMap(props) {
               e.target.closePopup();
             }}
             onClick={(e) => {
+              const favBtn = document.getElementById("fave");
+              favBtn.style.color = "#dc143c";
+              favBtn.style.visibility = "visible";
               props.onSelect(position);
               videoToggle();
             }}
@@ -46,7 +51,6 @@ export default function ExploreMap(props) {
           </Marker>
         ))}
       </Map>
-      
     </article>
   );
 }
