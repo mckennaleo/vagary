@@ -107,10 +107,12 @@ export default function TranslationQuiz(props) {
           }
         </div>
         <div className="submit-area">
-          <h1>Translation Quiz</h1>
+          <div class="quiz-button-header">
+          Test your knowledge
+          </div>
           {userQuizResult ?
             <div><h4>Results: <h1>{userQuizResult}%</h1></h4>
-              <h4>Correct Answers:</h4>
+              <h5>Cheat sheet</h5>
               <ol>
                 {questions.map((question) => {
                   return (<li>{question.correct_answer}</li>)

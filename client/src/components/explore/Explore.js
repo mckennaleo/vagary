@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import ExploreMap from "./ExploreMap";
 import ExploreDisplay from "./ExploreDisplay";
 import makeRequest from "../../hooks/travelApiData";
+
 import BackButton from "../BackButton";
-//import Spotify from "../spotify/Spotify";
+import "../Explore.scss";
 
 export default function Explore(props) {
   // assigns cityId, name and coordinates to be used later in an api request
   // console.log("Explore props", props);
   const cityId = props.location.state.explore[0].cityId;
   const city = props.location.state.explore[0].name;
+  const language = props.location.state.explore[0].language;
   const coordinates = props.location.state.explore[0].coordinates;
   const [cityResults, setCityResults] = useState([]);
   const [display, setDisplay] = useState();
@@ -40,21 +42,24 @@ export default function Explore(props) {
       <div>
         <BackButton />
       </div>
+      <div class="explore-page-container">
       <div class="explore-city">
         <span class="explore-map-container">
           <ExploreMap
             city={city}
             coordinates={coordinates}
+            language={language}
             cityId={cityId}
             cityResults={cityResults}
             onSelect={setDisplay}
             
           />
         </span>
-        <span>
+        <span class="explore-display">
           <ExploreDisplay city={city} display={display} />
         </span>
       </div>
+    </div>
     </div>
   );
 }

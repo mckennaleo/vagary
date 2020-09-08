@@ -1,27 +1,22 @@
-import React, { Component, useState, useEffect } from "react";
-import Youtube from "../../hooks/youtubeApiData";
-import ReactPlayer from "react-player";
-import { Redirect } from "react-router-dom";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import Tooltip from "@material-ui/core/Tooltip";
-import "../../App.css";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import ModalVideo from "react-modal-video";
+import Youtube from "../../hooks/youtubeApiData";
+import ReactPlayer from "react-player";
+import axios from "axios";
+
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import Tooltip from "@material-ui/core/Tooltip";
+
+import "../Explore.scss";
+import "../SpeechBubble.scss";
+import "../../App.css";
 
 export default function ExploreDisplay(props) {
   const userId = localStorage.getItem("userId");
   const city = props.city;
-  const language = props.language;
   const token = localStorage.getItem("token");
   const [videoId, setVideoId] = useState(null);
-  const [cityQuiz, setCityQuiz] = useState(false);
-  const cityParams = [
-    {
-      name: city,
-      language: language,
-    },
-  ];
 
   let videoURL = "";
   console.log("VIDEO ID", videoId);
@@ -41,6 +36,7 @@ export default function ExploreDisplay(props) {
 
     render() {
       return (
+        <div class="explore-display">
         <div class="explore-player-container">
           <ModalVideo
             channel="youtube"
@@ -56,6 +52,7 @@ export default function ExploreDisplay(props) {
             Take a video tour
           </button>
         </div>
+        </div>
       );
     }
   }
@@ -69,23 +66,6 @@ export default function ExploreDisplay(props) {
     }
   }, [videoId, props.display]);
   videoURL = `https://www.youtube.com/watch?v=${videoId}`;
-
-  const goToCityQuiz = () => {
-    // console.log(city)
-    setCityQuiz(cityParams);
-  };
-  if (cityQuiz) {
-    return (
-      <Redirect
-        cityParams={cityParams}
-        push
-        to={{
-          pathname: "/cityquiz",
-          state: { cityQuiz },
-        }}
-      />
-    );
-  }
 
   // handle submission to db
   const addFavourite = (e) => {
@@ -117,35 +97,49 @@ export default function ExploreDisplay(props) {
     }
   };
 
+  const faveBtnClicked = () => {
+    const favBtn = document.getElementById("fave");
+    favBtn.style.color = "#fa8072";
+    // favBtn.style.disabled = true;
+  };
+
   return (
-    <article class="explore-display">
-      <div class="display-img-container">
-        <img src={props.display && props.display.photo} class="display-img" />
+    <>
+    <div class="explore-display">
+      <div class="explore-display-header">
+        {props.display && props.display.name ? (
+          <div class="explore-title">{props.display && props.display.name}</div>
+        ) : (
+          <div class="explore-title">Click markers on the map to discover</div>
+        )}
+
+        {props.display && props.display.name ? (
+          <div class="explore-fav-button">
+            <Tooltip title="Add to Favourites" placement="right">
+              <FavoriteIcon id="fave" onClick={addFavourite} />
+            </Tooltip>
+          </div>
+        ) : null}
       </div>
-      <div>
-        <p class="explore-title">
-          <strong>{props.display && props.display.name}</strong>
-          <Tooltip title="Add to Favourites" placement="right">
-            <FavoriteIcon id="fave" onClick={addFavourite} />
-          </Tooltip>
-        </p>
-      </div>
-      <div class="explore-text">
-        {props.display && props.display.description}
-      </div>
-      <div>
-        <button
-          type="button"
-          cityParams={cityParams}
-          onClick={goToCityQuiz}
-          class="alert alert-primary explore-button"
-        >
-          Take City Knowledge Quiz!
-        </button>
-        <div class="explore-player" id="explore-player">
-          <VideoPlayer class="explore-player" videoId={videoId} />
+
+      {props.display && props.display.photo ? (
+        <div class="explore-display-content">
+          <div class="display-img-container">
+            <img
+              src={props.display && props.display.photo}
+              class="display-img"
+            />
+          </div>
+          <div class="explore-text">
+            {props.display && props.display.description}
+          </div>
         </div>
+      ) : null}
+
+      <div class="explore-player" id="explore-player">
+        <VideoPlayer class="explore-player" videoId={videoId} />
       </div>
-    </article>
+    </div>
+  </>
   );
 }

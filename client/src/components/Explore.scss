@@ -1,0 +1,255 @@
+/*---------- EXPLORE ----------*/
+
+.explore-page-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.explore-city {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 25px;
+  background-color: rgba(170, 183, 184, 0.6);
+  width: 100%;
+  height: 80%;
+}
+
+.explore-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-top: 1em;
+  height: 100%;
+  width: 100%;
+}
+
+.explore-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+}
+
+.explore-map-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+}
+
+.explore-map-text {
+  font-size: 25px;
+}
+
+.leaflet-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: absolute;
+  width: 35em;
+  height: 35em;
+  border-color: black;
+  border-style: solid;
+  border-width: 5px;
+}
+
+.explore-player {
+  display: flex;
+  max-height: 15em;
+  max-width: 27em;
+  opacity: 1;
+  visibility: hidden;
+}
+
+.explore-display-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+  margin-left: 1em;
+  margin-right: 1em;
+  background-color: yellowgreen;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 25px;
+}
+
+.explore-title {
+  color: white;
+  font-weight: bold;
+  font-size: large;
+  letter-spacing: 1px;
+  margin: 0.5em;
+}
+
+.explore-fave-button {
+  max-height: 2em;
+  padding: 0.5em;
+}
+
+#fave {
+  visibility: hidden;
+  color: #dc143c;
+  /* margin-top: 0.25em; */
+  font-size: 50px;
+}
+
+#fave:hover {
+  color: #fa8072;
+}
+
+.explore-display-content {
+  display: flex;
+  max-width: 100%;
+  margin-bottom: 1em;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.display-img-container {
+  display: flex;
+  max-width: 20em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+}
+
+.display-img {
+  max-width: 100%;
+  max-height: 100%;
+  opacity: 1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.explore-text {
+  width: 100%;
+  font-size: small;
+  opacity: 1;
+  width: 90%;
+  border-radius: 25px;
+  opacity: 0.90;
+  background-color: whitesmoke;
+  color: #56677D;
+  opacity: 0.90;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 1em;
+  letter-spacing: 0.2px;
+}
+
+/* .menu-item:hover {
+  background: #eeeeee;
+  color: #3290b1;
+} */
+
+.quiz-button-header {
+  width: 80%;
+  margin: 1em;
+  padding-top: 0.7em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 25px;
+  color: #714BA6;
+  background-color: whitesmoke;
+  opacity: 0.90;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  letter-spacing: 1px;
+}
+
+.quiz-button-header-title {
+  padding: 0.3em;
+}
+
+@import "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css";
+
+/*---------- EXPLORE PLAYER ----------*/
+
+.modal-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000000;
+  cursor: pointer;
+  opacity: 1;
+  animation-timing-function: ease-out;
+  animation-duration: 0.3s;
+  animation-name: modal-video;
+  -webkit-transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  -ms-transition: opacity 0.3s ease-out;
+  -o-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+}
+
+.modal-video-body {
+  max-width: 940px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: table;
+}
+
+.modal-video-inner {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-video-movie-wrap {
+  width: 100%;
+  height: 0;
+  position: relative;
+  padding-bottom: 56.25%;
+  background-color: #333;
+  animation-timing-function: ease-out;
+  animation-duration: 0.3s;
+  animation-name: modal-video-inner;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -ms-transition: -ms-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+
+.modal-video-movie-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-video-close-btn {
+  position: absolute;
+  z-index: 2;
+  top: -35px;
+  right: -35px;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+}
+
+.explore-player {
+  visibility: hidden;
+}
