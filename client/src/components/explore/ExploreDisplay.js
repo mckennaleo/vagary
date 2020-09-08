@@ -140,7 +140,8 @@ class VideoPlayer extends React.Component {
           {props.display && props.display.name}
         </div> 
         : <div class="explore-title">
-          Click markers on the map to discover
+          Click markers on 
+          the map to discover
         </div>}
       
         {props.display && props.display.name ?
@@ -151,14 +152,15 @@ class VideoPlayer extends React.Component {
         </div> : null} 
       </div>
       
+      {props.display && props.display.photo ?
       <div class="explore-display-content">
-        <div class="explore-text">
-        {props.display && props.display.description}
-      </div>
       <div class="display-img-container">
         <img src={props.display && props.display.photo} class="display-img" />
         </div>
+        <div class="explore-text">
+        {props.display && props.display.description}
       </div>
+      </div> : null}
           
       <div class="explore-player" id="explore-player">
         <VideoPlayer class="explore-player" videoId={videoId} />
