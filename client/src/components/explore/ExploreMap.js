@@ -41,6 +41,8 @@ export default function ExploreMap(props) {
               e.target.closePopup();
             }}
             onClick={(e) => {
+              const favBtn = document.getElementById("fave");
+              favBtn.style.color = "#dc143c";
               props.onSelect(position);
               faveBtnToggle();
               videoToggle();

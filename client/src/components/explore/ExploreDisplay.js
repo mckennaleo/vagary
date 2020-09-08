@@ -69,30 +69,15 @@ export default function ExploreDisplay(props) {
         };
 
         axios
-          .post(
-            "http://localhost:3001/favourites",
-            { ...favourite }
-            // { headers: { Authorization: `Bearer ${token}` } }
-          )
+          .post("http://localhost:3001/favourites", { ...favourite })
           .then((results) => {
             const favBtn = document.getElementById("fave");
             favBtn.style.color = "#fa8072";
-            console.log("CITY: ", city);
-            console.log("NAME: ", landmark);
-            console.log("DESCR: ", description);
-            console.log("USER: ", userId);
-            console.log("RESULTS: ", results);
           })
           .catch((err) => console.log(err.message));
       }
     }
   };
-
-  // const faveBtnClicked = () => {
-  //   const favBtn = document.getElementById("fave");
-  //   favBtn.style.color = "#fa8072";
-  //   // favBtn.style.disabled = true;
-  // };
 
   return (
     <article class="explore-display">
