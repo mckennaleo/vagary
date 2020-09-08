@@ -6,7 +6,6 @@ export default async function getCity() {
     url: "http://localhost:3001/cities",
   })
     .then((response) => {
-      console.log("CITIES: ", response.data);
       return response.data;
     })
     .catch((error) => {

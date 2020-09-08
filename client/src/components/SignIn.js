@@ -5,13 +5,10 @@ import "./LayoutMain.scss";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -48,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "100%",
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -62,20 +59,19 @@ export default function SignIn(props) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [signInError, setSignInError] = useState(false)
-
+  const [signInError, setSignInError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-      const user = {email, password}
+    const user = { email, password };
 
     axios
       .post("http://localhost:3001/api/login", {
         ...user,
       })
       .then((results) => {
-        setSignInError(false)
+        setSignInError(false);
         localStorage.setItem("token", results.data.token);
         localStorage.setItem("email", results.data.email);
         localStorage.setItem("userId", results.data.id);
@@ -83,10 +79,10 @@ export default function SignIn(props) {
         props.setToken(results.data.token);
         props.setUserId(results.data.id);
         history.push("/");
-      })    
+      })
       .catch((error) => {
         console.log(error);
-        setSignInError(true)
+        setSignInError(true);
       });
   };
 
@@ -131,9 +127,13 @@ export default function SignIn(props) {
               onChange={(evt) => setPassword(evt.target.value)}
               value={password}
             />
-            {signInError ? <Typography>
-            <div class="alert alert-danger user--error" role="alert">Failed to sign in. Check email address and password.</div>
-            </Typography> : null}
+            {signInError ? (
+              <Typography>
+                <div class="alert alert-danger user--error" role="alert">
+                  Failed to sign in. Check email address and password.
+                </div>
+              </Typography>
+            ) : null}
             <Button
               type="submit"
               fullWidth
