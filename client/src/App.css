@@ -1,6 +1,6 @@
 body {
-  overflow-y: hidden; /* Hide vertical scrollbar */
-  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 * {
@@ -12,7 +12,7 @@ body {
   display: flex;
   justify-content: space-between;
   background: black;
-  height: 7.95vh;
+  height: 8vh;
 }
 
 .App {
