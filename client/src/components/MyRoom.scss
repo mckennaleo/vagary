@@ -9,15 +9,11 @@
   width: 100%;
 }
 .welcome-my-room-title {
-  // padding-top: 25em;
   padding-bottom: 2em;
   width: 75%;
   height: 100%;
   margin: auto;
-  // background-repeat: no-repeat;
-  // background-image: url(“../components/assets/cloud-my-room.png”);
-  // background-position: center center;
-  // background-size: 652px 352px;
+
   img {
     width: 100%;
     height: auto;
@@ -31,23 +27,21 @@
   padding-right: 15%;
   width: 100%;
 }
+
 .card-container {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: auto;
+  height: 20em;
   background-image: url(./assets/felt.png);
   padding-top: 1em;
   padding-bottom: 1em;
   border-radius: 25px;
   margin-bottom: 1em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-  // overflow: hidden;
-  // overflow: auto;
-  // overflow: scroll;
 }
 .card-quiz {
+  overflow-y: auto;
   width: 100%;
   background-color: rgba(170, 183, 184, 0.7);
   border-radius: 25px;
@@ -67,6 +61,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .card-favourite {
+  overflow-y: auto;
   width: 75%;
   background-color: rgba(170, 183, 184, 0.7);
   border-radius: 25px;
@@ -74,6 +69,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .card-body {
+  height: auto;
   padding: 10px 10px;
   display: flex;
   justify-content: center;
@@ -134,4 +130,16 @@
 }
 .card-text:hover #deleteBtn span {
   display: block;
+}
+
+::-webkit-scrollbar {
+  border-radius: 25px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(170, 183, 184, 0.7);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #714ba6;
 }
