@@ -13,8 +13,9 @@ export default function SpeechBubble(props) {
     },
   ];
 
-  const language = props.language;
-  const city = props.city;
+  const API_KEY = process.env.REACT_APP_RAPID_API_KEY
+  const language = props.language
+  const city = props.city
 
   const [phrases, setPhrases] = useState([]);
   const [translation, setTranslation] = useState(null);
@@ -39,7 +40,7 @@ export default function SpeechBubble(props) {
       headers: {
         "content-type": "application/octet-stream",
         "x-rapidapi-host": "nlp-translation.p.rapidapi.com",
-        "x-rapidapi-key": "8678a05bc3msh6229c171ba7298cp1170c3jsn6cd41dde2894",
+        "x-rapidapi-key": API_KEY,
         useQueryString: true,
       },
       params: {
