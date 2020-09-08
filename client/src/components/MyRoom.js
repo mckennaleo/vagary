@@ -60,12 +60,8 @@ export default function MyRoom({ userId }) {
             <div class="card-profile">
               <div class="card-title">profile</div>
               <div class="card-body">
-                <button
-                  type="button"
-                  class="btn btn-outline-light"
-                  href="/edit"
-                >
-                  edit
+                <button type="button" class="btn btn-outline-light">
+                  <a href="/edit">edit</a>
                 </button>
               </div>
             </div>
@@ -93,25 +89,18 @@ export default function MyRoom({ userId }) {
               <div class="card-title">favourites</div>
               <div class="card-body">
                 <table class="table">
-                  <thead></thead>
-                  <tbody>
-                    <tr>
-                      {favs.map((fav) => (
-                        <tr>
-                          <td class="card-text">
-                            {fav.landmark}({fav.city})
-                            <span id="deleteBtn">
-                              <span>
-                                <DeleteIcon
-                                  onClick={(e) => deleteFav(fav.id, e)}
-                                />
-                              </span>
-                            </span>
-                          </td>
-                        </tr>
-                      ))}
-                    </tr>
-                  </tbody>
+                  {favs.map((fav) => (
+                    // <tr>
+                    <td class="card-text">
+                      {fav.landmark}({fav.city})
+                      <span id="deleteBtn">
+                        <span>
+                          <DeleteIcon onClick={(e) => deleteFav(fav.id, e)} />
+                        </span>
+                      </span>
+                    </td>
+                    // </tr>
+                  ))}
                 </table>
               </div>
             </div>
