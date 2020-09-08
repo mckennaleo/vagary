@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 import Youtube from "../../hooks/youtubeApiData";
 import ReactPlayer from "react-player";
-import { Redirect } from "react-router-dom";
+
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import Tooltip from "@material-ui/core/Tooltip";
 import "../../App.css";
@@ -19,13 +19,7 @@ export default function ExploreDisplay(props) {
   const language = props.language;
   const token = localStorage.getItem("token");
   const [videoId, setVideoId] = useState(null);
-  const [cityQuiz, setCityQuiz] = useState(false);
-  const cityParams = [
-    {
-      name: city,
-      language: language,
-    },
-  ];
+
 
   let videoURL = "";
   console.log("VIDEO ID", videoId)
@@ -71,23 +65,6 @@ class VideoPlayer extends React.Component {
     }
   }, [videoId, props.display]);
   videoURL = `https://www.youtube.com/watch?v=${videoId}`;
-
-  const goToCityQuiz = () => {
-    // console.log(city)
-    setCityQuiz(cityParams);
-  };
-  if (cityQuiz) {
-    return (
-      <Redirect
-        cityParams={cityParams}
-        push
-        to={{
-          pathname: "/cityquiz",
-          state: { cityQuiz },
-        }}
-      />
-    );
-  }
 
   // handle submission to db
   const addFavourite = (e) => {
@@ -149,14 +126,6 @@ class VideoPlayer extends React.Component {
         {props.display && props.display.description}
       </div>
       <div>
-        <button
-          type="button"
-          cityParams={cityParams}
-          onClick={goToCityQuiz}
-          class="alert alert-primary explore-button"
-        >
-          Take City Knowledge Quiz!
-        </button>
       <div class="explore-player" id="explore-player">
         <VideoPlayer class="explore-player" videoId={videoId} />
       </div>

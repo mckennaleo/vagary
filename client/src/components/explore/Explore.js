@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ExploreMap from "./ExploreMap";
 import ExploreDisplay from "./ExploreDisplay";
+import { Redirect } from "react-router-dom";
 import makeRequest from "../../hooks/travelApiData";
 import BackButton from "../BackButton";
 //import Spotify from "../spotify/Spotify";
@@ -11,9 +12,16 @@ export default function Explore(props) {
   const cityId = props.location.state.explore[0].cityId;
   const city = props.location.state.explore[0].name;
   const coordinates = props.location.state.explore[0].coordinates;
+  const language = props.location.state.explore[0].language
   const [cityResults, setCityResults] = useState([]);
   const [display, setDisplay] = useState();
+  const [cityQuiz, setCityQuiz] = useState(false);
+  const cityParams = {
+    name: city,
+    language: language
 
+  }
+console.log("STATE", props.location)
   // retrieves results of GET request to TravelAdvisor api
   useEffect(() => {
     const cityResults = [];
@@ -35,10 +43,37 @@ export default function Explore(props) {
     });
   }, []);
 
+  const goToCityQuiz = () => {
+    // console.log(city)
+    setCityQuiz(cityParams);
+  };
+  if (cityQuiz) {
+    return (
+      <Redirect
+        cityParams={cityParams}
+        push
+        to={{
+          pathname: "/cityquiz",
+          state: { cityQuiz },
+        }}
+      />
+    );
+  }
+
   return (
     <div className={`background--${city}`}>
-      <div>
-        <BackButton />
+      <div class="explore-menu">
+        <article>
+          <BackButton class="alert alert-primary explore-button" />
+        </article>
+        <button
+          type="button"
+          cityParams={cityParams}
+          onClick={goToCityQuiz}
+          class="alert alert-primary explore-button"          
+        >
+          Take City Knowledge Quiz!
+        </button>
       </div>
       <div class="explore-city">
         <span class="explore-map-container">

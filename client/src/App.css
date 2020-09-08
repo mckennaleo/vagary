@@ -95,6 +95,15 @@
 .explore-button {
   border-radius: 25px;
   width: 20em;
+  height: 3.5em;
+  font-size: 20px;
+}
+
+.explore-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
 }
 
 .leaflet-container {
