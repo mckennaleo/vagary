@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
-import ReactDOM from 'react-dom'
-import ModalVideo from 'react-modal-video'
+import ReactDOM from "react-dom";
+import ModalVideo from "react-modal-video";
 import Youtube from "../../hooks/youtubeApiData";
 import ReactPlayer from "react-player";
 import axios from "axios";
@@ -28,39 +28,41 @@ export default function ExploreDisplay(props) {
   ];
 
   let videoURL = "";
-  console.log("VIDEO ID", videoId)
+  console.log("VIDEO ID", videoId);
 
-
-class VideoPlayer extends React.Component {
- 
-  constructor () {
-    super()
-    this.state = {
-      isOpen: false
+  class VideoPlayer extends React.Component {
+    constructor() {
+      super();
+      this.state = {
+        isOpen: false,
+      };
+      this.openModal = this.openModal.bind(this);
     }
-    this.openModal = this.openModal.bind(this)
-  }
- 
-  openModal () {
-    this.setState({isOpen: true})
-  }
- 
-  render () {
-    return (
-      <div class="explore-player-container">
-        <ModalVideo 
-          channel='youtube' 
-          isOpen={this.state.isOpen} 
-          videoId={videoId} 
-          onClose={() => this.setState({isOpen: false})}
-          width={1000}
 
-        />
-        <button class="alert alert-primary explore-button" onClick={this.openModal}>Take a video tour</button>
-      </div>
-    )
+    openModal() {
+      this.setState({ isOpen: true });
+    }
+
+    render() {
+      return (
+        <div class="explore-player-container">
+          <ModalVideo
+            channel="youtube"
+            isOpen={this.state.isOpen}
+            videoId={videoId}
+            onClose={() => this.setState({ isOpen: false })}
+            width={1000}
+          />
+          <button
+            class="alert alert-primary explore-button"
+            onClick={this.openModal}
+          >
+            Take a video tour
+          </button>
+        </div>
+      );
+    }
   }
-}
 
   useEffect(() => {
     console.log("FIRING");
@@ -135,49 +137,52 @@ class VideoPlayer extends React.Component {
   return (
     <div class="explore-display">
       <div class="explore-display-header">
-        {props.display && props.display.name ? 
-        <div class="explore-title">
-          {props.display && props.display.name}
-        </div> 
-        : <div class="explore-title">
-          Click markers on 
-          the map to discover
-        </div>}
-      
-        {props.display && props.display.name ?
-        <div class="explore-fav-button">
-        <Tooltip title="Add to Favourites" placement="right">
-          <FavoriteIcon id="fave" onClick={addFavourite} />
-        </Tooltip>
-        </div> : null} 
+        {props.display && props.display.name ? (
+          <div class="explore-title">{props.display && props.display.name}</div>
+        ) : (
+          <div class="explore-title">Click markers on the map to discover</div>
+        )}
+
+        {props.display && props.display.name ? (
+          <div class="explore-fav-button">
+            <Tooltip title="Add to Favourites" placement="right">
+              <FavoriteIcon id="fave" onClick={addFavourite} />
+            </Tooltip>
+          </div>
+        ) : null}
       </div>
-      
-      {props.display && props.display.photo ?
-      <div class="explore-display-content">
-      <div class="display-img-container">
-        <img src={props.display && props.display.photo} class="display-img" />
+
+      {props.display && props.display.photo ? (
+        <div class="explore-display-content">
+          <div class="display-img-container">
+            <img
+              src={props.display && props.display.photo}
+              class="display-img"
+            />
+          </div>
+          <div class="explore-text">
+            {props.display && props.display.description}
+          </div>
         </div>
-        <div class="explore-text">
-        {props.display && props.display.description}
-      </div>
-      </div> : null}
-          
+      ) : null}
+
       <div class="explore-player" id="explore-player">
         <VideoPlayer class="explore-player" videoId={videoId} />
       </div>
-      
 
-<div class="quiz-button-header">
-Ready to test your knowledge?
-<button
-  type="button"
-  cityParams={cityParams}
-  onClick={goToCityQuiz}
-  class="alert alert-primary explore-button"
->
-  Take Quiz!
-</button>
-</div>
-</div>
+      <div class="quiz-button-header">
+        <div class="quiz-button-header-title">
+          Ready to test your knowledge?
+        </div>
+        <button
+          type="button"
+          cityParams={cityParams}
+          onClick={goToCityQuiz}
+          class="alert alert-primary"
+        >
+          Take Quiz!
+        </button>
+      </div>
+    </div>
   );
 }
