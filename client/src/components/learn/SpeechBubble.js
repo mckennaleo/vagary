@@ -16,7 +16,6 @@ export default function SpeechBubble(props) {
   const API_KEY = process.env.REACT_APP_RAPID_API_KEY;
   const language = props.language;
   const city = props.city;
-
   const [phrases, setPhrases] = useState([]);
   const [translation, setTranslation] = useState(null);
   const [translationQuiz, setTranslationQuiz] = useState(false);

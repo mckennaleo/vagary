@@ -59,7 +59,6 @@ export default function ExploreDisplay(props) {
       });
     }
   }, [videoId, props.display]);
-  const videoURL = `https://www.youtube.com/watch?v=${videoId}`;
 
   // handle submission to db
   const addFavourite = (e) => {
