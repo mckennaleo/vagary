@@ -77,6 +77,11 @@
   flex-direction: column;
   align-items: center;
 }
+
+.card-body.fav {
+  padding: 0 4em;
+}
+
 .card-title {
   font-size: medium;
   color: #fff;
