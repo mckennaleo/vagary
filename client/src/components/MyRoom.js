@@ -90,7 +90,7 @@ export default function MyRoom({ userId }) {
             </div>
             <div class="card-favourite">
               <div class="card-title">favourites</div>
-              <div class="card-body">
+              <div class="card-body fav">
                 <table class="table">
                   {favs.map((fav) => (
                     // <tr>
