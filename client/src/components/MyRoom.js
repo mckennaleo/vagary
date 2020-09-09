@@ -73,17 +73,13 @@ export default function MyRoom({ userId }) {
               <div class="card-body">
                 <div class="main-quiz-table">
                   <table class="table">
-                    <thead></thead>
-                    <tbody>
                       <tr>
                         {userQuizResults.map((result) => (
                           <tr key={result.id}>
-                            <td class="card-text">{result.quiz}</td>{" "}
-                            <td class="card-text-result">{result.result}%</td>
+                            <td class="card-text">{result.quiz}  <p class="card-text-result"> {result.result}%</p></td>
                           </tr>
                         ))}
                       </tr>
-                    </tbody>
                   </table>
                 </div>
               </div>
