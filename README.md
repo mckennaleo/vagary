@@ -4,7 +4,7 @@ Vagary is a wandering journey; a whimsical, wild or unusual idea, desire, or act
 
 ## GIFS
 
-!["Home Page"](https://recordit.co/6Sc4rcMdu6.gif)
+!["Home Page"](https://recordit.co/mDklljqFXr.gif)
 
 !["Explore component. Viewing landmarks"](https://recordit.co/iaOjJeopth.gif)
 
