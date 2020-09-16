@@ -118,3 +118,58 @@
   margin: 0.9em 0 0 0;
   text-align: center;
 }
+
+/* MEDIA queries  */
+
+/* Mobile */
+@media only screen and (max-width: 375px) {
+}
+
+/* iPad */
+@media only screen and (max-width: 768px) {
+}
+
+/* iPad Pro */
+@media only screen and (max-width: 1024px) {
+  div.city-button-explore {
+    height: 15em;
+  }
+
+  div.city-button-learn {
+    height: 15em;
+  }
+
+  div.city-box {
+    height: 40em;
+  }
+
+  section.bubbles {
+    height: 65em;
+  }
+
+  section.quiz-area {
+    height: 65em;
+  }
+
+  div.choice--cards {
+    height: 65em;
+  }
+
+  div.submit-area {
+    height: 65em;
+  }
+
+  div.explore-display-header {
+    width: 15em;
+    margin-left: -0.25em;
+  }
+
+  div.explore-display {
+    width: 20em;
+    margin-left: -3em;
+  }
+
+  .explore-button {
+    margin-left: 3em;
+  }
+}
