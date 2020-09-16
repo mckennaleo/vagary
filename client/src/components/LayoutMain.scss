@@ -122,8 +122,11 @@
 /* MEDIA queries  */
 /* Mobile */
 @media only screen and (max-width: 414px) {
+  div.welcome-body {
+    padding: 0 2.5vh 2.5vh 2.5vh;
+  }
+
   div.city-box {
-    width: 90vw;
     padding-top: 1.5em;
 
     .city-box-header {
@@ -168,6 +171,22 @@
       height: 15vh;
       overflow-y: auto;
     }
+  }
+
+  form#quiz-form {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+    padding-bottom: 2.5em;
+  }
+
+  div.submit-area {
+    display: flex;
+    flex-direction: column;
+    height: 15vh;
+    padding-top: 5em;
+    overflow-y: auto;
   }
 }
 
