@@ -122,79 +122,86 @@
 /* MEDIA queries  */
 
 /* Mobile */
-@media only screen and (max-width: 375px) {
-}
+// @media only screen and (max-width: 375px) {
+// }
 
 /* iPad */
-@media only screen and (max-width: 768px) {
-}
-
-/* iPad Pro */
 @media only screen and (max-width: 1024px) {
-  div.city-button-explore {
-    height: 15em;
-  }
-
-  div.city-button-learn {
-    height: 15em;
-  }
-
   div.city-box {
-    height: 40em;
+    height: 60vh;
+
+    div.city-box-header {
+      width: 85%;
+      margin-top: 1.5em;
+    }
+
+    .city-button-explore {
+      height: 15em;
+    }
+
+    .city-button-learn {
+      height: 15em;
+    }
   }
 
-  section.bubbles {
-    height: 65em;
+  div.explore-city {
+    display: flex;
+    flex-direction: column;
+    max-height: 75vh;
+    overflow-y: auto;
   }
 
-  section.quiz-area {
-    height: 65em;
+  span.explore-display {
+    padding: 0;
+    display: flex;
+    justify-content: center;
   }
 
-  div.choice--cards {
-    height: 65em;
-  }
-
-  div.submit-area {
-    height: 65em;
+  article.explore-map {
+    padding-top: 3em;
+    padding-bottom: 0;
   }
 
   div.explore-display-header {
-    width: 15em;
-    margin-left: -0.25em;
+    width: 25em;
+    margin-left: 0;
   }
 
-  div.explore-display {
-    width: 20em;
-    margin-left: -3em;
+  div#speech-container {
+    height: 80vh;
   }
 
-  .explore-button {
-    margin-left: 3em;
-  }
-
-  div.card-body.fav {
-    padding: 0.75em;
+  form#quiz-form {
+    height: 80vh;
   }
 
   div.card-container {
     display: flex;
     flex-direction: column;
-    height: 45em;
-  }
+    align-items: center;
+    height: 55vh;
 
-  div.card-profile {
-    width: 97%;
-  }
+    div.card-profile {
+      max-height: 15vh;
+      width: 95%;
+    }
 
-  div.card-quiz {
-    width: 97%;
-    max-height: 15em;
-  }
+    div.card-quiz {
+      max-height: 15vh;
+      width: 95%;
+    }
 
-  div.card-favourite {
-    width: 97%;
-    padding: 0 12em;
-    max-height: 15em;
+    div.card-favourite {
+      max-height: 15vh;
+      width: 95%;
+      padding: 0 10%;
+    }
+  }
+}
+
+/* iPad Pro */
+@media only screen and (min-width: 769px) {
+  div.city-box {
+    height: 45vh;
   }
 }
