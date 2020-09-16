@@ -156,6 +156,19 @@
       }
     }
   }
+
+  div#speech-container {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+    padding-bottom: 2.5em;
+
+    section.quiz-area {
+      height: 15vh;
+      overflow-y: auto;
+    }
+  }
 }
 
 /* iPad */
