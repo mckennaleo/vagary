@@ -172,4 +172,29 @@
   .explore-button {
     margin-left: 3em;
   }
+
+  div.card-body.fav {
+    padding: 0.75em;
+  }
+
+  div.card-container {
+    display: flex;
+    flex-direction: column;
+    height: 45em;
+  }
+
+  div.card-profile {
+    width: 97%;
+  }
+
+  div.card-quiz {
+    width: 97%;
+    max-height: 15em;
+  }
+
+  div.card-favourite {
+    width: 97%;
+    padding: 0 12em;
+    max-height: 15em;
+  }
 }
