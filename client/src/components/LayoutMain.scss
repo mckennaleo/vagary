@@ -120,10 +120,43 @@
 }
 
 /* MEDIA queries  */
-
 /* Mobile */
-// @media only screen and (max-width: 375px) {
-// }
+@media only screen and (max-width: 414px) {
+  div.city-box {
+    width: 90vw;
+    padding-top: 1.5em;
+
+    .city-box-header {
+      font-size: 1em;
+    }
+    div.city-box-content {
+      margin-top: 4em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      font-size: 0.5em;
+    }
+  }
+
+  section.welcome-header {
+    padding-bottom: 0;
+  }
+
+  div.top {
+    .vagary-logo {
+      display: none;
+    }
+
+    .nav-right-side {
+      display: flex;
+
+      .share {
+        padding-left: 0.4em;
+      }
+    }
+  }
+}
 
 /* iPad */
 @media only screen and (max-width: 1024px) {
