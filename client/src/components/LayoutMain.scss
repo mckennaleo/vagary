@@ -129,6 +129,8 @@
   div.city-box {
     padding-top: 1.5em;
 
+    height: 65vh;
+
     .city-box-header {
       font-size: 1em;
     }
@@ -166,10 +168,12 @@
     flex-direction: column;
     padding-top: 0;
     padding-bottom: 2.5em;
+    height: 80vh;
 
     section.quiz-area {
       height: 15vh;
       overflow-y: auto;
+      border-radius: 0 0 25px;
     }
   }
 
@@ -179,6 +183,7 @@
     flex-direction: column;
     padding-top: 0;
     padding-bottom: 2.5em;
+    height: 80vh;
   }
 
   div.submit-area {
@@ -187,6 +192,81 @@
     height: 15vh;
     padding-top: 5em;
     overflow-y: auto;
+    border-radius: 0 0 25px 0;
+  }
+
+  div.explore-city {
+    display: flex;
+    flex-direction: column;
+    max-height: 75vh;
+    overflow-y: auto;
+  }
+
+  span.explore-map-container {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+
+    article.explore-map {
+      padding-top: 3em;
+      padding-bottom: 0;
+
+      .leaflet-container {
+        width: 70vw;
+        height: 30vh;
+        margin-bottom: 2em;
+      }
+    }
+
+    div.quiz-button-header {
+      width: 70vw;
+    }
+  }
+  div.explore-page-container {
+    margin: 0 1em;
+  }
+  div.explore-display-header {
+    padding: 0 4em;
+  }
+
+  div.explore-display {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+div.card-favourite {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+div.card-deck {
+  padding: 0 5vw;
+}
+
+div.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 55vh;
+
+  div.card-profile {
+    max-height: 15vh;
+    width: 95%;
+  }
+
+  div.card-quiz {
+    max-height: 15vh;
+    width: 95%;
+  }
+
+  div.card-favourite {
+    max-height: 15vh;
+    width: 95%;
+  }
+
+  div.card-body.fav {
+    padding: 0 1em;
   }
 }
 
@@ -259,7 +339,10 @@
     div.card-favourite {
       max-height: 15vh;
       width: 95%;
-      padding: 0 10%;
+    }
+
+    div.card-body.fav {
+      padding: 0 1em;
     }
   }
 }
